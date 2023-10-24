@@ -1,0 +1,319 @@
+<?
+$sql = get_query_vals('fn_setting','*',array('roomid'=>$_SESSION['agent_room']));
+?>
+<link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
+<link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            IP检测系统
+            <small>V 5.6.7</small>
+        </h1>
+        <ol class="breadcrumb">
+			<!--<li><a href="/caiji/index.php?autoupdate" target="_blank"><i class="fa fa-arrow-circle-right"></i> 开盘采集</a></li>
+			<li><a href="/caiji/chat.php?autospeak" target="_blank"><i class="fa fa-commenting-o"></i> 倒计时喊话</a></li>-->
+            <!--<li><a href="#"><i class="fa fa-dashboard"></i> 仪表盘</a></li>
+            <li class="active">首页</li>-->
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="col-md-12 col-xs-12">
+        <div class="box box-info">
+        <div class="box-header with-border">
+        <h3 class="box-title">同IP玩家异常（通常存在刷水行为，注意留意）</h3>
+         </div>
+         <div class="box-body">
+         <table id="userList" class="table table-bordered table-striped">
+          <thead>
+            <tr>
+			  <th>玩家昵称</th>
+			  <th>玩家ID</th>
+              <th>登录IP----点击右边排序查看同IP会员</th>
+              <th>登录城市</th>
+              <th>今天登录时间</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+              $time = date('Y-m-d');
+              select_query('fn_userlog','*',"`roomid` = {$_SESSION['agent_room']}");
+              while($con = db_fetch_array()){
+                $cons[] = $con;
+              }
+foreach($cons as $k=>$v){
+               $shuju = get_query_vals('fn_user','*',array('roomid'=>$_SESSION['agent_room'],'userid'=>$v['userid']));
+               if($v['time'] != $time)continue;
+            ?>
+              <tr>
+                <td>
+                  <img src="<?php echo $shuju['headimg'];?>" width="35" height="35"><?php echo $shuju['username'];?>
+                </td>
+                <td>
+                  <? echo $v['userid']; ?>
+                </td>
+                <td>
+                  <? echo $v['ip']; ?>
+                </td>
+                <td><? echo $v['city'];?></td>
+              <td>
+			  <? echo $v['addtime'];?>
+			  </td>
+               
+              </tr>
+     <?}?>
+          </tbody>
+        </table>
+      </div>
+ </div>
+</div>
+      
+      <div class="col-md-12 col-xs-12">
+        <div class="box box-info">
+        <div class="box-header with-border">
+        <h3 class="box-title">管理员后台登录日志</h3>
+         </div>
+       <div class="box-body">
+        <table id="userList" class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>登录IP</th>
+              <th>登录地区</th>
+              <th>登录时间</th>
+              <th>登录设备</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+              select_query('fn_roomlog','*',"roomid = {$_SESSION['agent_room']} order by time desc limit 20");
+              while($con2 = db_fetch_array()){
+                $cons1[] = $con2;
+              }
+              foreach($cons1 as $con2){
+            ?>
+              <tr>
+                <td>
+                  <? echo $con2['ip']; ?>
+                </td>
+                <td>
+                  <? echo $con2['city']; ?>
+                </td>
+                <td>
+                  <? echo $con2['time']; ?>
+                </td>
+                <td>
+                  <? echo $con2['shebei']; ?>
+                </td>
+              </tr>
+              <?
+            }
+          ?>
+          </tbody>
+        </table>
+      </div>
+ </div>
+                  </div>
+                <br>
+            
+        
+
+        
+    </section>
+    <!-- /.content -->
+  <script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <script>
+   $(function () {
+    $('#userList').DataTable({
+      "scrollX": true,
+      "autoWidth": false
+    });
+    $('.datepicker').datepicker({
+      autoclose: true,
+      language: 'zh-CN',
+      format: 'yyyy-mm-dd',
+    });
+    $("#loading").remove();
+  });
+        var id = 0;
+        $(function () {
+            updateNew();
+            FirstGetContent();
+        });
+
+        function updateNew() {
+            $.ajax({
+                url: 'Application/ajax_index.php',
+                type: 'get',
+                dataType: 'json',
+                success: function (data) {
+                    if (data == null || data.length < 1 || data == "") {
+                        alert('服务器错误..请尝试刷新或联系管理员!');
+                    } else {
+                        $('#zyk').text(data.zyk);
+                        $('#allsf').text(data.allsf);
+                        $('#allpeople').text(data.allpeople);
+                        $('#allprice').text(data.allprice);
+                    }
+                },
+                error: function (XMLResponse, textStatus, errorThrown) {
+                    console.log(textStatus);
+                    alert('服务器错误..请尝试刷新或联系管理员!');
+                }
+            });
+            setTimeout(function () { updateNew(); }, 10000)
+        }
+
+        function FirstGetContent() {
+            $.ajax({
+                url: 'Application/ajax_chat.php?type=first',
+                type: 'get',
+                dataType: 'json',
+                success: function (data) {
+                    addMessage(data);
+                },
+                error: function () { }
+            });
+            setInterval(updateContent, 3000);
+        }
+
+        function updateContent() {
+            $.ajax({
+                url: 'Application/ajax_chat.php?type=update&id=' + id,
+                type: 'get',
+                dataType: 'json',
+                success: function (data) {
+                    addMessage(data);
+                },
+                error: function () { }
+            });
+        }
+
+        function sendmessage() {
+            var msgtxt = $('#sendmsg').val();
+            if (msgtxt == '') {
+                alert('发送内容不得为空!');
+                return;
+            } else {
+                $.ajax({
+                    url: 'Application/ajax_chat.php?type=send',
+                    type: 'post',
+                    data: { content: msgtxt },
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data.success) {
+                            $('#sendmsg').val('');
+                            updateContent();
+                        } else {
+                            alert(data.msg);
+                        }
+                    },
+                    error: function () { }
+                });
+            }
+        }
+
+        function addMessage(data) {
+            if (data == null || data.length < 0) {
+                return;
+            }
+            //S1代理  S2待定  S3机器人  S4全局公告
+            var str = "";
+            for (i = 0; i < data.length; i++) {
+                if (parseInt(data[i].id) > id) {
+                    id = data[i].id;
+                }
+                var type = data[i].type;
+                var game = data[i].game;
+                switch (game) {
+                    case 'pk10': game = '北京赛车'; break;
+                    case 'xyft': game = '幸运飞艇'; break;
+                    case 'xy28': game = '幸运28'; break;
+                    case 'cqssc': game = '重庆时时彩'; break;
+                    case 'jnd28': game = '加拿大28'; break;
+                    case 'jsmt': game = '极速摩托'; break;
+                    case 'jssc': game = '极速赛车'; break;
+                    case 'jsssc': game = '极速时时彩'; break;
+					case 'jsk3': game = '江苏快三'; break;
+                }
+                if (type.substr(0, 1) == 'U') {
+                    str = str + '<div class="direct-chat-msg">'
+                        + '<div class="direct-chat-info clearfix">'
+                        + '<span class="direct-chat-name pull-left">' + game + '-' + data[i].nickname + '</span>'
+                        + '<span class="direct-chat-timestamp pull-right">' + data[i].addtime + '</span>'
+                        + '</div>'
+                        + '<img class="direct-chat-img" src="' + data[i].headimg + '" alt="message user image">'
+                        + '<div class="direct-chat-text">' + data[i].content + '</div></div>';
+
+
+                } else if (type == 'S3') {
+                    var headimg = data[i].headimg == "" ? "/Style/images/robot.png" : data[i].headimg;
+                    str = str + '<div class="direct-chat-msg right">'
+                        + '<div class="direct-chat-info clearfix">'
+                        + '<span class="direct-chat-name pull-right">' + game + '-' + data[i].nickname + '</span>'
+                        + '<span class="direct-chat-timestamp pull-left">' + data[i].addtime + '</span>'
+                        + '</div>'
+                        + '<img class="direct-chat-img" src="' + headimg + '" alt="message user image">'
+                        + '<div class="direct-chat-text">' + data[i].content + '</div></div>'
+                } else if (type == 'S1') {
+                    var headimg = data[i].headimg == "" ? "/Style/images/Sys.png" : data[i].headimg;
+                    str = str + '<div class="direct-chat-msg right">'
+                        + '<div class="direct-chat-info clearfix">'
+                        + '<span class="direct-chat-name pull-right">' + game + '-' + data[i].nickname + '</span>'
+                        + '<span class="direct-chat-timestamp pull-left">' + data[i].addtime + '</span>'
+                        + '</div>'
+                        + '<img class="direct-chat-img" src="' + headimg + '" alt="message user image">'
+                        + '<div class="direct-chat-text">' + data[i].content + '</div></div>'
+                }
+            }
+            $('#messages').prepend(str);
+        }
+        
+        function startcha(){
+            var type = '<? echo $sql["flyorder_type"]; ?>';
+            var site = '<? echo $sql["flyorder_site"]; ?>';
+            var user = '<? echo $sql["flyorder_user"]; ?>';
+            var pass = '<? echo $sql["flyorder_pass"]; ?>';
+            var code = $('#flycode').val();
+            
+            $('#loading').css('display','block');
+
+            $.ajax({
+            url: 'Application/ajax_flyorder.php?t=test',
+            data: {type: type,site: site,user: user,pass: pass, code: code},
+            dataType: 'json',
+            type: 'post',
+            success: function( data ){
+                if(data.success){
+                    $('#testuser').val(user);
+                    $('#testmoney').val(data.money);
+                    $('#weijiemoney').val(data.weijie)
+                    $('#loading').css('display','none');
+                }else{
+                    alert(data.msg);
+                    $('#loading').css('display','none');
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) { }
+            });
+        }
+
+        function getcode(){
+            var type = '<? echo $sql["flyorder_type"]; ?>';
+            var site = '<? echo $sql["flyorder_site"]; ?>';
+
+            $.post('Application/ajax_flyorder.php?t=getcode',{type:type, site:site},function(data){
+            if(data.success){
+                $('#vcodeimgspan').css('display','none');
+                console.log(data.code);
+                $('#vcodeimg').attr('src',data.code);
+                $('#vcodeimg').css('display','');
+            }else{
+                $('#vcodeimgspan').text('加载失败')
+            }
+            },'json');
+        }
+    </script>
+</div>

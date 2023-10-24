@@ -1,0 +1,10 @@
+Array
+(
+    [0] => 语句执行出错
+    [1] => 1205
+    [2] => Lock wait timeout exceeded; try restarting transaction
+    [3] => UPDATE fn_user SET `statustime`='1698155303' WHERE userid='od5cd6zvS3i1Hn_K6UOdm5KtF18s' AND roomid='10029'
+)
+
+------------------------------
+

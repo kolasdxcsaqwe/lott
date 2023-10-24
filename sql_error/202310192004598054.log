@@ -1,0 +1,10 @@
+Array
+(
+    [0] => 语句执行出错
+    [1] => 1054
+    [2] => Unknown column 'kaihuhang' in 'field list'
+    [3] => SELECT kaihuhang FROM fn_room WHERE `roomid`='10029'
+)
+
+------------------------------
+

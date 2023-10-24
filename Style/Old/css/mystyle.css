@@ -1,0 +1,15 @@
+.play-b{
+	height:479px;
+}
+#message{
+	float: none !important;
+}
+.txtbet,.sendemaill{
+	border: none;
+	box-shadow: none;
+	height: 94px;
+}
+.hand-btn-group{
+	width: 347px;
+	
+}

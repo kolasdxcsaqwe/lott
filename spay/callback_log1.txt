@@ -1,0 +1,1 @@
+{"singset":false,"userid":"undefined","username":"undefined","headimg":"undefined","agent":"Xsoul","roomid":"10029","game":"xy28"}

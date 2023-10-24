@@ -1,0 +1,238 @@
+<?php include_once "../../Public/config.php"; ?>
+<link rel="stylesheet" href="plugins/iCheck/all.css">
+<link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            手动补期
+            <small>设置的开奖，必须是还未开奖，如已开奖则无法修改</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> 仪表盘</a></li>
+            <li class="active">手动补期</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="box box-danger">
+            <div class="box-header with-border">
+                <h3 class="box-title">补期操作</h3>
+				
+                <div class="box-tools pull-right">
+                    <button type="button" onclick="buqi();" class="btn btn-sm btn-danger">保存</button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+                <!-- /.box-tools -->
+            </div>
+            <!-- /.box-header -->
+         <div class="box-body">
+                <div class="box box-info">
+                    <div class="box-header with-border">
+                        <div class="row">
+                        	<div class="col-md-12">
+                            	<label class="col-md-12" style="color:#234;">重要说明!!!:
+	                            	<br/>①:该操作必须在输入完数据并且距开奖剩下3到5秒的时候点击右上角保存按钮
+	                            	<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如提前添加会则前台会立即显示数据
+	                            	<br/>②:该操作必须在封盘后立即关闭开奖器
+	                            	<br/>③:该操作请在下一期画面开始跑动的时候立即打开开将器
+                            	</label>
+                            </div>
+                            <b style="color:#00c0ef;">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>></b><br/>
+                            <div class="col-md-12">
+                                <label class="col-md-2">选择游戏</label>
+                                <div class="input-group"  style="width: 260px;">
+                                    <select id="datatype" class="form-control select2" name="type">
+                                        <option value="1">北京赛车</option>
+                                        <option value="2">幸运飞艇</option>
+                                        <option value="7">极速赛车</option>
+                                        <option value="8">极速时时彩</option>
+                                        <option value="3">重庆时时彩</option>
+                                        <option value="4">幸运28</option>
+                                        <option value="5">加拿大28</option>
+                                        <option value="9">江苏快三</option>
+                                        <option value="11">广东11选5</option>
+                                        <option value="13">六合彩</option>
+                                        <option value="16">腾讯分分彩</option>
+                                        <option value="17">澳洲幸运十</option>
+                                        <option value="18">河内5分彩</option>
+                                     </select>
+                                </div>
+                            </div>
+                            
+                            <!--$jssctime = get_query_val("fn_open","next_time" , "`type` = '7'  order by 'next_time' desc");order by id desc-->
+                            <!--get_query_val("fn_open","next_time" , array("type" => 7),"order by  'id' desc limit 1");-->
+                            <?php
+                            $jssctime = get_query_val("fn_open","next_time" , "`type` = '7'  order by `next_time` desc");
+                            $jsssctime = get_query_val("fn_open","next_time" , "`type` = '8'  order by `next_time` desc");
+                            $jsscterm = get_query_val("fn_open","next_term" , "`type` = '7'  order by `next_term` desc");
+                            $jssscterm = get_query_val("fn_open","next_term" , "`type` = '8'  order by `next_term` desc");
+                            ?>
+                            
+                            
+                            <b style="color:#00c0ef;">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>></b><br/>
+                            <div class="col-md-12">
+                            	<label class="col-md-2">输入补期号</label>
+                                <div class="input-group" >
+                                    <input type="text" id="term" name="term" class="form-control" data-toggle="tooltip" placeholder="输入补期的期号" style="width: 260px;">
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="col-md-12">
+                            	<label class="col-md-2" style="color:red;">极速赛车补期号</label>
+                                <div class="input-group">
+                                   <?php echo $jsscterm ; ?>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-12">
+                            	<label class="col-md-2" style="color:red;">极速时时彩补期号</label>
+                                <div class="input-group">
+                                   <?php echo $jssscterm ; ?>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                            	<label class="col-md-12" style="color:#234;">说明:上方所给出的期号预览是基于当前已开奖期数的下一期期数</label>
+                            </div>
+                            <b style="color:#00c0ef;">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>></b><br/>
+                            
+                            <div class="col-md-12">
+                            	<label class="col-md-2">输入开奖号</label>
+                                <div class="input-group">
+                                    <input type="text" id="datecode" name="code"  class="form-control" placeholder="输入开奖号，用英文逗号 ,号隔开"  style="width: 260px;">
+                                </div>
+                                
+                            </div>
+                            <b style="color:#dd4b39;">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>></b><br/>
+                            <div class="col-md-12">
+                            	<label class="col-md-2">本期开奖时间</label>
+                                <div class="input-group">
+                                    <input type="text" id="datetime" name="time"  class="form-control"  placeholder="输入本期开奖时间"  style="width: 260px;">
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="col-md-12">
+                            	<label class="col-md-2" style="color:red;">极速赛车时间</label>
+                                <div class="input-group">
+                                   <?php echo $jssctime ; ?>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                            	<label class="col-md-2" style="color:red;">极速时时彩时间</label>
+                                <div class="input-group">
+                                   <?php echo $jsssctime ; ?>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                            	<label class="col-md-12" style="color:#234;">说明:上方所给出的时间预览是基于当前已开奖期数的下一期开奖的时间</label>
+                            </div>
+                            <b style="color:#dd4b39;">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>></b><br/>
+                            
+                            
+                            <b style="color:#00c0ef;">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>></b><br/>
+                            <div class="col-md-12">
+                            	<label class="col-md-2">输入下期号</label>
+                                <div class="input-group" >
+                                    <input type="text" id="next_term" name="next_term" class="form-control" data-toggle="tooltip" placeholder="输入下期的期号"  style="width: 260px;">
+                                </div>
+                            </div>
+                            
+                             
+                            <div class="col-md-12">
+                            	<label class="col-md-2" style="color:red;">极速赛车下期期号</label>
+                                <div class="input-group">
+                                   <?php echo $jsscterm+1 ; ?>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-12">
+                            	<label class="col-md-2" style="color:red;">极速时时彩下期期号</label>
+                                <div class="input-group">
+                                   <?php echo $jssscterm+1 ; ?>
+                                </div>
+                                
+                            </div>
+                            <div class="col-md-12">
+                            	<label class="col-md-12" style="color:#234;">说明:上方所给出的期号预览是基于当前填写期数的下一期期数</label>
+                            </div>
+                            <b style="color:#00c0ef;">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>></b>
+                            <br/>
+                            <b style="color:#dd4b39;">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>></b><br/>
+                            <div class="col-md-12">
+                            	<label class="col-md-2">下期开奖时间</label>
+                                <div class="input-group">
+                                    <input type="text" id="next_time" name="next_time"  class="form-control"  placeholder="输入下期开奖时间"  style="width: 260px;">
+                                </div>
+                            </div>
+                            
+                             
+                            
+                            <div class="col-md-12">
+                            	<label class="col-md-2" style="color:red;">极速赛车下期时间</label>
+                                <div class="input-group">
+                                   <?php echo $jssctime = date('Y-m-d H:i:s', strtotime("$jssctime +1 minute +15 seconds")); ?>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-12">
+                            	<label class="col-md-2" style="color:red;">极速时时彩下期时间</label>
+                                <div class="input-group">
+                                   <?php echo $jsssctime = date('Y-m-d H:i:s', strtotime("$jsssctime +1 minute +15 seconds")); ?>
+                                </div>
+                                
+                            </div>
+                            <div class="col-md-12">
+                            	<label class="col-md-12" style="color:#234;">说明:上方所给出的时间预览是基于当前填写期数的下一期开奖的时间</label>
+                            </div>
+                            <b style="color:#dd4b39;">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>></b><br/>
+                            
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+    </section>
+</div>
+<script src="plugins/iCheck/icheck.min.js"></script>
+<script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js"></script>
+<script src="plugins/bootstrap-wysihtml5/locale/zh-CN.js"></script>
+<script>
+    $(".textarea").wysihtml5({
+        locale: 'zh-CN',
+        toolbar: {
+            'html': true,
+            'color': true
+        }
+    });
+   
+	function buqi() {
+		var term = $('#term').val();
+		var type = $('#datatype option:selected').val();
+		var code = $('#datecode').val();
+		var time = $('#datetime').val();
+		var next_term = $('#next_term').val();
+		var next_time = $('#next_time').val();
+		if(term==""){
+		alert('请输入期号');
+          return false;
+		}
+		$.ajax({
+		  url: 'Application/ajax_buqi.php',
+		  type: 'POST',
+		  dataType: 'json',
+		  data: { term: term, type:type,code:code,time:time,next_term:next_term,next_time:next_time },
+		  success: function (data) {
+			if (data.success) {
+			  alert('操作成功!');
+			  window.location.href = 'index.php?m=buqi';
+			} else {
+			  alert(data.msg);
+			}
+		  },
+		  error: function () { console.log('error') }
+		});
+	  }
+</script>

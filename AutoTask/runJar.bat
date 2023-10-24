@@ -1,0 +1,1 @@
+java -DPath="C:\Users\Paul\Desktop\AutoTask\AutoTask" -jar openResultGen.jar

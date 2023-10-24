@@ -1,0 +1,140 @@
+
+/*网页样式重置reset*/
+html { font-size:1em;-webkit-tap-highlight-color:rgba(0,0,0,0); -webkit-tap-highlight:rgba(0,0,0,0);-webkit-text-size-adjust:none;}
+body { font-size:0.75em;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+label { cursor:pointer}
+a:link, a:visited { text-decoration:none}
+input,button,select,textarea{outline:none} textarea{resize:none;}
+
+a, abbr, acronym, address, applet, article, aside, audio, b, blockquote, big, body, center, canvas, caption, cite, code, command, datalist, dd, del, details, dfn, dl, div, dt, em, embed, fieldset, figcaption, figure, font, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, keygen, label, legend, li, meter, nav, menu, object, ol, output, p, pre, progress, q, s, samp, section, small, span, source, strike, strong, sub, sup, table, tbody, tfoot, thead, th, tr, tdvideo, tt,
+u, ul, var { margin:0; padding:0}
+
+article, aside, footer, header, hgroup, nav, section, figure, figcaption { display: block} /*html5设置*/
+
+h1, h2, h3, h4, h5, h6, th, td, table, input, button, select, textarea, sub{ font-size:1em}
+body, input, button, select, textarea, sub{ font-family:Arial, sans-serif}
+em, cite, address, optgroup { font-style:normal}
+kbd, samp, code { font-family:monospace}
+
+img, input, button, select, textarea { vertical-align:middle}
+ul, ol { list-style:none}
+img, fieldset { border:0}
+abbr, acronym { cursor:help; border-bottom:1px dotted black}
+table {	width:100%; border-spacing:0; border:0}
+table th, table td { border:0}
+legend, hr { overflow:hidden; position:absolute; top:0; left:0}
+legend, hr, caption { visibility:hidden; font-size:0; width:0; height:0; line-height:0}
+
+*{box-sizing:border-box;}
+h1, p{padding:0; margin:0;}
+
+/*------------------------------------------------------------------------------------------------------------------------------*/
+/*统一样式*/
+html { width: 100%; height: 100%; }
+body {width: 100%;height: 100%; margin:0 auto; color:#fff;font-family: Helvetica;  font-size:24px; overflow: hidden; background-color:#000}
+
+
+.lou { height: 100%; width: 100%; overflow: hidden; position:absolute; top:0; left:0;background:url(../images/bg.jpg) no-repeat bottom center;}
+.p-index {  position: fixed; height: 100%; width: 100%; overflow: hidden; top:0; left:0;background-size:cover; z-index:10 }
+
+.p-list { width:750px; margin:0 auto; position:relative;}
+
+.banner img  { width: 100%; height: auto;} 
+
+.gonggao { margin:80px 0px 0px 0px; border:0px solid #FFF; border-radius:5px;background-color:#000;}
+.gonggao span { margin-left:5px; padding:5px 10px 5px 46px;background:url(../images/icon_gonggao.png) no-repeat left center; display:block;height:50px; overflow: hidden; line-height:40px;}
+
+.userbox { margin:0px 0 10px; border-top:0px solid #999; border-bottom:0px solid #999; overflow:hidden; }
+
+.infobox { width:33.33%; float:left;height:75px; line-height:75px; text-align:center; color:#fff;}
+.infobox .touxiang img { width:60px; height:60px;border:2px solid #024a62; border-radius:30px; margin-right:10px; overflow:hidden; display:inline-block}
+.gamebox {margin:0 8px;}
+.navhl_b { border-radius:30px; margin-top:10px; margin-bottom:30px;}
+.navhl_b { display: block; overflow:hidden }
+.navhl_b a {
+	width: 50%;
+	line-height:60px;
+	font-size:30px;
+	float: left;
+	display: inline-block;
+	background-color: #969372;
+	text-align:center;
+	color:#fff
+}
+.navhl_b .navhl_h { background-color:#b7ab01; color:#000;}
+
+
+.caipiao { width:100%; height:647px; position:relative;}
+.game { width:146px; height:146px; position:absolute;}
+.game img { width:100%;}
+.jssc { top:0%; left:39.73%;}
+.jsssc {top:11.59%; left:16.53%;}
+.jsmt {top:11.59%; left:64%;}
+.xyft { top:37.86%; left:6.66%;}
+.gdyx { top:37.86%; left:39.73%;}
+.txffc {top:37.86%; left:73.6%;}
+.azxy10 { top:64.29%; left:16.53%;}
+.azxy5 {top:64.29%;left:64%;}
+.xy28 { top:75.73%;left:39.73%;}
+
+
+.zhenren { display:none;text-align: center;}
+
+.cover { width:100%; height:100%;position:absolute; top:0px; left:0px; background:rgba(0,0,0,0);}
+.ft {width:100%; height:100px; position:fixed; bottom:0; left:0;z-index:1111;background:rgba(102,102,102,.25)}
+.nav{ width:750px;height:90px;  margin:5px auto; }
+.nav li{ width:25%; text-align:center; float:left;}
+.ft a { display:block; color:#c6c6c6}
+.ft span { display:inline-block; width:50px; height:50px;}
+.a1 .ft_icon{background:url(../images/icon_cpdt.png) no-repeat center center; background-size:45px;}
+.a2 .ft_icon{background:url(../images/icon_yhzx.png) no-repeat center center; background-size:45px;}
+.a3 .ft_icon{background:url(../images/icon_xzzx.png) no-repeat center center; background-size:45px;}
+.a4 .ft_icon{background:url(../images/icon_zxcz.png) no-repeat center center; background-size:45px;}
+.a5 .ft_icon{background:url(../images/icon_tcdl.png) no-repeat center center; background-size:45px;}
+
+/*手机横屏提示*/
+.mod-orient-layer {
+	display: none;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background: #000;
+	z-index: 9997
+}
+
+.mod-orient-layer__content {
+	position: absolute;
+	width: 100%;
+	top: 45%;
+	margin-top: -75px;
+	text-align: center
+}
+
+.mod-orient-layer__icon-orient {
+	display: inline-block;
+	width: 67px;
+	height: 109px;
+	background-image: url('../images/phone.png');
+	transform: rotate(90deg);
+	-webkit-transform: rotate(90deg);
+	-webkit-animation: rotation infinite 1.5s ease-in-out;
+	animation: rotation infinite 1.5s ease-in-out;
+	-webkit-background-size: 67px;
+	background-size: 67px
+}
+
+.mod-orient-layer__desc {
+	margin-top: 20px;
+	font-size: 15px;
+	color: #fff
+}
+
+.mod-orient-layer__desc {
+	margin-top: 20px;
+	font-size: 15px;
+	color: #fff
+}

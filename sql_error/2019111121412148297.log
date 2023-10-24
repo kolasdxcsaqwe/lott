@@ -1,0 +1,10 @@
+Array
+(
+    [0] => 语句执行出错
+    [1] => 1054
+    [2] => Unknown column 'flyorder_azxy5' in 'field list'
+    [3] => SELECT flyorder_azxy5 FROM fn_setting WHERE `roomid`='10029'
+)
+
+------------------------------
+

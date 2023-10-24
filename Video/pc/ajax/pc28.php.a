@@ -1,0 +1,55 @@
+<?php 
+//echo file_get_contents('http://www.1391c.com/xyft/ajax?ajaxhandler=GetXyftAwardData');
+error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
+date_default_timezone_set("Asia/Shanghai");
+    function getTimestamp($digits = false) {  
+        $digits = $digits > 10 ? $digits : 10;  
+        $digits = $digits - 10;
+        if ((!$digits) || ($digits == 10))  
+        {  
+            return time();  
+        }  
+        else  
+        {  
+            return number_format(microtime(true),$digits,'','');  
+        }  
+    }  
+$gametype = "pc28b";
+$json = file_get_contents('http://'.$_SERVER['SERVER_NAME'].'/api/bjkl8.php');
+$json = json_decode($json);
+$json = $json -> data;
+foreach($json as $i){
+$opencode = $i -> opencode;
+$term = $i -> expect;
+$next_term = $term + 1;
+$open_time = $i->opentime;
+$opentime = $i -> opentimestamp;
+$next_term = $term + 1;
+$fengtime = strtotime(date('Y-m-d',$next_time).' 09:00'.':00');
+$fengtime1 = strtotime(date('Y-m-d',$next_time).' 23:51'.':00');
+if((time() >= $fengtime) && (time() <= $fengtime1)){
+ $times = 5*60;
+}else{
+ $times = 32700;
+}  
+$next_time = date("Y-m-d H:i:s",$opentime + $times);  
+$IntervalTimeMs= ($opentime + $times)."000";
+$IntervalTimeMs = $IntervalTimeMs - getTimestamp(13);
+echo "
+{
+	\"time\":".getTimestamp(13).",
+	\"current\":{
+        \"game\":\"".$gametype."\",
+		\"periodNumber\":" . $term . ",
+		\"awardTime\":\"" . $open_time . "\",
+		\"awardNumbers\":\"". $opencode ."\"
+	},\"next\":{
+		\"periodNumber\":".$next_term.",
+		\"awardTime\":\"". $next_time ."\",
+		\"awardTimeInterval\": ". $IntervalTimeMs  .",
+		\"delayTimeInterval\":0
+	}
+}
+";
+}
+?>

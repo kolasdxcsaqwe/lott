@@ -1,0 +1,106 @@
+<link rel="stylesheet" href="plugins/iCheck/all.css">
+<link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            充值接口管理
+            <small style="color:red;">请不要随意修改秘钥，影响收款（后果自负）</small>
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> 仪表盘</a></li>
+            <li class="active">充值接口管理</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <!--section class="content">
+        <div class="box box-danger">
+            <div class="box-header with-border">
+                <h3 class="box-title">个人签约自动收款</h3>
+
+                <div class="box-tools pull-right">
+                    <button type="button" onclick="$('#form1').submit();" class="btn btn-sm btn-danger">保存</button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+                
+            </div>
+            
+            <div class="box-body">
+                <form id="form1" enctype='multipart/form-data' action="Application/ajax_pay.php?form=form1" method="post">
+                    <div class="form-group">
+                        <label>商户KEY</label>
+                        <input type="text" name="sid" class="form-control" value="<? echo get_query_val('fn_setting','sid',array('roomid'=>$_SESSION['agent_room'])); ?>"
+                            placeholder="商户KEY">
+                    </div>
+                    <div class="form-group">
+                        <label>支付宝SDK</label>
+                        <input type="text" name="zhisdk" class="form-control" value="<? echo get_query_val('fn_setting','zhisdk',array('roomid'=>$_SESSION['agent_room'])); ?>"
+                            placeholder="支付宝SDK">
+                    </div>
+                  <div class="form-group">
+                        <label>微信支付SDK</label>
+                        <input type="text" name="weisdk" class="form-control" value="<? echo get_query_val('fn_setting','weisdk',array('roomid'=>$_SESSION['agent_room'])); ?>"
+                            placeholder="微信SDK">
+                    </div>
+                  <div class="form-group">
+                        <label>QQ支付SDK</label>
+                        <input type="text" name="qsdk" class="form-control" value="<? echo get_query_val('fn_setting','qsdk',array('roomid'=>$_SESSION['agent_room'])); ?>"
+                            placeholder="QQ支付SDK">
+                    </div>
+   
+                  <label>目前支持【小旋风】：</label>注册免签约请找管理员<span style="color:red;">【交易手续费：0.8%。】</span><br><br>
+                   <label>接入后如何到账？：</label><br>1、钱款不需要经过第三方平台，直接秒到您微信，支付宝，QQ的账户上！！<br> 2、全天24小时秒到。。。<br>3、优势：秒到个人账户。缺点：容易被封号。
+                </form>
+            </div>
+        </div>
+	
+    </section-->
+  <section class="content">
+        <div class="box box-danger">
+            <div class="box-header with-border">
+                <h3 class="box-title">第三方代收接口</h3>
+
+                <div class="box-tools pull-right">
+                    <button type="button" onclick="$('#form2').submit();" class="btn btn-sm btn-danger">保存</button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+                <!-- /.box-tools -->
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <form id="form2" enctype='multipart/form-data' action="Application/ajax_pay.php?form=form2" method="post">
+                    <div class="form-group">
+                        <label>商户ID</label>
+                        <input type="text" name="dsid" class="form-control" value="<? echo get_query_val('fn_setting','dsid',array('roomid'=>$_SESSION['agent_room'])); ?>"
+                            placeholder="商户ID">
+                    </div>
+                  <div class="form-group">
+                        <label>KEY</label>
+                        <input type="text" name="dskey" class="form-control" value="<? echo get_query_val('fn_setting','dskey',array('roomid'=>$_SESSION['agent_room'])); ?>"
+                            placeholder="KEY">
+                    </div>
+   
+                  <label>G5支付<a href="&#104;&#116;&#116;&#112;&#115;&#58;&#47;&#47;&#119;&#119;&#119;&#46;&#118;&#57;&#121;&#109;&#46;&#99;&#111;&#109;&#47;" target="_blank">【点击申请】</a>：</label><span style="color:red;">【交易手续费：2%，首次开户费用：200元】</span><br><br>
+                   <label>接入后如何到账？：</label><br>1、在第三方支付平台申请提现，第二天到账，就是T+1<br> 优势：可以规避风险，避免自己的微信被封！缺点：隔天到账。
+                </form>
+            </div>
+        </div>
+	
+    </section>
+   
+</div>
+<script src="plugins/iCheck/icheck.min.js"></script>
+<script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js"></script>
+<script src="plugins/bootstrap-wysihtml5/locale/zh-CN.js"></script>
+<script>
+    $(".textarea").wysihtml5({
+        locale: 'zh-CN',
+        toolbar: {
+            'html': true,
+            'color': true
+        }
+    });
+   
+
+</script>

@@ -1,0 +1,10 @@
+Array
+(
+    [0] => 语句执行出错
+    [1] => 1064
+    [2] => You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and userid = 'oHTz_6rXTSo8NIHD3fmRiOZREiEc' and id>1 order by id asc' at line 1
+    [3] => SELECT * FROM fn_custom WHERE roomid = 10029; and userid = 'oHTz_6rXTSo8NIHD3fmRiOZREiEc' and id>1 order by id asc
+)
+
+------------------------------
+

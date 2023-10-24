@@ -1,0 +1,10 @@
+Array
+(
+    [0] => 语句执行出错
+    [1] => 2006
+    [2] => MySQL server has gone away
+    [3] => SELECT code FROM fn_sopen WHERE `type` = '6' and `roomid`='10029' order by `term` desc limit 1
+)
+
+------------------------------
+
