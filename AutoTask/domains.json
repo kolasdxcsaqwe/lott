@@ -10,5 +10,5 @@
 	],
 	"gap": 600,
 	"checkDomainUrl": "http://localhost:8123/testdomain.php?url=",
-	"AvailableDomainsDirectory": "/www/admin/localhost_8123/wwwroot/NewCode/"
+	"AvailableDomainsDirectory": "/www/admin/localhost_8123/wwwroot/lott/"
 }
