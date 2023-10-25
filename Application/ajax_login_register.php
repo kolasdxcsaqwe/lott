@@ -59,7 +59,7 @@ else if($types==1)
 
     if($code==0)
     {
-        create(uuid(),$loginName,$loginName,$password,"/upload/0.png",$agent);
+        create($roomId,uuid(),$loginName,$loginName,$password,"/upload/0.png",$agent);
     }
 
 }
@@ -77,7 +77,7 @@ if($code==0)
 
 echo json_encode($returnData);
 
-function create($userid, $username,$loginuser, $loginpass,$headimg, $agent = "null",$level=1) {
+function create($roomId,$userid, $username,$loginuser, $loginpass,$headimg, $agent = "null",$level=1) {
     if ($agent == "") {
         $agent = 'null';
     }
