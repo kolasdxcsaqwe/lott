@@ -73,18 +73,22 @@ if($code==0)
     {
         $returnData=array('code'=>$code,'msg'=>$msg,'reurl'=>$reurl);
     }
+    else
+    {
+        $returnData=array('code'=>$code,'msg'=>'登录名或者密码不正确');
+    }
 }
 
 echo json_encode($returnData);
 
-function create($roomId,$userid, $username,$loginuser, $loginpass,$headimg, $agent = "null",$level=1) {
+function create($roomid,$userid, $username,$loginuser, $loginpass,$headimg, $agent = "null",$level=1) {
     if ($agent == "") {
         $agent = 'null';
     }
     $loginuser = str_replace(' ',"",$loginuser);
     $loginpass = str_replace(' ',"",$loginpass);
     //insert_query("fn_user", array("userid" => $userid, 'username' => $username, 'headimg' => $_SESSION['headimg'], 'money' => '0', 'roomid' => $_SESSION['roomid'], 'statustime' => time(), 'agent' => $agent, 'isagent' => 'false', 'jia' => 'false'));
-    insert_query("fn_user", array("userid" => $userid, 'loginuser' => $loginuser,'username' => $username,'loginpass' => md5($loginpass), 'headimg' => $headimg, 'money' => '0', 'roomid' => $roomId, 'statustime' => time(), 'agent' => $agent,'level' => $level, 'isagent' => 'false', 'jia' => 'false'));
+    insert_query("fn_user", array("userid" => $userid, 'loginuser' => $loginuser,'username' => $username,'loginpass' => md5($loginpass), 'headimg' => $headimg, 'money' => '0', 'roomid' => $roomid, 'statustime' => time(), 'agent' => $agent,'level' => $level, 'isagent' => 'false', 'jia' => 'false'));
     return true;
 }
 
