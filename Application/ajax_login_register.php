@@ -59,7 +59,15 @@ else if($types==1)
 
     if($code==0)
     {
-        create($roomId,uuid(),$loginName,$loginName,$password,"/upload/0.png",$agent);
+        $result=get_query_vals("fn_user","*",array('loginuser' => $loginName));
+        if(!is_null($result))
+        {
+            $msg="该用户名已经被注册，请更换用户名";
+            $code=-39;
+        }
+        else {
+            create($roomId, uuid(), $loginName, $loginName, $password, "/upload/0.png", $agent);
+        }
     }
 
 }
