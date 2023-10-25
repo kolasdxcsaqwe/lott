@@ -75,7 +75,7 @@ if($code==0)
     }
     else
     {
-        $returnData=array('code'=>$code,'msg'=>'登录名或者密码不正确');
+        $returnData=array('code'=>'-10','msg'=>'登录名或者密码不正确');
     }
 }
 
