@@ -11,9 +11,15 @@ $load = 5;
 include_once ("sql.php");
 $console = "v9ym"; 
 $db['host'] = "127.0.0.1";
-$db['user'] = "d9a990007224f595";//用户名
-$db['pass'] = "379762c16d019f0e";//密码
+//$db['user'] = "d9a990007224f595";//用户名 线上
+//$db['pass'] = "379762c16d019f0e";//密码 线上
 $db['name'] = "v9ym";//数据库名
+
+$db['user'] = "root";//用户名 线上
+$db['pass'] = "123qwe";//密码 线上
+
+
+
 $dbconn = db_connect($db['host'], $db['user'], $db['pass'], $db['name']);
 $uploadurl = "http://cdn.ononn.com";
 define("UPLOADPIC","http://cdn.ononn.com");
@@ -116,6 +122,8 @@ function U_create($userid, $username, $headimg, $agent = "null",$level=1) {
     insert_query("fn_user", array("userid" => $userid, 'username' => $username, 'headimg' => $headimg, 'money' => '0', 'roomid' => $_SESSION['roomid'], 'statustime' => time(), 'agent' => $agent,'level' => $level, 'isagent' => 'false', 'jia' => 'false'));
     return true;
 }
+
+
 
 function U_isOK($userid, $headimg) {
     $status = get_query_val('fn_user', 'id', array('userid' => $userid, 'roomid' => $_SESSION['roomid']));

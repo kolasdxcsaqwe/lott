@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>登陆</title>
+    <meta name="viewport"
+        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="statics/css/style.css" />
+    <script src="statics/js/flexible.js" type="text/javascript" charset="utf-8"></script>
+    <script src="statics/js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="statics/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="statics/js/layer_mobile/layer.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- logo -->
+        <div class="logo">
+            <img src="statics/images/logo.png" alt="">
+        </div>
+        <div class="content">
+            <div class="form">
+                <div class="item">
+                    <i class="user"></i>
+                    <input type="text" v-model="name" autocomplete="off" placeholder="请输入帐号">
+                </div>
+                <div class="item">
+                    <i class="lock"></i>
+                    <input type="password" v-model="password" autocomplete="off" placeholder="请输入密码">
+                </div>
+                <div class="item" v-if="type==2">
+                    <i class="lock"></i>
+                    <input type="password" v-model="repassword" autocomplete="off" placeholder="请确认密码">
+                </div>
+                <div class="forget"><a href="#">忘记密码</a></div>
+                <div class="submit">
+                    <button @click="login" v-if="type==1">立即登入</button>
+                    <button @click="type=2" v-if="type==1">注册帐户</button>
+                    <button @click="register" v-if="type==2">立即注册</button>
+                    <button @click="type=1" v-if="type==2"> 已有账号，返回登录</button>
+                </div>
+
+<!--                <div class="help"><span>需要帮助</span></div>-->
+            </div>
+            <!-- 第三方登录 -->
+<!--            <div class="other-login">-->
+<!--                <div class="title">第三方登录</div>-->
+<!--                <ul>-->
+<!--                    <li @click="thirdLogin">-->
+<!--                        <i class="qq"></i>-->
+<!--                        <span>QQ</span>-->
+<!--                    </li>-->
+<!--                    <li @click="thirdLogin">-->
+<!--                        <i class="wx"></i>-->
+<!--                        <span>微信</span>-->
+<!--                    </li>-->
+<!--                    <li @click="thirdLogin">-->
+<!--                        <i class="wb"></i>-->
+<!--                        <span>微博</span>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </div>-->
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+    new Vue({
+        el: '#app',
+        data: {
+            type: 1,// 1登陆，2注册
+            name: '',
+            password: '',
+            repassword: ''
+        },
+        methods: {
+            login:function (e){
+
+                 this.type = 1
+                e.preventDefault();
+                if (!this.name) {
+                    layer.open({
+                        content: '请输入帐号',
+                        skin: 'msg',
+                        time: 2
+                    });
+                    return false
+                }
+                if (!this.password) {
+                    layer.open({
+                        content: '请输入密码',
+                        skin: 'msg',
+                        time: 2
+                    });
+                    return false
+                }
+             
+
+                $.post('../Application/ajax_login_register.php',{
+                    room:'10029',
+                    agent:'Xsoul',
+                    password:this.password,
+                    username:this.name,
+                    types:"0"
+                },function(data){
+                    var json=JSON.parse(data);
+                    var msg=json.msg
+                   if(data!=undefined && json.code==0)
+                   {
+                       msg="登录成功，正在进入大厅....."
+                       window.location.href=json.reurl
+                   }
+                    layer.open({
+                        content: msg,
+                        skin: 'msg',
+                        time: 2
+                    });
+
+                })
+            },
+            registerMethod:function (){
+                //http://xy.ng4-oi5-kb84d217-ortu.top/door.html?agent=Xsoul&room=10029
+              
+            },
+            // 切换注册登录
+            changeType: function (item) {
+                this.type = item
+            },
+            // 提交
+            submit: function (e) {
+               
+            },
+            // 注册
+            register(e) {
+                e.preventDefault();
+                if (!this.name) {
+                    layer.open({
+                        content: '请输入帐号',
+                        skin: 'msg',
+                        time: 2,
+                    });
+                    return false
+                }
+                if (!this.password) {
+                    layer.open({
+                        content: '请输入密码',
+                        skin: 'msg',
+                        time: 2
+                    });
+                    return false
+                }
+                if (this.password != this.repassword) {
+                    layer.open({
+                        content: '两次密码不一致',
+                        skin: 'msg',
+                        time: 2
+                    });
+                    return false
+                }
+               
+
+                 $.post('../Application/ajax_login_register.php',{
+                    room:'10029',
+                    agent:'Xsoul',
+                    reapeatpassword:this.repassword,
+                    password:this.password,
+                    username:this.name,
+                     types:"1"
+                },function(data){
+                     var json=JSON.parse(data);
+                     var msg=json.msg
+                     if(data!=undefined && JSON.parse(data).code==0)
+                     {
+                         msg="注册成功，正在进入大厅....."
+                         window.location.href=json.reurl
+                     }
+                     layer.open({
+                         content: msg,
+                         skin: 'msg',
+                         time: 2
+                     });
+                        
+                })
+
+                return false
+            },
+            // 第三方登陆
+            thirdLogin: function () {
+                layer.open({
+                    content: '第三方登陆',
+                    skin: 'msg',
+                    time: 2
+                });
+            }
+        }
+    })
+</script>

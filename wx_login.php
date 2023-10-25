@@ -21,7 +21,7 @@ else
     $_SESSION['roomid']=$room;
     if (U_isOK($openid, $headimg)) {
         $r = $mydb->table('fn_user')->where(array(
-            'userid' => $token['openid']
+            'userid' => $openid
         ))->find();
         auto_login($r['id']);
         // var_dump("Location: qr.php?room=" . $room."&agent=".$agent."&userid=".$openid."&username=".$nickname."&headimg=".$headimg);
@@ -29,7 +29,7 @@ else
     } else {
         U_create($openid, $nickname, $headimg, $agent);
         $r = $mydb->table('fn_user')->where(array(
-            'userid' => $token['openid']
+            'userid' => $openid
         ))->find();
         auto_login($r['id']);
         header("Location: qr.php?room=" . $room."&agent=".$agent."&userid=".$openid."&username=".$nickname."&headimg=".$headimg);
