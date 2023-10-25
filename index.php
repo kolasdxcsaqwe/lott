@@ -38,7 +38,6 @@ if (isWeixin() == true) {
         $room = $_SESSION['roomid'];
     }
 
-
     if (room_isOK($room)) {
         $_SESSION['roomid'] = $room;
         $sitename = get_query_val('fn_room', 'roomname', array('roomid' => $room));
