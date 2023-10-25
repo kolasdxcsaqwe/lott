@@ -18,7 +18,7 @@ $db['name'] = "v9ym";//数据库名
 $db['user'] = "root";//用户名 线上
 $db['pass'] = "123qwe";//密码 线上
 
-
+$isWeiXInBrowse=true;//开关 如果上公众号的话把这个打开
 
 $dbconn = db_connect($db['host'], $db['user'], $db['pass'], $db['name']);
 $uploadurl = "http://cdn.ononn.com";
@@ -172,6 +172,11 @@ function check_login() {
 
 //是否在微信内
 function isWeixin() {
+    global $isWeiXInBrowse;
+    if($isWeiXInBrowse)
+    {
+        return true;
+    }
     if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {
         return true;
     } else {
