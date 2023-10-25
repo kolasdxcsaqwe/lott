@@ -7,6 +7,6 @@
                 setcookie(session_name(),'',time()-1,'/');
             }
                 session_destroy();  //清除服务器的sesion文件
- echo '<script>alert("退出成功！"); window.location.href = "/web_login.php";</script>';
+ echo '<script> window.location.href = "/LoginAndRegister";</script>';
 
 ?>
