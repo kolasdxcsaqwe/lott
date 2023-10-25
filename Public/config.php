@@ -11,12 +11,12 @@ $load = 5;
 include_once ("sql.php");
 $console = "v9ym"; 
 $db['host'] = "127.0.0.1";
-//$db['user'] = "d9a990007224f595";//用户名 线上
-//$db['pass'] = "379762c16d019f0e";//密码 线上
+$db['user'] = "d9a990007224f595";//用户名 线上
+$db['pass'] = "379762c16d019f0e";//密码 线上
 $db['name'] = "v9ym";//数据库名
 
-$db['user'] = "root";//用户名 线上
-$db['pass'] = "123qwe";//密码 线上
+// $db['user'] = "root";//用户名 线上
+// $db['pass'] = "123qwe";//密码 线上
 
 
 
