@@ -42,7 +42,7 @@ if(isWeixin()==true){
 
 
      $_SESSION['roomid']=$room;
-     if(!empty($userid) && !empty($username) && !empty($headimg) )
+     if(!is_null($userid) && !is_null($username) && !is_null($headimg) )
      {
          echo "<form style='display:none;' id='form1' name='form1' method='post' action='http://".$fenurl."/index.php'>
 
