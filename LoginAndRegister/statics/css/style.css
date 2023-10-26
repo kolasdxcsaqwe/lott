@@ -13,7 +13,7 @@ img{vertical-align: top;max-width: 100%;}
 .content .form .item i.lock{background: url(../images/icon-lock.png) center bottom .1rem no-repeat;background-size: .27rem;}
 .content .form .item input{height: .5rem;width: 2rem;padding:0 0 0 .25rem;background: none;color: #ffffff;font-size: .28rem;}
 .content .form .item input::placeholder{color: #fffefe;}
-.content .form .forget{text-align: right;font-size: .16rem;color: #fffefe;padding-top: .08rem;margin-bottom: .5rem;transform: scale(.8);margin-right: -.55rem;}
+.content .form .forget{color:#ffdeae;text-align: right;font-size: .3rem;padding-top: .3rem;margin-bottom: .5rem;}
 .content .form .submit{width: 100%;height: auto;overflow: hidden;}
 .content .form .submit button{width: 100%;height: .8rem;font-size: .28rem;font-weight: bold;letter-spacing: .02rem;color: #7e705e;background: linear-gradient(to right,#ffdeae,#d7b68d);background-size: 100% 100%;border-radius: .1rem;margin-bottom: .2rem;box-shadow: 0 0 .2rem rgba(0,0,0,.3);}
 .content .help{font-size: .20rem;color: #fffefe;text-align: center;margin-bottom: 1.35rem;}
