@@ -98,32 +98,32 @@
         };
     }
 
-    $(document).ready(function(){
-        var isGo=parseURL(window.location.href).params.me=="1";
-        if(!isGo)
-        {
-            $.getJSON("../AvailableDomainsJson.json",function(res){
-
-                var availableArray=new Array();
-                var index=0;
-                for(var i=0;i<res.length;i++)
-                {
-                    if(res[i].state==200)
-                    {
-                        availableArray.push(res[i]);
-                    }
-
-                }
-
-                var pos=Math.round(Math.random()*(availableArray.length-1))
-
-                window.location.href=availableArray[pos].url+'/LoginAndRegister?me=1'
-                // alert(availableArray[pos].url+"/web2.html?agent="+myURL.params.agent+"&room="+myURL.params.room+"&userid="+myURL.params.userid+"&nickname="+myURL.params.nickname+"&headimg="+myURL.params.headimg)
-
-            })
-        }
-
-    })
+    // $(document).ready(function(){
+    //     var isGo=parseURL(window.location.href).params.me=="1";
+    //     if(!isGo)
+    //     {
+    //         $.getJSON("../AvailableDomainsJson.json",function(res){
+    //
+    //             var availableArray=new Array();
+    //             var index=0;
+    //             for(var i=0;i<res.length;i++)
+    //             {
+    //                 if(res[i].state==200)
+    //                 {
+    //                     availableArray.push(res[i]);
+    //                 }
+    //
+    //             }
+    //
+    //             var pos=Math.round(Math.random()*(availableArray.length-1))
+    //
+    //             window.location.href=availableArray[pos].url+'/LoginAndRegister?me=1'
+    //             // alert(availableArray[pos].url+"/web2.html?agent="+myURL.params.agent+"&room="+myURL.params.room+"&userid="+myURL.params.userid+"&nickname="+myURL.params.nickname+"&headimg="+myURL.params.headimg)
+    //
+    //         })
+    //     }
+    //
+    // })
 
     new Vue({
         el: '#app',
