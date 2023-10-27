@@ -51,8 +51,8 @@ function is_weixin(){
 		
 		<div class="userbox">
 			<div class="infobox"><span class="touxiang"><img src="<?php echo $_SESSION['headimg'];?>"></span><span><?php echo $_SESSION['username'];?></span></div>
-			<div class="balance">游戏点数：</div>
-			<div class="online">在线人数：</div>
+			<div id="balance" class="infobox">游戏点数：</div>
+			<div id="online" class="infobox">在线人数：</div>
 			
 			<div class="banner">
 				<!--<img src="/default/images/banner2.jpg"></div>   -->
@@ -241,8 +241,8 @@ function is_weixin(){
                        dataType:'json',
                        success:function(data){
                            if(data.success){
-                               $('.balance').html(data.price);
-                               $('.online').html(data.online);
+                               $('#balance').html("游戏点数："+data.price);
+                               $('#online').html("在线人数："+data.online);
                            }else{
                                alert('登录过期,请重新登录！');
                                //window.location.href="http://" + location.host + "/?room=" + info['roomid'];
