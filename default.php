@@ -254,6 +254,7 @@ function is_weixin(){
                }
 
 		   	$(document).ready(function(){
+                getUserInfo();
 		   		$(".xcnav_1").click(function(e) {
 		   			$(".zhenren").hide()
 		   			$(".caipiao").show()
