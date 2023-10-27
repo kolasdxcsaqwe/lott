@@ -263,7 +263,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 /*开奖号码背景-首页样式*/
 /*pk10*/
-.ball_pks_ { display: inline-block; width: 42px; height: 42px; line-height: 35px; margin-right: -1px; text-align: center; font-size: 16px; font-family: "微软雅黑"; color: #000; font-weight: bold; background: transparent url(/Style/images/balls_bg.png) no-repeat scroll -402px -448px; }
+.ball_pks_ { display: inline-block; width: 5rem; height: 5rem; line-height: 5rem; margin-right: -1px; text-align: center; font-size: 2rem; font-family: "微软雅黑"; color: #000; font-weight: bold; background: transparent url(/Style/images/balls_bg.png) no-repeat scroll -402px -448px; }
 .ball_pks1 { background-position: 0px -34px; }
 .ball_pks2 { background-position: -44px -34px; }
 .ball_pks3 { background-position: -87px -34px; }
@@ -290,7 +290,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 
 
-.ball_s_ { display: inline-block; width: 35px; height: 35px; line-height: 35px; margin-right: 6px; text-align: center; font-size: 16px; font-family: "微软雅黑"; color: #000; font-weight: bold; background: transparent url(/Style/images/balls_bg.png) no-repeat scroll -402px -448px; }
+.ball_s_ {color:#ff8a00; display: inline-block; width: 3rem; height:3rem; line-height: 3rem; margin-right: 6px; text-align: center; font-size: 2rem; font-family: "微软雅黑";  font-weight: bold; }
 .ball_s_yellow { background-position: 0px -82px; }
 .ball_s_red { background-position: -44px -82px; }
 .ball_s_green { background-position: -87px -82px; }
@@ -511,10 +511,10 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 /*开奖历史头部 提示*/
 /*.open_form*/ .sub_r_bot { margin-top: 10px; /*width:807px;*/ height: 46px; }
-/*.open_form*/ .sub_r_bot .sub_bot_one { background: url(/Style/images/sub_bot_bg.png) no-repeat; height: 45px; line-height: 45px; color: #5b250d; }
-/*.open_form*/ .sub_r_bot .sub_bot_one .g_button { height: 16px; line-height: 16px; margin-top: 10px; }
+/*.open_form*/ .sub_r_bot .sub_bot_one { background: url(/Style/images/sub_bot_bg.png) no-repeat; height: 6rem; line-height: 6rem; color: #5b250d; background-size: cover}
+/*.open_form*/ .sub_r_bot .sub_bot_one .g_button { height: 1rem; line-height: 1rem;  }
 /*.open_form*/ .sub_r_bot .sub_bot_one .r { float: right; margin-right: 20px; }
-/*.open_form*/ .sub_r_bot .sub_bot_bt { color: #5b250d; font-size: 22px; margin-left: 20px; float: left; /*margin-right:120px;*/ }
+/*.open_form*/ .sub_r_bot .sub_bot_bt { color: #5b250d; font-size: 2rem; margin-left: 20px; float: left; /*margin-right:120px;*/ }
 /*.open_form*/ .sub_r_bot .sub_bot_One span a { /*text-decoration: underline; color: #531a07;*/ }
 /*未开奖提示*/
 .open_form .open_notic_tip { height: 30px; line-height: 30px; text-align: center; }
@@ -531,17 +531,17 @@ table { border-collapse: collapse; border-spacing: 0; }
 .open_form .sub_table .item_add .ball_hk6_ { display: inline-block; width: 10px; height: 30px; line-height: 30px; font-size: 14px; }
 
 .open_form .sub_table { border-left: 1px solid #e8e8e8; background-color: #fff; }
-.open_form .sub_table thead tr { background-color: #ddd; }
+.open_form .sub_table thead tr { background-color: #ddd; height: 5rem;}
 .open_form .sub_table tbody tr { }
 .open_form .sub_table tbody tr.line_row { background-color: #e8e8e8; }
 .open_form .sub_table tbody tr td { height: 48px; }
-.open_form .sub_table th { border-bottom: 1px solid #e8e8e8; border-right: 1px solid #e8e8e8; height: 30px; line-height: 30px; font-size: 14px; }
+.open_form .sub_table th { border-bottom: 1px solid #e8e8e8; border-right: 1px solid #e8e8e8; height: 5rem; line-height:5rem; font-size: 2rem; }
 .open_form .sub_table th p { line-height: 18px; }
-.open_form .sub_table td { border-bottom: 1px solid #e8e8e8; border-right: 1px solid #e8e8e8; text-align: center; padding: 2px; }
-.open_form .sub_table td.gray { color: #F00078; font-size: 14px; font-weight: bold; }
-.open_form .sub_table td.blue { color: #0072E3; font-size: 14px; font-weight: bold; }
-.open_form .sub_table td.green { color: #009100; font-size: 14px; font-weight: bold; }
-.open_form .sub_table td.count { color: #CE0000; font-size: 14px; font-weight: bold; }
+.open_form .sub_table td {height: 5rem; line-height:5rem;font-size: 2rem; border-bottom: 1px solid #e8e8e8; border-right: 1px solid #e8e8e8; text-align: center; padding: 2px; }
+.open_form .sub_table td.gray { color: #F00078; font-size: 2rem; font-weight: bold; }
+.open_form .sub_table td.blue { color: #0072E3; font-size: 2rem; font-weight: bold; }
+.open_form .sub_table td.green { color: #009100; font-size: 2rem; font-weight: bold; }
+.open_form .sub_table td.count { color: #CE0000; font-size: 2rem; font-weight: bold; }
 .open_form .sub_table .item { display: inline-block; height: 35px; line-height: 35px; text-align: center; }
 
 .open_form .load_more { height: 50px; line-height: 50px; text-align: center; }
@@ -575,7 +575,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 /*开奖号码背景-小球*/
 
 
-.sub_table .ball_pks_ { width: 43px; height: 48px; line-height: 48px; }
+.sub_table .ball_pks_ { width: 5rem; height: 5rem; line-height: 5rem; }
 .sub_table .ball_pks1 { background-position: 0px -30px; }
 .sub_table .ball_pks2 { background-position: -44px -30px; }
 .sub_table .ball_pks3 { background-position: -87px -30px; }
@@ -669,12 +669,14 @@ table { border-collapse: collapse; border-spacing: 0; }
 .btn_white:active { color: #999; background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#fff)); background: -moz-linear-gradient(top, #ededed, #fff); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#ffffff'); }
 
 /*.btn_orange */
-.btn_orange { color: #fef4e9; border: solid 1px #da7c0c; background: #f78d1d; background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20)); background: -moz-linear-gradient(top, #faa51a, #f47a20); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20'); }
+.btn_orange {margin-top: 1.3rem; font-size: 2rem; color: #fef4e9; border: solid 1px #da7c0c; background: #f78d1d; background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20)); background: -moz-linear-gradient(top, #faa51a, #f47a20); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#faa51a', endColorstr='#f47a20'); }
 .btn_orange:hover { background: #f47c20; background: -webkit-gradient(linear, left top, left bottom, from(#f88e11), to(#f06015)); background: -moz-linear-gradient(top, #f88e11, #f06015); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f88e11', endColorstr='#f06015'); }
 .btn_orange:active { color: #fcd3a5; background: -webkit-gradient(linear, left top, left bottom, from(#f47a20), to(#faa51a)); background: -moz-linear-gradient(top, #f47a20, #faa51a); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f47a20', endColorstr='#faa51a'); }
 
 .btn_orange1 {
-color: #ffffff;
+    margin-top: 1.3rem;
+    color: #ffffff;
+    font-size: 2rem;
     border: solid 1px #296500;
     background: #adff73;
     background: -webkit-gradient(linear, left top, left bottom, from(#98e165), to(#419606));
