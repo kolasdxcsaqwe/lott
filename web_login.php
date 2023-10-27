@@ -4,13 +4,7 @@ $action = $_GET['action'];
 if($_GET['room']){
 	$_SESSION['roomid'] = $_GET['room'];	
 }
-$fenurl = get_query_val('fn_system','content1',array('id'=>'3'));
-// var_dump(" fenurl".$fenurl);
-// var_dump(" HTTP_HOST".$_SERVER['HTTP_HOST']);
-// if($_SERVER['HTTP_HOST'] != $fenurl){
-//   $tiao = "http://".$fenurl."/web_login.php";  
-//   header("location:$tiao");
-//   }
+
   
 if($action == 'login'){
 	$r = web_login();

@@ -2,7 +2,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <?php
 include_once("./Public/config.php");
-$fenurl = get_query_val('fn_system','content1',array('id'=>'3'));
+$fenurl = $_SERVER['HTTP_HOST'];
 if(empty($_GET['room'])){
     $_GET['room'] = $_SESSION['roomid'];
 }

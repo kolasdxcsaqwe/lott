@@ -10,9 +10,9 @@ body{background: url('../images/bg.png'); font-family: "微软雅黑";}
 .text-center{text-align: center;}
 .text-left{text-align: left;}
 .text-right{text-align: right;}
-b.balance{color: red;}
+b.balance{color: red; font-size: 3rem;}
 b.id{color: #3300ff;}
-b.online{color: #008000;}
+b.online{color: #008000;font-size: 3rem;}
 h1.error{display: block; text-align: center; line-height: 2rem; font-size: 30px; color: red;}
 a{cursor: pointer; text-decoration: none;}
 .frameTOP{width: 100%;height: auto;overflow: hidden;}

@@ -19,14 +19,15 @@ outline:none;
 .nav_banner .lottery {}
 
 .nav_banner .uinfo {
-	line-height: 50px;
-	height: 50px;
+	line-height: 80px;
+	height: 80px;
     border-bottom:1px solid #5a5a5a;
 }
 
 .nav_banner .uinfo li{
     margin-right: 25px;
     margin-left: 5px;
+	font-size: 3rem;
 }
 
 .nav_banner .lottery li {
