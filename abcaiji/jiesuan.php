@@ -11765,6 +11765,8 @@ function kaichat($game, $term){
 function 管理员喊话($Content, $roomid, $game){
     $datetime = date('Y-m-d H:i:s',time());
     $headimg = get_query_val('fn_setting', 'setting_robotsimg', array('roomid' => $roomid));
+    //删除五天前的没用记录
+    delete_query("fn_chat",'time < '.'\''.date('Y-m-d H:i:s', time()-(60*60*24*5)).'\'');
     insert_query("fn_chat", array("username" => "播报员", "headimg" => $headimg, "time" => $datetime, 'content' => $Content, 'game' => $game, 'addtime' => date('H:i:s'), 'type' => 'S3', 'userid' => 'system', 'roomid' => $roomid));
 }
 function 文本_逐字分割($str, $split_len = 1) {
