@@ -233,24 +233,54 @@
 
     function addplan()
     {
+
+
         var game = $('#game option:selected').val();
         var gamePlanType = $('#gamePlanType option:selected').val();
         var moneyAmount = $('#moneyAmount option:selected').val();
+
+        var isHas=false;
+        for (let i = 0; i < planArray.length; i++) {
+                if(planArray[i]===game+gamePlanType)
+                {
+                    alert("已经添加过这个计划了")
+                    isHas=true
+                    break;
+                }
+        }
+        if(isHas)
+        {
+            return
+        }
+
+        planArray.push(game+gamePlanType);
 
         var gameText = $('#game option:selected').html();
         var gamePlanTypeText = $('#gamePlanType option:selected').html();
         var moneyAmountText = $('#moneyAmount option:selected').html();
 
-        planArray.push();
-        var del='<button type="button" onclick="deletePlanList(this)" class="btn btn-primary" >删除</button>';
 
-        $('#planlist').append("<li>"+gamePlanTypeText+"&nbsp; &nbsp;&nbsp;"+moneyAmountText+del+"</li>")
+        var del="<button type=button' onclick='deletePlanList(this)'  >删除</button>";
+        var hiddenGamePlanType="<span id='hiddenGamePlanType' style='display: none'>"+gamePlanType+"</span>"
+        var hiddenmoneyAmount="<span id='hiddenmoneyAmount' style='display: none'>"+moneyAmount+"</span>"
+
+        $('#planlist').append("<li>"+gamePlanTypeText+"&nbsp;&nbsp;&nbsp;"+moneyAmountText+"&nbsp;&nbsp;&nbsp;"+del+hiddenGamePlanType+hiddenmoneyAmount+"</li>")
     }
 
     function deletePlanList(obj)
     {
+        var gamePlanType=$(obj.parentElement).find("#hiddenGamePlanType").html()
+        var game = $('#game option:selected').val();
 
+        for (let i = 0; i < planArray.length; i++) {
+            if(planArray[i]===game+gamePlanType)
+            {
+                planArray.splice(i,1)
+                break
+            }
+        }
 
+        $(obj.parentElement).remove()
     }
 
     function saveplan(){
