@@ -128,7 +128,7 @@
 					$('.online').html(data.online);
 				}else{
 					alert('登录过期,请重新登录！');
-					window.location.href="http://" + location.host + "/?room=" + info['roomid'];
+					window.location.href="http://" + location.host + "/LoginAndRegister";
 				}
 			},
 			error:function(){}

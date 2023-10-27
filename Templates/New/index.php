@@ -58,8 +58,7 @@ $welcome = substr($welcome, 0, strlen($welcome) - 1);
                     }else{
                         alert('登录过期,请重新登录！');
                         window.top.href="http://<?php echo $_SERVER['HTTP_HOST'];
-?>/qr.php?room=<?php echo $_SESSION['roomid'];
-?>"
+?>/LoginAndRegister"
                     }
                 },
                 error:function(){}

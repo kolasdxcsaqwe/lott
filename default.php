@@ -51,8 +51,8 @@ function is_weixin(){
 		
 		<div class="userbox">
 			<div class="infobox"><span class="touxiang"><img src="<?php echo $_SESSION['headimg'];?>"></span><span><?php echo $_SESSION['username'];?></span></div>
-			<div class="infobox">游戏点数：<?php echo get_query_val("fn_user", "money", array("roomid" => $_SESSION['roomid'], 'userid' => $_SESSION['userid']));?></div>
-			<div class="infobox">在线人数：1612</div>
+			<div class="balance">游戏点数：</div>
+			<div class="online">在线人数：</div>
 			
 			<div class="banner">
 				<!--<img src="/default/images/banner2.jpg"></div>   -->
@@ -231,6 +231,28 @@ function is_weixin(){
 		   	</div>
 		   </div>
 		   <script type="text/javascript">
+
+
+               function getUserInfo(){
+                   $.ajax({
+                       url:'/Application/ajax_getuserinfo.php',
+                       type: 'get',
+                       cache:false,
+                       dataType:'json',
+                       success:function(data){
+                           if(data.success){
+                               $('.balance').html(data.price);
+                               $('.online').html(data.online);
+                           }else{
+                               alert('登录过期,请重新登录！');
+                               //window.location.href="http://" + location.host + "/?room=" + info['roomid'];
+                               window.location.href="http://" + location.host + "/LoginAndRegister";
+                           }
+                       },
+                       error:function(){}
+                   });
+               }
+
 		   	$(document).ready(function(){
 		   		$(".xcnav_1").click(function(e) {
 		   			$(".zhenren").hide()
