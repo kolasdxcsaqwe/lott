@@ -4,7 +4,7 @@ include_once(dirname(dirname(dirname(preg_replace('@\(.*\(.*$@', '', __FILE__)))
 $game = $_COOKIE['game'];
 $roomid = $_SESSION['roomid'];
 ?>
-<link rel="stylesheet" type="text/css" href="/Style/Old/css/common.css" />
+<link rel="stylesheet" type="text/css" href="/Style/Old/css/common.css?t=asdjkasd" />
 <body align="center">
 	<br>
 	<strong style="font-size:38px;">游戏走势图</strong>
@@ -181,9 +181,9 @@ $roomid = $_SESSION['roomid'];
     ?>
 					<thead>
 						<tr id="th_header">
-							<th width="103" class="">开奖期号</th>
+							<th width="128" class="">开奖期号</th>
 							<th width="380" class="">开奖号码</th>
-							<th colspan="3" class="" width="103">总和</th>
+<!--							<th colspan="3" class="" width="103">总和</th>-->
                             <th colspan="5" class="" width="103">特码</th>
 						</tr>
 					</thead>
@@ -292,9 +292,9 @@ $roomid = $_SESSION['roomid'];
     ?>
 					<thead>
 						<tr id="th_header">
-							<th width="103" class="">开奖期号</th>
-							<th width="380" class="">开奖号码</th>
-							<th colspan="3" class="" width="103">总和</th>
+							<th width="20%" class="">开奖期号</th>
+							<th width="70%" class="">开奖号码</th>
+							<th  class="" width="10%">总和</th>
                             <th colspan="5" class="" width="103">特码</th>
 						</tr>
 					</thead>
@@ -378,9 +378,9 @@ $roomid = $_SESSION['roomid'];
 										<td class="<?php echo $ys[$ds];?>"><?php echo $ds;?></td>
 										<td class="<?php echo $ys[$tdx];?>"><?php echo $tdx;?></td>
 										<td class="<?php echo $ys[$tds];?>"><?php echo $tds;?></td>
-                                        <td class="<?php echo $ys[$thdx];?>"><?php echo $thdx;?></td>
-										<td class="<?php echo $ys[$thds];?>"><?php echo $thds;?></td>
-                                        <td class="<?php echo $ys[$twdx];?>"><?php echo $twdx;?></td>
+<!--                                        <td class="--><?php //echo $ys[$thdx];?><!--">--><?php //echo $thdx;?><!--</td>-->
+<!--										<td class="--><?php //echo $ys[$thds];?><!--">--><?php //echo $thds;?><!--</td>-->
+<!--                                        <td class="--><?php //echo $ys[$twdx];?><!--">--><?php //echo $twdx;?><!--</td>-->
 									</tr>
 						<?php }
     ?>
