@@ -263,7 +263,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 /*开奖号码背景-首页样式*/
 /*pk10*/
-.ball_pks_ { display: inline-block; width: 5rem; height: 5rem; line-height: 5rem; margin-right: -1px; text-align: center; font-size: 2rem; font-family: "微软雅黑"; color: #000; font-weight: bold; background: transparent url(/Style/images/balls_bg.png) no-repeat scroll -402px -448px; }
+.ball_pks_ { display: inline-block; width: 42px; height: 42px; line-height: 35px; margin-right: -1px; text-align: center; font-size: 16px; font-family: "微软雅黑"; color: #000; font-weight: bold; background: transparent url(/Style/images/balls_bg.png) no-repeat scroll -402px -448px; }
 .ball_pks1 { background-position: 0px -34px; }
 .ball_pks2 { background-position: -44px -34px; }
 .ball_pks3 { background-position: -87px -34px; }
@@ -575,7 +575,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 /*开奖号码背景-小球*/
 
 
-.sub_table .ball_pks_ { width: 5rem; height: 5rem; line-height: 5rem; }
+.sub_table .ball_pks_ { width: 43px; height: 48px; line-height: 48px; }
 .sub_table .ball_pks1 { background-position: 0px -30px; }
 .sub_table .ball_pks2 { background-position: -44px -30px; }
 .sub_table .ball_pks3 { background-position: -87px -30px; }
