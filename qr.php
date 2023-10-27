@@ -59,7 +59,10 @@ if(isWeixin()==true){
      }
      else
      {
-         echo "<form style='display:none;' id='form1' name='form1' method='post' action='http://".$fenurl."/index.php'>
+
+         if($_SESSION['userid']!=null && strlen($_SESSION['userid'])>0)
+         {
+             echo "<form style='display:none;' id='form1' name='form1' method='post' action='http://".$fenurl."/index.php'>
 
               <input name='verify' type='text' value='n2oqcvVPpk1M' />
 			  <input name='room' type='text' value='".$room."' />
@@ -68,6 +71,12 @@ if(isWeixin()==true){
 			  <input name='time' type='text' value='".$time."' />
 
             </form><script type='text/javascript'>function load_submit(){document.form1.submit()}load_submit();</script>";
+         }
+         else
+         {
+             header("Location: LoginAndRegister");
+         }
+
      }
 
 }else{
