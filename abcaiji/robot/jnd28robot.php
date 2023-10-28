@@ -43,9 +43,10 @@ function formatJson($content)
         return $content;
     }
 
+    $str="";
     for ($i = 0; $i < count($jsonArray); $i++) {
-        $jsonArray[$i]->gameType=getValue($jsonArray[$i]->gameType);
-        $jsonArray[$i]->moneyType=getValue($jsonArray[$i]->moneyType);
+        $text="[".getValue($jsonArray[$i]->gameType).":".getValue($jsonArray[$i]->moneyType)."]  ";
+        $str=$str.$text;
     }
-    return json_encode($jsonArray);
+    return $str;
 }

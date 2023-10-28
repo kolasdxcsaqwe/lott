@@ -44,9 +44,20 @@ function formatJson($content)
         return $content;
     }
 
+    $str="";
     for ($i = 0; $i < count($jsonArray); $i++) {
-        $jsonArray[$i]->gameType=getValue($jsonArray[$i]->gameType);
-        $jsonArray[$i]->moneyType=getValue($jsonArray[$i]->moneyType);
+        $text="[".getValue($jsonArray[$i]->gameType).":".getValue($jsonArray[$i]->moneyType)."]  ";
+        $str=$str.$text;
     }
-    return json_encode($jsonArray);
+    return $str;
+}
+
+function decodeUnicode($str)
+{
+    return preg_replace_callback('/\\\\u([0-9a-f]{4})/i',
+        create_function(
+            '$matches',
+            'return mb_convert_encoding(pack("H*", $matches[1]), "UTF-8", "UCS-2BE");'
+        ),
+        $str);
 }
