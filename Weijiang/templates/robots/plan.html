@@ -21,22 +21,25 @@
 
                 <div class="box-tools pull-right">
                     <button class="btn btn-primary btn-sm" onclick="$('#modal').modal('toggle');">添加方案</button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+                    </button>
                 </div>
             </div>
             <div class="box-body">
                 <table class="table table-bordered table-striped">
                     <thead>
-                        <tr>
-                            <th>方案ID</th>
-                            <th>方案内容</th>
-                            <th>所属游戏</th>
-                            <th>添加时间</th>
-                            <th>操作</th>
-                        </tr>
+                    <tr>
+                        <th>方案ID</th>
+                        <th>方案内容</th>
+                        <th>所属游戏</th>
+                        <th>添加时间</th>
+                        <th>操作</th>
+                    </tr>
                     </thead>
                     <tbody>
                     <?
+
+
                         select_query('fn_robotplan','*',"roomid = {$_SESSION['agent_room']}");
                         while($con = db_fetch_array()){
                             switch($con['game']){
@@ -59,16 +62,18 @@
                                 case 'azxy10': $game = '澳洲幸运10'; break;
                                 case 'azxy5': $game = '河内5分彩'; break;
                             }
+                            $con['content']=formatJson($con['content']);
                     ?>
 
-                        <tr>
-                            <td><? echo $con['id']; ?></td>
-                            <td><? echo $con['content']; ?></td>
-                            <td><? echo $game; ?></td>
-                            <td><? echo $con['addtime']; ?></td>
-                            <td><a href="javascript:delplan('<? echo $con['id']; ?>')" class="btn btn-danger btn-sm">删除方案</a></td>
-                        </tr>
-                        
+                    <tr>
+                        <td><? echo $con['id']; ?></td>
+                        <td><? echo $con['content']; ?></td>
+                        <td><? echo $game; ?></td>
+                        <td><? echo $con['addtime']; ?></td>
+                        <td><a href="javascript:delplan('<? echo $con['id']; ?>')"
+                               class="btn btn-danger btn-sm">删除方案</a></td>
+                    </tr>
+
                     <?
                         }
                     ?>
@@ -87,14 +92,14 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span></button>
+                    <span aria-hidden="true">×</span></button>
                 <h4 class="modal-title">添加方案</h4>
             </div>
             <div class="modal-body">
                 <div class="alert alert-success alert-dismissible">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                     <h4><i class="icon fa fa-info"></i> 添加教学</h4>
-                    <br/> {随机名次} 为:1~10名随机一个。  
+                    <br/> {随机名次} 为:1~10名随机一个。
                     <br/> {随机位数} 为时时彩/龙虎位数，个十百千万位数。
                     <br/> {随机特码} 为1~10号特码随机一个。
                     <br/> {随机双面} 为大、小、单、双随机一个。
@@ -127,13 +132,15 @@
                     <br/> {随机快三二杂} 为快三彩随机直选二杂
                     <br/> {随机庄闲} 为百家乐的随机庄，闲，随机出一个。
                     <br/> {随机和对} 为百家乐的随机庄对，闲对，和，任意对，随机出一个。
-                    <br/> <p style="color:#FFC15D;">注意：所有组合，一律用  /  间隔开。【如果不知道怎么添加，可参考游戏快捷下注玩法】</p>
+                    <br/>
+                    <p style="color:#FFC15D;">注意：所有组合，一律用 /
+                        间隔开。【如果不知道怎么添加，可参考游戏快捷下注玩法】</p>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="input-group">
                             <span class="input-group-addon">选择游戏</span>
-                            <select id="game" class="form-control">
+                            <select id="game" class="form-control" onchange="onChangeType()">
                                 <option value="pk10">北京赛车</option>
                                 <option value="xyft">幸运飞艇</option>
                                 <option value="cqssc">重庆时时彩</option>
@@ -148,10 +155,10 @@
                                 <option value="jnd28">加拿大28</option>
                                 <option value="jsmt">极速摩托</option>
                                 <option value="jsssc">极速时时彩</option>
-                              <option value="kuai3">江苏快三</option>
-                              <option value="gd11x5">广东11选5</option>
-                              <option value="jssm">极速赛马</option>
-                              <option value="twk3">台湾快三</option>
+                                <option value="kuai3">江苏快三</option>
+                                <option value="gd11x5">广东11选5</option>
+                                <option value="jssm">极速赛马</option>
+                                <option value="twk3">台湾快三</option>
                             </select>
                         </div>
                         <br/>
@@ -200,13 +207,13 @@
 
                     </div>
 
-                    <div class="col-md-8">
-                        <div class="input-group">
-                            <span class="input-group-addon">方案内容</span>
-                            <input id="plantext" type="text" class="form-control" style="width:97%" placeholder="例: {随机特码}/100 得 3/100 或 4/100">
-                        </div>
+                    <!--                    <div class="col-md-8">-->
+                    <!--                        <div class="input-group">-->
+                    <!--                            <span class="input-group-addon">方案内容</span>-->
+                    <!--                            <input id="plantext" type="text" class="form-control" style="width:97%" placeholder="例: {随机特码}/100 得 3/100 或 4/100">-->
+                    <!--                        </div>-->
 
-                    </div>
+                    <!--                    </div>-->
                     <div class="modal-footer">
                         <button type="button" onclick="addplan()" class="btn btn-primary">添加方案</button>
                     </div>
@@ -229,53 +236,48 @@
 <script>
     $('.table').dataTable({});
     $('#loading').remove();
-    var planArray=new Array();
+    var planArray = new Array();
+    var map = new Map();
 
-    function addplan()
-    {
-
+    function addplan() {
 
         var game = $('#game option:selected').val();
         var gamePlanType = $('#gamePlanType option:selected').val();
         var moneyAmount = $('#moneyAmount option:selected').val();
 
-        var isHas=false;
+        var isHas = false;
         for (let i = 0; i < planArray.length; i++) {
-                if(planArray[i]===game+gamePlanType)
-                {
-                    alert("已经添加过这个计划了")
-                    isHas=true
-                    break;
-                }
+            if (planArray[i] === game + gamePlanType) {
+                alert("已经添加过这个计划了")
+                isHas = true
+                break;
+            }
         }
-        if(isHas)
-        {
+        if (isHas) {
             return
         }
 
-        planArray.push(game+gamePlanType);
+        planArray.push(game + gamePlanType);
 
         var gameText = $('#game option:selected').html();
         var gamePlanTypeText = $('#gamePlanType option:selected').html();
         var moneyAmountText = $('#moneyAmount option:selected').html();
 
 
-        var del="<button type=button' onclick='deletePlanList(this)'  >删除</button>";
-        var hiddenGamePlanType="<span id='hiddenGamePlanType' style='display: none'>"+gamePlanType+"</span>"
-        var hiddenmoneyAmount="<span id='hiddenmoneyAmount' style='display: none'>"+moneyAmount+"</span>"
+        var del = "<button type=button' onclick='deletePlanList(this)'  >删除</button>";
+        var hiddenGamePlanType = "<span id='hiddenGamePlanType' style='display: none'>" + gamePlanType + "</span>"
+        var hiddenmoneyAmount = "<span id='hiddenmoneyAmount' style='display: none'>" + moneyAmount + "</span>"
 
-        $('#planlist').append("<li>"+gamePlanTypeText+"&nbsp;&nbsp;&nbsp;"+moneyAmountText+"&nbsp;&nbsp;&nbsp;"+del+hiddenGamePlanType+hiddenmoneyAmount+"</li>")
+        $('#planlist').append("<li>" + gamePlanTypeText + "&nbsp;&nbsp;&nbsp;" + moneyAmountText + "&nbsp;&nbsp;&nbsp;" + del + hiddenGamePlanType + hiddenmoneyAmount + "</li>")
     }
 
-    function deletePlanList(obj)
-    {
-        var gamePlanType=$(obj.parentElement).find("#hiddenGamePlanType").html()
+    function deletePlanList(obj) {
+        var gamePlanType = $(obj.parentElement).find("#hiddenGamePlanType").html()
         var game = $('#game option:selected').val();
 
         for (let i = 0; i < planArray.length; i++) {
-            if(planArray[i]===game+gamePlanType)
-            {
-                planArray.splice(i,1)
+            if (planArray[i] === game + gamePlanType) {
+                planArray.splice(i, 1)
                 break
             }
         }
@@ -283,39 +285,55 @@
         $(obj.parentElement).remove()
     }
 
-    function saveplan(){
+    function onChangeType() {
+        planArray.clean()
+        for (var ele in $('#planlist')) {
+            $(obj).remove()
+        }
+    }
 
+    function saveplan() {
+        var plan = $('#planlist').length;
 
-        var plan = $('#plantext').val();
-
-        if(plan == ""){
-            alert("方案内容不得为空..");
+        if (plan < 1) {
+            alert("请添加方案");
             return;
         }
+
+        var arr = new Array()
+        for (let i = 0; i < $('#planlist').length; i++) {
+            var ele = $('#planlist').eq(i)
+            var GamePlanType = ele.find("#hiddenGamePlanType").html()
+            var moneyAmount = ele.find("#hiddenmoneyAmount").html()
+            arr.push({gameType: GamePlanType, moneyType: moneyAmount})
+        }
+
+        var game = $('#game option:selected').val();
 
         $.ajax({
             url: 'Application/ajax_addrobot.php?t=addplan',
             type: 'post',
-            data: {game: game, plan: plan},
+            data: {game: game, plan: JSON.stringify(arr)},
             dataType: 'json',
-            success:function(data){
-                if(data.success){
+            success: function (data) {
+                if (data.success) {
                     $('#labelerr').fadeIn(1500);
-                    setTimeout(function() {
+                    setTimeout(function () {
                         $('#labelerr').fadeOut(1500);
                     }, 3000);
                     $('#plantext').val('');
-                }else{
+                } else {
                     alert(data.msg);
                 }
             },
-            error: function( ){ }
+            error: function () {
+            }
         });
     }
 
-    function delplan(id){
+    function delplan(id) {
 
-        if(!confirm('确认删除该条方案吗?该操作一旦执行将无法恢复..')){
+        if (!confirm('确认删除该条方案吗?该操作一旦执行将无法恢复..')) {
             return;
         }
         $.ajax({
@@ -323,15 +341,16 @@
             type: 'post',
             data: {id: id},
             dataType: 'json',
-            success:function(data){
-                if(data.success){
+            success: function (data) {
+                if (data.success) {
                     alert('删除方案成功..');
                     window.location.reload();
-                }else{
+                } else {
                     alert(data.msg);
                 }
             },
-            error: function( ){ }
+            error: function () {
+            }
         });
     }
 </script>

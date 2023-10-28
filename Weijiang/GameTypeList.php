@@ -32,6 +32,7 @@ function getValue($key) {
 
 function formatJson($content)
 {
+
     if(is_null($content) || empty($content))
     {
         return $content;
