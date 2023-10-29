@@ -18,6 +18,7 @@ case 'first': $arr = array();
     break;
 case "update": $arr = array();
     $chatid = $_GET['id'];
+    $_SESSION['roomid']=str_replace(";","",$_SESSION['roomid']);
     select_query("fn_chat", '*', "roomid = {$_SESSION['roomid']} and game = '{$BetGame}' and id>$chatid order by id asc");
     while($x = db_fetch_array()){
         if($x['userid'] == $_SESSION['userid'])continue;
