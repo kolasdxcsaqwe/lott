@@ -59,6 +59,12 @@ body {
     <p style="font-size:35px;color:#A52A2A;">&nbsp;<a href="http://<? echo $_SERVER['HTTP_HOST'];?>/Templates/Old/gaiyh.php?userid=<? echo $userid;?>&roomid=<? echo $roomid;?>">点击这里更改银行信息</a></p><br>
   </div>
   <script type="text/javascript">
+
+      $("#demoBtn2").click(function(){
+          $("#demoBtn2").attr("disabled","disabled");
+          $("#formtijiao").submit()
+      }
+
     function value_to(){
     var x = document.getElementById("money2").value;
    if (x<2 || ''){
@@ -68,13 +74,6 @@ body {
       document.getElementById("money2").value = x;
      $("#demoBtn2").removeAttr("disabled");
    }
-
-   $("#demoBtn2").click(function(){
-       $("#demoBtn2").attr("disabled","disabled");
-       $("#formtijiao").submit()
-   }
-
-
  }
   </script>
 </body>
