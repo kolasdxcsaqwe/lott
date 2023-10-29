@@ -41,7 +41,7 @@ body {
     <br>
 
 
-    <form method="post" action="./yinadd.php" style="margin-left:2%;">
+    <form id="formtijiao" method="post" action="./yinadd.php" style="margin-left:2%;">
       <p style="font-size:35px;">微信昵称：<input type="text" name="username" value="<?php echo "$username";?>" style="width:50%;height:80px;font-size:45px;margin-right:20px;" disabled></p><br>
       <p style="font-size:35px;">提现银行：<input type="text" name="username" value="<?php echo $sql['yinhang'];?>" style="width:50%;height:80px;font-size:45px;margin-right:20px;" disabled></p><br>
       <p style="font-size:35px;">开户姓名：<input type="text" name="username" value="<?php echo $sql['huming'];?>" style="width:50%;height:80px;font-size:45px;margin-right:20px;" disabled></p><br>
@@ -52,7 +52,7 @@ body {
                          <input name='roomid' type='text' value="<?php echo "$roomid";?>" style='display:none;'/>
                          <input name='headimg' type='text' value="<?php echo "$headimg";?>" style='display:none;'/> 
                          <input name='tixian' type='text' value="<?php echo "$tixian";?>" style='display:none;'/> 
-       <input type="submit" id="demoBtn2" style="margin-left:20px;margin-right:20px;width:70%;height:85px;font-size:45px;" value="立即提现"/>
+       <input type="button" onclick="tijiao()" id="demoBtn2" style="margin-left:20px;margin-right:20px;width:70%;height:85px;font-size:45px;" value="立即提现"/>
       <br><br><br>  
     </form>  
     <br>
@@ -68,6 +68,14 @@ body {
       document.getElementById("money2").value = x;
      $("#demoBtn2").removeAttr("disabled");
    }
+
+   function tijiao()
+   {
+       $("#demoBtn2").attr("disabled","disabled");
+       $("#formtijiao").submit()
+
+   }
+
  }
   </script>
 </body>
