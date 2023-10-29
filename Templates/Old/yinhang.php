@@ -52,7 +52,7 @@ body {
                          <input name='roomid' type='text' value="<?php echo "$roomid";?>" style='display:none;'/>
                          <input name='headimg' type='text' value="<?php echo "$headimg";?>" style='display:none;'/> 
                          <input name='tixian' type='text' value="<?php echo "$tixian";?>" style='display:none;'/> 
-       <input type="button" onclick="tijiao()" id="demoBtn2" style="margin-left:20px;margin-right:20px;width:70%;height:85px;font-size:45px;" value="立即提现"/>
+       <input type="button"  id="demoBtn2" style="margin-left:20px;margin-right:20px;width:70%;height:85px;font-size:45px;" value="立即提现"/>
       <br><br><br>  
     </form>  
     <br>
@@ -69,12 +69,11 @@ body {
      $("#demoBtn2").removeAttr("disabled");
    }
 
-   function tijiao()
-   {
+   $("#demoBtn2").click(function(){
        $("#demoBtn2").attr("disabled","disabled");
        $("#formtijiao").submit()
-
    }
+
 
  }
   </script>
