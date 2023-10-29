@@ -22,15 +22,15 @@
                 <h3 class="box-title">机器人列表</h3>
 
                 <div class="box-tools pull-right">
-                    <a class="btn btn-success btn-sm" href="chat.php" target="_blank">启动封盘播报</a>
-                    <a class="btn btn-success btn-sm" href="fudong.php" target="_blank">启动浮动人数下注速度</a>
-                    <a class="btn btn-success btn-sm" href="robot.php" target="_blank">运行机器人</a>
+<!--                    <a class="btn btn-success btn-sm" href="chat.php" target="_blank">启动封盘播报</a>-->
+<!--                    <a class="btn btn-success btn-sm" href="fudong.php" target="_blank">启动浮动人数下注速度</a>-->
+<!--                    <a class="btn btn-success btn-sm" href="robot.php" target="_blank">运行机器人</a>-->
                               <?php if($_SESSION['agent_user']=='guest1'){?>
          
             <?php }else{?>
                     <button class="btn btn-primary btn-sm" onclick="$('#modal').modal('toggle');loadplan();">添加机器人</button>
                   <? } ?>
-                    <button class="btn btn-info btn-sm"  onclick="$('#robotsetting').modal('toggle');">参数设置</button>
+<!--                    <button class="btn btn-info btn-sm"  onclick="$('#robotsetting').modal('toggle');">参数设置</button>-->
                     <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                                <option value="bjl" <? if($_GET['game'] == 'bjl') echo 'selected'; ?>>百家乐</option>
                                <option value="lhc" <? if($_GET['game'] == 'lhc') echo 'selected'; ?>>六合彩</option>
                                <option value="jslhc" <? if($_GET['game'] == 'jslhc') echo 'selected'; ?>>极速六合彩</option>
-                               <option value="xy28" <? if($_GET['game'] == 'xy28') echo 'selected'; ?>>幸运28</option>
+                               <option value="xy28" <? if($_GET['game'] == 'xy28') echo 'selected'; ?>>新加坡28</option>
                                <option value="jnd28" <? if($_GET['game'] == 'jnd28') echo 'selected'; ?>>加拿大28</option>
                                <option value="jsmt" <? if($_GET['game'] == 'jsmt') echo 'selected'; ?>>极速摩托</option>
                                <option value="jsssc" <? if($_GET['game'] == 'jsssc') echo 'selected'; ?>>极速时时彩</option>
@@ -67,12 +67,13 @@
                 <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>机器人ID</th>
-                            <th>头像</th>
-                            <th>昵称</th>
-                            <th>使用方案</th>
-                            <th>所属游戏</th>
-                            <th>操作</th>
+                            <th style="width: 3rem">ID</th>
+                            <th style="width: 5rem">头像</th>
+                            <th style="width: 5rem">昵称</th>
+                            <th style="width: 16rem">使用方案</th>
+                            <th style="width: 16rem">所属游戏</th>
+                            <th style="width: 10rem">下注概率</th>
+                            <th style="width: 32rem">操作</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -88,7 +89,7 @@
                                  case 'pk10': $game = '北京赛车'; break;
                                 case 'xyft': $game = '幸运飞艇'; break;
                                 case 'cqssc': $game = '重庆时时彩'; break;
-                                case 'xy28': $game = '幸运28'; break;
+                                case 'xy28': $game = '新加坡28'; break;
                                 case 'jnd28': $game = '加拿大28'; break;
                                 case 'jsmt': $game = '极速摩托'; break;
                                 case 'jssc': $game = '极速赛车'; break;
@@ -106,12 +107,13 @@
                             }
                     ?>
                             <tr>
-                                <td><? echo $con['id']; ?></td>
-                                <td><img src="<? echo $con['headimg']; ?>" alt="" width="35" height="35"></td>
-                                <td><? echo $con['name']; ?></td>
-                                <td><? echo $con['plan']; ?></td>
-                                <td><? echo $game; ?></td>
-                                <td>
+                                <td style="width: 3rem" ><? echo $con['id']; ?></td>
+                                <td style="width: 5rem"><img src="<? echo $con['headimg']; ?>" alt="" width="35" height="35"></td>
+                                <td style="width: 5rem"><? echo $con['name']; ?></td>
+                                <td style="width: 16rem"><? echo $con['plan']; ?></td>
+                                <td style="width: 16rem"><? echo $game; ?></td>
+                                <td style="width: 10rem"><? echo $con['rare']; ?></td>
+                                <td style="width: 32rem">
                                     <!--a href="javascript:" class="btn btn-primary btn-sm">修改信息</a>&nbsp;&nbsp;-->
                                     <a href="javascript:delrobots('<? echo $con['id']; ?>')" class="btn btn-danger btn-sm">删除机器人</a>&nbsp;&nbsp;
                                 </td>
@@ -152,7 +154,7 @@
                                 <option value="azxy10">澳洲幸运10</option>
                                 <option value="azxy5">河内5分彩</option>
                                 <option value="bjl">百家乐</option> 
-                                <option value="xy28">幸运28</option>
+                                <option value="xy28">新加坡28</option>
                                 <option value="jnd28">加拿大28</option>
                                 <option value="jsmt">极速摩托</option>
                                 <option value="jsssc">极速时时彩</option>
@@ -167,6 +169,21 @@
                                 <span class="input-group-addon">选择方案</span>
                                 <select id="addplan" name="addplan[]" class="form-control select2 " multiple="multiple" data-placeholder="选择方案 ..." style="width: 100%;">
 
+                                </select>
+                            </div>
+                            <div class="input-group" style="margin-top: 1rem">
+                                <span class="input-group-addon">下注概率(机器人会每期下注的概率)</span>
+                                <select id="betrare" name="rare" class="form-control select2 " multiple="multiple" data-placeholder="选择" style="width: 100%;">
+                                    <option value="10">10%</option>
+                                    <option value="20">20%</option>
+                                    <option value="30">30%</option>
+                                    <option value="40">40%</option>
+                                    <option value="50">50%</option>
+                                    <option value="60">60%</option>
+                                    <option value="70">70%</option>
+                                    <option value="80">80%</option>
+                                    <option value="90">90%</option>
+                                    <option value="100">100%</option>
                                 </select>
                             </div>
                             <br/>

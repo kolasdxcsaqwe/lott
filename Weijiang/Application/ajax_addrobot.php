@@ -1,6 +1,6 @@
 <?php
-
-include(dirname(dirname(dirname(preg_replace('@\(.*\(.*$@', '', __FILE__)))) . "/Public/config.php");
+include (dirname(dirname(preg_replace('@\(.*\(.*$@', '', __FILE__)))."/GameTypeList.php");
+include (dirname(dirname(dirname(preg_replace('@\(.*\(.*$@', '', __FILE__)))) . "/Public/config.php");
 
 $type = $_GET['t'];
 if($type == 'addplan'){
@@ -19,13 +19,15 @@ if($type == 'addplan'){
     $str = '';
     select_query("fn_robotplan", '*', "roomid = {$_SESSION['agent_room']} and game = '$game'");
     while($con = db_fetch_array()){
-        $str .= "<option value='{$con['id']}'>方案ID:{$con['id']} [ {$con['content']} ]</option>";
+        $con['content']=formatJson($con['content']);
+        $str .= "<option value='{$con['id']}'>方案ID:{$con['id']} {$con['content']} </option>";
     }
     echo $str;
 }elseif($type == 'addrobot'){
     $game = $_POST['addgame'];
     $plan = $_POST['addplan'];
     $name = $_POST['addname'];
+    $rare = $_POST['rare'];
     if($_FILES['addheadimg']['size'] > 0){
         if ((($_FILES["addheadimg"]["type"] == "image/gif") || ($_FILES["addheadimg"]["type"] == "image/jpeg") || ($_FILES["addheadimg"]["type"] == "image/png")) && ($_FILES["addheadimg"]["size"] < 2000000)){
             if (getfileType($_FILES['addheadimg']['name'])=='php'){
@@ -55,11 +57,16 @@ if($type == 'addplan'){
 
     $plans = substr($plans, 0, strlen($plans)-1);
     $himg="http://".$_SERVER['HTTP_HOST']."/Weijiang".$addheadimg;
-    insert_query("fn_robots", array("headimg" => $himg, 'name' => $name, 'plan' => $plans, 'game' => $game, 'roomid' => $_SESSION['agent_room']));
+    $uuid=uuid();
+    create($_SESSION['agent_room'], $uuid, $name, $name, "46f94c8de14fb36680850768ff1b7f2a", $himg, $_SERVER['HTTP_USER_AGENT']);
+    insert_query("fn_robots", array("headimg" => $himg, 'name' => $name, 'plan' => $plans, 'game' => $game, 'roomid' => $_SESSION['agent_room'],'userid'=>$uuid,'rare'=>$rare));
     echo json_encode(array("success" => true));
     exit();
 }elseif($type == 'delrobot'){
     $id = $_POST['id'];
+    $userid = get_query_val('fn_robots', 'userid', "id = {$id}");
+
+    delete_query("fn_user", array("userid" => $userid));
     delete_query("fn_robots", array("id" => $id));
     echo json_encode(array("success" => true));
 }elseif($type == 'start'){
@@ -90,4 +97,27 @@ if($type == 'addplan'){
 function getfileType($file){
     return substr(strrchr($file, '.'), 1);
 }
+
+function create($roomid,$userid, $username,$loginuser, $loginpass,$headimg, $agent = "null",$level=1) {
+    if ($agent == "") {
+        $agent = 'null';
+    }
+    $loginuser = str_replace(' ',"",$loginuser);
+    $loginpass = str_replace(' ',"",$loginpass);
+    //insert_query("fn_user", array("userid" => $userid, 'username' => $username, 'headimg' => $_SESSION['headimg'], 'money' => '0', 'roomid' => $_SESSION['roomid'], 'statustime' => time(), 'agent' => $agent, 'isagent' => 'false', 'jia' => 'false'));
+    insert_query("fn_user", array("userid" => $userid, 'loginuser' => $loginuser,'username' => $username,'loginpass' => md5($loginpass), 'headimg' => $headimg, 'money' => '999999999', 'roomid' => $roomid, 'statustime' => time(), 'agent' => $agent,'level' => $level, 'isagent' => 'false', 'jia' => 'true','robot'=>'true'));
+    return true;
+}
+
+function  uuid()
+{
+    $chars = md5(uniqid(mt_rand(), true));
+    $uuid = substr ( $chars, 0, 8 ) . '-'
+        . substr ( $chars, 8, 4 ) . '-'
+        . substr ( $chars, 12, 4 ) . '-'
+        . substr ( $chars, 16, 4 ) . '-'
+        . substr ( $chars, 20, 12 );
+    return $uuid ;
+}
+
 ?>

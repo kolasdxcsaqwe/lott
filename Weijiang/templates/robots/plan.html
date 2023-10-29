@@ -46,7 +46,7 @@
                                 case 'pk10': $game = '北京赛车'; break;
                                 case 'xyft': $game = '幸运飞艇'; break;
                                 case 'cqssc': $game = '重庆时时彩'; break;
-                                case 'xy28': $game = '幸运28'; break;
+                                case 'xy28': $game = '新加坡28'; break;
                                 case 'jnd28': $game = '加拿大28'; break;
                                 case 'jsmt': $game = '极速摩托'; break;
                                 case 'jssc': $game = '极速赛车'; break;
@@ -151,7 +151,7 @@
                                 <option value="bjl">百家乐</option>
                                 <option value="azxy10">澳洲幸运10</option>
                                 <option value="azxy5">河内5分彩</option>
-                                <option value="xy28">幸运28</option>
+                                <option value="xy28">新加坡28</option>
                                 <option value="jnd28">加拿大28</option>
                                 <option value="jsmt">极速摩托</option>
                                 <option value="jsssc">极速时时彩</option>
@@ -286,7 +286,7 @@
     }
 
     function onChangeType() {
-        planArray.clean()
+        planArray.splice(0,planArray.length)
         for (var ele in $('#planlist')) {
             $(obj).remove()
         }
@@ -300,12 +300,18 @@
             return;
         }
 
-        var arr = new Array()
-        for (let i = 0; i < $('#planlist').length; i++) {
-            var ele = $('#planlist').eq(i)
+        var arr = [];
+        var index=0
+        for (var view of $('#planlist li')) {
+            var ele = $(view)
+
             var GamePlanType = ele.find("#hiddenGamePlanType").html()
             var moneyAmount = ele.find("#hiddenmoneyAmount").html()
-            arr.push({gameType: GamePlanType, moneyType: moneyAmount})
+            console.log("GamePlanType-->".GamePlanType)
+            if(GamePlanType!=null && GamePlanType!=='')
+            {
+                arr[index++]={gameType: GamePlanType, moneyType: moneyAmount}
+            }
         }
 
         var game = $('#game option:selected').val();

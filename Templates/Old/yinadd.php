@@ -22,7 +22,18 @@ $username = $userxian['username'];
 $tixian = $userxian['yinhang'].'<br>'.$userxian['huming'].'<br>'.$userxian['kahao'];
 $timeold = $userxian['timeold'];
 $tixianxianzhi = $userxian['tixianxianzhi'];
+$withdrawTime=strtotime(get_query_val('fn_upmark','time',array('userid' => $userid)));
 
+if(!empty($withdrawTime))
+{
+    if(strtotime($time)-$withdrawTime<10)
+    {
+        echo  "<script> alert('提交频繁,请稍后再提交') ;window.location = \"".$page."\";</script>";
+        return;
+    }
+}
+
+if($withdrawTime)
   if($money < 0){
           echo  "<script> alert('余额不足');window.location = \"".$page."\"; </script>";
     }else if($money == 0){
@@ -32,16 +43,18 @@ $tixianxianzhi = $userxian['tixianxianzhi'];
     }else if($moneys == 0){
           echo "<script> alert('您输入了0元，请重新输入') ;window.location = \"".$page."\";</script>";
     }elseif($timee > $timeold){
-          $tixianxianzhi1 = 0;
-          update_query("fn_user", array("tixianxianzhi" => $tixianxianzhi1 ,"timeold" => $timee), array('roomid' => $roomid ,'userid' => $userid));
-          echo "<script>alert('已刷新提现次数，有{$xianzhi}次提现机会。刚才提现不成功，请再次提现。');window.location.href='$page';</script>";
-    }else if($timee == $timeold  && ($tixianxianzhi< $xianzhi)){
-          $tixianxianzhi2 = $tixianxianzhi+1; 
+      $qian = ($money - $moneys);
+      $xianzhi1 = $xianzhi-1;
+      update_query("fn_user", array("tixianxianzhi" => '1' , "timeold" => $timee, "money" => $qian), array('roomid' => $roomid ,'userid' => $userid));
+      insert_query('fn_upmark', array("userid" => $userid ,'headimg' => $headimg,'username'=> $username ,'type'=>$xiafen,'money'=>$moneys,'time'=>$time,'status'=>$status,'game'=>$game,'roomid'=>$roomid,'jia'=>$jia,'orderid'=>$orderid,'tixian'=>$tixian));
+      echo "<script> alert('已提现:{$moneys}元，剩余提现次数{$xianzhi1}次，十分钟内到账');window.location='$page'; </script>";
+  }else if($timee == $timeold  && ($tixianxianzhi< $xianzhi)){
+          $tixianxianzhi2 = $tixianxianzhi+1;
           $qian = ($money - $moneys);
           $xianzhi1 = $xianzhi-$tixianxianzhi2;
           update_query("fn_user", array("tixianxianzhi" => $tixianxianzhi2 , "timeold" => $timee, "money" => $qian), array('roomid' => $roomid ,'userid' => $userid));
-          insert_query('fn_upmark', array("userid" => $userid ,'headimg' => $headimg,'username'=> $username ,'type'=>$xiafen,'money'=>$moneys,'time'=>$time,'status'=>$status,'game'=>$game,'roomid'=>$roomid,'jia'=>$jia,'orderid'=>$orderid,'tixian'=>$tixian));  
-          echo "<script> alert('已提现:{$moneys}元，剩余提现次数{$xianzhi1}次，十分钟内到账');window.location='$page'; </script>";  
+          insert_query('fn_upmark', array("userid" => $userid ,'headimg' => $headimg,'username'=> $username ,'type'=>$xiafen,'money'=>$moneys,'time'=>$time,'status'=>$status,'game'=>$game,'roomid'=>$roomid,'jia'=>$jia,'orderid'=>$orderid,'tixian'=>$tixian));
+          echo "<script> alert('已提现:{$moneys}元，剩余提现次数{$xianzhi1}次，十分钟内到账');window.location='$page'; </script>";
     }else{
           echo "<script>alert('你的提现次数已用完，每天限制{$xianzhi}次提现,请过了凌晨12点后再提交！');window.location.href='$page';</script>";
     }

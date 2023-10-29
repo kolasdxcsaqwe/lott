@@ -1,5 +1,4 @@
 <?php
-include_once "../Public/config.php";
 
 $array['sjws'] = '随机位数';
 $array['sjtm'] = '随机特码';

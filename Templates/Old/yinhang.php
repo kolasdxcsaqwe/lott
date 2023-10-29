@@ -61,8 +61,8 @@ body {
   <script type="text/javascript">
     function value_to(){
     var x = document.getElementById("money2").value;
-   if (x<10 || ''){
-     alert ("金额不小于10或无输入");
+   if (x<2 || ''){
+     alert ("金额不小于2或无输入");
      $("#demoBtn2").attr("disabled","disabled");
    }else{
       document.getElementById("money2").value = x;
