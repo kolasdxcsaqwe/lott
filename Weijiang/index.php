@@ -1,5 +1,6 @@
 <?php
 include_once("../Public/config.php");
+include_once ("GameTypeList.php");
 if($_SESSION['agent_user'] != "" && $_SESSION['agent_pass'] != "" && $_SESSION['agent_room'] != ""){
     $sql = get_query_vals('fn_room', '*', array('roomid' => $_SESSION['agent_room']));
     if($_SESSION['agent_user'] != $sql['roomadmin'] || $_SESSION['agent_pass'] != $sql['roompass']){

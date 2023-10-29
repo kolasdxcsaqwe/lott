@@ -1,7 +1,7 @@
 <?php
 include_once(dirname(dirname(dirname(preg_replace('@\(.*\(.*$@', '', __FILE__)))) . "/Public/config.php");
 include_once(dirname(dirname(dirname(preg_replace('@\(.*\(.*$@', '', __FILE__)))) . "/Public/Bjl.php");
-$game = $_COOKIE['game'];
+$game = $_COOKIE['game'];//$_COOKIE['game']
 $roomid = $_SESSION['roomid'];
 ?>
 <link rel="stylesheet" type="text/css" href="/Style/Old/css/common.css?t=asdjkasd" />
@@ -181,9 +181,9 @@ $roomid = $_SESSION['roomid'];
     ?>
 					<thead>
 						<tr id="th_header">
-							<th width="128" class="">开奖期号</th>
-							<th width="380" class="">开奖号码</th>
-<!--							<th colspan="3" class="" width="103">总和</th>-->
+                            <th width="20%" class="">开奖期号</th>
+                            <th width="70%" class="">开奖号码</th>
+                            <th  class="" width="10%">总和</th>
                             <th colspan="5" class="" width="103">特码</th>
 						</tr>
 					</thead>
@@ -262,9 +262,9 @@ $roomid = $_SESSION['roomid'];
 										<td class="<?php echo $ys[$ds];?>"><?php echo $ds;?></td>
 										<td class="<?php echo $ys[$tdx];?>"><?php echo $tdx;?></td>
 										<td class="<?php echo $ys[$tds];?>"><?php echo $tds;?></td>
-                                        <td class="<?php echo $ys[$thdx];?>"><?php echo $thdx;?></td>
-										<td class="<?php echo $ys[$thds];?>"><?php echo $thds;?></td>
-                                        <td class="<?php echo $ys[$twdx];?>"><?php echo $twdx;?></td>
+<!--                                        <td class="--><?php //echo $ys[$thdx];?><!--">--><?php //echo $thdx;?><!--</td>-->
+<!--										<td class="--><?php //echo $ys[$thds];?><!--">--><?php //echo $thds;?><!--</td>-->
+<!--                                        <td class="--><?php //echo $ys[$twdx];?><!--">--><?php //echo $twdx;?><!--</td>-->
 									</tr>
 						<?php }
     ?>
@@ -840,11 +840,11 @@ $roomid = $_SESSION['roomid'];
     ?>
 					<thead>
 						<tr id="th_header">
-							<th width="93" class="">时间</th>
-							<th width="83" class="">期数</th>
-							<th width="480" class="">开奖号码</th>
-							<th colspan='3' class="g_r_line">冠亚</th>
-							<th colspan='5'>1-5球龙虎</th>
+                            <th width="15%" class="">时间</th>
+                            <th width="15%" class="">期数</th>
+                            <th width="30%" class="">开奖号码</th>
+                            <th colspan='3' class="g_r_line">冠亚</th>
+                            <th colspan='5'>1-5球龙虎</th>
 						</tr>
 					</thead>
 					<tbody id="reslist" linNos="0,1,2,5">
