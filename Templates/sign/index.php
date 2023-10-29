@@ -2,10 +2,6 @@
 include dirname(dirname(dirname(preg_replace('@\(.*\(.*$@', '', __FILE__)))) . "/Public/config.php";
 require "function.php";
 
-//$info = getinfo($_SESSION['userid']);   
-
-?>
-<?php
 date_default_timezone_set("PRC");
 
 $time = getdate();
@@ -28,7 +24,9 @@ if($mon==4||$mon==6||$mon==9||$mon==11){
     $day = 31;
 }
 
-$w = getdate(mktime(0,0,0,$mon,1,$year))["wday"];
+
+$dataObj = getdate(mktime(0,0,0,$mon,1,$year));
+$w=$dataObj["wday"];
 
 $date = function($day,$w){
 //  echo "<table border='1'>";
@@ -55,7 +53,7 @@ for($j=1;$j<=count($arr);$j++){
          if(getSign_status($arr[$j-1])){
             echo "<td width='80px' style='background-color: greenyellow;'>已签到".$arr[$j-1]."</td>";
          }else{
-           echo "<td width='80px' class='today' style='background-color: #DCDCDC;'  onclick='signDay($(this),".$arr[$j-1].")' >未签到".$arr[$j-1]."</td>";
+           echo "<td width='80px' class='today' style='background-color: red;color:white'  onclick='signDay($(this),".$arr[$j-1].")' >请签到".$arr[$j-1]."</td>";
          }
         }else{
             echo "<td width='80px' >-</td>";
@@ -257,9 +255,7 @@ $jinbi = get_query_vals('fn_sign_set','*',array('id'=>2));
                     if(data['res'] == -1){
                         alert("请登录！");return false;
                     } 
-                    if (data['res'] == 1) {
-						alert(data['msg']);
-                    }
+
                     console.log(data);
                     var num = obj.find("span").text();
                     var td = "<td style='background-color: greenyellow;'>" + num + "已签到"+day_+"</td>";

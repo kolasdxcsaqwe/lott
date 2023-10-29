@@ -61,7 +61,10 @@ function is_weixin(){
 				</div>
 			</div>
 			<div class="gamebox">
-				<div data-v-7f2b6a5e="" class="gamebox" style="position: absolute; top: 10.5em;right: 0;z-index: 101;width: 6em;height: 2em;padding-left: .3em;line-height: 2em;background: ;"><a href="/Templates/sign/index.php"><img src="/Style/Home/images/hongbao.gif" title="签到"><i data-v-7f2b6a5e="" class="iconfont icon-double-arrow1"></i></a></div>
+				<div data-v-7f2b6a5e="" class="gamebox" style="position: absolute; top: 65%;right: 4rem;z-index: 101;width: 2em;height: 2.8em;line-height: 2em;background: ;">
+                    <a href="/Templates/sign/index.php">
+                        <img style="width: 5em;height: 4.8em;" src="/Style/Home/images/sign.gif" title="签到">
+                        <i data-v-7f2b6a5e="" class="iconfont icon-double-arrow1"></i></a></div>
 
     	<!--div class="navhl_b">
             <a href="javascript:;" class="xcnav_1 navhl_h">彩票游戏</a>
