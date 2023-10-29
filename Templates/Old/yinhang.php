@@ -63,7 +63,7 @@ body {
       $("#demoBtn2").click(function(){
           $("#demoBtn2").attr("disabled","disabled");
           $("#formtijiao").submit()
-      }
+      })
 
     function value_to(){
     var x = document.getElementById("money2").value;
