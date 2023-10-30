@@ -279,10 +279,10 @@
 
     for (var view of $('tbody tr #switchview'))
     {
-        var mySwitch = new Switch(view);
-        mySwitch.addEventListener("onChange",function (){
-            alert("asdasd")
-        })
+        var mySwitch = new Switch(view,{onChange:function (obj,e){
+
+            }});
+
 
     }
 
