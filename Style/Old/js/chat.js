@@ -22,7 +22,7 @@ function send_msg(msg){
 		zy.tips("不能发送空消息!");
 	} else {
 
-		$("#loadingDiv").show()
+		// $("#loadingDiv").show()
 		$.ajax({
 			url: '/Application/ajax_chat.php?type=send',
 			type: 'post',
@@ -47,8 +47,11 @@ function send_msg(msg){
 				} else {
 					zy.tips(data.msg);
 				}
+				$("#loadingDiv").hide()
 			},
-			error: function () { },
+			error: function () {
+				$("#loadingDiv").hide()
+			},
 			completion:function (){
 				$("#loadingDiv").hide()
 			}
