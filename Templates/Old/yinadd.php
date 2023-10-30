@@ -43,14 +43,14 @@ if(!empty($withdrawTime))
     }else if($moneys == 0){
           echo "<script> alert('您输入了0元，请重新输入') ;window.location = \"".$page."\";</script>";
     }elseif($timee > $timeold){
-      $qian = ($money - $moneys);
+      $qian = $money;
       $xianzhi1 = $xianzhi-1;
       update_query("fn_user", array("tixianxianzhi" => '1' , "timeold" => $timee, "money" => $qian), array('roomid' => $roomid ,'userid' => $userid));
       insert_query('fn_upmark', array("userid" => $userid ,'headimg' => $headimg,'username'=> $username ,'type'=>$xiafen,'money'=>$moneys,'time'=>$time,'status'=>$status,'game'=>$game,'roomid'=>$roomid,'jia'=>$jia,'orderid'=>$orderid,'tixian'=>$tixian));
       echo "<script> alert('已提现:{$moneys}元，剩余提现次数{$xianzhi1}次，十分钟内到账');window.location='$page'; </script>";
   }else if($timee == $timeold  && ($tixianxianzhi< $xianzhi)){
           $tixianxianzhi2 = $tixianxianzhi+1;
-          $qian = ($money - $moneys);
+          $qian = $money;
           $xianzhi1 = $xianzhi-$tixianxianzhi2;
           update_query("fn_user", array("tixianxianzhi" => $tixianxianzhi2 , "timeold" => $timee, "money" => $qian), array('roomid' => $roomid ,'userid' => $userid));
           insert_query('fn_upmark', array("userid" => $userid ,'headimg' => $headimg,'username'=> $username ,'type'=>$xiafen,'money'=>$moneys,'time'=>$time,'status'=>$status,'game'=>$game,'roomid'=>$roomid,'jia'=>$jia,'orderid'=>$orderid,'tixian'=>$tixian));
