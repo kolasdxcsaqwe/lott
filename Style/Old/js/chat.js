@@ -21,6 +21,8 @@ function send_msg(msg){
 	if (msgtxt == "") {
 		zy.tips("不能发送空消息!");
 	} else {
+
+		$("#loadingDiv").show()
 		$.ajax({
 			url: '/Application/ajax_chat.php?type=send',
 			type: 'post',
@@ -46,7 +48,10 @@ function send_msg(msg){
 					zy.tips(data.msg);
 				}
 			},
-			error: function () { }
+			error: function () { },
+			completion:function (){
+				$("#loadingDiv").hide()
+			}
 		});
 	}
 }

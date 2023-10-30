@@ -216,11 +216,7 @@ function is_weixin(){
 		   				<li class="a4" data-id="cz"><a href="/dspay/index.php"><span class="ft_icon"></span><div class="ft_nav">在线充值</div></a></li>
 		   			<?php }?>
 
-		   			<?php if(is_weixin()==true){?>
-		   				<!--<li class="a3"><a href="/Templates/New/tgzq.php"><span class="ft_icon"></span><div class="ft_nav">推广赚钱</div></a></li>-->
-		   			<?php }else{?>
-		   				<li class="a5"><a href="/tui.php"><span class="ft_icon"></span><div class="ft_nav">退出登录</div></a></li>
-		   				<?}?>
+                    <li class="a5"><a href="/tui.php"><span class="ft_icon"></span><div class="ft_nav">退出登录</div></a></li>
 		   			</ul>
 		   		</div>
 		   	</div>

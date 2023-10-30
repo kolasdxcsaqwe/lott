@@ -64,7 +64,7 @@ $azxy5open = $info18['gameopen'];
 <meta name="viewport" content="user-scalable=no">
 <title><?php echo $sitename ?></title>
 <link rel="Stylesheet" type="text/css" href="Style/Old/css/weui.min.css" />
-<link rel="Stylesheet" type="text/css" href="Style/Old/css/style.css" />
+<link rel="Stylesheet" type="text/css" href="Style/Old/css/style.css?t=98dshfi" />
 <link rel="Stylesheet" type="text/css" href="Style/Old/css/bootstrap.min.css" />
 <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/wx.css" />
 <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/layout.css" />
@@ -249,6 +249,27 @@ box-shadow: #666 0px 0px 10px; background: #f4f4f4;
    
  </style>
 <body>
+
+<div class="loader" id="loadingDiv"  hidden="hidden">
+    <div class="loader-inner">
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+        <div class="loader-line-wrap">
+            <div class="loader-line"></div>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript">
 var info = {
   'nickname': "<?php echo $_SESSION['username'] ?>", 
@@ -333,7 +354,7 @@ wx.ready(function(){
     </script>
 <!-- New Templates Update -->
 <script type="text/javascript" src="/Style/Old/js/tools.js"></script>
-<script type="text/javascript" src="/Style/Old/js/chat.js"></script>
+<script type="text/javascript" src="/Style/Old/js/chat.js?t=ewqe55"></script>
 <script type="text/javascript" src="/Style/Old/js/k3.js"></script>
 <!-- ./New Templates Update -->
 
