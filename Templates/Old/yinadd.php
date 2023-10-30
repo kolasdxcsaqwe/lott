@@ -33,7 +33,7 @@ if(!empty($withdrawTime))
     }
 }
 
-if($withdrawTime)
+
   if($money < 0){
           echo  "<script> alert('余额不足');window.location = \"".$page."\"; </script>";
     }else if($money == 0){

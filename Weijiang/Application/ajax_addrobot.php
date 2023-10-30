@@ -66,7 +66,7 @@ if($type == 'addplan'){
     $id = $_POST['id'];
     $userid = get_query_val('fn_robots', 'userid', "id = {$id}");
 
-    delete_query("fn_user", array("userid" => $userid));
+    delete_query("fn_user", array("robot"=>'true',"userid" => $userid));
     delete_query("fn_robots", array("id" => $id));
     echo json_encode(array("success" => true));
 }elseif($type == 'start'){

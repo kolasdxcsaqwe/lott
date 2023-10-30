@@ -1,6 +1,8 @@
   <!-- Select2 -->
   <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
   <link rel="stylesheet" href="plugins/select2/select2.min.css">
+  <link rel="stylesheet" href="plugins/dist/switch.css">
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -74,6 +76,7 @@
                             <th style="width: 16rem">所属游戏</th>
                             <th style="width: 10rem">下注概率</th>
                             <th style="width: 32rem">操作</th>
+                            <th style="width: 16rem">启动开关</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -117,6 +120,11 @@
                                     <!--a href="javascript:" class="btn btn-primary btn-sm">修改信息</a>&nbsp;&nbsp;-->
                                     <a href="javascript:delrobots('<? echo $con['id']; ?>')" class="btn btn-danger btn-sm">删除机器人</a>&nbsp;&nbsp;
                                 </td>
+                                <td style="width: 16rem">
+                                    <input type="checkbox" id="switchview"
+                                    <?php if($con['status'] == 1){?>
+                                    checked="checked"
+                                    <?php }?> /></td>
                             </tr>
                     <? } ?>
                     </tbody>
@@ -127,6 +135,7 @@
             </div>
         </div>
     </section>
+
     <!-- /.content -->
 </div>
 <div class="modal modal-default fade" id="modal">
@@ -173,7 +182,7 @@
                             </div>
                             <div class="input-group" style="margin-top: 1rem">
                                 <span class="input-group-addon">下注概率(机器人会每期下注的概率)</span>
-                                <select id="betrare" name="rare" class="form-control select2 " multiple="multiple" data-placeholder="选择" style="width: 100%;">
+                                <select id="betrare" name="rare" class="form-control select2 " data-placeholder="选择" style="width: 100%;">
                                     <option value="10">10%</option>
                                     <option value="20">20%</option>
                                     <option value="30">30%</option>
@@ -256,12 +265,26 @@
 <script src="plugins/select2/i18n/zh-CN.js"></script>
 <script src="plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script src="plugins/dist/switch.js"></script>
 <script>
     $(".select2").select2({
         language: 'zh-CN'
     });
     $('.table').dataTable({});
     $('#loading').remove();
+
+    // var el = document.querySelector('#checkbox-switch');
+    //
+    // var mySwitch = new Switch(el);
+
+    for (var view of $('tbody tr #switchview'))
+    {
+        var mySwitch = new Switch(view);
+        mySwitch.addEventListener("onChange",function (){
+            alert("asdasd")
+        })
+
+    }
 
     function searchgame(){
         var game = $('#selectgame option:selected').val();
