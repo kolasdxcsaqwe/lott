@@ -206,7 +206,7 @@ $info = getinfo($_SESSION['userid']);
     <div class="wx_cfb_fixed_btn_box">
         <div class="wx_cfb_fixed_btn_wrap">
             <div class="btn_box clearfix">
-                <a href="http://<?php echo $fenurl;?>/qr.php?room=<?php echo $_SESSION['roomid'];?>" class="btn tel_btn clearfix">
+                <a href="/qr.php?room=<?php echo $_SESSION['roomid'];?>" class="btn tel_btn clearfix">
                     <em class="ico ui_ico_size_40 ui_tel_ico"></em><span class="txt">返回大厅</span>
                 </a>
             </div>
