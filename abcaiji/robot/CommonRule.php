@@ -2,9 +2,9 @@
 include_once dirname(dirname(__FILE__)) . '/Public/Http.php';
 include_once dirname(dirname(__FILE__)) . '/Public/config.php';
 
-function startBot($betGame, $roomId,$period)
+function startBot($betGame, $roomId,$periodMin,$period)
 {
-    sleep(rand(5,$period));
+    sleep(rand($periodMin,$period));
     select_query('fn_robots','*',"roomid = {$roomId} and game = '{$betGame}' and runstatus = '1' limit 30");
     $arr=array();
     $index=0;
