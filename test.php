@@ -4,7 +4,14 @@ $withdrawTime=get_query_val('fn_upmark','time',array('userid' => 'oWNAL0tlmHRQSi
 
 
 $idsf="sadsad";
-vv();
+$ii=0;
+switch ($ii)
+{
+    case 1:
+    case 0:
+        var_dump("21");
+        break;
+}
 
 
 function vv()

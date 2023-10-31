@@ -2,8 +2,9 @@
 include_once dirname(dirname(__FILE__)) . '/Public/Http.php';
 include_once dirname(dirname(__FILE__)) . '/Public/config.php';
 
-function startBot($betGame, $roomId)
+function startBot($betGame, $roomId,$period)
 {
+    sleep(rand(5,$period));
     select_query('fn_robots','*',"roomid = {$roomId} and game = '{$betGame}' and runstatus = '1' limit 30");
     $arr=array();
     $index=0;
@@ -96,10 +97,10 @@ function singlePlan($plan, $betGame, $headimg, $name, $roomId, $userid)
             $betContent = sjlh($betGame, $betMoney);
             break;
         case 'smdds'://随机大单双
-            smdds();
+            $betContent = smdds($betGame, $betMoney);
             break;
         case 'sjxds'://随机小单双
-            sjxds();
+            $betContent = sjxds($betGame, $betMoney);
             break;
         case 'sjsz'://随机数字
 
@@ -111,7 +112,7 @@ function singlePlan($plan, $betGame, $headimg, $name, $roomId, $userid)
 
             break;
         case 'sjhz'://随机和值
-
+            $betContent = sjhz($betGame, $betMoney);
             break;
         case 'sjlhpt'://随机六合平特
 
@@ -191,14 +192,32 @@ function singlePlan($plan, $betGame, $headimg, $name, $roomId, $userid)
 
     echo "下注内容：" . $betContent . "   <br>";
 
-    $baseurl = "http://localhost:8123/Application/ajax_chat_robot.php?type=send";
-    $request = HTTP::curlPost($baseurl, array('content' => $betContent, 'userid' => $userid,
-        'gametype' => $betGame, 'headimg' => $headimg, 'username' => $name, 'roomid' => $roomId));
-    echo $request . " <br>";
+    if($betContent!=null && strlen($betContent)>0)
+    {
+        $baseurl = "http://localhost:8123/Application/ajax_chat_robot.php?type=send";
+        $request = HTTP::curlPost($baseurl, array('content' => $betContent, 'userid' => $userid,
+            'gametype' => $betGame, 'headimg' => $headimg, 'username' => $name, 'roomid' => $roomId));
+        echo $request . " <br>";
+    }
+
 }
 
-function smdds()
+function sjhz($game, $money)
 {
+    $result="";
+    $val = rand(0, 27);
+    switch ($game) {
+        case 'xy28':
+        case 'jnd28':
+            $result = $val . $money;
+            break;
+    }
+    return $result;
+}
+
+function smdds($game, $money)
+{
+    $result="";
     $val = rand(1, 2);
     if ($val == 1) {
         $val = '大单';
@@ -206,22 +225,46 @@ function smdds()
         $val = '大双';
     }
 
-    return $val;
+    switch ($game) {
+        case 'xy28':
+        case 'jnd28':
+            $result = $val . $money;
+            break;
+        case 'twk3':
+            $result = "总" . "/" . $val . "/" . $money;
+            break;
+    }
+
+    return $result;
 }
 
-function sjxds()
+function sjxds($game, $money)
 {
+    $result="";
+
     $val = rand(1, 2);
     if ($val == 1) {
         $val = '小单';
     } elseif ($val == 2) {
         $val = '小双';
     }
-    return $val;
+
+    switch ($game) {
+        case 'xy28':
+        case 'jnd28':
+            $result = $val . $money;
+            break;
+        case 'twk3':
+            $result = "总" . "/" . $val . "/" . $money;
+            break;
+    }
+
+    return $result;
 }
 
 function sjsm($game, $money)
 {
+    $result="";
     $val = rand(1, 4);
     if ($val == 1) {
         $val = '大';
@@ -236,15 +279,23 @@ function sjsm($game, $money)
     $num = rand(1, 5);
     switch ($game) {
         case 'jsssc':
-            $val = $num . "/" . $val . "/" . $money;
+            $result = $num . "/" . $val . "/" . $money;
+            break;
+        case 'twk3':
+            $result = "总" . "/" . $val . "/" . $money;
+            break;
+        case 'xy28':
+        case 'jnd28':
+            $result = $val . $money;
             break;
     }
 
-    return $val;
+    return $result;
 }
 
 function sjlh($game, $money)
 {
+    $result="";
     $val = rand(1, 2);
     if ($val == 1) {
         $val = '龙';
@@ -254,8 +305,8 @@ function sjlh($game, $money)
 
     switch ($game) {
         case 'jsssc':
-            $val = "/" . $val . "/" . $money;
+            $result = "/" . $val . "/" . $money;
             break;
     }
-    return $val;
+    return $result;
 }

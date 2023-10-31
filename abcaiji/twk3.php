@@ -1,6 +1,6 @@
 <?php
 header("Content-type:text/html;charset=utf-8");
-echo "<span style='color:red;'>台湾快三</span><br>"; 
+echo "<span style='color:red;'>台湾快三</span><br>";
 date_default_timezone_set("Asia/Shanghai");
 error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
 include_once "./Public/config.php";
@@ -24,83 +24,93 @@ if (date('H:i:s') > '23:58:30') {
         }
     }
 }
-if(strlen($c) == 1){
-  $qihao = '00'.$c;
-}elseif(strlen($c) == 2){
-  $qihao = '0'.$c;
-}else{
-  $qihao = $c;
+if (strlen($c) == 1) {
+    $qihao = '00' . $c;
+} elseif (strlen($c) == 2) {
+    $qihao = '0' . $c;
+} else {
+    $qihao = $c;
 }
-$term = $fixno.$qihao;
+$term = $fixno . $qihao;
 $time = date('Y-m-d H:i:s', strtotime(date('Y-m-d ') . $t) - 90);
-if($c==960){
-$next_term = ($fixno+1).'001';
-}else{
-$next_term = $term+1;
+if ($c == 960) {
+    $next_term = ($fixno + 1) . '001';
+} else {
+    $next_term = $term + 1;
 }
 $next_time = date('Y-m-d ') . $t;
 $code_str = randK();
-$topcode = get_query_val('fn_open','term',"`type`='$type' order by `term` desc limit 1");
-if($topcode != $term && $term>$topcode){
-  insert_query('fn_open', array("term" => $term, 'code' => $code_str, 'time' => $time, 'type' => $type, 'next_term' => $next_term, 'next_time' => $next_time));
-  TWK3_jiesuan();
+$topcode = get_query_val('fn_open', 'term', "`type`='$type' order by `term` desc limit 1");
+if ($topcode != $term && $term > $topcode) {
+    insert_query('fn_open', array("term" => $term, 'code' => $code_str, 'time' => $time, 'type' => $type, 'next_term' => $next_term, 'next_time' => $next_time));
+    TWK3_jiesuan();
 //  TWK3_jiesuan1($game,$term);
-  sleep(5);
-  kaichat($game,$next_term);
- // kaizd($game,$term);
-  echo "更新 $code_str 成功！<br>";
-}else{
-  echo "等待 $code_str 刷新<br>";
+    sleep(5);
+    kaichat($game, $next_term);
+    // kaizd($game,$term);
+    echo "更新 $code_str 成功！<br>";
+    //40秒随机
+    startBot($game, "10029", 40);
+} else {
+    echo "等待 $code_str 刷新<br>";
 }
 
 
-function randk($len=3){
-	$str='632451';
-	$rand='';
-	for($x=0;$x<$len;$x++){
-		$rand.=($rand!=''?',':'').substr($str,rand(0,strlen($str)-1),1);
-	}
-	return $rand;
+function randk($len = 3)
+{
+    $str = '632451';
+    $rand = '';
+    for ($x = 0; $x < $len; $x++) {
+        $rand .= ($rand != '' ? ',' : '') . substr($str, rand(0, strlen($str) - 1), 1);
+    }
+    return $rand;
 }
 
 
 ?>
 <style type="text/css">
-<!--
-body,td,th {
-    font-size: 12px;
-}
-body {
-    margin-left: 0px;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 0px;
-}
-#timeinfo{color:#C60}
--->
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
 </style>
-<script> 
-var limit=4
-if (document.images){ 
-	var parselimit=limit
-} 
-function beginrefresh(){ 
-if (!document.images) 
-	return 
-if (parselimit==1) 
-	window.location.reload() 
-else{ 
-	parselimit-=1 
-	curmin=Math.floor(parselimit) 
-	if (curmin!=0) 
-		curtime=curmin+"秒后自动获取!" 
-	else 
-		curtime=cursec+"秒后自动获取!" 
-		timeinfo.innerText=curtime 
-		setTimeout("beginrefresh()",1000) 
-	} 
-} 
-window.onload=beginrefresh
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
 </script>
 <input type=button name=button value="刷新" onClick="window.location.reload()">
 <span id="timeinfo"></span>

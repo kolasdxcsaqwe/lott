@@ -95,7 +95,8 @@ if($topcode != $term && $term>$topcode){
   sleep(5);
   kaichat($game,$next_term);
   echo "更新 $code_str 成功！<br>";
-  startBot($game,"10029");
+  //40秒随机
+  startBot($game,"10029",40);
 
 }else{
   echo "等待 $code_str 刷新<br>";
