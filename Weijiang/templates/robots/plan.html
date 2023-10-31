@@ -287,13 +287,15 @@
 
     function onChangeType() {
         planArray.splice(0,planArray.length)
-        for (var ele in $('#planlist')) {
-            $(obj).remove()
+
+        while ($('#planlist li').length>0)
+        {
+            $('#planlist li').eq(0).remove();
         }
     }
 
     function saveplan() {
-        var plan = $('#planlist').length;
+        var plan = $('#planlist li').length;
 
         if (plan < 1) {
             alert("请添加方案");
