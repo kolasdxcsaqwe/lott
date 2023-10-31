@@ -18,12 +18,12 @@
     kl.push("324");
     kl.push("ewr");
     kl.push("阿斯顿");
-    function deasd(obj)
+    function deasd(sadasd)
     {
-        for (var view of $('#switchview'))
+        for (let view of $('#switchview'))
         {
-            var mySwitch = new Switch(view,{size:'large',onChange:function (obj,e){
-                    console.log(obj.name,e)
+            var mySwitch = new Switch(view,{onChange:function (obj1,obj){
+                    console.log(obj1.name+" "+obj)
                 }});
         }
     }

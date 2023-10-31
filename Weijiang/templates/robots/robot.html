@@ -1,7 +1,7 @@
   <!-- Select2 -->
   <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
   <link rel="stylesheet" href="plugins/select2/select2.min.css">
-  <link rel="stylesheet" href="plugins/dist/switch.css">
+  <link rel="stylesheet" href="plugins/dist/switch.css?t=3495344">
 
   <div class="loader" id="loadingDiv"  hidden="hidden">
       <div class="loader-inner">
@@ -285,7 +285,7 @@
 <script src="plugins/select2/i18n/zh-CN.js"></script>
 <script src="plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
-<script src="plugins/dist/switch.js"></script>
+<script src="plugins/dist/switch.js?t=34954"></script>
 <script>
     $(".select2").select2({
         language: 'zh-CN'
@@ -300,13 +300,14 @@
     for (var view of $('tbody tr #switchview'))
     {
         var mySwitch = new Switch(view,{onChange:function (obj,check){
-                    var userid=obj.userid
-                robotSwitch(obj.userid,check?1:0)
+            console.log(obj.name+" "+check)
+                robotSwitch(obj.name,check?1:0)
             }});
     }
 
     function robotSwitch(userid,isOpen)
     {
+        // alert(userid+" "+isOpen)
         $("#loadingDiv").show()
         $.ajax({
             url: 'Application/ajax_addrobot.php?t=ChangeStatus',

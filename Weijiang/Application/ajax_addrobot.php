@@ -101,7 +101,7 @@ elseif($type == 'ChangeStatus'){
     {
         json_encode(array("code" => -5,"msg"=>"参数错误"));
     }
-    update_query("fn_robots", array('status' => $status), array("userid" => $userid));
+    update_query("fn_robots", array('runstatus' => $status), array("userid" => $userid));
     echo json_encode(array("code" => 0));
     exit;
 }
