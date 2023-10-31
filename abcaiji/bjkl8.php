@@ -4,6 +4,7 @@ echo "<span style='color:red;'>幸运28</span><br>";
 date_default_timezone_set("Asia/Shanghai");
 error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
 include_once "./Public/config.php";
+include_once "./robot/CommonRule.php";
 require "jiesuan.php";
 require "jiesuan2.php";
 $type = 4;
@@ -48,7 +49,6 @@ if ($preterm != null && $term == $preterm) {
     delete_query('fn_buqi', "`type`= $type and `term` = $preterm");
 }
 
-
 echo "当前最新期号-->" . $topcode . "    数据期号--->" . $term . "<br>";
 if (empty($topcode) || $topcode < $term) {
 
@@ -68,7 +68,7 @@ if (empty($topcode) || $topcode < $term) {
     echo "更新 $code 成功！<br>";
 
     //40秒随机
-    startBot($game,"10029",40);
+    startBot("xy28", "10029", 40);
 
 } else {
     echo "等待幸运28刷新<br>";

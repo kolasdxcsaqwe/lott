@@ -4,6 +4,7 @@ echo "<span style='color:red;'>加拿大28</span><br>";
 date_default_timezone_set("Asia/Shanghai");
 error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
 include_once "./Public/config.php";
+include_once "./robot/CommonRule.php";
 require "jiesuan.php";
 require "jiesuan2.php";
 
@@ -37,7 +38,7 @@ $kaitime = get_query_val('fn_open','next_time',"`type`=$type order by `term` des
   }else{
     $next_times = date("Y-m-d H:i:s",strtotime($opentime)+210);
   }
-  
+
   $topcode = get_query_val('fn_open','term',"`type`= $type order by `term` desc limit 1");
 //杀猪设置
 $preterm=get_query_val('fn_buqi','term',"`type`= $type 

@@ -12,6 +12,8 @@ function startBot($betGame, $roomId,$period)
         $arr[$index++]=$con;
     }
 
+    echo "有".count($arr)."个机器人<br>";
+    
     if(count($arr)>0)
     {
         for ($j = 0; $j < count($arr); $j++) {
