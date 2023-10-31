@@ -90,10 +90,22 @@ if($type == 'addplan'){
     $max = $_POST['max'];
     $point_min = $_POST['point_min'];
     $point_max = $_POST['point_max'];
-    update_query("fn_setting", array("setting_robot_min" => $min, 'setting_robot_max' => $max, 'setting_robot_pointmin' => $point_min, 'setting_robot_pointmax' => $point_max), array('roomid' => $_SESSION['agent_room']));
+    update_query("fn_robots", array("setting_robot_min" => $min, 'setting_robot_max' => $max, 'setting_robot_pointmin' => $point_min, 'setting_robot_pointmax' => $point_max), array('roomid' => $_SESSION['agent_room']));
     echo json_encode(array("success" => true));
     exit;
 }
+elseif($type == 'ChangeStatus'){
+    $userid = $_POST['userid'];
+    $status = $_POST['status'];
+    if($userid==null || $status==null)
+    {
+        json_encode(array("code" => -5,"msg"=>"参数错误"));
+    }
+    update_query("fn_robots", array('status' => $status), array("userid" => $userid));
+    echo json_encode(array("code" => 0));
+    exit;
+}
+
 function getfileType($file){
     return substr(strrchr($file, '.'), 1);
 }

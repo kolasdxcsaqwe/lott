@@ -3,6 +3,26 @@
   <link rel="stylesheet" href="plugins/select2/select2.min.css">
   <link rel="stylesheet" href="plugins/dist/switch.css">
 
+  <div class="loader" id="loadingDiv"  hidden="hidden">
+      <div class="loader-inner">
+          <div class="loader-line-wrap">
+              <div class="loader-line"></div>
+          </div>
+          <div class="loader-line-wrap">
+              <div class="loader-line"></div>
+          </div>
+          <div class="loader-line-wrap">
+              <div class="loader-line"></div>
+          </div>
+          <div class="loader-line-wrap">
+              <div class="loader-line"></div>
+          </div>
+          <div class="loader-line-wrap">
+              <div class="loader-line"></div>
+          </div>
+      </div>
+  </div>
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -121,7 +141,7 @@
                                     <a href="javascript:delrobots('<? echo $con['id']; ?>')" class="btn btn-danger btn-sm">删除机器人</a>&nbsp;&nbsp;
                                 </td>
                                 <td style="width: 16rem">
-                                    <input type="checkbox" id="switchview"
+                                    <input type="checkbox" id="switchview" name="<? echo $con['userid']; ?>"
                                     <?php if($con['status'] == 1){?>
                                     checked="checked"
                                     <?php }?> /></td>
@@ -279,11 +299,32 @@
 
     for (var view of $('tbody tr #switchview'))
     {
-        var mySwitch = new Switch(view,{onChange:function (obj,e){
-
+        var mySwitch = new Switch(view,{onChange:function (obj,check){
+                    var userid=obj.userid
+                robotSwitch(obj.userid,check?1:0)
             }});
+    }
 
-
+    function robotSwitch(userid,isOpen)
+    {
+        $("#loadingDiv").show()
+        $.ajax({
+            url: 'Application/ajax_addrobot.php?t=ChangeStatus',
+            type: 'post',
+            dataType: 'html',
+            data: {userid: userid,status:isOpen},
+            success: function(data){
+                var jsondata=JSON.parse(data)
+                if(jsondata.code!==0)
+                {
+                    alert(jsondata.msg)
+                }
+            },
+            error: function() { },
+            complete:function (){
+                $("#loadingDiv").hide()
+            }
+        })
     }
 
     function searchgame(){
