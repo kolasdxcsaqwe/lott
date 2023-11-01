@@ -29,13 +29,13 @@ $code = fadeGenNY28($resp->opencode);
 $term = $resp->expect;
 $next_term = $qihao + 1;
 $opentime = $resp->opentime;
-$ntime = date('Y-m-d H:i:s', strtotime($opentime) + 150);
+$ntime = date('Y-m-d H:i:s', strtotime($opentime) + 90);
 
 $nntime = str_replace("/", "-", "$ntime");
 if (strlen($nntime) > 11) {
     $next_times = $nntime;
 } else {
-    $next_times = date("Y-m-d H:i:s", strtotime($opentime) + 150);
+    $next_times = date("Y-m-d H:i:s", strtotime($opentime) + 90);
 }
 
 $topcode = get_query_val('fn_open', 'term', "`type`= $type order by `term` desc limit 1");
