@@ -50,7 +50,8 @@ $date = $_GET['date'] == "" ? date('Y/m/d').' - '.date('Y/m/d') : $_GET['date'];
                                          <option value="azxy10" <? if($game == 'azxy10') echo 'selected'; ?>>澳洲幸运10</option>
                                          <option value="azxy5" <? if($game == 'azxy5') echo 'selected'; ?>>河内5分彩</option>
                                          <option value="bjl" <? if($game == 'bjl') echo 'selected'; ?>>百家乐</option>
-                                         <option value="xy28" <? if($game == 'xy28') echo 'selected'; ?>>幸运28</option>
+                                         <option value="xy28" <? if($game == 'xy28') echo 'selected'; ?>>新加坡28</option>
+                                        <option value="ny28" <? if($game == 'ny28') echo 'selected'; ?>>纽约28</option>
                                          <option value="jnd28" <? if($game == 'jnd28') echo 'selected'; ?>>加拿大28</option>
                                          <option value="jsmt" <? if($game == 'jsmt') echo 'selected'; ?>>极速摩托</option>
                                          <option value="jsssc" <? if($game == 'jsssc') echo 'selected'; ?>>极速时时彩</option>
@@ -110,6 +111,8 @@ $date = $_GET['date'] == "" ? date('Y/m/d').' - '.date('Y/m/d') : $_GET['date'];
                                 select_query('fn_open','*',"type = '3' and (`time` between '{$date[0]} 00:00:00' and '{$date[1]} 23:59:59')".$sql." order by term desc");
                             }elseif($game == 'xy28'){
                                 select_query('fn_open','*',"type = '4' and (`time` between '{$date[0]} 00:00:00' and '{$date[1]} 23:59:59')".$sql." order by term desc");
+                            }elseif($game == 'ny28'){
+                                select_query('fn_open','*',"type = '19' and (`time` between '{$date[0]} 00:00:00' and '{$date[1]} 23:59:59')".$sql." order by term desc");
                             }elseif($game == 'jnd28'){
                                 select_query('fn_open','*',"type = '5' and (`time` between '{$date[0]} 00:00:00' and '{$date[1]} 23:59:59')".$sql." order by term desc");
                             }elseif($game == 'jsmt'){
@@ -153,7 +156,7 @@ $date = $_GET['date'] == "" ? date('Y/m/d').' - '.date('Y/m/d') : $_GET['date'];
                                 }elseif($game == 'cqssc'){
                                     $m = get_query_val('fn_sscorder','sum(money)',"term = '{$con['term']}' and roomid = {$_SESSION['agent_room']} and jia = 'false' and status != '未结算' and status != '已撤单'"); 
                                     $z = (int)get_query_val('fn_sscorder','sum(`status`)',"roomid = '{$_SESSION['agent_room']}' and jia = 'false' and status > 0 and term = '{$con['term']}'");//中奖金额
-                                }elseif($game == 'xy28' || $game == 'jnd28'){
+                                }elseif($game == 'xy28' || $game == 'jnd28' || $game == 'ny28'){
                                     $m = get_query_val('fn_pcorder','sum(money)',"term = '{$con['term']}' and roomid = {$_SESSION['agent_room']} and jia = 'false' and status != '未结算' and status != '已撤单'"); 
                                     $z = (int)get_query_val('fn_pcorder','sum(`status`)',"roomid = '{$_SESSION['agent_room']}' and jia = 'false' and status > 0 and term = '{$con['term']}'");//中奖金额
                                 }elseif($game == 'jsmt'){
@@ -229,7 +232,7 @@ $date = $_GET['date'] == "" ? date('Y/m/d').' - '.date('Y/m/d') : $_GET['date'];
                                         $zhu = (int)get_query_val('fn_flyorder','count(*)',"term = '{$con['term']}' and roomid = {$_SESSION['agent_room']} and status != '未结算' and status != '已撤单'");
                                     }elseif($game == 'cqssc'){
                                         $zhu = (int)get_query_val('fn_sscorder','count(*)',"term = '{$con['term']}' and roomid = {$_SESSION['agent_room']} and status != '未结算' and status != '已撤单'");
-                                    }elseif($game == 'xy28' || $game == 'jnd28'){
+                                    }elseif($game == 'xy28' || $game == 'jnd28' || $game == 'ny28'){
                                         $zhu = (int)get_query_val('fn_pcorder','count(*)',"term = '{$con['term']}' and roomid = {$_SESSION['agent_room']} and status != '未结算' and status != '已撤单'");
                                     }elseif($game == 'jsmt'){
                                         $zhu = (int)get_query_val('fn_mtorder','count(*)',"term = '{$con['term']}' and roomid = {$_SESSION['agent_room']} and status != '未结算' and status != '已撤单'");

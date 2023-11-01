@@ -19,10 +19,17 @@ function PC_jiesuan1($game,$kaiterm){
 			if($jsdiy == 1)continue;
         }else if($game == 'xy28'){
             $openType = 4;
-            $game = '幸运28';
+            $game = '新加坡28';
 			$jsdiy = get_query_val('fn_lottery'.$openType,'jsdiy',array('roomid'=>$roomid));
 			if($jsdiy == 1)continue;
         }
+        else if($game == 'ny28'){
+            $openType = 19;
+            $game = '纽约28';
+            $jsdiy = get_query_val('fn_lottery'.$openType,'jsdiy',array('roomid'=>$roomid));
+            if($jsdiy == 1)continue;
+        }
+
         $zym_9 = $zym_7;
         $opencode = get_query_val('fn_open', 'code', "`term` = '$term' and `type` = '$openType'");
         if($opencode == "")continue;
@@ -31,7 +38,7 @@ function PC_jiesuan1($game,$kaiterm){
             echo 'ERROR!';
             exit();
         }else{
-            if($openType == 4){
+            if($openType == 4 || $openType == 19){
                 $number1 = (int)$codes[0] + (int)$codes[1] + (int)$codes[2] + (int)$codes[3] + (int)$codes[4] + (int)$codes[5];
                 $number2 = (int)$codes[6] + (int)$codes[7] + (int)$codes[8] + (int)$codes[9] + (int)$codes[10] + (int)$codes[11];
                 $number3 = (int)$codes[12] + (int)$codes[13] + (int)$codes[14] + (int)$codes[15] + (int)$codes[16] + (int)$codes[17];
@@ -11556,7 +11563,7 @@ function kaizd($game,$term,$roomid) {
              管理员喊话1("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'cqssc');
             echo "cqssc喊话-" . $con['roomid'] . '..<br>';
         
-    } elseif ($game == 'bjkl8') {
+    } elseif ($game == 'bjkl8' || $game == 'ny28') {
         select_query('fn_chat', '*', "term='{$term}' and game = 'xy28' and status != '未结算' and roomid = '{$roomid}'");
         while ($con1 = db_fetch_array()) {
             $cons1[] = $con1;

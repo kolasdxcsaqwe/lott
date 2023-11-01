@@ -37,7 +37,11 @@ $date = $_GET['date'] == "" ? date('Y/m/d').' - '.date('Y/m/d') : $_GET['date'];
                                 $jsdiy = get_query_val('fn_lottery3','jsdiy',array('roomid'=>$_SESSION['agent_room']));
                             }elseif($game == 'xy28'){
                                $jsdiy = get_query_val('fn_lottery4','jsdiy',array('roomid'=>$_SESSION['agent_room']));
-                            }elseif($game == 'jnd28'){
+                            }
+                            elseif($game == 'ny28'){
+                                $jsdiy = get_query_val('fn_lottery19','jsdiy',array('roomid'=>$_SESSION['agent_room']));
+                            }
+                            elseif($game == 'jnd28'){
                                $jsdiy = get_query_val('fn_lottery5','jsdiy',array('roomid'=>$_SESSION['agent_room']));
                             }elseif($game == 'jsmt'){
                                $jsdiy = get_query_val('fn_lottery6','jsdiy',array('roomid'=>$_SESSION['agent_room']));
@@ -93,7 +97,8 @@ $date = $_GET['date'] == "" ? date('Y/m/d').' - '.date('Y/m/d') : $_GET['date'];
                                     <select id="searchgame" class="form-control select2" style="width: 100%;">
                                          <option value="pk10" <? if($game == 'pk10') echo 'selected'; ?>>北京赛车</option>
                                          <option value="xyft" <? if($game == 'xyft') echo 'selected'; ?>>幸运飞艇</option>
-                                         <option value="xy28" <? if($game == 'xy28') echo 'selected'; ?>>幸运28</option>
+                                         <option value="xy28" <? if($game == 'xy28') echo 'selected'; ?>>新加坡28</option>
+                                        <option value="ny28" <? if($game == 'ny28') echo 'selected'; ?>>纽约28</option>
                                          <option value="jnd28" <? if($game == 'jnd28') echo 'selected'; ?>>加拿大28</option>
                                          <option value="cqssc" <? if($game == 'cqssc') echo 'selected'; ?>>重庆时时彩</option>
                                          <option value="kuai3" <? if($game == 'kuai3') echo 'selected'; ?>>江苏快三</option>
@@ -152,9 +157,9 @@ $date = $_GET['date'] == "" ? date('Y/m/d').' - '.date('Y/m/d') : $_GET['date'];
                                 }elseif($game == 'cqssc'){
                                     select_query('fn_sscorder','*',"roomid = {$_SESSION['agent_room']} and jia = 'false' and status = '未结算'"); 
                                    
-                                }elseif($game == 'xy28' || $game == 'jnd28'){
+                                }elseif($game == 'xy28' || $game == 'jnd28' || $game == 'ny28'){
                                     select_query('fn_pcorder','*',"roomid = {$_SESSION['agent_room']} and jia = 'false' and status = '未结算'"); 
-                                   
+
                                 }elseif($game == 'jsmt'){
                                     select_query('fn_mtorder','*',"roomid = {$_SESSION['agent_room']} and jia = 'false' and status = '未结算'"); 
                                     

@@ -19,7 +19,7 @@ function PC_jiesuan1($roomid,$game,$kaiterm){
 			if($jsdiy == 1)continue;
         }else{
             $openType = 4;
-            $game = '幸运28';
+            $game = '新加坡28';
 			$jsdiy = get_query_val('fn_lottery'.$openType,'jsdiy',array('roomid'=>$roomid));
 			if($jsdiy == 1)continue;
         }

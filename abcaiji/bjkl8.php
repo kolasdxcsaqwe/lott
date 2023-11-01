@@ -1,6 +1,6 @@
 <?php
 header("Content-type:text/html;charset=utf-8");
-echo "<span style='color:red;'>幸运28</span><br>";
+echo "<span style='color:red;'>新加坡28</span><br>";
 date_default_timezone_set("Asia/Shanghai");
 error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
 include_once "./Public/config.php";
@@ -68,10 +68,10 @@ if (empty($topcode) || $topcode < $term) {
     echo "更新 $code 成功！<br>";
 
     //40秒随机
-    startBot("xy28", "10029", 40);
+    startBot("xy28", "10029",15, 40);
 
 } else {
-    echo "等待幸运28刷新<br>";
+    echo "等待新加坡28刷新<br>";
 }
 
 

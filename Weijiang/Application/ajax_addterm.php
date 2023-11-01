@@ -57,7 +57,7 @@ if($type == '4'){
     }
     else
     {
-          //幸运28
+          //新加坡28
         $code=fadeGenXY28($code);
     }
 }

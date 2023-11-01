@@ -66,7 +66,7 @@ echo '----------喊话失败！请登录后台启动程序！----------<br><br><
 
 //zepto 20171013
 echo '<br>';
-echo '幸运28倒计时:' . $pcdjs;
+echo '新加坡28倒计时:' . $pcdjs;
 echo '<br>';
 //<!--JS 页面自动刷新 -->
 echo ("<script type=\"text/javascript\">");

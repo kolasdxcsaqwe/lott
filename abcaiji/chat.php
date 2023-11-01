@@ -23,6 +23,8 @@ $twk3djs = strtotime(get_query_val('fn_open', 'next_time', "`type` = '15' order 
 $txffcdjs = strtotime(get_query_val('fn_open', 'next_time', "`type` = '16' order by `term` desc limit 1")) - time();
 $azxy10djs = strtotime(get_query_val('fn_open', 'next_time', "`type` = '17' order by `term` desc limit 1")) - time();
 $azxy5djs = strtotime(get_query_val('fn_open', 'next_time', "`type` = '18' order by `term` desc limit 1")) - time();
+$ny28js = strtotime(get_query_val('fn_open', 'next_time', "`type` = '19' order by `term` desc limit 1")) - time();
+
 select_query("fn_setting", '*', '');
 while($con = db_fetch_array()){
     $cons[] = $con;
@@ -33,6 +35,7 @@ foreach($cons as $con){
     $xyftopen = get_query_val('fn_lottery2', 'gameopen', array('roomid' => $roomid)) == 'true' ? true : false;
     $cqsscopen = get_query_val('fn_lottery3', 'gameopen', array('roomid' => $roomid)) == 'true' ? true : false;
     $xy28open = get_query_val('fn_lottery4', 'gameopen', array('roomid' => $roomid)) == 'true' ? true : false;
+    $ny28open = get_query_val('fn_lottery19', 'gameopen', array('roomid' => $roomid)) == 'true' ? true : false;
     $jnd28open = get_query_val('fn_lottery5', 'gameopen', array('roomid' => $roomid)) == 'true' ? true : false;
     $jsmtopen = get_query_val('fn_lottery6', 'gameopen', array('roomid' => $roomid)) == 'true' ? true : false;
     $jsscopen = get_query_val('fn_lottery7', 'gameopen', array('roomid' => $roomid)) == 'true' ? true : false;
@@ -59,6 +62,9 @@ foreach($cons as $con){
     }
     if($xy28open){
         $pctime = (int)get_query_val('fn_lottery4', 'fengtime', array('roomid' => $roomid));
+    }
+    if($ny28open){
+        $ny28time = (int)get_query_val('fn_lottery19', 'fengtime', array('roomid' => $roomid));
     }
     if($jnd28open){
         $jndtime = (int)get_query_val('fn_lottery5', 'fengtime', array('roomid' => $roomid));
@@ -129,6 +135,7 @@ foreach($cons as $con){
   $qishu16 = get_query_val('fn_open', 'next_term', "`type` = '16' order by `term` desc limit 1");
   $qishu17 = get_query_val('fn_open', 'next_term', "`type` = '17' order by `term` desc limit 1");
   $qishu18 = get_query_val('fn_open', 'next_term', "`type` = '18' order by `term` desc limit 1");
+  $qishu19 = get_query_val('fn_open', 'next_term', "`type` = '19' order by `term` desc limit 1");
     
     if($pk10open){
        $contest1 = str_replace("[期号]",$qishu1,$daojishi);
@@ -212,6 +219,27 @@ foreach($cons as $con){
         }
         if($msg3_cont != "" && $pcdjs == $msg3){
             管理员喊话($msg3_cont, $roomid, 'xy28');
+        }
+    }
+    if($ny28open){
+        $contest1 = str_replace("[期号]",$qishu19,$daojishi);
+        $contests1 = str_replace("[换行]","<br>",$contest1);
+        $contest2 = str_replace("[期号]",$qishu19,$fengpanxiaoxi);
+        $contests2 = str_replace("[换行]","<br>",$contest2);
+        if($ny28time + 30 == $ny28js){
+            管理员喊话( $contests1, $roomid, 'ny28');
+        }
+        if($ny28time == $ny28js){
+            管理员喊话( $contests2, $roomid, 'ny28');
+        }
+        if($msg1_cont != "" && $ny28js == $msg1){
+            管理员喊话($msg1_cont, $roomid, 'ny28');
+        }
+        if($msg2_cont != "" && $ny28js == $msg2){
+            管理员喊话($msg2_cont, $roomid, 'ny28');
+        }
+        if($msg3_cont != "" && $ny28js == $msg3){
+            管理员喊话($msg3_cont, $roomid, 'ny28');
         }
     }
     if($jnd28open){
@@ -512,7 +540,7 @@ foreach($cons as $con){
 usleep(456000);
 echo '封 - 盤 - 播 - 报 - 中...'
 
-//echo "腾讯分分彩倒计时:" . $txffcdjs . '<br>' ."澳洲幸运10倒计时:" . $azxy10djs . '<br>' ."河内5分彩倒计时:" . $azxy5djs . '<br>' ."PK10倒计时:" . $pkdjs . '<br>' . '幸运飞艇倒计时:' . $xyftdjs . '|' . $xyfttime . '<br>' . '重庆时时彩倒计时:' . $cqsscdjs . '<br>' . '幸运28倒计时:' . $pcdjs . '<br>' . '加拿大28倒计时:' . $jnddjs . '<br>' . '极速摩托倒计时:' . $jsmtdjs . '<br>' . '极速赛车倒计时:' . $jsscdjs . '<br>' . '极速时时彩倒计时:' . $jssscdjs.'<br>'.'江苏快三倒计时:'.$kuai3djs.'<br>'.'百家乐倒计时:'.$bjldjs.'<br>'.'广东11选5倒计时:'.$gdx5djs.'<br>'.'极速赛马倒计时:'.$jssmdjs.'<br>'.'六合彩倒计时:'.$lhcdjs.'<br>'.'极速六合彩倒计时:'.$jslhcdjs.'<br>'.'台湾快三倒计时:'.$twk3djs.'<br>';
+//echo "腾讯分分彩倒计时:" . $txffcdjs . '<br>' ."澳洲幸运10倒计时:" . $azxy10djs . '<br>' ."河内5分彩倒计时:" . $azxy5djs . '<br>' ."PK10倒计时:" . $pkdjs . '<br>' . '幸运飞艇倒计时:' . $xyftdjs . '|' . $xyfttime . '<br>' . '重庆时时彩倒计时:' . $cqsscdjs . '<br>' . '新加坡28倒计时:' . $pcdjs . '<br>' . '加拿大28倒计时:' . $jnddjs . '<br>' . '极速摩托倒计时:' . $jsmtdjs . '<br>' . '极速赛车倒计时:' . $jsscdjs . '<br>' . '极速时时彩倒计时:' . $jssscdjs.'<br>'.'江苏快三倒计时:'.$kuai3djs.'<br>'.'百家乐倒计时:'.$bjldjs.'<br>'.'广东11选5倒计时:'.$gdx5djs.'<br>'.'极速赛马倒计时:'.$jssmdjs.'<br>'.'六合彩倒计时:'.$lhcdjs.'<br>'.'极速六合彩倒计时:'.$jslhcdjs.'<br>'.'台湾快三倒计时:'.$twk3djs.'<br>';
 /*
 //zepto 20171013
 echo '<br>';

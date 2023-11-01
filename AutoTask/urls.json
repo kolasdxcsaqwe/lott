@@ -49,5 +49,9 @@
 	{
 		"url": "http://localhost:8123/abcaiji/jnd28.php",
 		"sec": 3
+	},
+	{
+		"url": "http://localhost:8123/abcaiji/ny28.php",
+		"sec": 3
 	}
 ]

@@ -10,6 +10,16 @@ if($BetGame == 'xy28'){
     }else{
         $fengpan = false;
     }
+}elseif($BetGame == 'ny28'){
+    $BetTerm = get_query_val('fn_open', 'next_term', "`type` = '19' order by `term` desc limit 1");
+    $time = (int)get_query_val('fn_lottery19', 'fengtime', array('roomid' => $_SESSION['roomid']));
+    $djs = strtotime(get_query_val('fn_open', 'next_time', "`type` = '19' order by `term` desc limit 1")) - time();
+    $gametype = 4;
+    if($djs < $time){
+        $fengpan = true;
+    }else{
+        $fengpan = false;
+    }
 }elseif($BetGame == 'jnd28'){
     $BetTerm = get_query_val('fn_open', 'next_term', "`type` = '5' order by `term` desc limit 1");
     $time = (int)get_query_val('fn_lottery5', 'fengtime', array('roomid' => $_SESSION['roomid']));

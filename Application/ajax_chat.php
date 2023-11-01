@@ -40,6 +40,8 @@ switch ($type) {
             if (get_query_val('fn_lottery3', 'gameopen', array('roomid' => $_SESSION['roomid'])) == 'false') $BetGame = 'feng';
         } elseif ($BetGame == 'xy28') {
             if (get_query_val('fn_lottery4', 'gameopen', array('roomid' => $_SESSION['roomid'])) == 'false') $BetGame = 'feng';
+        }elseif ($BetGame == 'ny28') {
+            if (get_query_val('fn_lottery19', 'gameopen', array('roomid' => $_SESSION['roomid'])) == 'false') $BetGame = 'feng';
         } elseif ($BetGame == 'jnd28') {
             if (get_query_val('fn_lottery5', 'gameopen', array('roomid' => $_SESSION['roomid'])) == 'false') $BetGame = 'feng';
         } elseif ($BetGame == 'jsmt') {
@@ -100,6 +102,15 @@ switch ($type) {
             $BetTerm = get_query_val('fn_open', 'next_term', "type = 4 order by term desc limit 1");
             $time = (int)get_query_val('fn_lottery4', 'fengtime', array('roomid' => $_SESSION['roomid']));
             $djs = strtotime(get_query_val('fn_open', 'next_time', 'type = 4 order by term desc limit 1')) - time();
+            if ($djs < $time) {
+                $fengpan = true;
+            } else {
+                $fengpan = false;
+            }
+        }elseif ($BetGame == 'ny28') {
+            $BetTerm = get_query_val('fn_open', 'next_term', "type = 19 order by term desc limit 1");
+            $time = (int)get_query_val('fn_lottery19', 'fengtime', array('roomid' => $_SESSION['roomid']));
+            $djs = strtotime(get_query_val('fn_open', 'next_time', 'type = 19 order by term desc limit 1')) - time();
             if ($djs < $time) {
                 $fengpan = true;
             } else {
@@ -328,7 +339,7 @@ switch ($type) {
             }
         }
 
-        if ($type == 'U3' && $fenshuchange == false && ($BetGame == 'xy28' || $BetGame == 'jnd28')) {
+        if ($type == 'U3' && $fenshuchange == false && ($BetGame == 'ny28' || $BetGame == 'xy28' || $BetGame == 'jnd28')) {
             $co = addPCBet($_SESSION['userid'], $_SESSION['username'], $_SESSION['headimg'], $content, $BetTerm, $fengpan);
         } elseif ($type == 'U3' && $fenshuchange == false && $BetGame == 'bjl') {
             //myy 判断游戏是封盘
@@ -399,6 +410,8 @@ function runrobot($BetGame)
         if (get_query_val('fn_lottery3', 'gameopen', array('roomid' => $_SESSION['roomid'])) == 'false') $BetGame = 'feng';
     } elseif ($BetGame == 'xy28') {
         if (get_query_val('fn_lottery4', 'gameopen', array('roomid' => $_SESSION['roomid'])) == 'false') $BetGame = 'feng';
+    }elseif ($BetGame == 'ny28') {
+        if (get_query_val('fn_lottery19', 'gameopen', array('roomid' => $_SESSION['roomid'])) == 'false') $BetGame = 'feng';
     } elseif ($BetGame == 'jnd28') {
         if (get_query_val('fn_lottery5', 'gameopen', array('roomid' => $_SESSION['roomid'])) == 'false') $BetGame = 'feng';
     } elseif ($BetGame == 'jsmt') {
@@ -459,6 +472,15 @@ function runrobot($BetGame)
         $BetTerm = get_query_val('fn_open', 'next_term', "type = 4 order by term desc limit 1");
         $time = (int)get_query_val('fn_lottery4', 'fengtime');
         $djs = strtotime(get_query_val('fn_open', 'next_time', 'type = 4 order by term desc limit 1')) - time();
+        if ($djs < $time) {
+            $fengpan = true;
+        } else {
+            $fengpan = false;
+        }
+    }elseif ($BetGame == 'ny28') {
+        $BetTerm = get_query_val('fn_open', 'next_term', "type = 19 order by term desc limit 1");
+        $time = (int)get_query_val('fn_lottery19', 'fengtime');
+        $djs = strtotime(get_query_val('fn_open', 'next_time', 'type = 19 order by term desc limit 1')) - time();
         if ($djs < $time) {
             $fengpan = true;
         } else {
@@ -725,6 +747,9 @@ function CancelBet($userid, $term, $game, $fengpan)
                 $table = "fn_sscorder";
                 break;
             case 'xy28':
+                $table = "fn_pcorder";
+                break;
+            case 'ny28':
                 $table = "fn_pcorder";
                 break;
             case "jnd28":
@@ -2244,6 +2269,10 @@ function addPCBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan)
     switch ($_COOKIE['game']) {
         case 'xy28':
             $table = 'fn_lottery4';
+            $ordertable = 'fn_pcorder';
+            break;
+        case 'ny28':
+            $table = 'fn_lottery19';
             $ordertable = 'fn_pcorder';
             break;
         case "jnd28":

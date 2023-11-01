@@ -67,7 +67,7 @@ if($preterm!=null && $term==$preterm)
   }
   echo "更新 $code 成功！<br>";
   //40秒随机
-  startBot($game,"10029",40);
+  startBot($game,"10029",20,40);
 
 }else{
   echo "等待加拿大28刷新<br>";
