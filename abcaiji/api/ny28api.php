@@ -52,7 +52,7 @@ function times ($interval){
     }
 }
 
-$tim = times("1:00");
+$tim = times("1:30");
 $tarr =$tim ;
 $c = 0;
 $t = '';
