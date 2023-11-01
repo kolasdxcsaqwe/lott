@@ -18,7 +18,7 @@ date_default_timezone_set("Asia/Shanghai");
 if ($_COOKIE['game'] == 'xy28' || $_COOKIE['game'] == 'ny28') {
     $gametype = 'pc28a';
 
-    $data = "";
+    $data = [];
     if ($_COOKIE['game'] == 'xy28') {
         $data = get_query_vals('fn_open', '*', "type = 4 order by term desc limit 1");
     }
