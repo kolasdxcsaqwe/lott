@@ -211,6 +211,7 @@ function sjhz($game, $money)
     switch ($game) {
         case 'xy28':
         case 'jnd28':
+        case 'ny28':
             $result = $val . $money;
             break;
     }
@@ -230,6 +231,7 @@ function smdds($game, $money)
     switch ($game) {
         case 'xy28':
         case 'jnd28':
+        case 'ny28':
             $result = $val . $money;
             break;
         case 'twk3':
@@ -254,6 +256,7 @@ function sjxds($game, $money)
     switch ($game) {
         case 'xy28':
         case 'jnd28':
+        case 'ny28':
             $result = $val . $money;
             break;
         case 'twk3':
@@ -288,6 +291,7 @@ function sjsm($game, $money)
             break;
         case 'xy28':
         case 'jnd28':
+        case 'ny28':
             $result = $val . $money;
             break;
     }
