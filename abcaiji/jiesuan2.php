@@ -11574,7 +11574,7 @@ function kaizd($game, $term, $roomid)
         管理员喊话1("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'cqssc');
         echo "cqssc喊话-" . $con['roomid'] . '..<br>';
 
-    } elseif ($game == 'bjkl8' || $game == 'ny28') {
+    } elseif ($game == 'bjkl8') {
         select_query('fn_chat', '*', "term='{$term}' and game = 'xy28' and status != '未结算' and roomid = '{$roomid}'");
         while ($con1 = db_fetch_array()) {
             $cons1[] = $con1;
@@ -11623,15 +11623,65 @@ function kaizd($game, $term, $roomid)
             $chat_1_1 = '<br>☆☆很遗憾，无人中奖~~☆☆<br>';
         }
 
-        $tabName="fn_lottery4";
-        if($game == 'ny28')
-        {
-            $tabName="fn_lottery19";
-        }
-        $con = get_query_vals($tabName, '*', array('roomid' => $roomid));
+        $con = get_query_vals('fn_lottery4', '*', array('roomid' => $roomid));
 
         if ($con['jsdiy'] == '1') continue;
         管理员喊话1("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'xy28');
+        echo "bjkl8喊话-" . $con['roomid'] . '..<br>';
+
+    }elseif ($game == 'ny28') {
+        select_query('fn_chat', '*', "term='{$term}' and game = 'ny28' and status != '未结算' and roomid = '{$roomid}'");
+        while ($con1 = db_fetch_array()) {
+            $cons1[] = $con1;
+        }
+        foreach ($cons1 as $val) {
+            $id .= $val['id'] . '|';
+            $jine .= $val['status'] . '|';
+        }
+        $id = substr($id, 0, -1);
+        $jine = substr($jine, 0, -1);
+        $id = explode('|', $id);
+        $jine = explode('|', $jine);
+        $heji1 = array_combine($id, $jine);
+        select_query('fn_pcorder', '*', "term='{$term}' and status != '未结算' and roomid = '{$roomid}'");
+        while ($con2 = db_fetch_array()) {
+            $cons2[] = $con2;
+        }
+        foreach ($cons2 as $val1) {
+            $userid .= $val1['id'] . '=|';
+            $status .= $val1['status'] . '|';
+        }
+        $userid = substr($userid, 0, -1);
+        $status = substr($status, 0, -1);
+        $userid = explode('|', $userid);
+        $status = explode('|', $status);
+        $heji2 = array_combine($userid, $status);
+        $chatzd = $heji1 + $heji2;
+        arsort($chatzd);
+        $abc = array_slice($chatzd, 0, 100, true);
+        foreach ($abc as $key => $val) {
+            if (empty($key) || $val < 0 || $val == '-') continue;
+            if (preg_match("/=/", $key)) {
+                $id_1 = substr($key, 0, -1);
+                $ct_1 = get_query_vals('fn_pcorder', '*', array('id' => $id_1));
+
+                $ct_1_name = mb_substr($ct_1['username'], 0, 3, 'utf-8') . '..';
+                $chat_1_1 .= '[' . $ct_1_name . '] ' . $ct_1['mingci'] . '/' . $ct_1['content'] . '/' . $ct_1['money'] . ' = ' . $ct_1['status'] . '<br>';
+            } else {
+                $ct_1 = get_query_vals('fn_chat', '*', array('id' => $key));
+
+                $ct_1_name = mb_substr($ct_1['username'], 0, 3, 'utf-8') . '..';
+                $chat_1_1 .= '[' . $ct_1_name . '] ' . $ct_1['content'] . ' = ' . $ct_1['status'] . '<br>';
+            }
+        }
+        if (empty($chat_1_1)) {
+            $chat_1_1 = '<br>☆☆很遗憾，无人中奖~~☆☆<br>';
+        }
+
+        $con = get_query_vals('fn_lottery19', '*', array('roomid' => $roomid));
+
+        if ($con['jsdiy'] == '1') continue;
+        管理员喊话1("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'ny28');
         echo "bjkl8喊话-" . $con['roomid'] . '..<br>';
 
     } elseif ($game == 'jnd28') {
