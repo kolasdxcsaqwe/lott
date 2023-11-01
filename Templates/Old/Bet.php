@@ -29,7 +29,7 @@ body {
 			<div class="panel-body">
 				<table class="table table-striped table-bordered " style="text-align:center;">
 				<?php
- if($game == 'xy28' || $game == 'jnd28'){
+ if($game == 'xy28' || $game == 'jnd28' || $game == 'ny28'){
     ?>
 						<thead>
 							<tr>
@@ -991,7 +991,7 @@ body {
 			</div>
 			<div class="panel-body">
 				<table data-sort-name="Code" data-sort-order="desc" data-pagination="true" data-page-size="15" data-page-list="[15, 30, 50, 100, All]" data-search="true" data-toggle="table" class="table table-striped table-bordered " style="text-align:center;">
-				<?php if($game == 'xy28' || $game == 'jnd28'){
+				<?php if($game == 'xy28' || $game == 'jnd28' || $game == 'ny28'){
     ?>
 						<thead>
 							<tr>

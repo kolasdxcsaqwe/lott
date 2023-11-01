@@ -11,8 +11,18 @@ $ii2=(int)$i2;
 
 $o=$ii>$ii2;
 
-echo "sadas".$o;
+echo getTimestamp(13);
 
+function getTimestamp($digits = false)
+{
+    $digits = $digits > 10 ? $digits : 10;
+    $digits = $digits - 10;
+    if ((!$digits) || ($digits == 10)) {
+        return time();
+    } else {
+        return number_format(microtime(true), $digits, '', '');
+    }
+}
 
 function vv()
 {

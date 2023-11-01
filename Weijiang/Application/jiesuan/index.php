@@ -18,7 +18,13 @@ if($game == 'xyft'){
  }if($game == 'xy28'){
    PC_jiesuan($roomid);
      $qihao = get_query_val('fn_open','term',"type = '4' order by term desc limit 1");
- }if($game == 'jnd28'){
+ }if($game == 'ny28'){
+    PC_jiesuan($roomid);
+    $qihao = get_query_val('fn_open','term',"type = '19' order by term desc limit 1");
+}if($game == 'ny28'){
+    PC_jiesuan($roomid);
+    $qihao = get_query_val('fn_open','term',"type = '19' order by term desc limit 1");
+}if($game == 'jnd28'){
    PC_jiesuan($roomid);
      $qihao = get_query_val('fn_open','term',"type = '5' order by term desc limit 1");
  }if($game == 'jsmt'){

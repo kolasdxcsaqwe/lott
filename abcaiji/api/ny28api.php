@@ -74,7 +74,7 @@ $scnext_issue = ($sclastno + $c);
 
 
 
-$time = date('Y-m-d H:i:s', strtotime(date('Y-m-d ') . $t) - 150);
+$time = date('Y-m-d H:i:s', strtotime(date('Y-m-d ') . $t) - 90);
 $next_time = date('Y-m-d ') . $t;
 
 

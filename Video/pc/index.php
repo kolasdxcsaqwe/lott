@@ -2,7 +2,11 @@
 	include_once(dirname(dirname(dirname(__FILE__))).'/Public/config.php');
   if($_COOKIE['game'] == 'xy28'){
     $fengpantime = get_query_val('fn_lottery4','fengtime',array('roomid'=>$_SESSION['roomid']));
-  }elseif($_COOKIE['game'] == 'jnd28'){
+  }
+  elseif($_COOKIE['game'] == 'ny28'){
+      $fengpantime = get_query_val('fn_lottery19','fengtime',array('roomid'=>$_SESSION['roomid']));
+  }
+  elseif($_COOKIE['game'] == 'jnd28'){
     $fengpantime = get_query_val('fn_lottery5','fengtime',array('roomid'=>$_SESSION['roomid']));
   }
 	
