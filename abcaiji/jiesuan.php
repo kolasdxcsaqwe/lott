@@ -11503,8 +11503,12 @@ function kaichat($game, $term)
         $haomachuan .= "<span class='pk'>=</span>";
         $haomachuan .= "<span class='pk_8'>" . (int)$he . "</span>";
 
-
-        select_query('fn_lottery4', '*', array('gameopen' => 'true'));
+        $tabName="fn_lottery4";
+        if($game == 'ny28')
+        {
+            $tabName="fn_lottery19";
+        }
+        select_query($tabName, '*', array('gameopen' => 'true'));
         while ($con = db_fetch_array()) {
             $cons[] = $con;
         }
