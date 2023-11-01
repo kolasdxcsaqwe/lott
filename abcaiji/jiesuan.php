@@ -11485,7 +11485,7 @@ function kaichat($game, $term)
             管理员喊话("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br>第 $term 期已开启下注!", $con['roomid'], 'cqssc');
             echo "mlaft喊话-" . $con['roomid'] . '..<br>';
         }
-    } elseif ($game == 'bjkl8' || $game == 'ny28') {
+    } elseif ($game == 'bjkl8') {
         $haoma = get_query_val('fn_open', 'code', "`type` = '4' order by `term` desc limit 1");
         $codes = explode(",", $haoma);
         $number1 = (int)$codes[0] + (int)$codes[1] + (int)$codes[2] + (int)$codes[3] + (int)$codes[4] + (int)$codes[5];
@@ -11503,12 +11503,7 @@ function kaichat($game, $term)
         $haomachuan .= "<span class='pk'>=</span>";
         $haomachuan .= "<span class='pk_8'>" . (int)$he . "</span>";
 
-        $tabName="fn_lottery4";
-        if($game == 'ny28')
-        {
-            $tabName="fn_lottery19";
-        }
-        select_query($tabName, '*', array('gameopen' => 'true'));
+        select_query('fn_lottery4', '*', array('gameopen' => 'true'));
         while ($con = db_fetch_array()) {
             $cons[] = $con;
         }
@@ -11516,6 +11511,34 @@ function kaichat($game, $term)
             if ($con['jsdiy'] == '1') continue;
             $kjqh = get_query_val('fn_open', 'term', "`type` = '4' order by `term` desc limit 1");
             管理员喊话("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br>第 $term 期已开启下注!", $con['roomid'], 'xy28');
+            echo "bjkl8喊话-" . $con['roomid'] . '..<br>';
+        }
+    }elseif ($game == 'ny28') {
+        $haoma = get_query_val('fn_open', 'code', "`type` = '19' order by `term` desc limit 1");
+        $codes = explode(",", $haoma);
+        $number1 = (int)$codes[0] + (int)$codes[1] + (int)$codes[2] + (int)$codes[3] + (int)$codes[4] + (int)$codes[5];
+        $number2 = (int)$codes[6] + (int)$codes[7] + (int)$codes[8] + (int)$codes[9] + (int)$codes[10] + (int)$codes[11];
+        $number3 = (int)$codes[12] + (int)$codes[13] + (int)$codes[14] + (int)$codes[15] + (int)$codes[16] + (int)$codes[17];
+
+        $number1 = substr($number1, -1);
+        $number2 = substr($number2, -1);
+        $number3 = substr($number3, -1);
+        $he = (int)$number1 + (int)$number2 + (int)$number3;
+
+        $haomachuan .= "<span class='pk_" . (int)$number1 . "'>" . (int)$number1 . "</span>";
+        $haomachuan .= "<span class='pk_" . (int)$number2 . "'>" . (int)$number2 . "</span>";
+        $haomachuan .= "<span class='pk_" . (int)$number3 . "'>" . (int)$number3 . "</span>";
+        $haomachuan .= "<span class='pk'>=</span>";
+        $haomachuan .= "<span class='pk_8'>" . (int)$he . "</span>";
+
+        select_query('fn_lottery19', '*', array('gameopen' => 'true'));
+        while ($con = db_fetch_array()) {
+            $cons[] = $con;
+        }
+        foreach ($cons as $con) {
+            if ($con['jsdiy'] == '1') continue;
+            $kjqh = get_query_val('fn_open', 'term', "`type` = '19' order by `term` desc limit 1");
+            管理员喊话("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br>第 $term 期已开启下注!", $con['roomid'], 'ny28');
             echo "bjkl8喊话-" . $con['roomid'] . '..<br>';
         }
     } elseif ($game == 'jnd28') {
