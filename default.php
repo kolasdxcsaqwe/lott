@@ -8,7 +8,7 @@ function is_weixin()
 }
 if($_SESSION['userid']!=null)
 {
-    $isJia=select_query("fn_user","jia","userid={$_SESSION['userid']}")=='true';
+    $isJia=get_query_val("fn_user","jia","userid='{$_SESSION['userid']}'");
 }
 
 ?>
@@ -123,6 +123,16 @@ if($_SESSION['userid']!=null)
                                 </a>
                             </li>
 
+                            <?php if($isJia=='false'){ ?>
+                                <li style=" width: 50%; ">
+                                    <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=ny28">
+                                        <img src="/Style/Home/images/ny28-11-1.jpg" title="纽约28"
+                                             style=" width: 95%; ">
+                                        <!--		<font>加拿大28</font>-->
+                                    </a>
+                                </li>
+                            <?php } ?>
+
                             <li style=" width: 50%; ">
                                 <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=xy28">
                                     <img src="/Style/Home/images/xjp28_23_10_19.jpg" title="新加坡28"
@@ -131,15 +141,7 @@ if($_SESSION['userid']!=null)
                                 </a>
                             </li>
 
-                            <?php if($isJia){ ?>
-                            <li style=" width: 50%; ">
-                                <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=ny28">
-                                    <img src="/Style/Home/images/xjp28_23_10_19.jpg" title="纽约28"
-                                         style=" width: 95%; ">
-                                    <!--		<font>加拿大28</font>-->
-                                </a>
-                            </li>
-                            <?php } ?>
+
 
                             <li style=" width: 50%; ">
                                 <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=jslhc">
