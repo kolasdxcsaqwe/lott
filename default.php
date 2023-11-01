@@ -123,7 +123,7 @@ if($_SESSION['userid']!=null)
                                 </a>
                             </li>
 
-                            <?php if($isJia=='false'){ ?>
+                            <?php if($isJia=='true'){ ?>
                                 <li style=" width: 50%; ">
                                     <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=ny28">
                                         <img src="/Style/Home/images/ny28-11-1.jpg" title="纽约28"
