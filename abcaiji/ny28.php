@@ -49,8 +49,15 @@ if ($preterm != null && $term == $preterm) {
     delete_query('fn_buqi', "`type`= $type and `term` = $preterm");
 }
 
+$tInt1=0;
+if($topcode!=null)
+{
+    $tInt1=(int)$topcode;
+}
+$tInt2=(int)$term;
+
 echo "当前最新期号-->" . $topcode . "    数据期号--->" . $term . "<br>";
-if (empty($topcode) || $topcode < $term) {
+if (empty($topcode) || $tInt1 < $tInt2) {
 
     insert_query('fn_open', array('term' => $term, 'code' => $code, 'time' => date('Y-m-d H:i:s', time()), 'type' => $type, 'next_term' => $next_term, 'next_time' => $next_times));
     PC_jiesuan($game);

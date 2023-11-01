@@ -3,15 +3,15 @@ include_once("./Public/config.php");
 $withdrawTime=get_query_val('fn_upmark','time',array('userid' => 'oWNAL0tlmHRQSisrrn2iciSfRXy4'));
 
 
-$idsf="sadsad";
-$ii=0;
-switch ($ii)
-{
-    case 1:
-    case 0:
-        var_dump("21");
-        break;
-}
+$i='3594215';
+$i2='3593218';
+
+$ii=(int)$i;
+$ii2=(int)$i2;
+
+$o=$ii>$ii2;
+
+echo "sadas".$o;
 
 
 function vv()
