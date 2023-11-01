@@ -29,7 +29,7 @@ case 'cqssc':
      break;
 case 'xy28': 
      $order = 'fn_pcorder';
-     $games = '幸运28';
+     $games = '新加坡28';
      break;
 case 'jnd28': 
      $order = 'fn_pcorder';

@@ -22,7 +22,7 @@ function PC_jiesuan($roomid){
 
         }else{
             $openType = 4;
-            $game = '幸运28';
+            $game = '新加坡28';
 
         }
         $zym_9 = (int)get_query_val('fn_pcorder', 'sum(`money`)', array('roomid' => $roomid, 'term' => $term, 'userid' => $user));

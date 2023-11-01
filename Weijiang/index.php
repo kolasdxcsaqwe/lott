@@ -244,7 +244,7 @@ if($_GET['m'] == ''){
                 <li class="<?php if($_GET['g'] == "txffc")echo 'active';?>"><a href="index.php?m=g_setting&g=txffc"><i class="fa fa-circle-o"></i>腾讯分分彩</a></li>
                 <li class="<?php if($_GET['g'] == "azxy10")echo 'active';?>"><a href="index.php?m=g_setting&g=azxy10"><i class="fa fa-circle-o"></i>澳洲幸运10</a></li>
                 <li class="<?php if($_GET['g'] == "azxy5")echo 'active';?>"><a href="index.php?m=g_setting&g=azxy5"><i class="fa fa-circle-o"></i>河内5分彩</a></li>
-				<li class="<?php if($_GET['g'] == "xy28")echo 'active';?>"><a href="index.php?m=g_setting&g=xy28"><i class="fa fa-circle-o"></i>北京幸运28</a></li>
+				<li class="<?php if($_GET['g'] == "xy28")echo 'active';?>"><a href="index.php?m=g_setting&g=xy28"><i class="fa fa-circle-o"></i>北京新加坡28</a></li>
                 <li class="<?php if($_GET['g'] == "jnd28")echo 'active';?>"><a href="index.php?m=g_setting&g=jnd28"><i class="fa fa-circle-o"></i>加拿大28</a></li>
                 <li class="<?php if($_GET['g'] == "lhc")echo 'active';?>"><a href="index.php?m=g_setting&g=lhc"><i class="fa fa-circle-o"></i>香港六合彩</a></li>
                 <li class="<?php if($_GET['g'] == "jslhc")echo 'active';?>"><a href="index.php?m=g_setting&g=jslhc"><i class="fa fa-circle-o"></i>极速六合彩</a></li>

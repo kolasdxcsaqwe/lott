@@ -809,8 +809,8 @@ if($qrcode == ""){?>
                       echo 'href="#" class="gray"';
                         }else{
                       echo "href='/qr.php?room={$_SESSION['roomid']}&g=xy28'";}?>>
-            <img src="/Style/Home/images/xy28-logo.png" title="幸运28">
-            <font>幸运28</font>
+            <img src="/Style/Home/images/xy28-logo.png" title="新加坡28">
+            <font>新加坡28</font>
           </a>
         </li>
         <li <?php if($jnd28open == 'false') echo 'class="gray"';?>>
@@ -970,8 +970,8 @@ if($qrcode == ""){?>
                       echo 'href="#" class="gray"';
                       }else{
                       echo "href='/qr.php?room={$_SESSION['roomid']}&g=xy28'";}?>>
-            <img src="/Style/Home/images/xy28-logo.png" title="幸运28">
-            <font>幸运28</font>
+            <img src="/Style/Home/images/xy28-logo.png" title="新加坡28">
+            <font>新加坡28</font>
           </a>
         </li>
         <li <?php if($jnd28open == 'false') echo 'style="display:none;"';?>>

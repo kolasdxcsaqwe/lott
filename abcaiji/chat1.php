@@ -193,7 +193,7 @@ foreach($cons as $con){
         }
     }
 }
-echo "PK10倒计时:" . $pkdjs . '<br>' . '幸运飞艇倒计时:' . $xyftdjs . '|' . $xyfttime . '<br>' . '重庆时时彩倒计时:' . $cqsscdjs . '<br>' . '幸运28倒计时:' . $pcdjs . '<br>' . '加拿大28倒计时:' . $jnddjs . '<br>' . '极速摩托倒计时:' . $jsmtdjs . '<br>' . '极速赛车倒计时:' . $jsscdjs . '<br>' . '极速时时彩倒计时:' . $jssscdjs;
+echo "PK10倒计时:" . $pkdjs . '<br>' . '幸运飞艇倒计时:' . $xyftdjs . '|' . $xyfttime . '<br>' . '重庆时时彩倒计时:' . $cqsscdjs . '<br>' . '新加坡28倒计时:' . $pcdjs . '<br>' . '加拿大28倒计时:' . $jnddjs . '<br>' . '极速摩托倒计时:' . $jsmtdjs . '<br>' . '极速赛车倒计时:' . $jsscdjs . '<br>' . '极速时时彩倒计时:' . $jssscdjs;
 echo '<br>';
 echo "系统当前时间戳为:";
 echo "";

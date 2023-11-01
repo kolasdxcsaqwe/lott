@@ -47,7 +47,8 @@ $game = $_GET['game'] == "" ? 'pk10' : $_GET['game'];
                                          <option value="azxy10" <? if($game == 'azxy10') echo 'selected'; ?>>澳洲幸运10</option>
                                          <option value="azxy5" <? if($game == 'azxy5') echo 'selected'; ?>>河内5分彩</option>
                                          <option value="bjl" <? if($game == 'bjl') echo 'selected'; ?>>百家乐</option>
-                                         <option value="xy28" <? if($game == 'xy28') echo 'selected'; ?>>幸运28</option>
+                                         <option value="xy28" <? if($game == 'xy28') echo 'selected'; ?>>新加坡28</option>
+                                        <option value="ny28" <? if($game == 'ny28') echo 'selected'; ?>>纽约28</option>
                                          <option value="jnd28" <? if($game == 'jnd28') echo 'selected'; ?>>加拿大28</option>
                                          <option value="jsmt" <? if($game == 'jsmt') echo 'selected'; ?>>极速摩托</option>
                                          <option value="jsssc" <? if($game == 'jsssc') echo 'selected'; ?>>极速时时彩</option>
@@ -85,6 +86,7 @@ $game = $_GET['game'] == "" ? 'pk10' : $_GET['game'];
                                 case 'xyft': $type = '2'; $order = 'fn_flyorder'; break;
                                 case 'cqssc': $type = '3'; $order = 'fn_sscorder'; break;
                                 case 'xy28': $type = '4'; $order = 'fn_pcorder'; break;
+                                case 'ny28': $type = '19'; $order = 'fn_pcorder'; break;
                                 case 'jnd28': $type = '5'; $order = 'fn_pcorder'; break;
                                 case 'jsmt': $type = '6'; $order = 'fn_mtorder'; break;
                                 case 'jssc': $type = '7'; $order = 'fn_jsscorder'; break;
@@ -109,16 +111,14 @@ $game = $_GET['game'] == "" ? 'pk10' : $_GET['game'];
                             foreach($cons as $con){
                                 if($game == 'pk10' && strlen($con['term']) > 8) continue;
                                 if($game == 'xyft' && strlen($con['term']) < 8) continue;
-                                if($game == 'xy28' && (int)$con['term'] > 2000000) continue;
-                                if($game == 'jnd28' && (int)$con['term'] < 2000000) continue;
-                                
+
                          ?>
                             <tr>
                                 <td><? echo "#".$con['id']; ?></td>
                                 <td><? echo $con['username']; ?></td>
                                 <td><? echo $con['userid']; ?></td>
                                 <td><? echo $con['term']; ?></td>
-                                <td><? if($game == 'xy28' || $game == 'jnd28'){ echo $con['content'].'/'.$con['money']; }else{ echo $con['mingci'].'/'.$con['content'].'/'.$con['money']; } ?></td>
+                                <td><? if($game == 'xy28' || $game == 'jnd28' || $game == 'ny28'){ echo $con['content'].'/'.$con['money']; }else{ echo $con['mingci'].'/'.$con['content'].'/'.$con['money']; } ?></td>
                                 <td>
                                     <?
                                         if($newterm != $con['term']){

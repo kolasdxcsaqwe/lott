@@ -192,7 +192,7 @@ function iFrameHeight() {
 
 function iFrameHeight2() {
 	var src = $('#ifarms').attr('src');
-	if ((info['game'] == 'xy28' || info['game'] == 'jnd28') && src.indexOf("shipin") != -1) {
+	if ((info['game'] == 'xy28' || info['game'] == 'jnd28' || info['game'] == 'ny28') && src.indexOf("shipin") != -1) {
 		$('#ifarms').animate({ height: "430px" });
 	}else{
 		$('#ifarms').animate({ height: "630px" });

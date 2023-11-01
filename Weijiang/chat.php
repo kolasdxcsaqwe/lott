@@ -587,7 +587,7 @@ echo '----------喊话失败！请登录后台启动程序！----------<br><br><
 
 //zepto 20171013
 echo '<br>';
-echo "PK10倒计时:" . $pkdjs . '<br>' . '幸运飞艇倒计时:' . $xyftdjs . '|' . $xyfttime . '<br>' . '重庆时时彩倒计时:' . $cqsscdjs . '<br>' . '幸运28倒计时:' . $pcdjs . '<br>' . '加拿大28倒计时:' . $jnddjs . '<br>' . '极速摩托倒计时:' . $jsmtdjs . '<br>' . '极速赛车倒计时:' . $jsscdjs . '<br>' . '极速时时彩倒计时:' . $jssscdjs.'<br>'.'江苏快三倒计时:'.$kuai3djs.'<br>'.'百家乐倒计时:'.$bjldjs.'<br>'.'广东11选5倒计时:'.$gdx5djs.'<br>'.'极速赛马倒计时:'.$jssmdjs.'<br>'.'六合彩倒计时:'.$lhcdjs.'<br>'.'极速六合彩倒计时:'.$jslhcdjs.'<br>'.'腾讯分分彩倒计时:'.$txffcdjs.'<br>'.'台湾快三倒计时:'.$twk3djs.'<br>';
+echo "PK10倒计时:" . $pkdjs . '<br>' . '幸运飞艇倒计时:' . $xyftdjs . '|' . $xyfttime . '<br>' . '重庆时时彩倒计时:' . $cqsscdjs . '<br>' . '新加坡28倒计时:' . $pcdjs . '<br>' . '加拿大28倒计时:' . $jnddjs . '<br>' . '极速摩托倒计时:' . $jsmtdjs . '<br>' . '极速赛车倒计时:' . $jsscdjs . '<br>' . '极速时时彩倒计时:' . $jssscdjs.'<br>'.'江苏快三倒计时:'.$kuai3djs.'<br>'.'百家乐倒计时:'.$bjldjs.'<br>'.'广东11选5倒计时:'.$gdx5djs.'<br>'.'极速赛马倒计时:'.$jssmdjs.'<br>'.'六合彩倒计时:'.$lhcdjs.'<br>'.'极速六合彩倒计时:'.$jslhcdjs.'<br>'.'腾讯分分彩倒计时:'.$txffcdjs.'<br>'.'台湾快三倒计时:'.$twk3djs.'<br>';
 echo "系统当前时间 ";
 echo ":";
 echo date('Y-m-d H:i:s',time());

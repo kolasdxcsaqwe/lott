@@ -225,9 +225,9 @@ while($con = db_fetch_array()){
 if($code == '' || $code == 'xy28' || $code == 'jnd28'){
 select_query('fn_pcorder', '*', "roomid = '{$_SESSION['roomid']}'  and userid = '{$id}' and (`addtime` between '{$time} 00:00:00' and '{$time2} 23:59:59')");
 while($con = db_fetch_array()){
-    $game = (int)$con['term'] > 2000000 ? '加拿大28' : '幸运28';
+    $game = (int)$con['term'] > 2000000 ? '加拿大28' : '新加坡28';
     if($code == 'xy28' && $game == '加拿大28')continue;
-    if($code == 'jnd28' && $game == '幸运28')continue;
+    if($code == 'jnd28' && $game == '新加坡28')continue;
     $cons[] = $con;
     if($con['status'] != '已撤单' && $con['status'] != '未结算')$allmoney += (int)$con['money'];
     if($con['status'] > 0)$allstatus += $con['status'];

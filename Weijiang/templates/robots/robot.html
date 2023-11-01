@@ -73,6 +73,7 @@
                                <option value="lhc" <? if($_GET['game'] == 'lhc') echo 'selected'; ?>>六合彩</option>
                                <option value="jslhc" <? if($_GET['game'] == 'jslhc') echo 'selected'; ?>>极速六合彩</option>
                                <option value="xy28" <? if($_GET['game'] == 'xy28') echo 'selected'; ?>>新加坡28</option>
+                                <option value="ny28" <? if($_GET['game'] == 'ny28') echo 'selected'; ?>>纽约28</option>
                                <option value="jnd28" <? if($_GET['game'] == 'jnd28') echo 'selected'; ?>>加拿大28</option>
                                <option value="jsmt" <? if($_GET['game'] == 'jsmt') echo 'selected'; ?>>极速摩托</option>
                                <option value="jsssc" <? if($_GET['game'] == 'jsssc') echo 'selected'; ?>>极速时时彩</option>
@@ -106,13 +107,27 @@
                         }else{
                             $sql = "";
                         }
+                        $datas=array();
+                        $index=0;
                         select_query('fn_robots','*',"roomid = {$_SESSION['agent_room']}".$sql);
                         while($con = db_fetch_array()){
-                            switch($con['game']){
+                            $datas[$index++]=$con;
+                        }
+                       for ($j = 0; $j < count($datas); $j++){
+                            $item=$datas[$j];
+                            $plan = $datas[$j]['plan'];
+                            $plans = explode('|', $plan);
+                            $planStr="";
+                            for ($k = 0; $k < count($plans); $k++)
+                            {
+                                $planStr= $planStr.formatJson(select_query('fn_robotplan','content',"id = {$plans[$k]}"));
+                            }
+                            switch($item['game']){
                                  case 'pk10': $game = '北京赛车'; break;
                                 case 'xyft': $game = '幸运飞艇'; break;
                                 case 'cqssc': $game = '重庆时时彩'; break;
                                 case 'xy28': $game = '新加坡28'; break;
+                                case 'ny28': $game = '纽约28'; break;
                                 case 'jnd28': $game = '加拿大28'; break;
                                 case 'jsmt': $game = '极速摩托'; break;
                                 case 'jssc': $game = '极速赛车'; break;
@@ -130,19 +145,19 @@
                             }
                     ?>
                             <tr>
-                                <td style="width: 3rem" ><? echo $con['id']; ?></td>
-                                <td style="width: 5rem"><img src="<? echo $con['headimg']; ?>" alt="" width="35" height="35"></td>
-                                <td style="width: 5rem"><? echo $con['name']; ?></td>
-                                <td style="width: 16rem"><? echo $con['plan']; ?></td>
+                                <td style="width: 3rem" ><? echo $item['id']; ?></td>
+                                <td style="width: 5rem"><img src="<? echo $item['headimg']; ?>" alt="" width="35" height="35"></td>
+                                <td style="width: 5rem"><? echo $item['name']; ?></td>
+                                <td style="width: 16rem"><? echo $$planStr; ?></td>
                                 <td style="width: 16rem"><? echo $game; ?></td>
-                                <td style="width: 10rem"><? echo $con['rare']; ?></td>
+                                <td style="width: 10rem"><? echo $item['rare']; ?></td>
                                 <td style="width: 32rem">
                                     <!--a href="javascript:" class="btn btn-primary btn-sm">修改信息</a>&nbsp;&nbsp;-->
-                                    <a href="javascript:delrobots('<? echo $con['id']; ?>')" class="btn btn-danger btn-sm">删除机器人</a>&nbsp;&nbsp;
+                                    <a href="javascript:delrobots('<? echo $item['id']; ?>')" class="btn btn-danger btn-sm">删除机器人</a>&nbsp;&nbsp;
                                 </td>
                                 <td style="width: 16rem">
-                                    <input type="checkbox" id="switchview" name="<? echo $con['userid']; ?>"
-                                    <?php if($con['status'] == 1){?>
+                                    <input type="checkbox" id="switchview" name="<? echo $item['userid']; ?>"
+                                    <?php if($item['status'] == 1){?>
                                     checked="checked"
                                     <?php }?> /></td>
                             </tr>
