@@ -22002,3 +22002,4849 @@ window.onload=beginrefresh
 
 
 请求：--->565626---->http://localhost:8123/abcaiji/xyft.php
+<span style='color:red;'>幸运飞艇</span><br>数据返回------>{"rows":1,"info":"数据由kaijiang-api.com收录，当前访问IP：104.219.211.74，服3，开奖网v7.5，技术QQ：82279178","code":"mlaft","data":[{"expect":"20231101130","opencode":"7,8,2,9,10,1,4,3,5,6","opentime":"2023-11-01 23:53:45"}]}<br>等待 mlaft 刷新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=5
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565626---->http://localhost:8123/abcaiji/bjkl8.php
+<span style='color:red;'>幸运28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-01 23:55:00","expect":"3593117","opencode":"3,3,0","load_time":"2023-11-01 23:55:21","next_phase":"3593118","next_time":"2023-11-01 23:57:30","now":"2023-11-01 23:55:21"}],"now":"2023-11-01 23:55:21"}<br>真数据3,3,0假数据字符串->>>>3,10,10,10,10,10,3,10,10,10,10,10,0,10,10,10,10,10,10,10,10<br>原假数据->>>>53 53 50<br>计算个位数的假数据->>>>3 3 0<br>当前最新期号-->3593117    数据期号--->3593117<br>等待幸运28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->565626---->http://localhost:8123/abcaiji/jssc.php
+<span style='color:red;'>极速赛车</span><br>极速赛车未到开奖时间<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=4
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->565626---->http://localhost:8123/abcaiji/txffc.php
+<span style='color:red;'>腾讯分分彩</span><br>等待 txffc 刷新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=6
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565626---->http://localhost:8123/abcaiji/cqssc.php
+<span style='color:red;'>重庆时时彩</span><br>等待 cqssc 刷新<br>
+<style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=5
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+请求：--->565626---->http://localhost:8123/abcaiji/jslhc.php
+<span style='color:red;'>極速六合彩</span><br>等待 09,06,29,04,16,18,26 刷新<br>
+<style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=4
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565626---->http://localhost:8123/abcaiji/azxy5.php
+<span style='color:red;'>河内5分彩</span><br>等待更新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=5
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565626---->http://localhost:8123/abcaiji/jsmt.php
+<span style='color:red;'>极速摩托</span><br>等待 3,4,2,10,1,6,5,8,9,7 刷新<br>
+<style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=4
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->565626---->http://localhost:8123/abcaiji/jsssc.php
+<span style='color:red;'>極速時時彩</span><br>等待 8,8,5,2,5 刷新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=10
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565626---->http://localhost:8123/abcaiji/twk3.php
+<span style='color:red;'>台湾快三</span><br>等待 4,4,6 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->565626---->http://localhost:8123/abcaiji/jnd28.php
+请求：--->565629---->http://localhost:8123/abcaiji/bjpk10.php
+<span style='color:red;'>北京赛车PK10</span><br>string(242) "{"rows":1,"info":"数据由kaijiang-api.com收录，当前访问IP：104.219.211.74，服3，开奖网v7.5，技术QQ：82279178","code":"bjpk10","data":[{"expect":"799747","opencode":"3,2,7,1,5,4,10,9,8,6","opentime":"2023-11-01 23:50:00"}]}"
+数据返回------><br>等待更新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=6
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565629---->http://localhost:8123/abcaiji/xyft.php
+<span style='color:red;'>幸运飞艇</span><br>数据返回------>{"rows":1,"info":"数据由kaijiang-api.com收录，当前访问IP：104.219.211.74，服3，开奖网v7.5，技术QQ：82279178","code":"mlaft","data":[{"expect":"20231101130","opencode":"7,8,2,9,10,1,4,3,5,6","opentime":"2023-11-01 23:53:45"}]}<br>等待 mlaft 刷新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=5
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565629---->http://localhost:8123/abcaiji/bjkl8.php
+<span style='color:red;'>幸运28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-01 23:55:00","expect":"3593117","opencode":"7,6,1","load_time":"2023-11-01 23:55:29","next_phase":"3593118","next_time":"2023-11-01 23:57:30","now":"2023-11-01 23:55:29"}],"now":"2023-11-01 23:55:29"}<br>真数据7,6,1假数据字符串->>>>7,10,10,10,10,10,6,10,10,10,10,10,1,10,10,10,10,10,10,10,10<br>原假数据->>>>57 56 51<br>计算个位数的假数据->>>>7 6 1<br>当前最新期号-->3593117    数据期号--->3593117<br>等待幸运28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->565629---->http://localhost:8123/abcaiji/jssc.php
+<span style='color:red;'>极速赛车</span><br>极速赛车未到开奖时间<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=4
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->565629---->http://localhost:8123/abcaiji/txffc.php
+<span style='color:red;'>腾讯分分彩</span><br>等待 txffc 刷新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=6
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565629---->http://localhost:8123/abcaiji/cqssc.php
+<span style='color:red;'>重庆时时彩</span><br>等待 cqssc 刷新<br>
+<style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=5
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+请求：--->565629---->http://localhost:8123/abcaiji/jslhc.php
+请求：--->565629---->http://localhost:8123/abcaiji/azxy5.php
+<span style='color:red;'>河内5分彩</span><br>等待更新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=5
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565629---->http://localhost:8123/abcaiji/jsmt.php
+请求：--->565629---->http://localhost:8123/abcaiji/jsssc.php
+请求：--->565629---->http://localhost:8123/abcaiji/twk3.php
+请求：--->565629---->http://localhost:8123/abcaiji/jnd28.php
+<span style='color:red;'>加拿大28</span><br>真数据0,0,8假数据字符串->>>>10,0,0,8,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10<br>原假数据->>>>50 50 58<br>计算个位数的假数据->>>>0 0 8<br>等待加拿大28刷新<br><style type="text/css">
+  <!--
+  body,td,th {
+    font-size: 12px;
+  }
+  body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+  }
+  #timeinfo{color:#C60}
+  -->
+</style>
+<script> 
+  var limit=15
+  if (document.images){ 
+   var parselimit=limit
+ } 
+ function beginrefresh(){ 
+  if (!document.images) 
+   return 
+ if (parselimit==1) 
+   window.location.reload() 
+ else{ 
+   parselimit-=1 
+   curmin=Math.floor(parselimit) 
+   if (curmin!=0) 
+    curtime=curmin+"秒后自动获取!" 
+  else 
+    curtime=cursec+"秒后自动获取!" 
+  timeinfo.innerText=curtime 
+  setTimeout("beginrefresh()",1000) 
+} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565632---->http://localhost:8123/abcaiji/bjpk10.php
+<span style='color:red;'>北京赛车PK10</span><br>string(242) "{"rows":1,"info":"数据由kaijiang-api.com收录，当前访问IP：104.219.211.74，服3，开奖网v7.5，技术QQ：82279178","code":"bjpk10","data":[{"expect":"799747","opencode":"3,2,7,1,5,4,10,9,8,6","opentime":"2023-11-01 23:50:00"}]}"
+数据返回------><br>等待更新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=6
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565632---->http://localhost:8123/abcaiji/xyft.php
+<span style='color:red;'>幸运飞艇</span><br>数据返回------>{"rows":1,"info":"数据由kaijiang-api.com收录，当前访问IP：104.219.211.74，服3，开奖网v7.5，技术QQ：82279178","code":"mlaft","data":[{"expect":"20231101130","opencode":"7,8,2,9,10,1,4,3,5,6","opentime":"2023-11-01 23:53:45"}]}<br>等待 mlaft 刷新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=5
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565632---->http://localhost:8123/abcaiji/bjkl8.php
+<span style='color:red;'>幸运28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-01 23:55:00","expect":"3593117","opencode":"5,4,4","load_time":"2023-11-01 23:55:47","next_phase":"3593118","next_time":"2023-11-01 23:57:30","now":"2023-11-01 23:55:47"}],"now":"2023-11-01 23:55:47"}<br>真数据5,4,4假数据字符串->>>>5,10,10,10,10,10,4,10,10,10,10,10,4,10,10,10,10,10,10,10,10<br>原假数据->>>>55 54 54<br>计算个位数的假数据->>>>5 4 4<br>当前最新期号-->3593117    数据期号--->3593117<br>等待幸运28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->565632---->http://localhost:8123/abcaiji/jssc.php
+请求：--->565632---->http://localhost:8123/abcaiji/txffc.php
+<span style='color:red;'>腾讯分分彩</span><br>等待 txffc 刷新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=6
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565632---->http://localhost:8123/abcaiji/cqssc.php
+<span style='color:red;'>重庆时时彩</span><br>等待 cqssc 刷新<br>
+<style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=5
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+请求：--->565632---->http://localhost:8123/abcaiji/jslhc.php
+<span style='color:red;'>極速六合彩</span><br>等待 33,36,12,31,37,16,30 刷新<br>
+<style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=4
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565632---->http://localhost:8123/abcaiji/azxy5.php
+<span style='color:red;'>河内5分彩</span><br>等待更新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=5
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565632---->http://localhost:8123/abcaiji/jsmt.php
+<span style='color:red;'>极速摩托</span><br>等待 8,6,4,1,2,3,9,10,5,7 刷新<br>
+<style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=4
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->565632---->http://localhost:8123/abcaiji/jsssc.php
+<span style='color:red;'>極速時時彩</span><br>等待 6,6,6,1,3 刷新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=10
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565632---->http://localhost:8123/abcaiji/twk3.php
+<span style='color:red;'>台湾快三</span><br>等待 3,3,1 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->565632---->http://localhost:8123/abcaiji/jnd28.php
+<span style='color:red;'>加拿大28</span><br>真数据0,0,8假数据字符串->>>>10,0,0,8,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10<br>原假数据->>>>50 50 58<br>计算个位数的假数据->>>>0 0 8<br>等待加拿大28刷新<br><style type="text/css">
+  <!--
+  body,td,th {
+    font-size: 12px;
+  }
+  body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+  }
+  #timeinfo{color:#C60}
+  -->
+</style>
+<script> 
+  var limit=15
+  if (document.images){ 
+   var parselimit=limit
+ } 
+ function beginrefresh(){ 
+  if (!document.images) 
+   return 
+ if (parselimit==1) 
+   window.location.reload() 
+ else{ 
+   parselimit-=1 
+   curmin=Math.floor(parselimit) 
+   if (curmin!=0) 
+    curtime=curmin+"秒后自动获取!" 
+  else 
+    curtime=cursec+"秒后自动获取!" 
+  timeinfo.innerText=curtime 
+  setTimeout("beginrefresh()",1000) 
+} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565635---->http://localhost:8123/abcaiji/bjpk10.php
+<span style='color:red;'>北京赛车PK10</span><br>string(242) "{"rows":1,"info":"数据由kaijiang-api.com收录，当前访问IP：104.219.211.74，服3，开奖网v7.5，技术QQ：82279178","code":"bjpk10","data":[{"expect":"799747","opencode":"3,2,7,1,5,4,10,9,8,6","opentime":"2023-11-01 23:50:00"}]}"
+数据返回------><br>等待更新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=6
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565635---->http://localhost:8123/abcaiji/xyft.php
+<span style='color:red;'>幸运飞艇</span><br>数据返回------>{"rows":1,"info":"数据由kaijiang-api.com收录，当前访问IP：104.219.211.74，服3，开奖网v7.5，技术QQ：82279178","code":"mlaft","data":[{"expect":"20231101130","opencode":"7,8,2,9,10,1,4,3,5,6","opentime":"2023-11-01 23:53:45"}]}<br>等待 mlaft 刷新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=5
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565635---->http://localhost:8123/abcaiji/bjkl8.php
+<span style='color:red;'>幸运28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-01 23:55:00","expect":"3593117","opencode":"0,3,5","load_time":"2023-11-01 23:55:57","next_phase":"3593118","next_time":"2023-11-01 23:57:30","now":"2023-11-01 23:55:57"}],"now":"2023-11-01 23:55:57"}<br>真数据0,3,5假数据字符串->>>>0,10,10,10,10,10,3,10,10,10,10,10,5,10,10,10,10,10,10,10,10<br>原假数据->>>>50 53 55<br>计算个位数的假数据->>>>0 3 5<br>当前最新期号-->3593117    数据期号--->3593117<br>等待幸运28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->565635---->http://localhost:8123/abcaiji/jssc.php
+<span style='color:red;'>极速赛车</span><br>极速赛车未到开奖时间<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=4
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->565635---->http://localhost:8123/abcaiji/txffc.php
+<span style='color:red;'>腾讯分分彩</span><br>等待 txffc 刷新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=6
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565635---->http://localhost:8123/abcaiji/cqssc.php
+<span style='color:red;'>重庆时时彩</span><br>等待 cqssc 刷新<br>
+<style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=5
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+请求：--->565635---->http://localhost:8123/abcaiji/jslhc.php
+<span style='color:red;'>極速六合彩</span><br>等待 36,22,02,43,34,46,45 刷新<br>
+<style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=4
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565635---->http://localhost:8123/abcaiji/azxy5.php
+<span style='color:red;'>河内5分彩</span><br>等待更新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=5
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565635---->http://localhost:8123/abcaiji/jsmt.php
+<span style='color:red;'>极速摩托</span><br>等待 1,9,6,10,2,5,8,4,7,3 刷新<br>
+<style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=4
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->565635---->http://localhost:8123/abcaiji/jsssc.php
+<span style='color:red;'>極速時時彩</span><br>等待 0,5,1,8,7 刷新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=10
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565635---->http://localhost:8123/abcaiji/twk3.php
+<span style='color:red;'>台湾快三</span><br>等待 5,1,5 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->565635---->http://localhost:8123/abcaiji/jnd28.php
+<span style='color:red;'>加拿大28</span><br>真数据0,0,8假数据字符串->>>>10,0,0,8,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10<br>原假数据->>>>50 50 58<br>计算个位数的假数据->>>>0 0 8<br>等待加拿大28刷新<br><style type="text/css">
+  <!--
+  body,td,th {
+    font-size: 12px;
+  }
+  body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+  }
+  #timeinfo{color:#C60}
+  -->
+</style>
+<script> 
+  var limit=15
+  if (document.images){ 
+   var parselimit=limit
+ } 
+ function beginrefresh(){ 
+  if (!document.images) 
+   return 
+ if (parselimit==1) 
+   window.location.reload() 
+ else{ 
+   parselimit-=1 
+   curmin=Math.floor(parselimit) 
+   if (curmin!=0) 
+    curtime=curmin+"秒后自动获取!" 
+  else 
+    curtime=cursec+"秒后自动获取!" 
+  timeinfo.innerText=curtime 
+  setTimeout("beginrefresh()",1000) 
+} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565638---->http://localhost:8123/abcaiji/bjpk10.php
+<span style='color:red;'>北京赛车PK10</span><br>string(242) "{"rows":1,"info":"数据由kaijiang-api.com收录，当前访问IP：104.219.211.74，服3，开奖网v7.5，技术QQ：82279178","code":"bjpk10","data":[{"expect":"799747","opencode":"3,2,7,1,5,4,10,9,8,6","opentime":"2023-11-01 23:50:00"}]}"
+数据返回------><br>等待更新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=6
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565638---->http://localhost:8123/abcaiji/xyft.php
+<span style='color:red;'>幸运飞艇</span><br>数据返回------>{"rows":1,"info":"数据由kaijiang-api.com收录，当前访问IP：104.219.211.74，服3，开奖网v7.5，技术QQ：82279178","code":"mlaft","data":[{"expect":"20231101130","opencode":"7,8,2,9,10,1,4,3,5,6","opentime":"2023-11-01 23:53:45"}]}<br>等待 mlaft 刷新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=5
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565638---->http://localhost:8123/abcaiji/bjkl8.php
+请求：--->565638---->http://localhost:8123/abcaiji/jssc.php
+<span style='color:red;'>极速赛车</span><br>极速赛车未到开奖时间<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=4
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->565638---->http://localhost:8123/abcaiji/txffc.php
+<span style='color:red;'>腾讯分分彩</span><br>等待 txffc 刷新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=6
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565638---->http://localhost:8123/abcaiji/cqssc.php
+<span style='color:red;'>重庆时时彩</span><br>等待 cqssc 刷新<br>
+<style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=5
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+请求：--->565638---->http://localhost:8123/abcaiji/jslhc.php
+<span style='color:red;'>極速六合彩</span><br>等待 05,46,04,21,43,28,08 刷新<br>
+<style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=4
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565638---->http://localhost:8123/abcaiji/azxy5.php
+<span style='color:red;'>河内5分彩</span><br>等待更新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=5
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565638---->http://localhost:8123/abcaiji/jsmt.php
+<span style='color:red;'>极速摩托</span><br>等待 1,10,4,8,2,9,5,6,3,7 刷新<br>
+<style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=4
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->565638---->http://localhost:8123/abcaiji/jsssc.php
+<span style='color:red;'>極速時時彩</span><br>等待 1,9,6,2,0 刷新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=10
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565638---->http://localhost:8123/abcaiji/twk3.php
+<span style='color:red;'>台湾快三</span><br>等待 1,3,3 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->565638---->http://localhost:8123/abcaiji/jnd28.php
+<span style='color:red;'>加拿大28</span><br>真数据0,0,8假数据字符串->>>>10,0,0,8,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10<br>原假数据->>>>50 50 58<br>计算个位数的假数据->>>>0 0 8<br>等待加拿大28刷新<br><style type="text/css">
+  <!--
+  body,td,th {
+    font-size: 12px;
+  }
+  body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+  }
+  #timeinfo{color:#C60}
+  -->
+</style>
+<script> 
+  var limit=15
+  if (document.images){ 
+   var parselimit=limit
+ } 
+ function beginrefresh(){ 
+  if (!document.images) 
+   return 
+ if (parselimit==1) 
+   window.location.reload() 
+ else{ 
+   parselimit-=1 
+   curmin=Math.floor(parselimit) 
+   if (curmin!=0) 
+    curtime=curmin+"秒后自动获取!" 
+  else 
+    curtime=cursec+"秒后自动获取!" 
+  timeinfo.innerText=curtime 
+  setTimeout("beginrefresh()",1000) 
+} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565641---->http://localhost:8123/abcaiji/bjpk10.php
+<span style='color:red;'>北京赛车PK10</span><br>string(242) "{"rows":1,"info":"数据由kaijiang-api.com收录，当前访问IP：104.219.211.74，服3，开奖网v7.5，技术QQ：82279178","code":"bjpk10","data":[{"expect":"799747","opencode":"3,2,7,1,5,4,10,9,8,6","opentime":"2023-11-01 23:50:00"}]}"
+数据返回------><br>等待更新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=6
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565641---->http://localhost:8123/abcaiji/xyft.php
+<span style='color:red;'>幸运飞艇</span><br>数据返回------>{"rows":1,"info":"数据由kaijiang-api.com收录，当前访问IP：104.219.211.74，服3，开奖网v7.5，技术QQ：82279178","code":"mlaft","data":[{"expect":"20231101130","opencode":"7,8,2,9,10,1,4,3,5,6","opentime":"2023-11-01 23:53:45"}]}<br>等待 mlaft 刷新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=5
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565641---->http://localhost:8123/abcaiji/bjkl8.php
+<span style='color:red;'>幸运28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-10-31 23:57:30","expect":"3593118","opencode":"4,9,6","load_time":"2023-11-01 23:56:11","next_phase":"3593119","next_time":"2023-11-01 00:00:00","now":"2023-11-01 23:56:11"}],"now":"2023-11-01 23:56:11"}<br>真数据4,9,6假数据字符串->>>>4,10,10,10,10,10,9,10,10,10,10,10,6,10,10,10,10,10,10,10,10<br>原假数据->>>>54 59 56<br>计算个位数的假数据->>>>4 9 6<br>当前最新期号-->3593118    数据期号--->3593118<br>等待幸运28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->565641---->http://localhost:8123/abcaiji/jssc.php
+<span style='color:red;'>极速赛车</span><br>极速赛车未到开奖时间<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=4
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->565641---->http://localhost:8123/abcaiji/txffc.php
+<span style='color:red;'>腾讯分分彩</span><br>等待 txffc 刷新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=6
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565641---->http://localhost:8123/abcaiji/cqssc.php
+<span style='color:red;'>重庆时时彩</span><br>等待 cqssc 刷新<br>
+<style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=5
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+请求：--->565641---->http://localhost:8123/abcaiji/jslhc.php
+<span style='color:red;'>極速六合彩</span><br>等待 20,11,32,27,37,07,25 刷新<br>
+<style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=4
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565641---->http://localhost:8123/abcaiji/azxy5.php
+<span style='color:red;'>河内5分彩</span><br>等待更新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=5
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565641---->http://localhost:8123/abcaiji/jsmt.php
+<span style='color:red;'>极速摩托</span><br>等待 8,4,1,5,2,9,3,7,10,6 刷新<br>
+<style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=4
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->565641---->http://localhost:8123/abcaiji/jsssc.php
+<span style='color:red;'>極速時時彩</span><br>等待 5,8,7,5,6 刷新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=10
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565641---->http://localhost:8123/abcaiji/twk3.php
+<span style='color:red;'>台湾快三</span><br>等待 1,1,5 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->565641---->http://localhost:8123/abcaiji/jnd28.php
+请求：--->565644---->http://localhost:8123/abcaiji/bjpk10.php
+<span style='color:red;'>北京赛车PK10</span><br>string(242) "{"rows":1,"info":"数据由kaijiang-api.com收录，当前访问IP：104.219.211.74，服3，开奖网v7.5，技术QQ：82279178","code":"bjpk10","data":[{"expect":"799747","opencode":"3,2,7,1,5,4,10,9,8,6","opentime":"2023-11-01 23:50:00"}]}"
+数据返回------><br>等待更新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=6
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565644---->http://localhost:8123/abcaiji/xyft.php
+请求：--->565644---->http://localhost:8123/abcaiji/bjkl8.php
+<span style='color:red;'>幸运28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-10-31 23:57:30","expect":"3593118","opencode":"5,7,7","load_time":"2023-11-01 23:56:21","next_phase":"3593119","next_time":"2023-11-01 00:00:00","now":"2023-11-01 23:56:21"}],"now":"2023-11-01 23:56:21"}<br>真数据5,7,7假数据字符串->>>>5,10,10,10,10,10,7,10,10,10,10,10,7,10,10,10,10,10,10,10,10<br>原假数据->>>>55 57 57<br>计算个位数的假数据->>>>5 7 7<br>当前最新期号-->3593118    数据期号--->3593118<br>等待幸运28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->565644---->http://localhost:8123/abcaiji/jssc.php
+<span style='color:red;'>极速赛车</span><br>极速赛车未到开奖时间<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=4
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->565644---->http://localhost:8123/abcaiji/txffc.php
+<span style='color:red;'>腾讯分分彩</span><br>等待 txffc 刷新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=6
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565644---->http://localhost:8123/abcaiji/cqssc.php
+<span style='color:red;'>重庆时时彩</span><br>等待 cqssc 刷新<br>
+<style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=5
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+请求：--->565644---->http://localhost:8123/abcaiji/jslhc.php
+<span style='color:red;'>極速六合彩</span><br>等待 25,07,13,21,43,16,31 刷新<br>
+<style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=4
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565644---->http://localhost:8123/abcaiji/azxy5.php
+<span style='color:red;'>河内5分彩</span><br>等待更新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=5
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565644---->http://localhost:8123/abcaiji/jsmt.php
+<span style='color:red;'>极速摩托</span><br>等待 1,9,6,3,7,10,2,8,5,4 刷新<br>
+<style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=4
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->565644---->http://localhost:8123/abcaiji/jsssc.php
+<span style='color:red;'>極速時時彩</span><br>等待 1,1,8,5,1 刷新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=10
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565644---->http://localhost:8123/abcaiji/twk3.php
+<span style='color:red;'>台湾快三</span><br>等待 5,3,3 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->565644---->http://localhost:8123/abcaiji/jnd28.php
+请求：--->565647---->http://localhost:8123/abcaiji/bjpk10.php
+<span style='color:red;'>北京赛车PK10</span><br>string(242) "{"rows":1,"info":"数据由kaijiang-api.com收录，当前访问IP：104.219.211.74，服3，开奖网v7.5，技术QQ：82279178","code":"bjpk10","data":[{"expect":"799747","opencode":"3,2,7,1,5,4,10,9,8,6","opentime":"2023-11-01 23:50:00"}]}"
+数据返回------><br>等待更新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=6
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565647---->http://localhost:8123/abcaiji/xyft.php
+请求：--->565647---->http://localhost:8123/abcaiji/bjkl8.php
+<span style='color:red;'>幸运28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-10-31 23:57:30","expect":"3593118","opencode":"0,3,7","load_time":"2023-11-01 23:56:30","next_phase":"3593119","next_time":"2023-11-01 00:00:00","now":"2023-11-01 23:56:30"}],"now":"2023-11-01 23:56:30"}<br>真数据0,3,7假数据字符串->>>>0,10,10,10,10,10,3,10,10,10,10,10,7,10,10,10,10,10,10,10,10<br>原假数据->>>>50 53 57<br>计算个位数的假数据->>>>0 3 7<br>当前最新期号-->3593118    数据期号--->3593118<br>等待幸运28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->565647---->http://localhost:8123/abcaiji/jssc.php
+<span style='color:red;'>极速赛车</span><br>极速赛车未到开奖时间<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=4
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->565647---->http://localhost:8123/abcaiji/txffc.php
+<span style='color:red;'>腾讯分分彩</span><br>等待 txffc 刷新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=6
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565647---->http://localhost:8123/abcaiji/cqssc.php
+<span style='color:red;'>重庆时时彩</span><br>等待 cqssc 刷新<br>
+<style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=5
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+请求：--->565647---->http://localhost:8123/abcaiji/jslhc.php
+<span style='color:red;'>極速六合彩</span><br>等待 19,03,15,14,40,04,49 刷新<br>
+<style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=4
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565647---->http://localhost:8123/abcaiji/azxy5.php
+<span style='color:red;'>河内5分彩</span><br>等待更新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=5
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565647---->http://localhost:8123/abcaiji/jsmt.php
+<span style='color:red;'>极速摩托</span><br>等待 1,7,6,10,4,5,8,9,2,3 刷新<br>
+<style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=4
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->565647---->http://localhost:8123/abcaiji/jsssc.php
+<span style='color:red;'>極速時時彩</span><br>等待 2,1,3,2,7 刷新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=10
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565647---->http://localhost:8123/abcaiji/twk3.php
+<span style='color:red;'>台湾快三</span><br>等待 5,1,3 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->565647---->http://localhost:8123/abcaiji/jnd28.php
+请求：--->565650---->http://localhost:8123/abcaiji/bjpk10.php
+<span style='color:red;'>北京赛车PK10</span><br>string(242) "{"rows":1,"info":"数据由kaijiang-api.com收录，当前访问IP：104.219.211.74，服3，开奖网v7.5，技术QQ：82279178","code":"bjpk10","data":[{"expect":"799747","opencode":"3,2,7,1,5,4,10,9,8,6","opentime":"2023-11-01 23:50:00"}]}"
+数据返回------><br>等待更新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=6
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565650---->http://localhost:8123/abcaiji/xyft.php
+<span style='color:red;'>幸运飞艇</span><br>数据返回------>{"rows":1,"info":"数据由kaijiang-api.com收录，当前访问IP：104.219.211.74，服3，开奖网v7.5，技术QQ：82279178","code":"mlaft","data":[{"expect":"20231101130","opencode":"7,8,2,9,10,1,4,3,5,6","opentime":"2023-11-01 23:53:45"}]}<br>等待 mlaft 刷新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=5
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565650---->http://localhost:8123/abcaiji/bjkl8.php
+<span style='color:red;'>幸运28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-10-31 23:57:30","expect":"3593118","opencode":"5,7,3","load_time":"2023-11-01 23:56:39","next_phase":"3593119","next_time":"2023-11-01 00:00:00","now":"2023-11-01 23:56:39"}],"now":"2023-11-01 23:56:39"}<br>真数据5,7,3假数据字符串->>>>5,10,10,10,10,10,7,10,10,10,10,10,3,10,10,10,10,10,10,10,10<br>原假数据->>>>55 57 53<br>计算个位数的假数据->>>>5 7 3<br>当前最新期号-->3593118    数据期号--->3593118<br>等待幸运28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->565650---->http://localhost:8123/abcaiji/jssc.php
+<span style='color:red;'>极速赛车</span><br>极速赛车未到开奖时间<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=4
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->565650---->http://localhost:8123/abcaiji/txffc.php
+<span style='color:red;'>腾讯分分彩</span><br>等待 txffc 刷新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=6
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565650---->http://localhost:8123/abcaiji/cqssc.php
+<span style='color:red;'>重庆时时彩</span><br>等待 cqssc 刷新<br>
+<style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=5
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+请求：--->565650---->http://localhost:8123/abcaiji/jslhc.php
+<span style='color:red;'>極速六合彩</span><br>等待 18,37,11,36,03,21,09 刷新<br>
+<style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=4
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565650---->http://localhost:8123/abcaiji/azxy5.php
+<span style='color:red;'>河内5分彩</span><br>等待更新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=5
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565650---->http://localhost:8123/abcaiji/jsmt.php
+<span style='color:red;'>极速摩托</span><br>等待 4,10,8,1,7,9,5,2,6,3 刷新<br>
+<style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=4
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->565650---->http://localhost:8123/abcaiji/jsssc.php
+<span style='color:red;'>極速時時彩</span><br>等待 5,1,6,2,2 刷新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=10
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565650---->http://localhost:8123/abcaiji/twk3.php
+<span style='color:red;'>台湾快三</span><br>等待 3,1,6 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->565650---->http://localhost:8123/abcaiji/jnd28.php
+<span style='color:red;'>加拿大28</span><br>真数据8,3,1假数据字符串->>>>10,8,3,1,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10<br>原假数据->>>>58 53 51<br>计算个位数的假数据->>>>8 3 1<br>等待加拿大28刷新<br><style type="text/css">
+  <!--
+  body,td,th {
+    font-size: 12px;
+  }
+  body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+  }
+  #timeinfo{color:#C60}
+  -->
+</style>
+<script> 
+  var limit=15
+  if (document.images){ 
+   var parselimit=limit
+ } 
+ function beginrefresh(){ 
+  if (!document.images) 
+   return 
+ if (parselimit==1) 
+   window.location.reload() 
+ else{ 
+   parselimit-=1 
+   curmin=Math.floor(parselimit) 
+   if (curmin!=0) 
+    curtime=curmin+"秒后自动获取!" 
+  else 
+    curtime=cursec+"秒后自动获取!" 
+  timeinfo.innerText=curtime 
+  setTimeout("beginrefresh()",1000) 
+} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565653---->http://localhost:8123/abcaiji/bjpk10.php
+<span style='color:red;'>北京赛车PK10</span><br>string(242) "{"rows":1,"info":"数据由kaijiang-api.com收录，当前访问IP：104.219.211.74，服3，开奖网v7.5，技术QQ：82279178","code":"bjpk10","data":[{"expect":"799747","opencode":"3,2,7,1,5,4,10,9,8,6","opentime":"2023-11-01 23:50:00"}]}"
+数据返回------><br>等待更新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=6
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565653---->http://localhost:8123/abcaiji/xyft.php
+<span style='color:red;'>幸运飞艇</span><br>数据返回------>{"rows":1,"info":"数据由kaijiang-api.com收录，当前访问IP：104.219.211.74，服3，开奖网v7.5，技术QQ：82279178","code":"mlaft","data":[{"expect":"20231101130","opencode":"7,8,2,9,10,1,4,3,5,6","opentime":"2023-11-01 23:53:45"}]}<br>等待 mlaft 刷新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=5
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565653---->http://localhost:8123/abcaiji/bjkl8.php
+<span style='color:red;'>幸运28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-10-31 23:57:30","expect":"3593118","opencode":"4,0,9","load_time":"2023-11-01 23:56:46","next_phase":"3593119","next_time":"2023-11-01 00:00:00","now":"2023-11-01 23:56:46"}],"now":"2023-11-01 23:56:46"}<br>真数据4,0,9假数据字符串->>>>4,10,10,10,10,10,0,10,10,10,10,10,9,10,10,10,10,10,10,10,10<br>原假数据->>>>54 50 59<br>计算个位数的假数据->>>>4 0 9<br>当前最新期号-->3593118    数据期号--->3593118<br>等待幸运28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->565653---->http://localhost:8123/abcaiji/jssc.php
+<span style='color:red;'>极速赛车</span><br>极速赛车未到开奖时间<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=4
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->565653---->http://localhost:8123/abcaiji/txffc.php
+<span style='color:red;'>腾讯分分彩</span><br>等待 txffc 刷新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=6
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565653---->http://localhost:8123/abcaiji/cqssc.php
+<span style='color:red;'>重庆时时彩</span><br>等待 cqssc 刷新<br>
+<style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=5
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+请求：--->565653---->http://localhost:8123/abcaiji/jslhc.php
+<span style='color:red;'>極速六合彩</span><br>等待 15,41,05,36,19,42,27 刷新<br>
+<style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=4
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565653---->http://localhost:8123/abcaiji/azxy5.php
+<span style='color:red;'>河内5分彩</span><br>等待更新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=5
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565653---->http://localhost:8123/abcaiji/jsmt.php
+<span style='color:red;'>极速摩托</span><br>等待 9,10,2,8,5,6,7,1,4,3 刷新<br>
+<style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=4
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->565653---->http://localhost:8123/abcaiji/jsssc.php
+请求：--->565653---->http://localhost:8123/abcaiji/twk3.php
+<span style='color:red;'>台湾快三</span><br>等待 3,3,2 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->565653---->http://localhost:8123/abcaiji/jnd28.php
+请求：--->565656---->http://localhost:8123/abcaiji/bjpk10.php
+<span style='color:red;'>北京赛车PK10</span><br>string(242) "{"rows":1,"info":"数据由kaijiang-api.com收录，当前访问IP：104.219.211.74，服3，开奖网v7.5，技术QQ：82279178","code":"bjpk10","data":[{"expect":"799747","opencode":"3,2,7,1,5,4,10,9,8,6","opentime":"2023-11-01 23:50:00"}]}"
+数据返回------><br>等待更新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=6
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565656---->http://localhost:8123/abcaiji/xyft.php
+请求：--->565656---->http://localhost:8123/abcaiji/bjkl8.php
+<span style='color:red;'>幸运28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-10-31 23:57:30","expect":"3593118","opencode":"6,1,3","load_time":"2023-11-01 23:56:59","next_phase":"3593119","next_time":"2023-11-01 00:00:00","now":"2023-11-01 23:56:59"}],"now":"2023-11-01 23:56:59"}<br>真数据6,1,3假数据字符串->>>>6,10,10,10,10,10,1,10,10,10,10,10,3,10,10,10,10,10,10,10,10<br>原假数据->>>>56 51 53<br>计算个位数的假数据->>>>6 1 3<br>当前最新期号-->3593118    数据期号--->3593118<br>等待幸运28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->565656---->http://localhost:8123/abcaiji/jssc.php
+请求：--->565656---->http://localhost:8123/abcaiji/txffc.php
+<span style='color:red;'>腾讯分分彩</span><br>等待 txffc 刷新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=6
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565656---->http://localhost:8123/abcaiji/cqssc.php
+<span style='color:red;'>重庆时时彩</span><br>等待 cqssc 刷新<br>
+<style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=5
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+请求：--->565656---->http://localhost:8123/abcaiji/jslhc.php
+<span style='color:red;'>極速六合彩</span><br>等待 17,11,31,43,21,34,40 刷新<br>
+<style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=4
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565656---->http://localhost:8123/abcaiji/azxy5.php
+<span style='color:red;'>河内5分彩</span><br>等待更新<br><style type="text/css">
+<!--
+body,td,th {
+    font-size: 12px;
+}
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+#timeinfo{color:#C60}
+-->
+</style>
+<script> 
+var limit=5
+if (document.images){ 
+	var parselimit=limit
+} 
+function beginrefresh(){ 
+if (!document.images) 
+	return 
+if (parselimit==1) 
+	window.location.reload() 
+else{ 
+	parselimit-=1 
+	curmin=Math.floor(parselimit) 
+	if (curmin!=0) 
+		curtime=curmin+"秒后自动获取!" 
+	else 
+		curtime=cursec+"秒后自动获取!" 
+		timeinfo.innerText=curtime 
+		setTimeout("beginrefresh()",1000) 
+	} 
+} 
+window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->565656---->http://localhost:8123/abcaiji/jsmt.php
