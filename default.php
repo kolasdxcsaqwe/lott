@@ -86,40 +86,21 @@ if($_SESSION['userid']!=null)
                          style="margin-top: 0px;border:none;margin-left: 0px;overflow:hidden;width:auto;height: auto;">
                         <!--	<i class="iconfont close" data-id="#ss_menu"></i> -->
                         <ul class="lottery" style="padding-right: 25px;padding-left: 25px;width: 720px;">
-                            <!--  <li style=" width: 50%; ">
-					<a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=azxy5">
-						<img src="/Style/Home/images/azxy5-logo-new.png" title="河内5分彩" style=" width: 95%; ">
-		
-					</a>
-				</li> -->
-                            <li style=" width: 50%; display:none;">
-                                <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=txffc">
-                                    <img src="/Style/Home/images/txffc-logo-new.png" title="腾讯分分彩"
-                                         style=" width: 95%; ">
-                                    <!--<font>腾讯分分彩</font>-->
-                                </a>
-                            </li>
 
-<!--                            <li style=" width: 50%; ">-->
-<!--                                <a href="/qr.php?room=--><?php //echo $_SESSION['roomid'] ?><!--&g=xyft">-->
-<!--                                    <img src="/Style/Home/images/xyft-logo-new.png" title="幸运飞艇"-->
-<!--                                         style=" width: 95%; ">-->
-<!--                                    <!--<font>幸运飞艇</font>-->-->
-<!--                                </a>-->
-<!--                            </li>-->
-
-                            <li style=" width: 50%; display:none;">
-                                <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=cqssc">
-                                    <img src="/Style/Home/images/cqssc1.png" title="重庆欢乐生肖" style=" width: 95%; ">
-                                    <!--		<font>重庆欢乐生肖</font>-->
-                                </a>
-                            </li>
 
                             <li style=" width: 50%; ">
                                 <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=pk10">
                                     <img src="/Style/Home/images/pk10-logo-new.png" title="北京赛车"
                                          style=" width: 95%; ">
                                     <!--<font>北京赛车</font>-->
+                                </a>
+                            </li>
+
+                            <li style=" width: 50%; ">
+                                <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=xy28">
+                                    <img src="/Style/Home/images/xjp28_23_10_19.jpg" title="新加坡28"
+                                         style=" width: 95%; ">
+                                    <!--		<font>加拿大28</font>-->
                                 </a>
                             </li>
 
@@ -133,13 +114,7 @@ if($_SESSION['userid']!=null)
                                 </li>
                             <?php } ?>
 
-                            <li style=" width: 50%; ">
-                                <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=xy28">
-                                    <img src="/Style/Home/images/xjp28_23_10_19.jpg" title="新加坡28"
-                                         style=" width: 95%; ">
-                                    <!--		<font>加拿大28</font>-->
-                                </a>
-                            </li>
+
 
 
 
