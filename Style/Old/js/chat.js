@@ -8,7 +8,7 @@ $(function () {
 	});
 
 	getUserInfo();
-	setInterval(function(){ getUserInfo() }, 3000);
+	setInterval(function(){ getUserInfo() }, 30000);
 });
 
 function send_msg(msg){
@@ -43,6 +43,8 @@ function send_msg(msg){
 						'</div>';
 					$('.rightdiv').prepend(str);
 					$('#Message').val('');
+
+					getUserInfo();
 				} else {
 					zy.tips(data.msg);
 				}

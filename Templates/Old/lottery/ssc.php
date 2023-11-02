@@ -78,7 +78,6 @@ function is_weixin()
     <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/wx.css"/>
     <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/layout.css"/>
     <link rel="Stylesheet" type="text/css" href="Style/Xs/static/css/iconfont.css"/>
-    <link href="https://alcdn.dgtztz.com/v3.0/Public/css/wx.css" type="text/css" rel="stylesheet"/>
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/iconfont.css"/>
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/swiper.min.css"/>
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/mystyle.css"/>

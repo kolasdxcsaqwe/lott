@@ -73,7 +73,6 @@ function is_weixin()
     <script src="Style/Old/js/bootstrap.min.js"></script>
 
 
-    <link href="https://alcdn.dgtztz.com/v3.0/Public/css/wx.css" type="text/css" rel="stylesheet"/>
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/iconfont.css"/>
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/swiper.min.css"/>
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/mystyle.css"/>
@@ -510,7 +509,7 @@ function is_weixin()
            </div>-->
             <div class="foot-item">
                 <div class="foot-box">
-                    <i class="icon-keybord"><img src="https://alcdn.dgtztz.com/v3.0/Public/images/keybord1.png"
+                    <i class="icon-keybord"><img src="/Templates/Old/images/keboard.jpg"
                                                  style="margin-top: 0px;"/></i>
                     <input type="text" placeholder="庄闲/金额" id="Message" class="text"/>
                     <div class="hand-btn-group"

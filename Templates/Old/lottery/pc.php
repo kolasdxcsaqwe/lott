@@ -70,7 +70,6 @@ function is_weixin()
     <!--<meta name="format-detection" content="telephone=no"-->
     <meta name="viewport" content="user-scalable=no">
     <title><?php echo $sitename; ?></title>
-    <link href="https://alcdn.dgtztz.com/v3.0/Public/css/wx.css" type="text/css" rel="stylesheet"/>
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/iconfont.css"/>
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/swiper.min.css"/>
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/mystyle.css"/>
