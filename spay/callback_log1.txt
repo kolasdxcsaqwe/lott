@@ -1,1 +1,1 @@
-{"singset":false,"userid":"c9989d14-7b6b-5155-bb4b-726f7c951937","username":"\u4f24\u60b2\u6625\u79cb","headimg":"\/upload\/0.png","roomid":"10029","agent":"Xsoul","game":"xy28"}
+{"singset":false,"userid":"52b17535-21d8-13b5-e125-be48ee653cc3","username":"\u554a\u8d35","headimg":"\/upload\/0.png","roomid":"10029","agent":"Xsoul","game":"xy28"}
