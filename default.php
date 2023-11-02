@@ -100,13 +100,13 @@ if($_SESSION['userid']!=null)
                                 </a>
                             </li>
 
-                            <li style=" width: 50%; ">
-                                <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=xyft">
-                                    <img src="/Style/Home/images/xyft-logo-new.png" title="幸运飞艇"
-                                         style=" width: 95%; ">
-                                    <!--<font>幸运飞艇</font>-->
-                                </a>
-                            </li>
+<!--                            <li style=" width: 50%; ">-->
+<!--                                <a href="/qr.php?room=--><?php //echo $_SESSION['roomid'] ?><!--&g=xyft">-->
+<!--                                    <img src="/Style/Home/images/xyft-logo-new.png" title="幸运飞艇"-->
+<!--                                         style=" width: 95%; ">-->
+<!--                                    <!--<font>幸运飞艇</font>-->-->
+<!--                                </a>-->
+<!--                            </li>-->
 
                             <li style=" width: 50%; display:none;">
                                 <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=cqssc">

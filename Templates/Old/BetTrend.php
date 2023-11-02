@@ -16,6 +16,8 @@ $roomid = $_SESSION['roomid'];
     $type = '3';
 }elseif($game == 'xy28'){
     $type = '4';
+}elseif($game == 'ny28'){
+    $type = '19';
 }elseif($game == 'jnd28'){
     $type = '5';
 }elseif($game == 'jsmt'){
@@ -81,7 +83,7 @@ $roomid = $_SESSION['roomid'];
 			</style>
 			<div class="sm g_hide"></div>
 			<table class="sub_table" cellpadding="0" cellspacing="0" border="0" width="980">
-			<?php if($game == 'xy28' || $game == 'jnd28'){
+			<?php if($game == 'xy28' || $game == 'jnd28' || $game == 'ny28'){
     ?>	
 					<thead>
 						<tr id="th_header">
