@@ -1,7 +1,7 @@
 <?php
 $daynum = floor((time() - strtotime("2017-01-01 00:00:00")) / 3600 / 24);
 
-$sclastno = ($daynum - 1) * 576 + 8157999;
+$sclastno = ($daynum - 1) * 960 + 8157999;
 
 function times ($interval){
     $beginTime = "00:00:00";
@@ -57,10 +57,10 @@ $tarr =$tim ;
 $c = 0;
 $t = '';
 if (date('H:i:s') > '23:56:00') {
-    $c = 576;
+    $c = 960;
     $t = '00:00:00';
 } else {
-    for ($i = 0; $i < 576; $i++) {
+    for ($i = 0; $i < 960; $i++) {
         if ($tarr[$i] > date('H:i:s')) {
             $c = $i + 1;
             $t = $tarr[$i];

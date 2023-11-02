@@ -41,7 +41,7 @@ if (strlen($nntime) > 11) {
 $topcode = get_query_val('fn_open', 'term', "`type`= $type order by `term` desc limit 1");
 
 //杀猪设置
-$preterm = get_query_val('fn_buqi', 'term', "`type`= $type 
+$preterm = get_query_val('fn_buqi', 'term', "`type`= $type
     order by `term` desc limit 1");
 if ($preterm != null && $term == $preterm) {
     $precode = get_query_val('fn_buqi', 'code', "`type`= $type  order by `term` desc limit 1");
@@ -62,7 +62,6 @@ if (empty($topcode) || $tInt1 < $tInt2) {
     insert_query('fn_open', array('term' => $term, 'code' => $code, 'time' => date('Y-m-d H:i:s', time()), 'type' => $type, 'next_term' => $next_term, 'next_time' => $next_times));
     PC_jiesuan($game);
     PC_jiesuan1($game, $term);
-    sleep(4);
     kaichat($game, $next_term);
     select_query('fn_room', '*');
     while ($x = db_fetch_array()) {
@@ -75,7 +74,7 @@ if (empty($topcode) || $tInt1 < $tInt2) {
     echo "更新 $code 成功！<br>";
 
     //30秒随机
-    startBot($game, "10029",5, 30);
+//    startBot($game, "10029",5, 30);
 
 } else {
     echo "等待纽约28刷新<br>";
