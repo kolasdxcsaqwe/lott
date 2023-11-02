@@ -12,7 +12,7 @@ $type = 5;
 $game = 'jnd28';
 $kaitime = get_query_val('fn_open', 'next_time', "`type`=$type order by `term` desc limit 1");
 
-$url = "https://kaijiang-api.com/token/9fdecf266c4811eeb72dbd2490e7a13e/code/jnd28/rows/1.json";
+$url = "https://vip.kaijiang-api.com:2096/token/9fdecf266c4811eeb72dbd2490e7a13e/code/jnd28/rows/1.json";
 $json = file_get_contents($url);
 $jsondata = json_decode($json);
 
