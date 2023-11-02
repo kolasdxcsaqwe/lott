@@ -115,7 +115,7 @@ $roomid = $_SESSION['roomid'];
         $ys['虎'] = 'blue';
         $codes = explode(",", $con['code']);
         if($codes){
-            if($type == '4'){
+            if($type == '4' || $type == '19'){
                 $number1 = (int)$codes[0] + (int)$codes[1] + (int)$codes[2] + (int)$codes[3] + (int)$codes[4] + (int)$codes[5];
                 $number2 = (int)$codes[6] + (int)$codes[7] + (int)$codes[8] + (int)$codes[9] + (int)$codes[10] + (int)$codes[11];
                 $number3 = (int)$codes[12] + (int)$codes[13] + (int)$codes[14] + (int)$codes[15] + (int)$codes[16] + (int)$codes[17];
