@@ -1,7 +1,7 @@
 <?php
 $daynum = floor((time() - strtotime("2017-01-01 00:00:00")) / 3600 / 24);
 
-$sclastno = ($daynum - 1) * 576 + 2155999;
+$sclastno = ($daynum - 1) * 576 + 2255999;
 
 function times ($interval){
 	$beginTime = "00:00:00";
