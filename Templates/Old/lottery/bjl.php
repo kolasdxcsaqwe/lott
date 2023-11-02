@@ -78,9 +78,6 @@ function is_weixin()
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/mystyle.css"/>
 
     <script src="Style/Old/js/swiper.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="/Style/Old/js/tools.js"></script>
-    <script type="text/javascript" src="/Style/Old/js/chat.js"></script>
-    <script type="text/javascript" src="/Style/Old/js/pk10.js"></script>
 
     <script type="text/javascript">
         $(function () {
@@ -335,7 +332,7 @@ function is_weixin()
 </script>
 <!-- New Templates Update -->
 <script type="text/javascript" src="/Style/Old/js/tools.js"></script>
-<script type="text/javascript" src="/Style/Old/js/chat.js"></script>
+<script type="text/javascript" src="/Style/Old/js/chat.js?t=23sytf76"></script>
 <script type="text/javascript" src="/Style/Old/js/pc.js"></script>
 <!-- ./New Templates Update -->
 

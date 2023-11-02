@@ -72,8 +72,6 @@ function is_weixin()
     <script src="Style/Old/js/jquery.min.js"></script>
 
     <script src="Style/Old/js/swiper.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="/Style/Old/js/tools.js"></script>
-    <script type="text/javascript" src="/Style/Old/js/chat.js"></script>
     <script type="text/javascript" src="/Style/Old/js/pk10.js"></script>
 
     <script type="text/javascript">
@@ -339,7 +337,7 @@ function is_weixin()
 </script>
 <!-- New Templates Update -->
 <script type="text/javascript" src="/Style/Old/js/tools.js"></script>
-<script type="text/javascript" src="/Style/Old/js/chat.js"></script>
+<script type="text/javascript" src="/Style/Old/js/chat.js?t=23sytf76"></script>
 <script type="text/javascript" src="/Style/Old/js/11x5.js?temp=122232323"></script>
 <!-- ./New Templates Update -->
 
