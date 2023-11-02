@@ -62,6 +62,19 @@ if($type == '4'){
     }
 }
 
+if($type == '19'){
+    if($changdu != 3)
+    {
+        echo json_encode(array('status'=>false,'msg' => '预设号码有误，注意格式！'));
+        exit;
+    }
+    else
+    {
+        //纽约28
+        $code=fadeGenXY28($code);
+    }
+}
+
 
 if($type == '5'){
      if($changdu != 3)
