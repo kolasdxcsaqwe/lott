@@ -74,7 +74,7 @@ if (empty($topcode) || $tInt1 < $tInt2) {
     echo "更新 $code 成功！<br>";
 
     //30秒随机
-//    startBot($game, "10029",5, 30);
+    startBot($game, "10029",5, 30);
 
 } else {
     echo "等待纽约28刷新<br>";

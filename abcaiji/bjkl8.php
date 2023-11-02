@@ -68,7 +68,7 @@ if (empty($topcode) || $topcode < $term) {
     echo "更新 $code 成功！<br>";
 
     //40秒随机
-//    startBot("xy28", "10029",15, 40);
+    startBot("xy28", "10029",15, 40);
 
 } else {
     echo "等待新加坡28刷新<br>";
