@@ -120,7 +120,7 @@
                             $planStr="";
                             for ($k = 0; $k < count($plans); $k++)
                             {
-                                $planStr= $planStr.formatJson(select_query('fn_robotplan','content',"id = {$plans[$k]}"));
+                                $planStr= $planStr.formatJson(get_query_val('fn_robotplan','content',"id = {$plans[$k]}"));
                             }
                             switch($item['game']){
                                  case 'pk10': $game = '北京赛车'; break;
