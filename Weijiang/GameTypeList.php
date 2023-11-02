@@ -44,6 +44,7 @@ function formatJson($content)
     }
 
     $str="";
+
     for ($i = 0; $i < count($jsonArray); $i++) {
         $text="[".getValue($jsonArray[$i]->gameType).":".getValue($jsonArray[$i]->moneyType)."]  ";
         $str=$str.$text;
