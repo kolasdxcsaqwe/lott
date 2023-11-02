@@ -56,7 +56,7 @@ if($topcode!=null)
 }
 $tInt2=(int)$term;
 
-echo "当前最新期号-->" . $topcode . "    数据期号--->" . $term . "<br>";
+echo "当前最新期号-->" . $topcode . "    数据期号--->" . $term ."下次开奖时间".$next_times. "<br>";
 if (empty($topcode) || $tInt1 < $tInt2) {
 
     insert_query('fn_open', array('term' => $term, 'code' => $code, 'time' => date('Y-m-d H:i:s', time()), 'type' => $type, 'next_term' => $next_term, 'next_time' => $next_times));

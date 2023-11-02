@@ -38,9 +38,12 @@ function PC_jiesuan($game)
 
 
         $zym_9 = (int)get_query_val('fn_pcorder', 'sum(`money`)', array('roomid' => $roomid, 'term' => $term, 'userid' => $user));
-        echo("sss" . $term . "  " . $openType);
+
         $opencode = get_query_val('fn_open', 'code', "`term` = '$term' and `type` = '$openType'");
-        if ($opencode == "") continue;
+
+        if ($opencode == "") {
+            continue;
+        }
 
         $codes = explode(',', $opencode);
         if (count($codes) < 15) {
