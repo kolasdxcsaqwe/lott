@@ -13,12 +13,12 @@ $(function () {
 
 function send_msg(msg){
 
-	var time=$("#ThisEnd").html()
-	if(time==undefined || time<1)
-	{
-		zy.tips("下注时间已结束，麻烦客官等待下一期!");
-		return;
-	}
+	// var time=$("#ThisEnd").html()
+	// if(time==undefined || time<1)
+	// {
+	// 	zy.tips("下注时间已结束，麻烦客官等待下一期!");
+	// 	return;
+	// }
 	var msgtxt = msg;
 	var str = "";
 	var date = new Date().format("hh:mm:ss");
