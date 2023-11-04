@@ -1,143 +1,135 @@
+function formatDate(time) {
+    var timestamp = time,
+        date = new Date(timestamp),
+        datevalues = [
 
-function formatDate(time){ 
-    var timestamp = time, 
-    date = new Date(timestamp), 
-    datevalues = [
+            date.getFullYear(),
 
-       date.getFullYear(),
+            date.getMonth(),
 
-       date.getMonth(),
+            date.getDate(),
 
-       date.getDate(),
+            date.getHours(),
 
-       date.getHours(),
+            date.getMinutes(),
 
-       date.getMinutes(),
+            date.getSeconds(),
 
-       date.getSeconds(),
+        ];
 
-    ];
-
-     return datevalues;
+    return datevalues;
 
 }
- 
-
 
 
 function render(data, template) {
 
-		var key = Object.keys(data);
+    var key = Object.keys(data);
 
 
-		var logo = data.current.game;
-		var words = data.current.awardNumbers.split(',');     
+    var logo = data.current.game;
+    var words = data.current.awardNumbers.split(',');
 
-		var NumberS=(words[0]*1)+(words[1]*1)+(words[2]*1);
+    var NumberS = (words[0] * 1) + (words[1] * 1) + (words[2] * 1);
 
-        var NumberSD=(((words[0]*1)+(words[1]*1)+(words[2]*1))%2);
+    var NumberSD = (((words[0] * 1) + (words[1] * 1) + (words[2] * 1)) % 2);
 
-     console.log(formatDate(data.time));
+    console.log(formatDate(data.time));
 
-       var awardTime= Math.floor(((data.next.awardTimeInterval*1)/1000));
+    var awardTime = Math.floor(((data.next.awardTimeInterval * 1) / 1000));
 
-		var GamLogo ="";
+    var GamLogo = "";
     // if(logo=="pc28a"){ 
     //     GamLogo="<img src='img/logob.png?"+new Date().getTime()+"'>"; 
     // }else  { 
     //     GamLogo="<img src='img/logoa.png?"+new Date().getTime()+"'>";  
     // }
-   
 
-		var combtxt="---";
 
-		if(NumberS >=0 && NumberS <=13){
+    var combtxt = "---";
 
-        combtxt="小";
+    if (NumberS >= 0 && NumberS <= 13) {
 
-    }else{
+        combtxt = "小";
 
-        combtxt="大";
+    } else {
 
-    }
-
-    var combtxt2="---";
-
-		if(NumberSD ==1){
-
-        combtxt2="单";
-
-    }else{
-
-        combtxt2="双";
+        combtxt = "大";
 
     }
 
-    var homeaway="---";
+    var combtxt2 = "---";
 
-    
+    if (NumberSD == 1) {
 
-    if((words[0]*1) > (words[1]*1) ){
+        combtxt2 = "单";
 
-         homeaway="庄";
+    } else {
 
-    }else if((words[0]*1) < (words[1]*1) ){
-
-         homeaway="闲";
-
-    }else{
-
-         homeaway="和";
+        combtxt2 = "双";
 
     }
 
-     
+    var homeaway = "---";
 
-    var bigsmall="---";
 
-		if(NumberS >=0 && NumberS <=5){
+    if ((words[0] * 1) > (words[1] * 1)) {
 
-        bigsmall="极小";
+        homeaway = "庄";
 
-    }else if(NumberS >=22 && NumberS <=27){
+    } else if ((words[0] * 1) < (words[1] * 1)) {
 
-        bigsmall="极大";
+        homeaway = "闲";
 
-    }
+    } else {
 
-    
-
-    
-
-    var triple="---";
-
-		if(((words[0]*1)==(words[1]*1)) && ( (words[1]*1) ==(words[2]*1)) ){
-
-	     	triple=words[0].concat((words[1]*1),(words[2]*1));
-
-    } else if (((words[0]*1)==(words[1]*1)) || ( (words[1]*1) ==(words[2]*1)) || ( (words[0]*1) ==(words[2]*1)) ){
-
-        triple="对子";
-
-    } else if ((((((words[0]*1)+1))==(words[1]*1)) && ((((words[1]*1)+1))==(words[2]*1)) && ((((words[0]*1)+2))==(words[2]*1))) || (((((words[0]*1)-1))==(words[1]*1)) && ((((words[1]*1)-1))==(words[2]*1)) && ((((words[0]*1)-2))==(words[2]*1)))){
-
-        triple="顺子";
-
-    }else{
-
-      triple="---";
+        homeaway = "和";
 
     }
 
-		
-	template = template.replace(/{GamLogo}/g, GamLogo);
-	template = template.replace(/{ThisResult}/g, data.current.periodNumber);   //上其開獎時間
+
+    var bigsmall = "---";
+
+    if (NumberS >= 0 && NumberS <= 5) {
+
+        bigsmall = "极小";
+
+    } else if (NumberS >= 22 && NumberS <= 27) {
+
+        bigsmall = "极大";
+
+    }
+
+
+    var triple = "---";
+
+    if (((words[0] * 1) == (words[1] * 1)) && ((words[1] * 1) == (words[2] * 1))) {
+
+        triple = words[0].concat((words[1] * 1), (words[2] * 1));
+
+    } else if (((words[0] * 1) == (words[1] * 1)) || ((words[1] * 1) == (words[2] * 1)) || ((words[0] * 1) == (words[2] * 1))) {
+
+        triple = "对子";
+
+    } else if ((((((words[0] * 1) + 1)) == (words[1] * 1)) && ((((words[1] * 1) + 1)) == (words[2] * 1)) && ((((words[0] * 1) + 2)) == (words[2] * 1))) || (((((words[0] * 1) - 1)) == (words[1] * 1)) && ((((words[1] * 1) - 1)) == (words[2] * 1)) && ((((words[0] * 1) - 2)) == (words[2] * 1)))) {
+
+        triple = "顺子";
+
+    } else {
+
+        triple = "---";
+
+    }
+
+
+    template = template.replace(/{GamLogo}/g, GamLogo);
+    template = template.replace(/{ThisResult}/g, data.current.periodNumber);   //上其開獎時間
 
     template = template.replace(/{ThisGame}/g, data.next.periodNumber);        //下其開獎時間
 
     //template = template.replace(/{ThisEnd}/g, awardTime-(data.next.delayTimeInterval*1));     // 下單截止
 
-    template = template.replace(/{ThisEnd}/g, awardTime-fengpantime);     // 下單截止
+    template = template.replace(/{ThisEnd}/g, awardTime - fengpantime);     // 下單截止
 
     template = template.replace(/{NextStart}/g, awardTime);    //開獎時間
 
@@ -155,112 +147,109 @@ function render(data, template) {
 
     template = template.replace(/{HomeAway}/g, homeaway);
 
-    template = template.replace(/{BigSmall}/g,bigsmall);
+    template = template.replace(/{BigSmall}/g, bigsmall);
 
     template = template.replace(/{Triple}/g, triple);
 
-		//setTimer(awardTime);
+    //setTimer(awardTime);
 
-		return template;
+    return template;
 
 }
 
 
+function setTimer(secI, divid, delaytime) {
 
+    //secI=5;
 
-
-function setTimer(secI,divid,delaytime){
-
-        //secI=5; 
-
-    if(divid=="NextStart") { 
-        var rollbacktime=secI; 
-    }else{ 
-         var rollbacktime=secI-delaytime; 
+    if (divid == "NextStart") {
+        var rollbacktime = secI;
+    } else {
+        var rollbacktime = secI - delaytime;
     }
 
-     if(rollbacktime < 0){
+    if (rollbacktime < 0) {
 
-             $("#"+divid).text("0");
+        $("#" + divid).text("0");
 
-              if(divid=="NextStart") { 
-                reloadx(10,"NextStart"); 
-              } 
-             return; 
+        if (divid == "NextStart") {
+            reloadx(10, "NextStart");
+        }
+        return;
     }
 
-    $('#'+divid).timer({ 
-          		delay: 1000, 
-          		repeat: secI, 
-          		autostart: false, 
-          		callback: function( index ) { 
+    $('#' + divid).timer({
+        delay: 1000,
+        repeat: secI,
+        autostart: false,
+        callback: function (index) {
 
-                 if(rollbacktime==1){
-
-                     $("#"+divid).text("0"); 
-                     $('#'+divid).timer('stop');
-                     if(divid=="NextStart"){ 
-                          console.log("NextStart--"); 
-                          reloadx(26,"reloadtime"); 
-                     }  
-                 }else{ 
-                   $("#"+divid).text(--rollbacktime); 
-                 } 
-          		} 
-    }); 
-    $('#'+divid).timer('start'); 
+            if (rollbacktime == 1) {
+                window.sessionStorage.setItem("BetEnd","0");
+                $("#" + divid).text("0");
+                $('#' + divid).timer('stop');
+                if (divid == "NextStart") {
+                    console.log("NextStart--");
+                    reloadx(26, "reloadtime");
+                }
+            } else {
+                rollbacktime=rollbacktime-1;
+                if(divid==='ThisEnd')
+                {
+                    window.sessionStorage.setItem("BetEnd",rollbacktime);
+                }
+                $("#" + divid).text(rollbacktime);
+            }
+        }
+    });
+    $('#' + divid).timer('start');
 }
 
 //結束後delay 10 秒
 
-function reloadx(secI,divid){ 
-    var rollbacktime=secI;  
-   $('#'+divid).timer({
+function reloadx(secI, divid) {
+    var rollbacktime = secI;
+    $('#' + divid).timer({
 
-          		delay: 1000, 
-          		repeat: secI, 
-          		autostart: false, 
-          		callback: function( index ) { 
-                 console.log(index); 
-                 if(rollbacktime==1){ 
-                      $('#'+divid).timer('stop'); 
-                      init(); 
-                 }else{ 
-                      --rollbacktime; 
-                 } 
-          		} 
-    }); 
-    $('#'+divid).timer('start'); 
+        delay: 1000,
+        repeat: secI,
+        autostart: false,
+        callback: function (index) {
+            console.log(index);
+            if (rollbacktime == 1) {
+                $('#' + divid).timer('stop');
+                init();
+            } else {
+                --rollbacktime;
+            }
+        }
+    });
+    $('#' + divid).timer('start');
 }
 
 
-
-
-
-
-
-function init(){ 
-     $.ajax({ 
-        url: "ajax/pc28.php", 
-        type: "GET", 
-        dataType: "json", 
-        success: function(Jdata) { 
-        console.log(Jdata); 
-        var html = render(Jdata,templatex); 
-		$('.content').html(html); 
-              var awardTime= Math.floor(((Jdata.next.awardTimeInterval*1)/1000)); 
-              setTimer(awardTime,"NextStart",0); 
-              // setTimer(awardTime,"ThisEnd",(Jdata.next.delayTimeInterval*1)); 
-              setTimer(awardTime,"ThisEnd",30); 
-              //  $('#NextStart').timer('start'); 
-              //  $('#ThisEnd').timer('start'); 
-              //alert("SUCCESS!!!"); 
-        }, 
-          error: function() {
-          alert("ERROR!!!");
+function init() {
+    $.ajax({
+        url: "ajax/pc28.php",
+        type: "GET",
+        dataType: "json",
+        success: function (Jdata) {
+            console.log(Jdata);
+            var html = render(Jdata, templatex);
+            $('.content').html(html);
+            var awardTime = Math.floor(((Jdata.next.awardTimeInterval * 1) / 1000));
+            setTimer(awardTime, "NextStart", 0);
+            // setTimer(awardTime,"ThisEnd",(Jdata.next.delayTimeInterval*1));
+            setTimer(awardTime, "ThisEnd", 30);
+            //  $('#NextStart').timer('start');
+            //  $('#ThisEnd').timer('start');
+            //alert("SUCCESS!!!");
+        },
+        error: function () {
+            alert("ERROR!!!");
         }
 
-   });
+    });
 
 }
 
