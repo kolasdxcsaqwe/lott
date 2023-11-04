@@ -1611,14 +1611,18 @@ function addK3Bet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$B
     }
     $content = str_replace(".", "/", $content);
     $content = preg_replace("/[点草艹操,-]/u", "/", $content);
+
+    $gameType=0;
     switch ($_COOKIE['game']) {
         case 'kuai3':
             $table = 'fn_lottery9';
             $ordertable = 'fn_k3order';
+            $gameType=9;
             break;
         case 'twk3':
             $table = 'fn_lottery15';
             $ordertable = 'fn_twk3order';
+            $gameType=15;
             break;
     }
     $touzhu = false;
@@ -1810,7 +1814,7 @@ function addK3Bet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$B
 
             $touzhu = true;
             用户_下分($userid, $jine);
-            insert_query($ordertable, array("term" => $addQihao, 'userid' => $userid, 'username' => $_SESSION['username'], 'headimg' => $_SESSION['headimg'], 'mingci' => $mingci, 'content' => $neirong, 'money' => $jine, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $jia));
+            insert_query($ordertable, array('gamtype'=>$gameType,'gamename'=>$BetGame,"term" => $addQihao, 'userid' => $userid, 'username' => $_SESSION['username'], 'headimg' => $_SESSION['headimg'], 'mingci' => $mingci, 'content' => $neirong, 'money' => $jine, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $jia));
             continue;
         }
     }
@@ -2043,30 +2047,37 @@ function addBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$Bet
     $content = preg_replace("/\/(大单|小单|大双|小双|大|小|单|双|龙|虎)/u", "$1", $content);
     $content = preg_replace("/(大单|小单|大双|小双|大|小|单|双|龙|虎)/u", "/$1/", $content);
 
+    $gameType=0;
     switch ($_COOKIE['game']) {
         case 'pk10':
             $table = 'fn_lottery1';
             $ordertable = "fn_order";
+            $gameType=1;
             break;
         case "xyft":
             $table = 'fn_lottery2';
             $ordertable = "fn_flyorder";
+            $gameType=2;
             break;
         case "jsmt":
             $table = 'fn_lottery6';
             $ordertable = "fn_mtorder";
+            $gameType=6;
             break;
         case "jssc":
             $table = 'fn_lottery7';
             $ordertable = "fn_jsscorder";
+            $gameType=7;
             break;
         case "jssm":
             $table = 'fn_lottery12';
             $ordertable = "fn_smorder";
+            $gameType=12;
             break;
         case "azxy10":
             $table = 'fn_lottery17';
             $ordertable = "fn_azxy10order";
+            $gameType=10;
             break;
     }
     $dx_min = get_query_val($table, 'daxiao_min', array('roomid' => $_SESSION['roomid']));
@@ -2119,7 +2130,7 @@ function addBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$Bet
                     continue;
                 }
                 用户_下分($userid, $zym_5);
-                insert_query($ordertable, array('term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $zym_10, 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
+                insert_query($ordertable, array('gamtype'=>$gameType,'gamename'=>$BetGame,'term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $zym_10, 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
                 $touzhu = true;
                 continue;
             }
@@ -2141,7 +2152,7 @@ function addBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$Bet
                 }
                 $touzhu = true;
                 用户_下分($userid, $zym_5);
-                insert_query($ordertable, array('term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $zym_10, 'content' => $ii, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
+                insert_query($ordertable, array('gamtype'=>$gameType,'gamename'=>$BetGame,'term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $zym_10, 'content' => $ii, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
                 continue;
             }
             continue;
@@ -2161,7 +2172,7 @@ function addBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$Bet
                 }
                 $touzhu = true;
                 用户_下分($userid, $zym_5);
-                insert_query($ordertable, array('term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $ii, 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
+                insert_query($ordertable, array('gamtype'=>$gameType,'gamename'=>$BetGame,'term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $ii, 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
             }
             continue;
         }
@@ -2204,7 +2215,7 @@ function addBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$Bet
                 }
                 $touzhu = true;
                 用户_下分($userid, $zym_5);
-                insert_query($ordertable, array('term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $ii, 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
+                insert_query($ordertable, array('gamtype'=>$gameType,'gamename'=>$BetGame,'term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $ii, 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
             }
             continue;
         }
@@ -2227,7 +2238,7 @@ function addBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$Bet
                 }
                 $touzhu = true;
                 用户_下分($userid, $zym_5);
-                insert_query($ordertable, array('term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $ii, 'content' => $iii, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
+                insert_query($ordertable, array('gamtype'=>$gameType,'gamename'=>$BetGame,'term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $ii, 'content' => $iii, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
             }
         }
     }
@@ -2270,18 +2281,23 @@ function addPCBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$B
     $content = preg_replace("/[点草艹操,-]/u", "/", $content);
     $content = preg_replace("/(极大|极小|豹子|对子|顺子|大单|大双|小单|小双|大|小|单|双|哈)\//u", "$1", $content);
     $content = preg_replace("/(极大|极小|豹子|对子|顺子|大单|大双|小单|小双|大|小|单|双|哈)/u", "$1/", $content);
+
+    $gameType=0;
     switch ($_COOKIE['game']) {
         case 'xy28':
             $table = 'fn_lottery4';
             $ordertable = 'fn_pcorder';
+            $gameType=4;
             break;
         case 'ny28':
             $table = 'fn_lottery19';
             $ordertable = 'fn_pcorder';
+            $gameType=19;
             break;
         case "jnd28":
             $table = 'fn_lottery5';
             $ordertable = 'fn_pcorder';
+            $gameType=5;
             break;
     }
     $zym_17_min = (int)get_query_val($table, 'danzhu_min', array('roomid' => $_SESSION['roomid']));
@@ -2360,7 +2376,7 @@ function addPCBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$B
                     if ($zym_14_例外 > 0 && $zym_7 + $zym_5 > $zym_14_例外) {
                         $touzhu = true;
                         用户_下分($userid, $zym_5);
-                        insert_query("fn_pcorder", array("term" => $addQihao, 'userid' => $userid, 'username' => $_SESSION['username'], 'headimg' => $_SESSION['headimg'], 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
+                        insert_query("fn_pcorder", array('gamtype'=>$gameType,'gamename'=>$BetGame,"term" => $addQihao, 'userid' => $userid, 'username' => $_SESSION['username'], 'headimg' => $_SESSION['headimg'], 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
                     } else {
                         $jinzhi = true;
                         $zym_2 = $zym_6 . '/' . $zym_5;
@@ -2370,7 +2386,7 @@ function addPCBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$B
             }
             $touzhu = true;
             用户_下分($userid, $zym_5);
-            insert_query("fn_pcorder", array("term" => $addQihao, 'userid' => $userid, 'username' => $_SESSION['username'], 'headimg' => $_SESSION['headimg'], 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
+            insert_query("fn_pcorder", array('gamtype'=>$gameType,'gamename'=>$BetGame,"term" => $addQihao, 'userid' => $userid, 'username' => $_SESSION['username'], 'headimg' => $_SESSION['headimg'], 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
             continue;
         } elseif ($zym_6 == '大单' || $zym_6 == '小单' || $zym_6 == '大双' || $zym_6 == '小双') {
             if ($zym_5 > $zym_19_max) {
@@ -2404,7 +2420,7 @@ function addPCBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$B
                     if ($zym_14_例外 > 0 && $zym_7 + $zym_5 > $zym_14_例外) {
                         $touzhu = true;
                         用户_下分($userid, $zym_5);
-                        insert_query("fn_pcorder", array("term" => $addQihao, 'userid' => $userid, 'username' => $_SESSION['username'], 'headimg' => $_SESSION['headimg'], 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
+                        insert_query("fn_pcorder", array('gamtype'=>$gameType,'gamename'=>$BetGame,"term" => $addQihao, 'userid' => $userid, 'username' => $_SESSION['username'], 'headimg' => $_SESSION['headimg'], 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
                     } else {
                         $jinzhi = true;
                         $zym_2 = $zym_6 . '/' . $zym_5;
@@ -2432,7 +2448,7 @@ function addPCBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$B
                     if ($zym_14_例外 > 0 && $zym_7 + $zym_5 > $zym_14_例外) {
                         $touzhu = true;
                         用户_下分($userid, $zym_5);
-                        insert_query("fn_pcorder", array("term" => $addQihao, 'userid' => $userid, 'username' => $_SESSION['username'], 'headimg' => $_SESSION['headimg'], 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
+                        insert_query("fn_pcorder", array('gamtype'=>$gameType,'gamename'=>$BetGame,"term" => $addQihao, 'userid' => $userid, 'username' => $_SESSION['username'], 'headimg' => $_SESSION['headimg'], 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
                     } else {
                         $jinzhi = true;
                         $zym_2 = $zym_6 . '/' . $zym_5;
@@ -2460,7 +2476,7 @@ function addPCBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$B
                     if ($zym_14_例外 > 0 && $zym_7 + $zym_5 > $zym_14_例外) {
                         $touzhu = true;
                         用户_下分($userid, $zym_5);
-                        insert_query("fn_pcorder", array("term" => $addQihao, 'userid' => $userid, 'username' => $_SESSION['username'], 'headimg' => $_SESSION['headimg'], 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
+                        insert_query("fn_pcorder", array('gamtype'=>$gameType,'gamename'=>$BetGame,"term" => $addQihao, 'userid' => $userid, 'username' => $_SESSION['username'], 'headimg' => $_SESSION['headimg'], 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
                     } else {
                         $jinzhi = true;
                         $zym_2 = $zym_6 . '/' . $zym_5;
@@ -2470,7 +2486,7 @@ function addPCBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$B
             }
             $touzhu = true;
             用户_下分($userid, $zym_5);
-            insert_query("fn_pcorder", array("term" => $addQihao, 'userid' => $userid, 'username' => $_SESSION['username'], 'headimg' => $_SESSION['headimg'], 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
+            insert_query("fn_pcorder", array('gamtype'=>$gameType,'gamename'=>$BetGame,"term" => $addQihao, 'userid' => $userid, 'username' => $_SESSION['username'], 'headimg' => $_SESSION['headimg'], 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
             continue;
         } elseif ($zym_6 == '极大' || $zym_6 == '极小') {
             if ($zym_5 > $zym_11_max) {
@@ -2483,7 +2499,7 @@ function addPCBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$B
             }
             $touzhu = true;
             用户_下分($userid, $zym_5);
-            insert_query("fn_pcorder", array("term" => $addQihao, 'userid' => $userid, 'username' => $_SESSION['username'], 'headimg' => $_SESSION['headimg'], 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
+            insert_query("fn_pcorder", array('gamtype'=>$gameType,'gamename'=>$BetGame,"term" => $addQihao, 'userid' => $userid, 'username' => $_SESSION['username'], 'headimg' => $_SESSION['headimg'], 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
             continue;
         } elseif ($zym_6 == '豹子' || $zym_6 == '对子' || $zym_6 == '顺子') {
             switch ($zym_6) {
@@ -2527,7 +2543,7 @@ function addPCBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$B
             }
             $touzhu = true;
             用户_下分($userid, $zym_5);
-            insert_query("fn_pcorder", array("term" => $addQihao, 'userid' => $userid, 'username' => $_SESSION['username'], 'headimg' => $_SESSION['headimg'], 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
+            insert_query("fn_pcorder", array('gamtype'=>$gameType,'gamename'=>$BetGame,"term" => $addQihao, 'userid' => $userid, 'username' => $_SESSION['username'], 'headimg' => $_SESSION['headimg'], 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
             continue;
         } else {
             if ($zym_5 > $zym_16_max) {
@@ -2542,7 +2558,7 @@ function addPCBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$B
             }
             $touzhu = true;
             用户_下分($userid, $zym_5);
-            insert_query("fn_pcorder", array("term" => $addQihao, 'userid' => $userid, 'username' => $_SESSION['username'], 'headimg' => $_SESSION['headimg'], 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
+            insert_query("fn_pcorder", array('gamtype'=>$gameType,'gamename'=>$BetGame,"term" => $addQihao, 'userid' => $userid, 'username' => $_SESSION['username'], 'headimg' => $_SESSION['headimg'], 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
             continue;
         }
     }
@@ -2633,6 +2649,7 @@ function add11X5Bet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,
     $content = preg_replace("/(大|小|单|双|豹子|顺子|对子|半顺|杂六)/u", "/$1/", $content);
     $table = 'fn_lottery11';
     $ordertable = 'fn_11x5order';
+    $gameType=11;
 
     $dx_min = get_query_val($table, 'dx_min', array('roomid' => $_SESSION['roomid']));
     $dx_max = get_query_val($table, 'dx_max', array('roomid' => $_SESSION['roomid']));
@@ -2688,7 +2705,7 @@ function add11X5Bet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,
                     continue;
                 }
                 用户_下分($userid, $zym_5);
-                insert_query($ordertable, array('term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $zym_10, 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8, 'game' => $_COOKIE['game']), $chat_id);
+                insert_query($ordertable, array('gamtype'=>$gameType,'gamename'=>$BetGame,'term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $zym_10, 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8, 'game' => $_COOKIE['game']), $chat_id);
                 $touzhu = true;
                 continue;
             } elseif ($zym_6 == '单' || $zym_6 == '双') {
@@ -2701,7 +2718,7 @@ function add11X5Bet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,
                     continue;
                 }
                 用户_下分($userid, $zym_5);
-                insert_query($ordertable, array('term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $zym_10, 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8, 'game' => $_COOKIE['game']), $chat_id);
+                insert_query($ordertable, array('gamtype'=>$gameType,'gamename'=>$BetGame,'term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $zym_10, 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8, 'game' => $_COOKIE['game']), $chat_id);
                 $touzhu = true;
                 continue;
             } elseif ($zym_6 == '龙' || $zym_6 == '虎' || $zym_6 == '和') {
@@ -2714,7 +2731,7 @@ function add11X5Bet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,
                     continue;
                 }
                 用户_下分($userid, $zym_5);
-                insert_query($ordertable, array('term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $zym_10, 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8, 'game' => $_COOKIE['game']), $chat_id);
+                insert_query($ordertable, array('gamtype'=>$gameType,'gamename'=>$BetGame,'term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $zym_10, 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8, 'game' => $_COOKIE['game']), $chat_id);
                 $touzhu = true;
                 continue;
             }
@@ -2749,7 +2766,7 @@ function add11X5Bet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,
                 }
                 $touzhu = true;
                 用户_下分($userid, $zym_5);
-                insert_query($ordertable, array('term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $ii, 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8, 'game' => $_COOKIE['game']), $chat_id);
+                insert_query($ordertable, array('gamtype'=>$gameType,'gamename'=>$BetGame,'term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $ii, 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8, 'game' => $_COOKIE['game']), $chat_id);
                 continue;
             }
             continue;
@@ -2783,7 +2800,7 @@ function add11X5Bet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,
                 }
                 $touzhu = true;
                 用户_下分($userid, $zym_5);
-                insert_query($ordertable, array('term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $i, 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8, 'game' => $_COOKIE['game']), $chat_id);
+                insert_query($ordertable, array('gamtype'=>$gameType,'gamename'=>$BetGame,'term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $i, 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8, 'game' => $_COOKIE['game']), $chat_id);
                 continue;
             }
             continue;
@@ -2802,7 +2819,7 @@ function add11X5Bet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,
                     continue;
                 }
                 用户_下分($userid, $zym_5 * 5);
-                db_query("INSERT INTO {$ordertable}(userid, username, headimg, term, mingci, content, `money`, addtime, `status`, jia, roomid,game) VALUES('$userid', '$nickname', '$headimg', '$addQihao', '1', '{$ii}', '{$zym_5}', now(), '未结算', '{$zym_8}', '{$_SESSION['roomid']}','{$_COOKIE['game']}'), ('$userid', '$nickname', '$headimg', '$addQihao', '2', '{$ii}', '{$zym_5}', now(), '未结算', '{$zym_8}', '{$_SESSION['roomid']}','{$_COOKIE['game']}'), ('$userid', '$nickname', '$headimg', '$addQihao', '3', '{$ii}', '{$zym_5}', now(), '未结算', '{$zym_8}', '{$_SESSION['roomid']}','{$_COOKIE['game']}'), ('$userid', '$nickname', '$headimg', '$addQihao', '4', '{$ii}', '{$zym_5}', now(), '未结算', '{$zym_8}', '{$_SESSION['roomid']}','{$_COOKIE['game']}'), ('$userid', '$nickname', '$headimg', '$addQihao', '5', '{$ii}', '{$zym_5}', now(), '未结算', '{$zym_8}', '{$_SESSION['roomid']}','{$_COOKIE['game']}')");
+                db_query("INSERT INTO {$ordertable}(userid, username, headimg, term, mingci, content, `money`, addtime, `status`, jia, roomid,game,gamename,gamtype) VALUES('$userid', '$nickname', '$headimg', '$addQihao', '1', '{$ii}', '{$zym_5}', now(), '未结算', '{$zym_8}', '{$_SESSION['roomid']}','{$_COOKIE['game']}'), ('$userid', '$nickname', '$headimg', '$addQihao', '2', '{$ii}', '{$zym_5}', now(), '未结算', '{$zym_8}', '{$_SESSION['roomid']}','{$_COOKIE['game']}'), ('$userid', '$nickname', '$headimg', '$addQihao', '3', '{$ii}', '{$zym_5}', now(), '未结算', '{$zym_8}', '{$_SESSION['roomid']}','{$_COOKIE['game']}'), ('$userid', '$nickname', '$headimg', '$addQihao', '4', '{$ii}', '{$zym_5}', now(), '未结算', '{$zym_8}', '{$_SESSION['roomid']}','{$_COOKIE['game']}'), ('$userid', '$nickname', '$headimg', '$addQihao', '5', '{$ii}', '{$zym_5}', now(), '未结算', '{$zym_8}', '{$_SESSION['roomid']}','{$_COOKIE['game']}','{$BetGame}','{$gameType}')");
                 $touzhu = true;
                 continue;
             }
@@ -2830,7 +2847,7 @@ function add11X5Bet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,
                 }
                 $touzhu = true;
                 用户_下分($userid, $zym_5);
-                insert_query($ordertable, array('term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $ii, 'content' => $iii, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8, 'game' => $_COOKIE['game']), $chat_id);
+                insert_query($ordertable, array('gamtype'=>$gameType,'gamename'=>$BetGame,'term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $ii, 'content' => $iii, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8, 'game' => $_COOKIE['game']), $chat_id);
             }
         }
         continue;
@@ -2972,7 +2989,7 @@ function addSSCBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$
                     continue;
                 }
                 用户_下分($userid, $zym_5);
-                insert_query($ordertable, array('term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $zym_10, 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
+                insert_query($ordertable, array('gamtype'=>$gameType,'gamename'=>$BetGame,'term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $zym_10, 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
                 $touzhu = true;
                 continue;
             } elseif ($zym_6 == '单' || $zym_6 == '双') {
@@ -2985,7 +3002,7 @@ function addSSCBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$
                     continue;
                 }
                 用户_下分($userid, $zym_5);
-                insert_query($ordertable, array('term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $zym_10, 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
+                insert_query($ordertable, array('gamtype'=>$gameType,'gamename'=>$BetGame,'term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $zym_10, 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
                 $touzhu = true;
                 continue;
             } elseif ($zym_6 == '龙' || $zym_6 == '虎' || $zym_6 == '和') {
@@ -2998,7 +3015,7 @@ function addSSCBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$
                     continue;
                 }
                 用户_下分($userid, $zym_5);
-                insert_query($ordertable, array('term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $zym_10, 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
+                insert_query($ordertable, array('gamtype'=>$gameType,'gamename'=>$BetGame,'term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $zym_10, 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
                 $touzhu = true;
                 continue;
             }
@@ -3033,7 +3050,7 @@ function addSSCBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$
                 }
                 $touzhu = true;
                 用户_下分($userid, $zym_5);
-                insert_query($ordertable, array('term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $ii, 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
+                insert_query($ordertable, array('gamtype'=>$gameType,'gamename'=>$BetGame,'term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $ii, 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
                 continue;
             }
             continue;
@@ -3067,7 +3084,7 @@ function addSSCBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$
                 }
                 $touzhu = true;
                 用户_下分($userid, $zym_5);
-                insert_query($ordertable, array('term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $i, 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
+                insert_query($ordertable, array('gamtype'=>$gameType,'gamename'=>$BetGame,'term' => $addQihao, 'userid' => $userid, 'username' => $nickname, 'headimg' => $headimg, 'mingci' => $i, 'content' => $zym_6, 'money' => $zym_5, 'addtime' => 'now()', 'roomid' => $_SESSION['roomid'], 'status' => '未结算', 'jia' => $zym_8), $chat_id);
                 continue;
             }
             continue;
