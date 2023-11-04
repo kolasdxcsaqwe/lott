@@ -42,7 +42,7 @@ body {
 						</thead>
 						<tbody>
 							<?php
-     select_query('fn_pcorder', '*', "`userid` = '{$_SESSION['userid']}' and `status` = '未结算' and `roomid` = '{$_SESSION['roomid']}'");
+     select_query('fn_pcorder', '*', "`userid` = '{$_SESSION['userid']}' and `status` = '未结算' and `roomid` = '{$_SESSION['roomid']}' and `gamename` = '{$game}'");
     while($con = db_fetch_array()){
         $cons[] = $con;
         ?>
@@ -1004,7 +1004,7 @@ body {
 						</thead>
 						<tbody>
 							<?php
-     select_query('fn_pcorder', '*', "`roomid` = '{$_SESSION['roomid']}' and `userid` = '{$_SESSION['userid']}' and `status` != '未结算' and `addtime` like '" . date('Y-m-d') . "%'");
+     select_query('fn_pcorder', '*', "`roomid` = '{$_SESSION['roomid']}' and `gamename` = '{$game}' and `userid` = '{$_SESSION['userid']}' and `status` != '未结算' and `addtime` like '" . date('Y-m-d') . "%'");
     $all_m = 0;
     $all_z = 0;
     while($con = db_fetch_array()){
