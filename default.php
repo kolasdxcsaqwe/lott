@@ -6,9 +6,9 @@ function is_weixin()
     }
     return false;
 }
-if($_SESSION['userid']!=null)
-{
-    $isJia=get_query_val("fn_user","jia","userid='{$_SESSION['userid']}'");
+
+if ($_SESSION['userid'] != null) {
+    $isJia = get_query_val("fn_user", "jia", "userid='{$_SESSION['userid']}'");
 }
 
 ?>
@@ -104,18 +104,13 @@ if($_SESSION['userid']!=null)
                                 </a>
                             </li>
 
-                            <?php if($isJia=='true'){ ?>
-                                <li style=" width: 50%; ">
-                                    <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=ny28">
-                                        <img src="/Style/Home/images/ny28-11-1.jpg" title="纽约28"
-                                             style=" width: 95%; ">
-                                        <!--		<font>加拿大28</font>-->
-                                    </a>
-                                </li>
-                            <?php } ?>
-
-
-
+                            <li style=" width: 50%; ">
+                                <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=ny28">
+                                    <img src="/Style/Home/images/ny28-11-1.jpg" title="纽约28"
+                                         style=" width: 95%; ">
+                                    <!--		<font>加拿大28</font>-->
+                                </a>
+                            </li>
 
 
                             <li style=" width: 50%; ">
