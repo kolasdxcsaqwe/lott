@@ -369,7 +369,7 @@ switch ($type) {
             echo json_encode(array('success' => false, 'msg' => "警告:投注格式不正确或已经封盘"));
             break;
         } else {
-            echo json_encode(array("success" => true, "content" => $content));
+            echo json_encode(array("success" => true, "content" => $content,'betTerm'=>$BetTerm));
             insert_query("fn_chat", array("username" => $nickname, 'content' => $content, 'addtime' => date('H:i:s'), 'time' => date('Y-m-d H:i:s', time()), 'game' => $_COOKIE['game'], 'headimg' => $headimg, 'type' => $type, 'userid' => $_SESSION['userid'], 'roomid' => $_SESSION['roomid'], 'chatid' => $co[1]));
 
         }

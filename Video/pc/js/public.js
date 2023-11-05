@@ -184,7 +184,7 @@ function setTimer(secI, divid, delaytime) {
         autostart: false,
         callback: function (index) {
 
-            if (rollbacktime == 1) {
+            if (rollbacktime <= 1) {
                 window.sessionStorage.setItem("BetEnd","0");
                 $("#" + divid).text("0");
                 $('#' + divid).timer('stop');

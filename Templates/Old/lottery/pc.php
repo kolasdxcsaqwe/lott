@@ -78,7 +78,7 @@ function is_weixin()
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/weui.min.css"/>
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/style.css?t=x0qh3ir"/>
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/bootstrap.min.css"/>
-    <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/wx.css"/>
+    <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/wx.css?t=asxzc34"/>
     <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/layout.css"/>
     <link rel="Stylesheet" type="text/css" href="Style/Xs/static/css/iconfont.css"/>
 
@@ -371,7 +371,7 @@ function is_weixin()
 </script>
 <!-- New Templates Update -->
 <script type="text/javascript" src="/Style/Old/js/tools.js"></script>
-<script type="text/javascript" src="/Style/Old/js/chat.js?t=dsjfh4545"></script>
+<script type="text/javascript" src="/Style/Old/js/chat.js?t=sadsa23"></script>
 <script type="text/javascript" src="/Style/Old/js/pc.js"></script>
 <!-- ./New Templates Update -->
 

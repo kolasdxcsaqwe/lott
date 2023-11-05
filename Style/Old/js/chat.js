@@ -38,6 +38,7 @@ function send_msg(msg){
 			success: function (data) {
 				if (data.success) {
 					sendtime = new Date().getTime();
+					var qihao="<span style='color:red;font-size:30px;padding:4%;'>"+' 期号：'+data.betTerm+ '</span>'
 					str = '<div class="saidleft">' +
 						'<img src="' + info['headimg'] + '">' +
 						'<div class="tousaid">' +
