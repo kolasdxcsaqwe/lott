@@ -13,7 +13,9 @@ switch ($type) {
             } else {
                 $type = $x['type'];
             }
-            $arr[] = array('nickname' => $x['username'], 'headimg' => $x['headimg'], 'content' => $x['content'], 'addtime' => $x['addtime'], 'type' => $type, 'game' => $BetGame, 'id' => $x['id']);
+            $arr[] = array('nickname' => $x['username'], 'headimg' => $x['headimg'],'betTerm'=>$x['betterm'],
+                'content' => $x['content'], 'addtime' => $x['addtime'], 'type' => $type,
+                'game' => $BetGame, 'id' => $x['id']);
         }
         echo json_encode($arr);
         break;
@@ -370,8 +372,7 @@ switch ($type) {
             break;
         } else {
             echo json_encode(array("success" => true, "content" => $content,'betTerm'=>$BetTerm));
-            insert_query("fn_chat", array("username" => $nickname, 'content' => $content, 'addtime' => date('H:i:s'), 'time' => date('Y-m-d H:i:s', time()), 'game' => $_COOKIE['game'], 'headimg' => $headimg, 'type' => $type, 'userid' => $_SESSION['userid'], 'roomid' => $_SESSION['roomid'], 'chatid' => $co[1]));
-
+            insert_query("fn_chat", array("username" => $nickname, 'betterm'=>$BetTerm,'content' => $content, 'addtime' => date('H:i:s'), 'time' => date('Y-m-d H:i:s', time()), 'game' => $_COOKIE['game'], 'headimg' => $headimg, 'type' => $type, 'userid' => $_SESSION['userid'], 'roomid' => $_SESSION['roomid'], 'chatid' => $co[1]));
         }
         break;
 }
