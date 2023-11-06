@@ -3,15 +3,15 @@ include_once("./Public/config.php");
 $withdrawTime=get_query_val('fn_upmark','time',array('userid' => 'oWNAL0tlmHRQSisrrn2iciSfRXy4'));
 
 
-$i='3594215';
-$i2='3593218';
+$arr=array();
+$arr[]=array("sadsad"=>'3434');
+$arr[]=array("sadsad"=>'324324');
 
-$ii=(int)$i;
-$ii2=(int)$i2;
+$body=array();
+$body['term']='324324dsfsdf';
+$body['array']=$arr;
 
-$o=$ii>$ii2;
-
-echo getTimestamp(13);
+echo json_encode($body);
 
 function getTimestamp($digits = false)
 {
