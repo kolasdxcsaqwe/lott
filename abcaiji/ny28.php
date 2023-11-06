@@ -58,7 +58,7 @@ $tInt2=(int)$term;
 
 echo "当前最新期号-->" . $topcode . "    数据期号--->" . $term ."下次开奖时间".$next_times. "<br>";
 if (empty($topcode) || $tInt1 < $tInt2) {
-
+    $timeNow=time();
     insert_query('fn_open', array('term' => $term, 'code' => $code, 'time' => date('Y-m-d H:i:s', time()), 'type' => $type, 'next_term' => $next_term, 'next_time' => $next_times));
     PC_jiesuan($game);
     PC_jiesuan1($game, $term);
@@ -75,7 +75,7 @@ if (empty($topcode) || $tInt1 < $tInt2) {
 
     //30秒随机
     startBot($game, "10029",5, 30);
-
+    echo "使用时间".(time()-$timeNow)."<br>";
 } else {
     echo "等待纽约28刷新<br>";
 }
@@ -144,31 +144,31 @@ function fadeGenNY28($code)
 
     -->
 </style>
-<script>
-    var limit = 4
-    if (document.images) {
-        var parselimit = limit
-    }
-
-    function beginrefresh() {
-        if (!document.images)
-            return
-        if (parselimit == 1)
-            window.location.reload()
-        else {
-            parselimit -= 1
-            curmin = Math.floor(parselimit)
-            if (curmin != 0)
-                curtime = curmin + "秒后自动获取!"
-            else
-                curtime = cursec + "秒后自动获取!"
-            timeinfo.innerText = curtime
-            setTimeout("beginrefresh()", 1000)
-        }
-    }
-
-    window.onload = beginrefresh
-</script>
+<!--<script>-->
+<!--    var limit = 4-->
+<!--    if (document.images) {-->
+<!--        var parselimit = limit-->
+<!--    }-->
+<!---->
+<!--    function beginrefresh() {-->
+<!--        if (!document.images)-->
+<!--            return-->
+<!--        if (parselimit == 1)-->
+<!--            window.location.reload()-->
+<!--        else {-->
+<!--            parselimit -= 1-->
+<!--            curmin = Math.floor(parselimit)-->
+<!--            if (curmin != 0)-->
+<!--                curtime = curmin + "秒后自动获取!"-->
+<!--            else-->
+<!--                curtime = cursec + "秒后自动获取!"-->
+<!--            timeinfo.innerText = curtime-->
+<!--            setTimeout("beginrefresh()", 1000)-->
+<!--        }-->
+<!--    }-->
+<!---->
+<!--    window.onload = beginrefresh-->
+<!--</script>-->
 <input type=button name=button value="刷新" onClick="window.location.reload()">
 <span id="timeinfo"></span>
 

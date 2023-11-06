@@ -36,6 +36,7 @@ function PC_jiesuan($game)
             if ($jsdiy == 1) continue;
         }
 
+        $lotteryData = get_query_vals('fn_lottery' . $openType, '*', "`roomid` = '$roomid' limit 1");
 
         $zym_9 = (int)get_query_val('fn_pcorder', 'sum(`money`)', array('roomid' => $roomid, 'term' => $term, 'userid' => $user));
 
@@ -80,14 +81,14 @@ function PC_jiesuan($game)
             $zym_5 = true;
         }
         if ($zym_8 == '大' || $zym_8 == '小' || $zym_8 == '单' || $zym_8 == '双') {
-            $peilv = get_query_val('fn_lottery' . $openType, 'dxds', "`roomid` = '$roomid'");
+            $peilv = $lotteryData['dxds'];
             if ($hz == 13 || $hz == 14) {
-                $dxds_zongzhu1 = get_query_val('fn_lottery' . $openType, 'dxds_zongzhu1', array('roomid' => $roomid));
-                $dxds_zongzhu2 = get_query_val('fn_lottery' . $openType, 'dxds_zongzhu2', array('roomid' => $roomid));
-                $dxds_zongzhu3 = get_query_val('fn_lottery' . $openType, 'dxds_zongzhu3', array('roomid' => $roomid));
-                $dxds_1314_1 = get_query_val('fn_lottery' . $openType, 'dxds_1314_1', array('roomid' => $roomid));
-                $dxds_1314_2 = get_query_val('fn_lottery' . $openType, 'dxds_1314_2', array('roomid' => $roomid));
-                $dxds_1314_3 = get_query_val('fn_lottery' . $openType, 'dxds_1314_3', array('roomid' => $roomid));
+                $dxds_zongzhu1 = $lotteryData['dxds_zongzhu1'];
+                $dxds_zongzhu2 =$lotteryData['dxds_zongzhu2'];
+                $dxds_zongzhu3 = $lotteryData['dxds_zongzhu3'];
+                $dxds_1314_1 = $lotteryData['dxds_1314_1'];
+                $dxds_1314_2 = $lotteryData['dxds_1314_2'];
+                $dxds_1314_3 = $lotteryData['dxds_1314_3'];
                 if ($dxds_zongzhu1 != "") {
                     if ($zym_9 > (int)$dxds_zongzhu1) {
                         $peilv = $dxds_1314_1;
@@ -157,14 +158,14 @@ function PC_jiesuan($game)
                 update_query("fn_pcorder", array("status" => $zym_11), array('id' => $id));
                 continue;
             } elseif ($zym_8 == '小单' && $hz < 14 && $hz % 2 != 0) {
-                $peilv = get_query_val('fn_lottery' . $openType, 'xiaodan', "`roomid` = '$roomid'");
+                $peilv = $lotteryData['xiaodan'];
                 if ($hz == 13) {
-                    $zuhe_zongzhu1 = get_query_val('fn_lottery' . $openType, 'zuhe_zongzhu1', array('roomid' => $roomid));
-                    $zuhe_zongzhu2 = get_query_val('fn_lottery' . $openType, 'zuhe_zongzhu2', array('roomid' => $roomid));
-                    $zuhe_zongzhu3 = get_query_val('fn_lottery' . $openType, 'zuhe_zongzhu3', array('roomid' => $roomid));
-                    $zuhe_1314_1 = get_query_val('fn_lottery' . $openType, 'zuhe_1314_1', array('roomid' => $roomid));
-                    $zuhe_1314_2 = get_query_val('fn_lottery' . $openType, 'zuhe_1314_2', array('roomid' => $roomid));
-                    $zuhe_1314_3 = get_query_val('fn_lottery' . $openType, 'zuhe_1314_3', array('roomid' => $roomid));
+                    $zuhe_zongzhu1 = $lotteryData['zuhe_zongzhu1'];
+                    $zuhe_zongzhu2 =$lotteryData['zuhe_zongzhu2'];
+                    $zuhe_zongzhu3 = $lotteryData['zuhe_zongzhu3'];
+                    $zuhe_1314_1 = $lotteryData['zuhe_1314_1'];
+                    $zuhe_1314_2 = $lotteryData['zuhe_1314_2'];
+                    $zuhe_1314_3 =$lotteryData['zuhe_1314_3'];
                     if ($zuhe_zongzhu1 != "") {
                         if ($zym_9 > (int)$zuhe_zongzhu1) {
                             $peilv = $zuhe_1314_1;
@@ -186,14 +187,14 @@ function PC_jiesuan($game)
                 update_query("fn_pcorder", array("status" => $zym_11), array('id' => $id));
                 continue;
             } elseif ($zym_8 == '大双' && $hz > 13 && $hz % 2 == 0) {
-                $peilv = get_query_val('fn_lottery' . $openType, 'dashuang', "`roomid` = '$roomid'");
+                $peilv = $lotteryData['dashuang'];
                 if ($hz == 14) {
-                    $zuhe_zongzhu1 = get_query_val('fn_lottery' . $openType, 'zuhe_zongzhu1', array('roomid' => $roomid));
-                    $zuhe_zongzhu2 = get_query_val('fn_lottery' . $openType, 'zuhe_zongzhu2', array('roomid' => $roomid));
-                    $zuhe_zongzhu3 = get_query_val('fn_lottery' . $openType, 'zuhe_zongzhu3', array('roomid' => $roomid));
-                    $zuhe_1314_1 = get_query_val('fn_lottery' . $openType, 'zuhe_1314_1', array('roomid' => $roomid));
-                    $zuhe_1314_2 = get_query_val('fn_lottery' . $openType, 'zuhe_1314_2', array('roomid' => $roomid));
-                    $zuhe_1314_3 = get_query_val('fn_lottery' . $openType, 'zuhe_1314_3', array('roomid' => $roomid));
+                    $zuhe_zongzhu1 = $lotteryData['zuhe_zongzhu1'];
+                    $zuhe_zongzhu2 = $lotteryData['zuhe_zongzhu2'];
+                    $zuhe_zongzhu3 = $lotteryData['zuhe_zongzhu3'];
+                    $zuhe_1314_1 = $lotteryData['zuhe_1314_1'];
+                    $zuhe_1314_2 = $lotteryData['zuhe_1314_2'];
+                    $zuhe_1314_3 = $lotteryData['zuhe_1314_3'];
                     if ($zuhe_zongzhu1 != "") {
                         if ($zym_9 > (int)$zuhe_zongzhu1) {
                             $peilv = $zuhe_1314_1;
