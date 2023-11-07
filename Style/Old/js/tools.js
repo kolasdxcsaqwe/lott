@@ -1,5 +1,13 @@
 var tz_types = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 $(function () {
+
+	document.addEventListener("visibilitychange",()=>{
+		if(!document.hidden)
+		{
+			window.location.reload();
+		}
+	})
+
 	$(".keybord").on('touchstart', function () {
 		$(this).toggleClass("gray");
 		$(".keybord_div").toggle();
