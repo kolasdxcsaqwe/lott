@@ -264,7 +264,7 @@ function isNextRound()
     {
         if(parseInt(cacheTerm)>parseInt(CurrentTerm))
         {
-            CurrentTerm="";
+            CurrentTerm=null;
             init();
         }
     }

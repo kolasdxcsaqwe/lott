@@ -35,7 +35,7 @@
 <script>
 	var fengpantime = 30
 </script>
-<script src="js/public.js?t=324324"></script>
+<script src="js/public.js?t=asdas34"></script>
 <script src="js/jquery.plugin.js"></script>
 <script src="js/jquery.timer.js"></script>
 <script  type="text/javascript">
