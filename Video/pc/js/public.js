@@ -219,6 +219,7 @@ function reloadx(secI, divid) {
             console.log(index);
             if (rollbacktime == 1) {
                 $('#' + divid).timer('stop');
+                init();
             } else {
                 --rollbacktime;
             }
@@ -252,7 +253,7 @@ function init() {
 
     });
 
-    setInterval(isNextRound,500)
+    // setInterval(isNextRound,500)
 }
 
 function isNextRound()

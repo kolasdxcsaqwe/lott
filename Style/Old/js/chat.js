@@ -138,7 +138,7 @@ function addMessage(data) {
 
         if(data[i].betTerm!==undefined && data[i].betTerm!=='' && data[i].betTerm!==null)
         {
-            window.sessionStorage.setItem("CurrentTerm",data[i].betTerm);
+            // window.sessionStorage.setItem("CurrentTerm",data[i].betTerm);
         }
 
         var type = data[i].type;
