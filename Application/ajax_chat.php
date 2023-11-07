@@ -3170,4 +3170,54 @@ function addSSCBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$
     return $carr;
 }
 
+
+function getLotteryIndex($BetGame)
+{
+    if($BetGame==null)
+    {
+        return -1;
+    }
+    if ($BetGame == 'pk10') {
+        return 1;
+    } elseif ($BetGame == 'xyft') {
+        return 2;
+    } elseif ($BetGame == 'cqssc') {
+        return 3;
+    } elseif ($BetGame == 'xy28') {
+        return 4;
+    } elseif ($BetGame == 'ny28') {
+        return 19;
+    } elseif ($BetGame == 'jnd28') {
+        return 5;
+    } elseif ($BetGame == 'jsmt') {
+        return 6;
+    } elseif ($BetGame == 'jssc') {
+        return 7;
+    } elseif ($BetGame == 'jsssc') {
+        return 8;
+    } elseif ($BetGame == 'kuai3') {
+        return 9;
+    } elseif ($BetGame == 'bjl') {
+        return 10;
+    } elseif ($BetGame == 'gd11x5') {
+        return 11;
+    } elseif ($BetGame == 'jssm') {
+        return 12;
+    } elseif ($BetGame == 'lhc') {
+        return 13;
+    } elseif ($BetGame == 'jslhc') {
+        return 14;
+    } elseif ($BetGame == 'twk3') {
+        return 15;
+    } elseif ($BetGame == 'txffc') {
+        return 16;
+    } elseif ($BetGame == 'azxy10') {
+        return 17;
+    } elseif ($BetGame == 'azxy5') {
+        return 18;
+    }
+
+    return -1;
+}
+
 ?>
