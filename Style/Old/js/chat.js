@@ -136,7 +136,7 @@ function addMessage(data) {
         var type = data[i].type;
         if (type.substr(0, 1) == 'U') {  //白色
             var qihao = ""
-            if(data[i].betTerm!==undefined && data[i].betTerm!=='')
+            if(data[i].betTerm!==undefined && data[i].betTerm!=='' && data[i].betTerm!==null)
             {
                 qihao="<span style='color:red;font-size:25px;padding:4%;'>" + ' 期号：' + data[i].betTerm + '</span>'
             }

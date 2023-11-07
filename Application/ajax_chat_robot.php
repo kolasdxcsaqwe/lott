@@ -376,7 +376,7 @@ switch ($type) {
             break;
         } else {
             echo json_encode(array("success" => true, "content" => $content));
-            insert_query("fn_chat", array("username" => $nickname, 'content' => $content, 'addtime' => date('H:i:s'), 'time' => date('Y-m-d H:i:s', time()), 'game' => $BetGame, 'headimg' => $headimg, 'type' => $type, 'userid' => $postUserid, 'roomid' => $postRoomid, 'chatid' => $co[1]));
+            insert_query("fn_chat", array("username" => $nickname, 'betterm'=>$BetTerm,'content' => $content, 'addtime' => date('H:i:s'), 'time' => date('Y-m-d H:i:s', time()), 'game' => $BetGame, 'headimg' => $headimg, 'type' => $type, 'userid' => $postUserid, 'roomid' => $postRoomid, 'chatid' => $co[1]));
 
         }
         break;
