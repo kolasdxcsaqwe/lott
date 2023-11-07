@@ -5,9 +5,6 @@ $type = $_GET['type'];
 $BetGame = $_COOKIE['game'];
 switch ($type) {
     case 'first':
-
-        $body=array();
-
         $arr = array();
         select_query("fn_chat", '*', "roomid = '{$_SESSION['roomid']}' and game = '{$BetGame}' order by id desc limit 0,50");
         while ($x = db_fetch_array()) {
