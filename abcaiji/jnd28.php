@@ -41,12 +41,24 @@ if (strlen($nntime) > 11) {
 
 $topcode = get_query_val('fn_open', 'term', "`type`= $type order by `term` desc limit 1");
 //杀猪设置
-$preterm = get_query_val('fn_buqi', 'term', "`type`= $type 
+$preterm = get_query_val('fn_buqi', 'term', "`type`= $type
     order by `term` desc limit 1");
+//if ($preterm != null && $term == $preterm) {
+//    $precode = get_query_val('fn_buqi', 'code', "`type`= $type  order by `term` desc limit 1");
+//    $code = $precode;
+//    delete_query('fn_buqi', "`type`= $type and `term` = $preterm");
+//}
 
+
+$tInt1=0;
+if($topcode!=null)
+{
+    $tInt1=(int)$topcode;
+}
+$tInt2=(int)$term;
 
 echo "当前最新期号-->" . $topcode . "    数据期号--->" . $term . "<br>";
-if ($preterm != null && $term == $preterm) {
+if (empty($topcode) || $tInt1 < $tInt2) {
     $precode = get_query_val('fn_buqi', 'code', "`type`= $type  order by `term` desc limit 1");
     $code = $precode;
     delete_query('fn_buqi', "`type`= $type and `term` = $preterm");
@@ -55,6 +67,8 @@ if ($preterm != null && $term == $preterm) {
 if (empty($topcode) || $topcode < $term) {
     var_dump($topcode . "  " . $term);
     insert_query('fn_open', array('term' => $term, 'code' => $code, 'time' => date('Y-m-d H:i:s', time()), 'type' => $type, 'next_term' => $next_term, 'next_time' => $next_times));
+    $deleteTime=date('Y-m-d H:i:s', time()-259200);//三天前数据删掉
+    delete_query('fn_open', "`type`= $type and `time` < $deleteTime");
     PC_jiesuan('jnd28');
     PC_jiesuan1('jnd28', $term);
     sleep(4);

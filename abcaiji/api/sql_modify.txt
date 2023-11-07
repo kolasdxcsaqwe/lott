@@ -1,0 +1,62 @@
+
+ALTER TABLE fn_11x5order modify column term varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL 
+ALTER TABLE fn_11x5order ADD INDEX `term` (`term`) USING BTREE
+
+ALTER TABLE fn_pcorder modify column term varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL 
+ALTER TABLE fn_pcorder ADD INDEX `term` (`term`) USING BTREE
+
+
+ALTER TABLE fn_azxy10order modify column term varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL 
+ALTER TABLE fn_azxy10order ADD INDEX `term` (`term`) USING BTREE
+
+ALTER TABLE fn_azxy5order modify column term varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL 
+ALTER TABLE fn_azxy5order ADD INDEX `term` (`term`) USING BTREE
+
+
+ALTER TABLE fn_bjlorder modify column term varchar(150) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL 
+ALTER TABLE fn_bjlorder ADD INDEX `term` (`term`) USING BTREE
+
+ALTER TABLE fn_feiorder modify column term varchar(150) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL 
+ALTER TABLE fn_feiorder ADD INDEX `term` (`term`) USING BTREE
+
+ALTER TABLE fn_flyorder modify column term varchar(150) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL 
+ALTER TABLE fn_flyorder ADD INDEX `term` (`term`) USING BTREE
+
+ALTER TABLE fn_ffcorder modify column term varchar(150) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL 
+ALTER TABLE fn_ffcorder ADD INDEX `term` (`term`) USING BTREE
+
+ALTER TABLE fn_jslhcorder modify column term varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL 
+ALTER TABLE fn_jslhcorder ADD INDEX `term` (`term`) USING BTREE
+
+ALTER TABLE fn_jsscorder modify column term varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL 
+ALTER TABLE fn_jsscorder ADD INDEX `term` (`term`) USING BTREE
+
+
+ALTER TABLE fn_jssscorder modify column term varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL 
+ALTER TABLE fn_jssscorder ADD INDEX `term` (`term`) USING BTREE
+
+ALTER TABLE fn_k3order modify column term varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL 
+ALTER TABLE fn_k3order ADD INDEX `term` (`term`) USING BTREE
+
+ALTER TABLE fn_lhcorder modify column term varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL 
+ALTER TABLE fn_lhcorder ADD INDEX `term` (`term`) USING BTREE
+
+ALTER TABLE fn_mtorder modify column term varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL 
+ALTER TABLE fn_mtorder ADD INDEX `term` (`term`) USING BTREE
+
+ALTER TABLE fn_order modify column term varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL 
+ALTER TABLE fn_order ADD INDEX `term` (`term`) USING BTREE
+
+ALTER TABLE fn_pcorder modify column term varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL 
+ALTER TABLE fn_pcorder ADD INDEX `term` (`term`) USING BTREE
+
+ALTER TABLE fn_smorder modify column term varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL 
+ALTER TABLE fn_smorder ADD INDEX `term` (`term`) USING BTREE
+
+ALTER TABLE fn_sscorder modify column term varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL 
+ALTER TABLE fn_sscorder ADD INDEX `term` (`term`) USING BTREE
+
+ALTER TABLE fn_twk3order modify column term varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL 
+ALTER TABLE fn_twk3order ADD INDEX `term` (`term`) USING BTREE
+
+
