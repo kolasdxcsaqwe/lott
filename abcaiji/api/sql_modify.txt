@@ -1,6 +1,6 @@
 
-ALTER TABLE fn_11x5order modify column term varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
-ALTER TABLE fn_11x5order ADD INDEX `term` (`term`) USING BTREE
+ALTER TABLE fn_11x5order modify column term varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+ALTER TABLE fn_11x5order ADD INDEX `term` (`term`) USING BTREE;
 
 ALTER TABLE fn_pcorder modify column term varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
 ALTER TABLE fn_pcorder ADD INDEX `pcorderterm` (`term`) USING BTREE;

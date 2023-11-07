@@ -1,5 +1,6 @@
 var sendtime = 0;
 var id = 1;
+var nowTerm=""
 $(function () {
     FirstGetContent();
     $('.sendemaill').click(function () { // 重点是这里，从这里向服务器端发送数据
@@ -100,7 +101,8 @@ function FirstGetContent() {
         type: 'get',
         dataType: 'json',
         success: function (data) {
-            addMessage(data);
+            nowTerm=data.betTerm
+            addMessage(data.list);
             WelcomMsg(welcome, welHeadimg);
         },
         error: function () {
@@ -133,6 +135,12 @@ function addMessage(data) {
         if (parseInt(data[i].id) > id) {
             id = data[i].id;
         }
+
+        if(data[i].betTerm!==undefined && data[i].betTerm!=='' && data[i].betTerm!==null)
+        {
+            window.sessionStorage.setItem("CurrentTerm",data[i].betTerm);
+        }
+
         var type = data[i].type;
         if (type.substr(0, 1) == 'U') {  //白色
             var qihao = ""

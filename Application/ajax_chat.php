@@ -5,6 +5,9 @@ $type = $_GET['type'];
 $BetGame = $_COOKIE['game'];
 switch ($type) {
     case 'first':
+
+        $body=array();
+
         $arr = array();
         select_query("fn_chat", '*', "roomid = '{$_SESSION['roomid']}' and game = '{$BetGame}' order by id desc limit 0,50");
         while ($x = db_fetch_array()) {
@@ -18,7 +21,11 @@ switch ($type) {
                 'game' => $BetGame, 'id' => $x['id']);
         }
 
-        echo json_encode($arr);
+        $nowTerm=getLotteryIndex($BetGame);
+        $BetTerm = get_query_val('fn_open', 'next_term', "type = $nowTerm order by term desc limit 1");
+        $body['betTerm']=$BetTerm;
+        $body['list']=$arr;
+        echo json_encode($body);
         break;
     case "update":
         $arr = array();

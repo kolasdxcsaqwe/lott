@@ -1,3 +1,5 @@
+
+var CurrentTerm="";
 function formatDate(time) {
     var timestamp = time,
         date = new Date(timestamp),
@@ -20,7 +22,6 @@ function formatDate(time) {
     return datevalues;
 
 }
-
 
 function render(data, template) {
 
@@ -218,7 +219,6 @@ function reloadx(secI, divid) {
             console.log(index);
             if (rollbacktime == 1) {
                 $('#' + divid).timer('stop');
-                init();
             } else {
                 --rollbacktime;
             }
@@ -244,6 +244,7 @@ function init() {
             //  $('#NextStart').timer('start');
             //  $('#ThisEnd').timer('start');
             //alert("SUCCESS!!!");
+            CurrentTerm=Jdata.next.periodNumber;
         },
         error: function () {
             alert("ERROR!!!");
@@ -251,6 +252,22 @@ function init() {
 
     });
 
+    setInterval(isNextRound,500)
+}
+
+function isNextRound()
+{
+    var cacheTerm=window.sessionStorage.getItem("CurrentTerm");
+
+    if(CurrentTerm!=null && CurrentTerm!=undefined && CurrentTerm!='' &&
+        cacheTerm!=null && cacheTerm!=undefined && cacheTerm!='')
+    {
+        if(parseInt(cacheTerm)>parseInt(CurrentTerm))
+        {
+            CurrentTerm="";
+            init();
+        }
+    }
 }
 
 
