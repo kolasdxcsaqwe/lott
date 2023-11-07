@@ -3,6 +3,9 @@ $(function () {
 	$(".keybord").on('touchstart', function () {
 		$(this).toggleClass("gray");
 		$(".keybord_div").toggle();
+		var box = $('.game-box');
+		box.css('display', 'none');
+		$('.txtbet').removeClass('on');
 		$("#Message").attr("readonly", !$(this).hasClass('gray'));
 	});
 
@@ -44,6 +47,12 @@ $(function () {
 		if (box.css('display') == 'none') {
 			box.css('display', '');
 			$('.txtbet').addClass('on');
+			console.log("display--->"+$(".keybord_div").css("display"))
+			if($(".keybord_div").css("display")=="block")
+			{
+				$(".keybord").toggleClass("gray");
+				$(".keybord_div").toggle();
+			}
 		} else {
 			box.css('display', 'none');
 			$('.txtbet').removeClass('on');
