@@ -68,7 +68,7 @@ if (empty($topcode) || $topcode < $term) {
     var_dump($topcode . "  " . $term);
     insert_query('fn_open', array('term' => $term, 'code' => $code, 'time' => date('Y-m-d H:i:s', time()), 'type' => $type, 'next_term' => $next_term, 'next_time' => $next_times));
     $deleteTime=date('Y-m-d H:i:s', time()-259200);//三天前数据删掉
-    delete_query('fn_open', "`type`= $type and `time` < $deleteTime");
+    delete_query('fn_open', "`type`= $type and `time` < '$deleteTime'");
     PC_jiesuan('jnd28');
     PC_jiesuan1('jnd28', $term);
     sleep(4);

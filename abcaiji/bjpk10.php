@@ -70,7 +70,7 @@ echo "当前最新期号-->" . $topcode . "    数据期号--->" . $term . "<br>
 if (empty($topcode) || $tInt1 < $tInt2) {
     insert_query('fn_open', array('term' => $term, 'code' => $code, 'time' => $opentime, 'type' => $type, 'next_term' => $next_term, 'next_time' => $next_time));
     $deleteTime=date('Y-m-d H:i:s', time()-259200);//三天前数据删掉
-    delete_query('fn_open', "`type`= $type and `time` < $deleteTime");
+    delete_query('fn_open', "`type`= $type and `time` < '$deleteTime'");
     PK10_jiesuan();
     PK10_jiesuan1('pk10', $term);
     sleep(4);

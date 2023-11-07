@@ -17,6 +17,7 @@ switch ($type) {
                 'content' => $x['content'], 'addtime' => $x['addtime'], 'type' => $type,
                 'game' => $BetGame, 'id' => $x['id']);
         }
+
         echo json_encode($arr);
         break;
     case "update":
@@ -26,8 +27,9 @@ switch ($type) {
         select_query("fn_chat", '*', "roomid = {$_SESSION['roomid']} and game = '{$BetGame}' and id>$chatid order by id asc");
         while ($x = db_fetch_array()) {
             if ($x['userid'] == $_SESSION['userid']) continue;
-            $arr[] = array('nickname' => $x['username'], 'headimg' => $x['headimg'], 'content' => $x['content'], 'addtime' => $x['addtime'], 'type' => $x['type'], 'game' => $BetGame, 'id' => $x['id']);
+            $arr[] = array('betTerm'=>$x['betterm'],'nickname' => $x['username'], 'headimg' => $x['headimg'], 'content' => $x['content'], 'addtime' => $x['addtime'], 'type' => $x['type'], 'game' => $BetGame, 'id' => $x['id']);
         }
+
         echo json_encode($arr);
         break;
     case "send":

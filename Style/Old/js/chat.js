@@ -135,7 +135,12 @@ function addMessage(data) {
         }
         var type = data[i].type;
         if (type.substr(0, 1) == 'U') {  //白色
-            var qihao = "<span style='color:red;font-size:25px;padding:4%;'>" + ' 期号：' + data.betTerm + '</span>'
+            var qihao = ""
+            if(data[i].betTerm!==undefined && data[i].betTerm!=='')
+            {
+                qihao="<span style='color:red;font-size:25px;padding:4%;'>" + ' 期号：' + data[i].betTerm + '</span>'
+            }
+
             str += '<div class="saidleft">' +
                 '<img src="' + data[i].headimg + '">' +
                 '<div class="tousaid">' +
