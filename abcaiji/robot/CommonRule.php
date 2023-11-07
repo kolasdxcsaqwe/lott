@@ -4,7 +4,7 @@ include_once dirname(dirname(__FILE__)) . '/Public/config.php';
 
 function startBot($betGame, $roomId,$periodMin,$period)
 {
-    sleep(rand($periodMin,$period));
+    sleep($periodMin);
     select_query('fn_robots','*',"roomid = {$roomId} and game = '{$betGame}' and runstatus = '1' limit 30");
     $arr=array();
     $index=0;
@@ -23,7 +23,7 @@ function startBot($betGame, $roomId,$periodMin,$period)
             $rare = $arr[$j]['rare'];
             $userid = $arr[$j]['userid'];
             $plans = explode('|', $plan);
-
+            sleep(rand(1,5));
             if ($headimg == '' || $name == '' || $plan == '') return;
 
             for ($i = 0; $i < count($plans); $i++) {
