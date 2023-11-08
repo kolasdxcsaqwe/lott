@@ -15,12 +15,20 @@ $(function () {
 });
 
 function send_msg(msg) {
-    console.log("End--->"+window.frames[0].window.frames[0].document.getElementById("ThisEnd").innerHTML);
-    var betEnd = window.frames[0].window.frames[0].document.getElementById("ThisEnd").innerHTML;
-    if (betEnd != null && parseInt(betEnd) < 1) {
-        zy.tips("下注已截止,请客官等待下期!");
-        return;
+
+    if(info!=undefined && info!=null)
+    {
+        if(info.game=='ny28' || info.game=='xy28' || info.game=='jnd28')
+        {
+            console.log("End--->"+window.frames[0].window.frames[0].document.getElementById("ThisEnd").innerHTML);
+            var betEnd = window.frames[0].window.frames[0].document.getElementById("ThisEnd").innerHTML;
+            if (betEnd != null && parseInt(betEnd) < 1) {
+                zy.tips("下注已截止,请客官等待下期!");
+                return;
+            }
+        }
     }
+
 
     var msgtxt = msg;
     var str = "";
@@ -138,14 +146,20 @@ function addMessage(data) {
             id = data[i].id;
         }
 
-        if(data[i].betTerm!==undefined && data[i].betTerm!=='' && data[i].betTerm!==null && parseInt(nowTerm) < parseInt(data[i].betTerm))
+        if(info!=undefined && info!=null)
         {
-            nowTerm=data[i].betTerm;
-            if(window.frames.length>0 && window.frames[0].window.frames.length>0)
+            if(info.game=='ny28' || info.game=='xy28' || info.game=='jnd28')
             {
-                if(window.frames[0].window.frames[0].window!=null)
+                if(data[i].betTerm!==undefined && data[i].betTerm!=='' && data[i].betTerm!==null && parseInt(nowTerm) < parseInt(data[i].betTerm))
                 {
-                    window.frames[0].window.frames[0].window.init()
+                    nowTerm=data[i].betTerm;
+                    if(window.frames.length>0 && window.frames[0].window.frames.length>0)
+                    {
+                        if(window.frames[0].window.frames[0].window!=null)
+                        {
+                            window.frames[0].window.frames[0].window.init()
+                        }
+                    }
                 }
             }
         }
