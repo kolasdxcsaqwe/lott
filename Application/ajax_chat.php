@@ -25,6 +25,11 @@ switch ($type) {
         }
 
         $nowTerm=getLotteryIndex($BetGame);
+        if($nowTerm<1)
+        {
+            echo "";
+            exit();
+        }
         $BetTerm = get_query_val('fn_open', 'next_term', "type = $nowTerm order by term desc limit 1");
         $body['betTerm']=$BetTerm;
         $body['list']=$arr;
