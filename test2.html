@@ -18,15 +18,21 @@
     kl.push("324");
     kl.push("ewr");
     kl.push("阿斯顿");
-    function deasd(sadasd)
+
+    setInterval(setData,1000)
+
+    function setData()
     {
-        for (let view of $('#switchview'))
-        {
-            var mySwitch = new Switch(view,{onChange:function (obj1,obj){
-                    console.log(obj1.name+" "+obj)
-                }});
+        for (let i = 0; i < 1000; i++) {
+            window.sessionStorage.setItem("sadsad","asdasd")
         }
     }
+
+    function deasd()
+    {
+        alert("sadsadsad")
+    }
+
 </script>
 
 
@@ -35,10 +41,9 @@
 
     <li>
         <span id="hiddenGamePlanType" style="display: none">sjws</span>
-        <button onclick="deasd(this)">asdsadsad</button>
+        <button onclick="deasd()">asdsadsad</button>
         <span>[{"gameType":"\u968f\u673a\u4f4d\u6570","moneyType":"\u968f\u673a\u91d1\u989d1"}]</span>
 
-        <input type="checkbox" id="switchview" name="sadsadsad"/>
     </li>
 </ul>
 

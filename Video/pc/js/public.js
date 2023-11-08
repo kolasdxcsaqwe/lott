@@ -1,5 +1,6 @@
 
 var CurrentTerm="";
+var time=new Date().getTime();
 function formatDate(time) {
     var timestamp = time,
         date = new Date(timestamp),
@@ -229,11 +230,17 @@ function reloadx(secI, divid) {
 
 
 function init() {
+    if(new Date().getTime()-time < 2000)
+    {
+        return
+    }
+
     $.ajax({
         url: "ajax/pc28.php",
         type: "GET",
         dataType: "json",
         success: function (Jdata) {
+            time=new Date().getTime();
             console.log(Jdata);
             var html = render(Jdata, templatex);
             $('.content').html(html);
@@ -252,7 +259,7 @@ function init() {
 
     });
 
-    setInterval(isNextRound,500)
+    setInterval(isNextRound,1000)
 }
 
 function isNextRound()
