@@ -1,6 +1,7 @@
 
 var CurrentTerm="";
 var time=0;
+var inverId=0;
 function formatDate(time) {
     var timestamp = time,
         date = new Date(timestamp),
@@ -259,7 +260,8 @@ function init() {
 
     });
 
-    setInterval(isNextRound,1000)
+    clearinterval(inverId)
+    inverId=setInterval(isNextRound,1000)
 }
 
 function isNextRound()

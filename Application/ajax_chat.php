@@ -3,7 +3,7 @@ include_once("../Public/config.php");
 include_once("../Public/Bjl.php");
 $type = $_GET['type'];
 $BetGame = $_COOKIE['game'];
-if(empty($_SESSION['roomid']) || empty($BetGame))
+if(empty($_SESSION['roomid']) || strlen($_SESSION['roomid'])==0 || empty($BetGame) || strlen($BetGame)==0)
 {
     echo "";
     exit();
