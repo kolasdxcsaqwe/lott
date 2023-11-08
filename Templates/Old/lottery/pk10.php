@@ -94,7 +94,7 @@ function is_weixin()
 
     <script src="Style/Old/js/swiper.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="/Style/Old/js/tools.js?t=xjkh343sdf"></script>
-    <script type="text/javascript" src="/Style/Old/js/chat.js?t=xe67gh"></script>
+    <script type="text/javascript" src="/Style/Old/js/chat.js?t=kjdsaf9898"></script>
     <script type="text/javascript" src="/Style/Old/js/pk10.js"></script>
 
     <script type="text/javascript">
