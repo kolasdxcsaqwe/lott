@@ -136,7 +136,7 @@ function addMessage(data) {
             id = data[i].id;
         }
 
-        if(data[i].betTerm!==undefined && data[i].betTerm!=='' && data[i].betTerm!==null && nowTerm!==data[i].betTerm)
+        if(data[i].betTerm!==undefined && data[i].betTerm!=='' && data[i].betTerm!==null && parseInt(nowTerm) < parseInt(data[i].betTerm))
         {
             window.sessionStorage.setItem("CurrentTerm",data[i].betTerm);
         }

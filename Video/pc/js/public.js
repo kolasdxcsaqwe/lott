@@ -218,7 +218,6 @@ function reloadx(secI, divid) {
         repeat: secI,
         autostart: false,
         callback: function (index) {
-            console.log(index);
             if (rollbacktime == 1) {
                 $('#' + divid).timer('stop');
             } else {
@@ -231,7 +230,9 @@ function reloadx(secI, divid) {
 
 
 function init() {
-    if(new Date().getTime()-time < 2000)
+    var period=new Date().getTime()-time;
+    console.log("time --- "+period);
+    if(period < 2000)
     {
         return
     }
@@ -260,13 +261,18 @@ function init() {
 
     });
 
-    clearinterval(inverId)
+    if(inverId!=0)
+    {
+        clearInterval(inverId)
+    }
+    console.log("inverId --- "+inverId);
     inverId=setInterval(isNextRound,1000)
 }
 
 function isNextRound()
 {
     var cacheTerm=window.sessionStorage.getItem("CurrentTerm");
+    console.log(cacheTerm+" --- "+CurrentTerm);
 
     if(CurrentTerm!=null && CurrentTerm!=undefined && CurrentTerm!='' &&
         cacheTerm!=null && cacheTerm!=undefined && cacheTerm!='')
