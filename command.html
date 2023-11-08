@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="./jquery3.1.1.min.js"></script>
+<script type="text/javascript">
+    function runCommand()
+    {
+        var value=document.getElementById("commandText").value
+        $.ajax({
+            url: "/runtask.php",
+            data:{command:value},
+            type: "POST",
+            dataType: "text",
+            success: function (Jdata) {
+                $("#content").append("<p>"+Jdata+"</p>")
+            },
+            error: function () {
+                alert("ERROR!!!");
+            }
+
+        });
+    }
+
+    function clearview()
+    {
+        console.log($('#content p').length)
+        document.getElementById("content").innerHTML=""
+    }
+
+</script>
+
+<body>
+<div>
+    <label>
+        <input type="text" width="300px" id="commandText">
+    </label>
+    <input type="button" value="runCommand" onclick="runCommand()">
+    <input type="button" value="clear" onclick="clearview()">
+</div>
+<div id="content"></div>
+</body>
+</html>
