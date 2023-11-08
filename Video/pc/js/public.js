@@ -164,20 +164,17 @@ function render(data, template) {
 function setTimer(secI, divid, delaytime) {
 
     //secI=5;
-
+    var rollbacktime=0;
     if (divid == "NextStart") {
-        var rollbacktime = secI;
+         rollbacktime = secI;
     } else {
-        var rollbacktime = secI - delaytime;
+         rollbacktime = secI - delaytime;
     }
 
     if (rollbacktime < 0) {
 
         $("#" + divid).text("0");
 
-        if (divid == "NextStart") {
-            reloadx(10, "NextStart");
-        }
         return;
     }
 
@@ -192,7 +189,6 @@ function setTimer(secI, divid, delaytime) {
                 $('#' + divid).timer('stop');
                 if (divid == "NextStart") {
                     console.log("NextStart--");
-                    reloadx(26, "reloadtime");
                 }
             } else {
                 rollbacktime=rollbacktime-1;
@@ -213,7 +209,7 @@ function reloadx(secI, divid) {
         repeat: secI,
         autostart: false,
         callback: function (index) {
-            if (rollbacktime == 1) {
+            if (rollbacktime < 1) {
                 $('#' + divid).timer('stop');
             } else {
                 --rollbacktime;
@@ -236,6 +232,7 @@ function init() {
             var html = render(Jdata, templatex);
             $('.content').html(html);
             var awardTime = Math.floor(((Jdata.next.awardTimeInterval * 1) / 1000));
+            console.log("awardTime:"+awardTime)
             setTimer(awardTime, "NextStart", 0);
             // setTimer(awardTime,"ThisEnd",(Jdata.next.delayTimeInterval*1));
             setTimer(awardTime, "ThisEnd", 30);
