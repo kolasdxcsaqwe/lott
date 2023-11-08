@@ -1,6 +1,6 @@
 
 var CurrentTerm="";
-var time=new Date().getTime();
+var time=0;
 function formatDate(time) {
     var timestamp = time,
         date = new Date(timestamp),
