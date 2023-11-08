@@ -23,7 +23,7 @@ function startBot($betGame, $roomId,$periodMin,$period)
             $rare = $arr[$j]['rare'];
             $userid = $arr[$j]['userid'];
             $plans = explode('|', $plan);
-            sleep(rand(1,5));
+//            sleep(rand(1,5));
             if ($headimg == '' || $name == '' || $plan == '') return;
 
             for ($i = 0; $i < count($plans); $i++) {
