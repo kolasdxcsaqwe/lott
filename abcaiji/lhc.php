@@ -69,9 +69,8 @@ $term = $resp->expect;
 
 $opentime = $resp->opentime;
 $next_term = $qihao + 1;
-$next_time = date('Y-m-d', time() + 86400) . " 21:30:00";
 
-
+$next_time = date("Y-m-d H:i:s", strtotime($opentime) + 86400);
 $topterm = get_query_val('fn_open', 'term', "`type`=$type order by `term` desc limit 1");
 
 $tInt1=0;
