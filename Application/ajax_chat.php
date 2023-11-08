@@ -3,6 +3,12 @@ include_once("../Public/config.php");
 include_once("../Public/Bjl.php");
 $type = $_GET['type'];
 $BetGame = $_COOKIE['game'];
+if(empty($_SESSION['roomid']) || empty($BetGame))
+{
+    echo "";
+    exit();
+}
+
 switch ($type) {
     case 'first':
         $arr = array();
