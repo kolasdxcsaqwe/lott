@@ -48,7 +48,7 @@ function curlGet($url, $timeout = 10, $header = "")
     return $result;
 }
 
-$url = "https://500api.cn/token/0a85f59448bc11eeb50e4fa5a8772d3f/code/hk6/rows/1.json";
+$url = "https://kaijiang-api.com/token/726f36cc7e4d11ee84f47b453b60071d/code/hk6/rows/1.json";
 $json = curlGet($url);
 
 $jsondata = json_decode($json);
