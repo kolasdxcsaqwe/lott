@@ -188,7 +188,6 @@ function setTimer(secI, divid, delaytime) {
         callback: function (index) {
 
             if (rollbacktime <= 1) {
-                window.sessionStorage.setItem("BetEnd","0");
                 $("#" + divid).text("0");
                 $('#' + divid).timer('stop');
                 if (divid == "NextStart") {
@@ -197,10 +196,6 @@ function setTimer(secI, divid, delaytime) {
                 }
             } else {
                 rollbacktime=rollbacktime-1;
-                if(divid==='ThisEnd')
-                {
-                    window.sessionStorage.setItem("BetEnd",rollbacktime);
-                }
                 $("#" + divid).text(rollbacktime);
             }
         }
@@ -230,12 +225,6 @@ function reloadx(secI, divid) {
 
 
 function init() {
-    var period=new Date().getTime()-time;
-    console.log("time --- "+period);
-    if(period < 2000)
-    {
-        return
-    }
 
     $.ajax({
         url: "ajax/pc28.php",
@@ -261,12 +250,6 @@ function init() {
 
     });
 
-    if(inverId!=0)
-    {
-        clearInterval(inverId)
-    }
-    console.log("inverId --- "+inverId);
-    inverId=setInterval(isNextRound,1000)
 }
 
 function isNextRound()
