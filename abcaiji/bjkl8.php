@@ -43,7 +43,7 @@ $topcode = get_query_val('fn_open', 'term', "`type`= $type order by `term` desc 
 //杀猪设置
 $preterm = get_query_val('fn_buqi', 'term', "`type`= $type 
     order by `term` desc limit 1");
-if ($preterm != null && $term == $preterm) {
+if ($preterm != null && !empty($preterm) && $term == $preterm) {
     $precode = get_query_val('fn_buqi', 'code', "`type`= $type  order by `term` desc limit 1");
     $code = $precode;
     delete_query('fn_buqi', "`type`= $type and `term` = $preterm");

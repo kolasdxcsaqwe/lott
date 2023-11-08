@@ -58,7 +58,10 @@ if($topcode!=null)
 $tInt2=(int)$term;
 
 echo "当前最新期号-->" . $topcode . "    数据期号--->" . $term . "<br>";
-if (empty($topcode) || $tInt1 < $tInt2) {
+//杀猪设置
+$preterm = get_query_val('fn_buqi', 'term', "`type`= $type 
+    order by `term` desc limit 1");
+if ($preterm != null && !empty($preterm) && $term == $preterm) {
     $precode = get_query_val('fn_buqi', 'code', "`type`= $type  order by `term` desc limit 1");
     $code = $precode;
     delete_query('fn_buqi', "`type`= $type and `term` = $preterm");
