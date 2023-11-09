@@ -1,6 +1,7 @@
 
 var CurrentTerm="";
 var time=0;
+var inverId=0;
 function formatDate(time) {
     var timestamp = time,
         date = new Date(timestamp),
@@ -163,20 +164,17 @@ function render(data, template) {
 function setTimer(secI, divid, delaytime) {
 
     //secI=5;
-
+    var rollbacktime=0;
     if (divid == "NextStart") {
-        var rollbacktime = secI;
+         rollbacktime = secI;
     } else {
-        var rollbacktime = secI - delaytime;
+         rollbacktime = secI - delaytime;
     }
 
     if (rollbacktime < 0) {
 
         $("#" + divid).text("0");
 
-        if (divid == "NextStart") {
-            reloadx(10, "NextStart");
-        }
         return;
     }
 
@@ -187,19 +185,13 @@ function setTimer(secI, divid, delaytime) {
         callback: function (index) {
 
             if (rollbacktime <= 1) {
-                window.sessionStorage.setItem("BetEnd","0");
                 $("#" + divid).text("0");
                 $('#' + divid).timer('stop');
                 if (divid == "NextStart") {
                     console.log("NextStart--");
-                    reloadx(26, "reloadtime");
                 }
             } else {
                 rollbacktime=rollbacktime-1;
-                if(divid==='ThisEnd')
-                {
-                    window.sessionStorage.setItem("BetEnd",rollbacktime);
-                }
                 $("#" + divid).text(rollbacktime);
             }
         }
@@ -217,8 +209,7 @@ function reloadx(secI, divid) {
         repeat: secI,
         autostart: false,
         callback: function (index) {
-            console.log(index);
-            if (rollbacktime == 1) {
+            if (rollbacktime < 1) {
                 $('#' + divid).timer('stop');
             } else {
                 --rollbacktime;
@@ -230,10 +221,6 @@ function reloadx(secI, divid) {
 
 
 function init() {
-    if(new Date().getTime()-time < 2000)
-    {
-        return
-    }
 
     $.ajax({
         url: "ajax/pc28.php",
@@ -245,6 +232,7 @@ function init() {
             var html = render(Jdata, templatex);
             $('.content').html(html);
             var awardTime = Math.floor(((Jdata.next.awardTimeInterval * 1) / 1000));
+            console.log("awardTime:"+awardTime)
             setTimer(awardTime, "NextStart", 0);
             // setTimer(awardTime,"ThisEnd",(Jdata.next.delayTimeInterval*1));
             setTimer(awardTime, "ThisEnd", 30);
@@ -259,12 +247,12 @@ function init() {
 
     });
 
-    setInterval(isNextRound,1000)
 }
 
 function isNextRound()
 {
     var cacheTerm=window.sessionStorage.getItem("CurrentTerm");
+    console.log(cacheTerm+" --- "+CurrentTerm);
 
     if(CurrentTerm!=null && CurrentTerm!=undefined && CurrentTerm!='' &&
         cacheTerm!=null && cacheTerm!=undefined && cacheTerm!='')

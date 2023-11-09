@@ -67,8 +67,8 @@ if ($preterm != null && !empty($preterm) && $term == $preterm) {
     delete_query('fn_buqi', "`type`= $type and `term` = $preterm");
 }
 
+echo "当前开奖时间   ".date('Y-m-d H:i:s', time())."  下期开奖时间  ".$next_times."<br>";
 if (empty($topcode) || $topcode < $term) {
-    var_dump($topcode . "  " . $term);
     insert_query('fn_open', array('term' => $term, 'code' => $code, 'time' => date('Y-m-d H:i:s', time()), 'type' => $type, 'next_term' => $next_term, 'next_time' => $next_times));
 
     PC_jiesuan('jnd28');

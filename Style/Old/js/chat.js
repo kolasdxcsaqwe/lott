@@ -16,11 +16,19 @@ $(function () {
 
 function send_msg(msg) {
 
-    var betEnd = window.sessionStorage.getItem("BetEnd");
-    if (betEnd != null && betEnd < 1) {
-        zy.tips("下注已截止,请客官等待下期!");
-        return;
+    if(info!=undefined && info!=null)
+    {
+        if(info.game=='ny28' || info.game=='xy28' || info.game=='jnd28')
+        {
+            console.log("End--->"+window.frames[0].window.frames[0].document.getElementById("ThisEnd").innerHTML);
+            var betEnd = window.frames[0].window.frames[0].document.getElementById("ThisEnd").innerHTML;
+            if (betEnd != null && parseInt(betEnd) < 1) {
+                zy.tips("下注已截止,请客官等待下期!");
+                return;
+            }
+        }
     }
+
 
     var msgtxt = msg;
     var str = "";
@@ -104,12 +112,14 @@ function FirstGetContent() {
             nowTerm=data.betTerm
             addMessage(data.list);
             WelcomMsg(welcome, welHeadimg);
+
+            setInterval(updateContent, 2000);
         },
         error: function () {
         }
     });
     $('#messageLoading').remove();
-    setInterval(updateContent, 2000);
+
 }
 
 function updateContent() {
@@ -136,9 +146,22 @@ function addMessage(data) {
             id = data[i].id;
         }
 
-        if(data[i].betTerm!==undefined && data[i].betTerm!=='' && data[i].betTerm!==null && nowTerm!==data[i].betTerm)
+        if(info!=undefined && info!=null)
         {
-            window.sessionStorage.setItem("CurrentTerm",data[i].betTerm);
+            if(info.game=='ny28' || info.game=='xy28' || info.game=='jnd28')
+            {
+                if(data[i].betTerm!==undefined && data[i].betTerm!=='' && data[i].betTerm!==null && parseInt(nowTerm) < parseInt(data[i].betTerm))
+                {
+                    nowTerm=data[i].betTerm;
+                    if(window.frames.length>0 && window.frames[0].window.frames.length>0)
+                    {
+                        if(window.frames[0].window.frames[0].window!=null)
+                        {
+                            window.frames[0].window.frames[0].window.init()
+                        }
+                    }
+                }
+            }
         }
 
         var type = data[i].type;

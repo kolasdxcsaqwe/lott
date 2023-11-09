@@ -6,6 +6,13 @@
 include(dirname(dirname(dirname(preg_replace('@\(.*\(.*$@', '', __FILE__)))) . "/Public/config.php");
 $type = $_GET['type'];
 $sql = $_GET['game'] == '' ? '' : "and `game` = '{$_GET['game']}'";
+
+if(empty($_SESSION['agent_room']) || strlen($_SESSION['agent_room'])==0)
+{
+    echo "";
+    exit();
+}
+
 switch($type){
 case 'first': $arr = array();
     select_query("fn_chat", '*', "roomid = {$_SESSION['agent_room']} $sql order by id desc limit 0,20");
