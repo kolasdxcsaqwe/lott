@@ -60,8 +60,7 @@ echo "当前最新期号-->" . $topcode . "    数据期号--->" . $term . "<br>
 if (empty($topcode) || $tInt1 < $tInt2) {
 
     insert_query('fn_open', array('term' => $term, 'code' => $code, 'time' => date('Y-m-d H:i:s', time()), 'type' => $type, 'next_term' => $next_term, 'next_time' => $next_times));
-    $deleteTime=date('Y-m-d H:i:s', time()-7200);//两小时前数据删掉
-    delete_query('fn_open', "`type`= $type and `time` < '$deleteTime'");
+
     PC_jiesuan('xy28');
     PC_jiesuan1('xy28', $term);
     sleep(4);
