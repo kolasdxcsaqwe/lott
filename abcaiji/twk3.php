@@ -52,8 +52,7 @@ $tInt2=(int)$term;
 
 if (empty($topcode) || $tInt1 < $tInt2) {
     insert_query('fn_open', array("term" => $term, 'code' => $code_str, 'time' => $time, 'type' => $type, 'next_term' => $next_term, 'next_time' => $next_time));
-    $deleteTime = date('Y-m-d H:i:s', time() - 14400);//4小时前数据删掉
-    delete_query('fn_open', "`type`= $type and `time` < '$deleteTime'");
+
     TWK3_jiesuan();
 //  TWK3_jiesuan1($game,$term);
     sleep(5);
