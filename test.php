@@ -14,16 +14,18 @@ $roomid='10029';
 //}
 
 
-select_query("fn_pcorder", '*', array("status" => "未结算"));
-while ($con = db_fetch_array()) {
-    $cons[] = $con;
-}
-echo count($cons)."条数 <br>";
-echo "查看条数使用时间:".(getMillisecond()-$time)."<br>";
+//select_query("fn_pcorder", '*', array("status" => "未结算"));
+//while ($con = db_fetch_array()) {
+//    $cons[] = $con;
+//}
+//echo count($cons)."条数 <br>";
+//echo "查看条数使用时间:".(getMillisecond()-$time)."<br>";
+//
+//$time=getMillisecond();
+//PC_jiesuan222('ny28');
+//echo "使用时间:".(getMillisecond()-$time);
 
-$time=getMillisecond();
-PC_jiesuan222('ny28');
-echo "使用时间:".(getMillisecond()-$time);
+echo date('Y-m-d H:i:s', strtotime("2023-11-08 23:04:21") + 210);
 
 function getTimestamp($digits = false)
 {
