@@ -475,7 +475,7 @@ function is_weixin()
                 <input placeholder="内容/金额" type="text" id="Message"
                        style="color:red;font-weight:bold" <? if (get_query_val('fn_setting', 'setting_ischat', array('roomid' => $_SESSION['roomid'])) == 'open') echo 'disabled="disabled"'; ?>>
                 <div id="toop">
-                    <span class="keybord gray">键盘</span>
+                    <span class="keybord gray" style="visibility: hidden">键盘</span>
                     <span class="txtbet">快捷下注</span>
                 </div>
                 <span class="sendemaill">发 送</span>
