@@ -20062,3 +20062,5530 @@
 
 
 请求：--->468621---->http://localhost:8123/abcaiji/jnd28.php
+<span style='color:red;'>加拿大28</span><br>数据返回------>"{\"rows\":1,\"info\":\"\u6570\u636e\u7531kaijiang-api.com\u6536\u5f55\uff0c\u5f53\u524d\u8bbf\u95eeIP\uff1a104.219.211.74\uff0c\u670d1\uff0c\u5f00\u5956\u7f51v7.5\uff0c\u6280\u672fQQ\uff1a82279178\",\"code\":\"jnd28\",\"data\":[{\"expect\":\"3068561\",\"opencode\":\"4,7,8\",\"opentime\":\"2023-11-14 20:00:30\"}]}"<br>真数据4,7,8假数据字符串->>>>10,4,7,8,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10<br>原假数据->>>>54 57 58<br>计算个位数的假数据->>>>4 7 8<br>当前最新期号-->3068561    数据期号--->3068561<br>当前开奖时间   2023-11-14 20:56:32  下期开奖时间  2023-11-14 20:04:00<br>等待加拿大28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 15
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468621---->http://localhost:8123/abcaiji/ny28.php
+<span style='color:red;'>纽约28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:55:30","expect":"7565556","opencode":"7,7,8","load_time":"2023-11-14 20:56:32","next_phase":"7565557","next_time":"2023-11-14 20:57:00","now":"2023-11-14 20:56:32"}],"now":"2023-11-14 20:56:32"}<br>真数据7,7,8假数据字符串->>>>7,10,10,10,10,10,7,10,10,10,10,10,8,10,10,10,10,10,10,10,10<br>原假数据->>>>57 57 58<br>计算个位数的假数据->>>>7 7 8<br>当前最新期号-->7565556    数据期号--->7565556下次开奖时间2023-11-14 20:57:00<br>等待纽约28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468624---->http://localhost:8123/abcaiji/bjpk10.php
+<span style='color:red;'>北京赛车PK10</span><br>数据返回------>{"expect":"800310","opencode":"4,5,3,6,2,1,7,9,8,10","opentime":"2023-11-14 20:50:00"}<br>当前最新期号-->800310    数据期号--->800310<br>等待更新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 6
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468624---->http://localhost:8123/abcaiji/bjkl8.php
+<span style='color:red;'>新加坡28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:55:00","expect":"3700533","opencode":"3,7,1","load_time":"2023-11-14 20:56:32","next_phase":"3700534","next_time":"2023-11-14 20:57:30","now":"2023-11-14 20:56:32"}],"now":"2023-11-14 20:56:32"}<br>真数据3,7,1假数据字符串->>>>3,10,10,10,10,10,7,10,10,10,10,10,1,10,10,10,10,10,10,10,10<br>原假数据->>>>53 57 51<br>计算个位数的假数据->>>>3 7 1<br>当前最新期号-->3700533    数据期号--->3700533<br>等待新加坡28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468624---->http://localhost:8123/abcaiji/jslhc.php
+<span style='color:red;'>極速六合彩</span><br>等待 01,21,23,10,46,40,19 刷新<br>
+<style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=4
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468624---->http://localhost:8123/abcaiji/jsssc.php
+<span style='color:red;'>極速時時彩</span><br>等待 5,8,2,5,4 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=10
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468624---->http://localhost:8123/abcaiji/twk3.php
+<span style='color:red;'>台湾快三</span><br>等待 6,3,5 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->468624---->http://localhost:8123/abcaiji/jnd28.php
+<span style='color:red;'>加拿大28</span><br>数据返回------>"{\"rows\":1,\"info\":\"\u6570\u636e\u7531kaijiang-api.com\u6536\u5f55\uff0c\u5f53\u524d\u8bbf\u95eeIP\uff1a104.219.211.74\uff0c\u670d1\uff0c\u5f00\u5956\u7f51v7.5\uff0c\u6280\u672fQQ\uff1a82279178\",\"code\":\"jnd28\",\"data\":[{\"expect\":\"3068561\",\"opencode\":\"4,7,8\",\"opentime\":\"2023-11-14 20:00:30\"}]}"<br>真数据4,7,8假数据字符串->>>>10,4,7,8,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10<br>原假数据->>>>54 57 58<br>计算个位数的假数据->>>>4 7 8<br>当前最新期号-->3068561    数据期号--->3068561<br>当前开奖时间   2023-11-14 20:56:33  下期开奖时间  2023-11-14 20:04:00<br>等待加拿大28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 15
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468624---->http://localhost:8123/abcaiji/ny28.php
+<span style='color:red;'>纽约28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:55:30","expect":"7565556","opencode":"4,3,7","load_time":"2023-11-14 20:56:33","next_phase":"7565557","next_time":"2023-11-14 20:57:00","now":"2023-11-14 20:56:33"}],"now":"2023-11-14 20:56:33"}<br>真数据4,3,7假数据字符串->>>>4,10,10,10,10,10,3,10,10,10,10,10,7,10,10,10,10,10,10,10,10<br>原假数据->>>>54 53 57<br>计算个位数的假数据->>>>4 3 7<br>当前最新期号-->7565556    数据期号--->7565556下次开奖时间2023-11-14 20:57:00<br>等待纽约28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468627---->http://localhost:8123/abcaiji/bjpk10.php
+请求：--->468627---->http://localhost:8123/abcaiji/bjkl8.php
+<span style='color:red;'>新加坡28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:55:00","expect":"3700533","opencode":"0,0,9","load_time":"2023-11-14 20:56:36","next_phase":"3700534","next_time":"2023-11-14 20:57:30","now":"2023-11-14 20:56:36"}],"now":"2023-11-14 20:56:36"}<br>真数据0,0,9假数据字符串->>>>0,10,10,10,10,10,0,10,10,10,10,10,9,10,10,10,10,10,10,10,10<br>原假数据->>>>50 50 59<br>计算个位数的假数据->>>>0 0 9<br>当前最新期号-->3700533    数据期号--->3700533<br>等待新加坡28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468627---->http://localhost:8123/abcaiji/jslhc.php
+<span style='color:red;'>極速六合彩</span><br>等待 06,04,27,38,20,09,26 刷新<br>
+<style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=4
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468627---->http://localhost:8123/abcaiji/jsssc.php
+<span style='color:red;'>極速時時彩</span><br>等待 2,6,7,1,9 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=10
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468627---->http://localhost:8123/abcaiji/twk3.php
+<span style='color:red;'>台湾快三</span><br>等待 1,6,3 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->468627---->http://localhost:8123/abcaiji/jnd28.php
+<span style='color:red;'>加拿大28</span><br>数据返回------>"{\"rows\":1,\"info\":\"\u6570\u636e\u7531kaijiang-api.com\u6536\u5f55\uff0c\u5f53\u524d\u8bbf\u95eeIP\uff1a104.219.211.74\uff0c\u670d1\uff0c\u5f00\u5956\u7f51v7.5\uff0c\u6280\u672fQQ\uff1a82279178\",\"code\":\"jnd28\",\"data\":[{\"expect\":\"3068561\",\"opencode\":\"4,7,8\",\"opentime\":\"2023-11-14 20:00:30\"}]}"<br>真数据4,7,8假数据字符串->>>>10,4,7,8,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10<br>原假数据->>>>54 57 58<br>计算个位数的假数据->>>>4 7 8<br>当前最新期号-->3068561    数据期号--->3068561<br>当前开奖时间   2023-11-14 20:56:38  下期开奖时间  2023-11-14 20:04:00<br>等待加拿大28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 15
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468627---->http://localhost:8123/abcaiji/ny28.php
+<span style='color:red;'>纽约28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:55:30","expect":"7565556","opencode":"3,1,5","load_time":"2023-11-14 20:56:38","next_phase":"7565557","next_time":"2023-11-14 20:57:00","now":"2023-11-14 20:56:38"}],"now":"2023-11-14 20:56:38"}<br>真数据3,1,5假数据字符串->>>>3,10,10,10,10,10,1,10,10,10,10,10,5,10,10,10,10,10,10,10,10<br>原假数据->>>>53 51 55<br>计算个位数的假数据->>>>3 1 5<br>当前最新期号-->7565556    数据期号--->7565556下次开奖时间2023-11-14 20:57:00<br>等待纽约28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468630---->http://localhost:8123/abcaiji/bjpk10.php
+<span style='color:red;'>北京赛车PK10</span><br>数据返回------>{"expect":"800310","opencode":"4,5,3,6,2,1,7,9,8,10","opentime":"2023-11-14 20:50:00"}<br>当前最新期号-->800310    数据期号--->800310<br>等待更新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 6
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468630---->http://localhost:8123/abcaiji/bjkl8.php
+<span style='color:red;'>新加坡28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:55:00","expect":"3700533","opencode":"7,5,6","load_time":"2023-11-14 20:56:40","next_phase":"3700534","next_time":"2023-11-14 20:57:30","now":"2023-11-14 20:56:40"}],"now":"2023-11-14 20:56:40"}<br>真数据7,5,6假数据字符串->>>>7,10,10,10,10,10,5,10,10,10,10,10,6,10,10,10,10,10,10,10,10<br>原假数据->>>>57 55 56<br>计算个位数的假数据->>>>7 5 6<br>当前最新期号-->3700533    数据期号--->3700533<br>等待新加坡28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468630---->http://localhost:8123/abcaiji/jslhc.php
+<span style='color:red;'>極速六合彩</span><br>等待 13,24,46,14,02,49,21 刷新<br>
+<style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=4
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468630---->http://localhost:8123/abcaiji/jsssc.php
+<span style='color:red;'>極速時時彩</span><br>等待 6,3,0,9,5 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=10
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468630---->http://localhost:8123/abcaiji/twk3.php
+<span style='color:red;'>台湾快三</span><br>等待 5,2,1 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->468630---->http://localhost:8123/abcaiji/jnd28.php
+<span style='color:red;'>加拿大28</span><br>数据返回------>"{\"rows\":1,\"info\":\"\u6570\u636e\u7531kaijiang-api.com\u6536\u5f55\uff0c\u5f53\u524d\u8bbf\u95eeIP\uff1a104.219.211.74\uff0c\u670d1\uff0c\u5f00\u5956\u7f51v7.5\uff0c\u6280\u672fQQ\uff1a82279178\",\"code\":\"jnd28\",\"data\":[{\"expect\":\"3068561\",\"opencode\":\"4,7,8\",\"opentime\":\"2023-11-14 20:00:30\"}]}"<br>真数据4,7,8假数据字符串->>>>10,4,7,8,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10<br>原假数据->>>>54 57 58<br>计算个位数的假数据->>>>4 7 8<br>当前最新期号-->3068561    数据期号--->3068561<br>当前开奖时间   2023-11-14 20:56:40  下期开奖时间  2023-11-14 20:04:00<br>等待加拿大28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 15
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468630---->http://localhost:8123/abcaiji/ny28.php
+<span style='color:red;'>纽约28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:55:30","expect":"7565556","opencode":"8,1,0","load_time":"2023-11-14 20:56:40","next_phase":"7565557","next_time":"2023-11-14 20:57:00","now":"2023-11-14 20:56:40"}],"now":"2023-11-14 20:56:40"}<br>真数据8,1,0假数据字符串->>>>8,10,10,10,10,10,1,10,10,10,10,10,0,10,10,10,10,10,10,10,10<br>原假数据->>>>58 51 50<br>计算个位数的假数据->>>>8 1 0<br>当前最新期号-->7565556    数据期号--->7565556下次开奖时间2023-11-14 20:57:00<br>等待纽约28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468633---->http://localhost:8123/abcaiji/bjpk10.php
+<span style='color:red;'>北京赛车PK10</span><br>数据返回------>{"expect":"800310","opencode":"4,5,3,6,2,1,7,9,8,10","opentime":"2023-11-14 20:50:00"}<br>当前最新期号-->800310    数据期号--->800310<br>等待更新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 6
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468633---->http://localhost:8123/abcaiji/bjkl8.php
+<span style='color:red;'>新加坡28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:55:00","expect":"3700533","opencode":"3,1,1","load_time":"2023-11-14 20:56:41","next_phase":"3700534","next_time":"2023-11-14 20:57:30","now":"2023-11-14 20:56:41"}],"now":"2023-11-14 20:56:41"}<br>真数据3,1,1假数据字符串->>>>3,10,10,10,10,10,1,10,10,10,10,10,1,10,10,10,10,10,10,10,10<br>原假数据->>>>53 51 51<br>计算个位数的假数据->>>>3 1 1<br>当前最新期号-->3700533    数据期号--->3700533<br>等待新加坡28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468633---->http://localhost:8123/abcaiji/jslhc.php
+<span style='color:red;'>極速六合彩</span><br>等待 05,19,16,26,43,35,06 刷新<br>
+<style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=4
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468633---->http://localhost:8123/abcaiji/jsssc.php
+<span style='color:red;'>極速時時彩</span><br>等待 4,3,6,7,8 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=10
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468633---->http://localhost:8123/abcaiji/twk3.php
+<span style='color:red;'>台湾快三</span><br>等待 5,5,5 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->468633---->http://localhost:8123/abcaiji/jnd28.php
+<span style='color:red;'>加拿大28</span><br>数据返回------>"{\"rows\":1,\"info\":\"\u6570\u636e\u7531kaijiang-api.com\u6536\u5f55\uff0c\u5f53\u524d\u8bbf\u95eeIP\uff1a104.219.211.74\uff0c\u670d1\uff0c\u5f00\u5956\u7f51v7.5\uff0c\u6280\u672fQQ\uff1a82279178\uff0cc\",\"code\":\"jnd28\",\"data\":[{\"expect\":\"3068561\",\"opencode\":\"4,7,8\",\"opentime\":\"2023-11-14 20:00:30\"}]}"<br>真数据4,7,8假数据字符串->>>>10,4,7,8,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10<br>原假数据->>>>54 57 58<br>计算个位数的假数据->>>>4 7 8<br>当前最新期号-->3068561    数据期号--->3068561<br>当前开奖时间   2023-11-14 20:56:41  下期开奖时间  2023-11-14 20:04:00<br>等待加拿大28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 15
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468633---->http://localhost:8123/abcaiji/ny28.php
+<span style='color:red;'>纽约28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:55:30","expect":"7565556","opencode":"2,4,0","load_time":"2023-11-14 20:56:41","next_phase":"7565557","next_time":"2023-11-14 20:57:00","now":"2023-11-14 20:56:41"}],"now":"2023-11-14 20:56:41"}<br>真数据2,4,0假数据字符串->>>>2,10,10,10,10,10,4,10,10,10,10,10,0,10,10,10,10,10,10,10,10<br>原假数据->>>>52 54 50<br>计算个位数的假数据->>>>2 4 0<br>当前最新期号-->7565556    数据期号--->7565556下次开奖时间2023-11-14 20:57:00<br>等待纽约28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468636---->http://localhost:8123/abcaiji/bjpk10.php
+<span style='color:red;'>北京赛车PK10</span><br>数据返回------>{"expect":"800310","opencode":"4,5,3,6,2,1,7,9,8,10","opentime":"2023-11-14 20:50:00"}<br>当前最新期号-->800310    数据期号--->800310<br>等待更新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 6
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468636---->http://localhost:8123/abcaiji/bjkl8.php
+<span style='color:red;'>新加坡28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:55:00","expect":"3700533","opencode":"3,6,4","load_time":"2023-11-14 20:56:44","next_phase":"3700534","next_time":"2023-11-14 20:57:30","now":"2023-11-14 20:56:44"}],"now":"2023-11-14 20:56:44"}<br>真数据3,6,4假数据字符串->>>>3,10,10,10,10,10,6,10,10,10,10,10,4,10,10,10,10,10,10,10,10<br>原假数据->>>>53 56 54<br>计算个位数的假数据->>>>3 6 4<br>当前最新期号-->3700533    数据期号--->3700533<br>等待新加坡28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468636---->http://localhost:8123/abcaiji/jslhc.php
+<span style='color:red;'>極速六合彩</span><br>等待 22,17,11,26,40,46,33 刷新<br>
+<style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=4
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468636---->http://localhost:8123/abcaiji/jsssc.php
+<span style='color:red;'>極速時時彩</span><br>等待 0,4,6,0,5 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=10
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468636---->http://localhost:8123/abcaiji/twk3.php
+<span style='color:red;'>台湾快三</span><br>等待 6,5,1 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->468636---->http://localhost:8123/abcaiji/jnd28.php
+<span style='color:red;'>加拿大28</span><br>数据返回------>"{\"rows\":1,\"info\":\"\u6570\u636e\u7531kaijiang-api.com\u6536\u5f55\uff0c\u5f53\u524d\u8bbf\u95eeIP\uff1a104.219.211.74\uff0c\u670d1\uff0c\u5f00\u5956\u7f51v7.5\uff0c\u6280\u672fQQ\uff1a82279178\",\"code\":\"jnd28\",\"data\":[{\"expect\":\"3068561\",\"opencode\":\"4,7,8\",\"opentime\":\"2023-11-14 20:00:30\"}]}"<br>真数据4,7,8假数据字符串->>>>10,4,7,8,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10<br>原假数据->>>>54 57 58<br>计算个位数的假数据->>>>4 7 8<br>当前最新期号-->3068561    数据期号--->3068561<br>当前开奖时间   2023-11-14 20:56:44  下期开奖时间  2023-11-14 20:04:00<br>等待加拿大28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 15
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468636---->http://localhost:8123/abcaiji/ny28.php
+<span style='color:red;'>纽约28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:55:30","expect":"7565556","opencode":"0,4,1","load_time":"2023-11-14 20:56:44","next_phase":"7565557","next_time":"2023-11-14 20:57:00","now":"2023-11-14 20:56:44"}],"now":"2023-11-14 20:56:44"}<br>真数据0,4,1假数据字符串->>>>0,10,10,10,10,10,4,10,10,10,10,10,1,10,10,10,10,10,10,10,10<br>原假数据->>>>50 54 51<br>计算个位数的假数据->>>>0 4 1<br>当前最新期号-->7565556    数据期号--->7565556下次开奖时间2023-11-14 20:57:00<br>等待纽约28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468639---->http://localhost:8123/abcaiji/bjpk10.php
+<span style='color:red;'>北京赛车PK10</span><br>数据返回------>{"expect":"800310","opencode":"4,5,3,6,2,1,7,9,8,10","opentime":"2023-11-14 20:50:00"}<br>当前最新期号-->800310    数据期号--->800310<br>等待更新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 6
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468639---->http://localhost:8123/abcaiji/bjkl8.php
+<span style='color:red;'>新加坡28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:55:00","expect":"3700533","opencode":"9,9,5","load_time":"2023-11-14 20:56:45","next_phase":"3700534","next_time":"2023-11-14 20:57:30","now":"2023-11-14 20:56:45"}],"now":"2023-11-14 20:56:45"}<br>真数据9,9,5假数据字符串->>>>9,10,10,10,10,10,9,10,10,10,10,10,5,10,10,10,10,10,10,10,10<br>原假数据->>>>59 59 55<br>计算个位数的假数据->>>>9 9 5<br>当前最新期号-->3700533    数据期号--->3700533<br>等待新加坡28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468639---->http://localhost:8123/abcaiji/jslhc.php
+<span style='color:red;'>極速六合彩</span><br>等待 48,06,35,22,46,43,41 刷新<br>
+<style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=4
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468639---->http://localhost:8123/abcaiji/jsssc.php
+请求：--->468639---->http://localhost:8123/abcaiji/twk3.php
+<span style='color:red;'>台湾快三</span><br>等待 1,3,4 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->468639---->http://localhost:8123/abcaiji/jnd28.php
+<span style='color:red;'>加拿大28</span><br>数据返回------>"{\"rows\":1,\"info\":\"\u6570\u636e\u7531kaijiang-api.com\u6536\u5f55\uff0c\u5f53\u524d\u8bbf\u95eeIP\uff1a104.219.211.74\uff0c\u670d1\uff0c\u5f00\u5956\u7f51v7.5\uff0c\u6280\u672fQQ\uff1a82279178\",\"code\":\"jnd28\",\"data\":[{\"expect\":\"3068561\",\"opencode\":\"4,7,8\",\"opentime\":\"2023-11-14 20:00:30\"}]}"<br>真数据4,7,8假数据字符串->>>>10,4,7,8,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10<br>原假数据->>>>54 57 58<br>计算个位数的假数据->>>>4 7 8<br>当前最新期号-->3068561    数据期号--->3068561<br>当前开奖时间   2023-11-14 20:56:48  下期开奖时间  2023-11-14 20:04:00<br>等待加拿大28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 15
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468639---->http://localhost:8123/abcaiji/ny28.php
+<span style='color:red;'>纽约28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:55:30","expect":"7565556","opencode":"2,2,7","load_time":"2023-11-14 20:56:48","next_phase":"7565557","next_time":"2023-11-14 20:57:00","now":"2023-11-14 20:56:48"}],"now":"2023-11-14 20:56:48"}<br>真数据2,2,7假数据字符串->>>>2,10,10,10,10,10,2,10,10,10,10,10,7,10,10,10,10,10,10,10,10<br>原假数据->>>>52 52 57<br>计算个位数的假数据->>>>2 2 7<br>当前最新期号-->7565556    数据期号--->7565556下次开奖时间2023-11-14 20:57:00<br>等待纽约28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468642---->http://localhost:8123/abcaiji/bjpk10.php
+<span style='color:red;'>北京赛车PK10</span><br>数据返回------>{"expect":"800310","opencode":"4,5,3,6,2,1,7,9,8,10","opentime":"2023-11-14 20:50:00"}<br>当前最新期号-->800310    数据期号--->800310<br>等待更新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 6
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468642---->http://localhost:8123/abcaiji/bjkl8.php
+<span style='color:red;'>新加坡28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:55:00","expect":"3700533","opencode":"7,3,4","load_time":"2023-11-14 20:56:51","next_phase":"3700534","next_time":"2023-11-14 20:57:30","now":"2023-11-14 20:56:51"}],"now":"2023-11-14 20:56:51"}<br>真数据7,3,4假数据字符串->>>>7,10,10,10,10,10,3,10,10,10,10,10,4,10,10,10,10,10,10,10,10<br>原假数据->>>>57 53 54<br>计算个位数的假数据->>>>7 3 4<br>当前最新期号-->3700533    数据期号--->3700533<br>等待新加坡28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468642---->http://localhost:8123/abcaiji/jslhc.php
+<span style='color:red;'>極速六合彩</span><br>等待 36,20,07,40,37,02,26 刷新<br>
+<style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=4
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468642---->http://localhost:8123/abcaiji/jsssc.php
+<span style='color:red;'>極速時時彩</span><br>等待 2,6,0,8,9 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=10
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468642---->http://localhost:8123/abcaiji/twk3.php
+<span style='color:red;'>台湾快三</span><br>等待 1,3,6 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->468642---->http://localhost:8123/abcaiji/jnd28.php
+<span style='color:red;'>加拿大28</span><br>数据返回------>"{\"rows\":1,\"info\":\"\u6570\u636e\u7531kaijiang-api.com\u6536\u5f55\uff0c\u5f53\u524d\u8bbf\u95eeIP\uff1a104.219.211.74\uff0c\u670d1\uff0c\u5f00\u5956\u7f51v7.5\uff0c\u6280\u672fQQ\uff1a82279178\",\"code\":\"jnd28\",\"data\":[{\"expect\":\"3068561\",\"opencode\":\"4,7,8\",\"opentime\":\"2023-11-14 20:00:30\"}]}"<br>真数据4,7,8假数据字符串->>>>10,4,7,8,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10<br>原假数据->>>>54 57 58<br>计算个位数的假数据->>>>4 7 8<br>当前最新期号-->3068561    数据期号--->3068561<br>当前开奖时间   2023-11-14 20:56:51  下期开奖时间  2023-11-14 20:04:00<br>等待加拿大28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 15
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468642---->http://localhost:8123/abcaiji/ny28.php
+<span style='color:red;'>纽约28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:55:30","expect":"7565556","opencode":"7,4,1","load_time":"2023-11-14 20:56:51","next_phase":"7565557","next_time":"2023-11-14 20:57:00","now":"2023-11-14 20:56:51"}],"now":"2023-11-14 20:56:51"}<br>真数据7,4,1假数据字符串->>>>7,10,10,10,10,10,4,10,10,10,10,10,1,10,10,10,10,10,10,10,10<br>原假数据->>>>57 54 51<br>计算个位数的假数据->>>>7 4 1<br>当前最新期号-->7565556    数据期号--->7565556下次开奖时间2023-11-14 20:57:00<br>等待纽约28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468645---->http://localhost:8123/abcaiji/bjpk10.php
+<span style='color:red;'>北京赛车PK10</span><br>数据返回------>{"expect":"800310","opencode":"4,5,3,6,2,1,7,9,8,10","opentime":"2023-11-14 20:50:00"}<br>当前最新期号-->800310    数据期号--->800310<br>等待更新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 6
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468645---->http://localhost:8123/abcaiji/bjkl8.php
+<span style='color:red;'>新加坡28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:55:00","expect":"3700533","opencode":"7,7,6","load_time":"2023-11-14 20:56:52","next_phase":"3700534","next_time":"2023-11-14 20:57:30","now":"2023-11-14 20:56:52"}],"now":"2023-11-14 20:56:52"}<br>真数据7,7,6假数据字符串->>>>7,10,10,10,10,10,7,10,10,10,10,10,6,10,10,10,10,10,10,10,10<br>原假数据->>>>57 57 56<br>计算个位数的假数据->>>>7 7 6<br>当前最新期号-->3700533    数据期号--->3700533<br>等待新加坡28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468645---->http://localhost:8123/abcaiji/jslhc.php
+<span style='color:red;'>極速六合彩</span><br>等待 31,46,10,12,32,28,48 刷新<br>
+<style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=4
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468645---->http://localhost:8123/abcaiji/jsssc.php
+<span style='color:red;'>極速時時彩</span><br>等待 6,6,7,7,7 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=10
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468645---->http://localhost:8123/abcaiji/twk3.php
+<span style='color:red;'>台湾快三</span><br>等待 4,6,4 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->468645---->http://localhost:8123/abcaiji/jnd28.php
+<span style='color:red;'>加拿大28</span><br>数据返回------>"{\"rows\":1,\"info\":\"\u6570\u636e\u7531kaijiang-api.com\u6536\u5f55\uff0c\u5f53\u524d\u8bbf\u95eeIP\uff1a104.219.211.74\uff0c\u670d1\uff0c\u5f00\u5956\u7f51v7.5\uff0c\u6280\u672fQQ\uff1a82279178\uff0cc\",\"code\":\"jnd28\",\"data\":[{\"expect\":\"3068561\",\"opencode\":\"4,7,8\",\"opentime\":\"2023-11-14 20:00:30\"}]}"<br>真数据4,7,8假数据字符串->>>>10,4,7,8,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10<br>原假数据->>>>54 57 58<br>计算个位数的假数据->>>>4 7 8<br>当前最新期号-->3068561    数据期号--->3068561<br>当前开奖时间   2023-11-14 20:56:52  下期开奖时间  2023-11-14 20:04:00<br>等待加拿大28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 15
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468645---->http://localhost:8123/abcaiji/ny28.php
+<span style='color:red;'>纽约28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:55:30","expect":"7565556","opencode":"9,5,5","load_time":"2023-11-14 20:56:52","next_phase":"7565557","next_time":"2023-11-14 20:57:00","now":"2023-11-14 20:56:52"}],"now":"2023-11-14 20:56:52"}<br>真数据9,5,5假数据字符串->>>>9,10,10,10,10,10,5,10,10,10,10,10,5,10,10,10,10,10,10,10,10<br>原假数据->>>>59 55 55<br>计算个位数的假数据->>>>9 5 5<br>当前最新期号-->7565556    数据期号--->7565556下次开奖时间2023-11-14 20:57:00<br>等待纽约28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468648---->http://localhost:8123/abcaiji/bjpk10.php
+<span style='color:red;'>北京赛车PK10</span><br>数据返回------>{"expect":"800310","opencode":"4,5,3,6,2,1,7,9,8,10","opentime":"2023-11-14 20:50:00"}<br>当前最新期号-->800310    数据期号--->800310<br>等待更新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 6
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468648---->http://localhost:8123/abcaiji/bjkl8.php
+<span style='color:red;'>新加坡28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:55:00","expect":"3700533","opencode":"1,4,0","load_time":"2023-11-14 20:56:55","next_phase":"3700534","next_time":"2023-11-14 20:57:30","now":"2023-11-14 20:56:55"}],"now":"2023-11-14 20:56:55"}<br>真数据1,4,0假数据字符串->>>>1,10,10,10,10,10,4,10,10,10,10,10,0,10,10,10,10,10,10,10,10<br>原假数据->>>>51 54 50<br>计算个位数的假数据->>>>1 4 0<br>当前最新期号-->3700533    数据期号--->3700533<br>等待新加坡28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468648---->http://localhost:8123/abcaiji/jslhc.php
+<span style='color:red;'>極速六合彩</span><br>等待 49,04,48,05,32,29,35 刷新<br>
+<style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=4
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468648---->http://localhost:8123/abcaiji/jsssc.php
+<span style='color:red;'>極速時時彩</span><br>等待 8,6,7,3,4 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=10
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468648---->http://localhost:8123/abcaiji/twk3.php
+<span style='color:red;'>台湾快三</span><br>等待 4,3,1 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->468648---->http://localhost:8123/abcaiji/jnd28.php
+<span style='color:red;'>加拿大28</span><br>数据返回------>"{\"rows\":1,\"info\":\"\u6570\u636e\u7531kaijiang-api.com\u6536\u5f55\uff0c\u5f53\u524d\u8bbf\u95eeIP\uff1a104.219.211.74\uff0c\u670d1\uff0c\u5f00\u5956\u7f51v7.5\uff0c\u6280\u672fQQ\uff1a82279178\",\"code\":\"jnd28\",\"data\":[{\"expect\":\"3068561\",\"opencode\":\"4,7,8\",\"opentime\":\"2023-11-14 20:00:30\"}]}"<br>真数据4,7,8假数据字符串->>>>10,4,7,8,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10<br>原假数据->>>>54 57 58<br>计算个位数的假数据->>>>4 7 8<br>当前最新期号-->3068561    数据期号--->3068561<br>当前开奖时间   2023-11-14 20:56:55  下期开奖时间  2023-11-14 20:04:00<br>等待加拿大28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 15
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468648---->http://localhost:8123/abcaiji/ny28.php
+<span style='color:red;'>纽约28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:55:30","expect":"7565556","opencode":"0,9,8","load_time":"2023-11-14 20:56:55","next_phase":"7565557","next_time":"2023-11-14 20:57:00","now":"2023-11-14 20:56:55"}],"now":"2023-11-14 20:56:55"}<br>真数据0,9,8假数据字符串->>>>0,10,10,10,10,10,9,10,10,10,10,10,8,10,10,10,10,10,10,10,10<br>原假数据->>>>50 59 58<br>计算个位数的假数据->>>>0 9 8<br>当前最新期号-->7565556    数据期号--->7565556下次开奖时间2023-11-14 20:57:00<br>等待纽约28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468651---->http://localhost:8123/abcaiji/bjpk10.php
+<span style='color:red;'>北京赛车PK10</span><br>数据返回------>{"expect":"800310","opencode":"4,5,3,6,2,1,7,9,8,10","opentime":"2023-11-14 20:50:00"}<br>当前最新期号-->800310    数据期号--->800310<br>等待更新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 6
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468651---->http://localhost:8123/abcaiji/bjkl8.php
+<span style='color:red;'>新加坡28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:55:00","expect":"3700533","opencode":"0,2,3","load_time":"2023-11-14 20:56:56","next_phase":"3700534","next_time":"2023-11-14 20:57:30","now":"2023-11-14 20:56:56"}],"now":"2023-11-14 20:56:56"}<br>真数据0,2,3假数据字符串->>>>0,10,10,10,10,10,2,10,10,10,10,10,3,10,10,10,10,10,10,10,10<br>原假数据->>>>50 52 53<br>计算个位数的假数据->>>>0 2 3<br>当前最新期号-->3700533    数据期号--->3700533<br>等待新加坡28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468651---->http://localhost:8123/abcaiji/jslhc.php
+<span style='color:red;'>極速六合彩</span><br>等待 39,21,38,49,04,15,12 刷新<br>
+<style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=4
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468651---->http://localhost:8123/abcaiji/jsssc.php
+<span style='color:red;'>極速時時彩</span><br>等待 1,0,8,2,0 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=10
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468651---->http://localhost:8123/abcaiji/twk3.php
+<span style='color:red;'>台湾快三</span><br>等待 1,6,3 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->468651---->http://localhost:8123/abcaiji/jnd28.php
+<span style='color:red;'>加拿大28</span><br>数据返回------>"{\"rows\":1,\"info\":\"\u6570\u636e\u7531kaijiang-api.com\u6536\u5f55\uff0c\u5f53\u524d\u8bbf\u95eeIP\uff1a104.219.211.74\uff0c\u670d1\uff0c\u5f00\u5956\u7f51v7.5\uff0c\u6280\u672fQQ\uff1a82279178\uff0cc\",\"code\":\"jnd28\",\"data\":[{\"expect\":\"3068561\",\"opencode\":\"4,7,8\",\"opentime\":\"2023-11-14 20:00:30\"}]}"<br>真数据4,7,8假数据字符串->>>>10,4,7,8,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10<br>原假数据->>>>54 57 58<br>计算个位数的假数据->>>>4 7 8<br>当前最新期号-->3068561    数据期号--->3068561<br>当前开奖时间   2023-11-14 20:56:57  下期开奖时间  2023-11-14 20:04:00<br>等待加拿大28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 15
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468651---->http://localhost:8123/abcaiji/ny28.php
+<span style='color:red;'>纽约28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:55:30","expect":"7565556","opencode":"9,8,9","load_time":"2023-11-14 20:56:57","next_phase":"7565557","next_time":"2023-11-14 20:57:00","now":"2023-11-14 20:56:57"}],"now":"2023-11-14 20:56:57"}<br>真数据9,8,9假数据字符串->>>>9,10,10,10,10,10,8,10,10,10,10,10,9,10,10,10,10,10,10,10,10<br>原假数据->>>>59 58 59<br>计算个位数的假数据->>>>9 8 9<br>当前最新期号-->7565556    数据期号--->7565556下次开奖时间2023-11-14 20:57:00<br>等待纽约28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468654---->http://localhost:8123/abcaiji/bjpk10.php
+<span style='color:red;'>北京赛车PK10</span><br>数据返回------>{"expect":"800310","opencode":"4,5,3,6,2,1,7,9,8,10","opentime":"2023-11-14 20:50:00"}<br>当前最新期号-->800310    数据期号--->800310<br>等待更新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 6
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468654---->http://localhost:8123/abcaiji/bjkl8.php
+<span style='color:red;'>新加坡28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:55:00","expect":"3700533","opencode":"2,2,5","load_time":"2023-11-14 20:57:01","next_phase":"3700534","next_time":"2023-11-14 20:57:30","now":"2023-11-14 20:57:01"}],"now":"2023-11-14 20:57:01"}<br>真数据2,2,5假数据字符串->>>>2,10,10,10,10,10,2,10,10,10,10,10,5,10,10,10,10,10,10,10,10<br>原假数据->>>>52 52 55<br>计算个位数的假数据->>>>2 2 5<br>当前最新期号-->3700533    数据期号--->3700533<br>等待新加坡28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468654---->http://localhost:8123/abcaiji/jslhc.php
+<span style='color:red;'>極速六合彩</span><br>等待 31,01,30,02,28,43,45 刷新<br>
+<style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=4
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468654---->http://localhost:8123/abcaiji/jsssc.php
+<span style='color:red;'>極速時時彩</span><br>等待 4,4,1,4,5 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=10
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468654---->http://localhost:8123/abcaiji/twk3.php
+请求：--->468654---->http://localhost:8123/abcaiji/jnd28.php
+<span style='color:red;'>加拿大28</span><br>数据返回------>"{\"rows\":1,\"info\":\"\u6570\u636e\u7531kaijiang-api.com\u6536\u5f55\uff0c\u5f53\u524d\u8bbf\u95eeIP\uff1a104.219.211.74\uff0c\u670d1\uff0c\u5f00\u5956\u7f51v7.5\uff0c\u6280\u672fQQ\uff1a82279178\",\"code\":\"jnd28\",\"data\":[{\"expect\":\"3068561\",\"opencode\":\"4,7,8\",\"opentime\":\"2023-11-14 20:00:30\"}]}"<br>真数据4,7,8假数据字符串->>>>10,4,7,8,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10<br>原假数据->>>>54 57 58<br>计算个位数的假数据->>>>4 7 8<br>当前最新期号-->3068561    数据期号--->3068561<br>当前开奖时间   2023-11-14 20:57:05  下期开奖时间  2023-11-14 20:04:00<br>等待加拿大28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 15
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468654---->http://localhost:8123/abcaiji/ny28.php
+<span style='color:red;'>纽约28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:57:00","expect":"7565557","opencode":"3,1,5","load_time":"2023-11-14 20:57:05","next_phase":"7565558","next_time":"2023-11-14 20:58:30","now":"2023-11-14 20:57:05"}],"now":"2023-11-14 20:57:05"}<br>真数据3,1,5假数据字符串->>>>3,10,10,10,10,10,1,10,10,10,10,10,5,10,10,10,10,10,10,10,10<br>原假数据->>>>53 51 55<br>计算个位数的假数据->>>>3 1 5<br>当前最新期号-->7565556    数据期号--->7565557下次开奖时间2023-11-14 20:58:30<br>系统出现错误,请将错误编码告知管理员,错误编码:[2023111420570546665]
+请求：--->468657---->http://localhost:8123/abcaiji/bjpk10.php
+请求：--->468657---->http://localhost:8123/abcaiji/bjkl8.php
+<span style='color:red;'>新加坡28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:55:00","expect":"3700533","opencode":"6,8,1","load_time":"2023-11-14 20:57:08","next_phase":"3700534","next_time":"2023-11-14 20:57:30","now":"2023-11-14 20:57:08"}],"now":"2023-11-14 20:57:08"}<br>真数据6,8,1假数据字符串->>>>6,10,10,10,10,10,8,10,10,10,10,10,1,10,10,10,10,10,10,10,10<br>原假数据->>>>56 58 51<br>计算个位数的假数据->>>>6 8 1<br>当前最新期号-->3700533    数据期号--->3700533<br>等待新加坡28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468657---->http://localhost:8123/abcaiji/jslhc.php
+<span style='color:red;'>極速六合彩</span><br>等待 08,20,01,28,15,38,18 刷新<br>
+<style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=4
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468657---->http://localhost:8123/abcaiji/jsssc.php
+<span style='color:red;'>極速時時彩</span><br>等待 5,0,4,0,1 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=10
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468657---->http://localhost:8123/abcaiji/twk3.php
+<span style='color:red;'>台湾快三</span><br>等待 4,3,3 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->468657---->http://localhost:8123/abcaiji/jnd28.php
+<span style='color:red;'>加拿大28</span><br>数据返回------>"{\"rows\":1,\"info\":\"\u6570\u636e\u7531kaijiang-api.com\u6536\u5f55\uff0c\u5f53\u524d\u8bbf\u95eeIP\uff1a104.219.211.74\uff0c\u670d1\uff0c\u5f00\u5956\u7f51v7.5\uff0c\u6280\u672fQQ\uff1a82279178\",\"code\":\"jnd28\",\"data\":[{\"expect\":\"3068561\",\"opencode\":\"4,7,8\",\"opentime\":\"2023-11-14 20:00:30\"}]}"<br>真数据4,7,8假数据字符串->>>>10,4,7,8,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10<br>原假数据->>>>54 57 58<br>计算个位数的假数据->>>>4 7 8<br>当前最新期号-->3068561    数据期号--->3068561<br>当前开奖时间   2023-11-14 20:57:09  下期开奖时间  2023-11-14 20:04:00<br>等待加拿大28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 15
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468657---->http://localhost:8123/abcaiji/ny28.php
+<span style='color:red;'>纽约28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:57:00","expect":"7565557","opencode":"6,2,2","load_time":"2023-11-14 20:57:09","next_phase":"7565558","next_time":"2023-11-14 20:58:30","now":"2023-11-14 20:57:09"}],"now":"2023-11-14 20:57:09"}<br>真数据6,2,2假数据字符串->>>>6,10,10,10,10,10,2,10,10,10,10,10,2,10,10,10,10,10,10,10,10<br>原假数据->>>>56 52 52<br>计算个位数的假数据->>>>6 2 2<br>当前最新期号-->7565557    数据期号--->7565557下次开奖时间2023-11-14 20:58:30<br>等待纽约28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468660---->http://localhost:8123/abcaiji/bjpk10.php
+<span style='color:red;'>北京赛车PK10</span><br>数据返回------>{"expect":"800310","opencode":"4,5,3,6,2,1,7,9,8,10","opentime":"2023-11-14 20:50:00"}<br>当前最新期号-->800310    数据期号--->800310<br>等待更新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 6
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468660---->http://localhost:8123/abcaiji/bjkl8.php
+<span style='color:red;'>新加坡28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:55:00","expect":"3700533","opencode":"8,5,1","load_time":"2023-11-14 20:57:09","next_phase":"3700534","next_time":"2023-11-14 20:57:30","now":"2023-11-14 20:57:09"}],"now":"2023-11-14 20:57:09"}<br>真数据8,5,1假数据字符串->>>>8,10,10,10,10,10,5,10,10,10,10,10,1,10,10,10,10,10,10,10,10<br>原假数据->>>>58 55 51<br>计算个位数的假数据->>>>8 5 1<br>当前最新期号-->3700533    数据期号--->3700533<br>等待新加坡28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468660---->http://localhost:8123/abcaiji/jslhc.php
+<span style='color:red;'>極速六合彩</span><br>等待 03,35,10,15,19,22,26 刷新<br>
+<style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=4
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468660---->http://localhost:8123/abcaiji/lhc.php
+<span style='color:red;'>六合彩</span><br>string(240) "{"rows":1,"info":"数据由kaijiang-api.com收录，当前访问IP：104.219.211.74，服3，开奖网v7.5，技术QQ：82279178","code":"hk6","data":[{"expect":"2023127","opencode":"19,26,32,34,37,44+11","opentime":"2023-11-12 21:39:04"}]}"
+数据返回------>{"rows":1,"info":"数据由kaijiang-api.com收录，当前访问IP：104.219.211.74，服3，开奖网v7.5，技术QQ：82279178","code":"hk6","data":[{"expect":"2023127","opencode":"19,26,32,34,37,44+11","opentime":"2023-11-12 21:39:04"}]}<br>等待 lhc 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=30
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // 	if (!document.images)
+    // 		return
+    // 	if (parselimit==1)
+    // 		window.location.reload()
+    // 	else{
+    // 		parselimit-=1
+    // 		curmin=Math.floor(parselimit)
+    // 		if (curmin!=0)
+    // 			curtime=curmin+"秒后自动获取!"
+    // 		else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468660---->http://localhost:8123/abcaiji/jsssc.php
+<span style='color:red;'>極速時時彩</span><br>等待 6,5,0,5,6 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=10
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468660---->http://localhost:8123/abcaiji/twk3.php
+<span style='color:red;'>台湾快三</span><br>等待 1,2,2 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->468660---->http://localhost:8123/abcaiji/jnd28.php
+<span style='color:red;'>加拿大28</span><br>数据返回------>"{\"rows\":1,\"info\":\"\u6570\u636e\u7531kaijiang-api.com\u6536\u5f55\uff0c\u5f53\u524d\u8bbf\u95eeIP\uff1a104.219.211.74\uff0c\u670d1\uff0c\u5f00\u5956\u7f51v7.5\uff0c\u6280\u672fQQ\uff1a82279178\",\"code\":\"jnd28\",\"data\":[{\"expect\":\"3068561\",\"opencode\":\"4,7,8\",\"opentime\":\"2023-11-14 20:00:30\"}]}"<br>真数据4,7,8假数据字符串->>>>10,4,7,8,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10<br>原假数据->>>>54 57 58<br>计算个位数的假数据->>>>4 7 8<br>当前最新期号-->3068561    数据期号--->3068561<br>当前开奖时间   2023-11-14 20:57:12  下期开奖时间  2023-11-14 20:04:00<br>等待加拿大28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 15
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468660---->http://localhost:8123/abcaiji/ny28.php
+<span style='color:red;'>纽约28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:57:00","expect":"7565557","opencode":"3,2,4","load_time":"2023-11-14 20:57:12","next_phase":"7565558","next_time":"2023-11-14 20:58:30","now":"2023-11-14 20:57:12"}],"now":"2023-11-14 20:57:12"}<br>真数据3,2,4假数据字符串->>>>3,10,10,10,10,10,2,10,10,10,10,10,4,10,10,10,10,10,10,10,10<br>原假数据->>>>53 52 54<br>计算个位数的假数据->>>>3 2 4<br>当前最新期号-->7565557    数据期号--->7565557下次开奖时间2023-11-14 20:58:30<br>等待纽约28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468663---->http://localhost:8123/abcaiji/bjpk10.php
+请求：--->468663---->http://localhost:8123/abcaiji/bjkl8.php
+<span style='color:red;'>新加坡28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:55:00","expect":"3700533","opencode":"2,7,7","load_time":"2023-11-14 20:57:16","next_phase":"3700534","next_time":"2023-11-14 20:57:30","now":"2023-11-14 20:57:16"}],"now":"2023-11-14 20:57:16"}<br>真数据2,7,7假数据字符串->>>>2,10,10,10,10,10,7,10,10,10,10,10,7,10,10,10,10,10,10,10,10<br>原假数据->>>>52 57 57<br>计算个位数的假数据->>>>2 7 7<br>当前最新期号-->3700533    数据期号--->3700533<br>等待新加坡28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468663---->http://localhost:8123/abcaiji/jslhc.php
+<span style='color:red;'>極速六合彩</span><br>等待 16,46,20,14,39,12,18 刷新<br>
+<style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=4
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468663---->http://localhost:8123/abcaiji/jsssc.php
+<span style='color:red;'>極速時時彩</span><br>等待 0,3,6,5,8 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=10
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468663---->http://localhost:8123/abcaiji/twk3.php
+<span style='color:red;'>台湾快三</span><br>等待 1,2,2 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->468663---->http://localhost:8123/abcaiji/jnd28.php
+请求：--->468663---->http://localhost:8123/abcaiji/ny28.php
+<span style='color:red;'>纽约28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:57:00","expect":"7565557","opencode":"7,5,4","load_time":"2023-11-14 20:57:19","next_phase":"7565558","next_time":"2023-11-14 20:58:30","now":"2023-11-14 20:57:19"}],"now":"2023-11-14 20:57:19"}<br>真数据7,5,4假数据字符串->>>>7,10,10,10,10,10,5,10,10,10,10,10,4,10,10,10,10,10,10,10,10<br>原假数据->>>>57 55 54<br>计算个位数的假数据->>>>7 5 4<br>当前最新期号-->7565557    数据期号--->7565557下次开奖时间2023-11-14 20:58:30<br>等待纽约28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468666---->http://localhost:8123/abcaiji/bjpk10.php
+请求：--->468666---->http://localhost:8123/abcaiji/bjkl8.php
+<span style='color:red;'>新加坡28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:55:00","expect":"3700533","opencode":"7,1,1","load_time":"2023-11-14 20:57:22","next_phase":"3700534","next_time":"2023-11-14 20:57:30","now":"2023-11-14 20:57:22"}],"now":"2023-11-14 20:57:22"}<br>真数据7,1,1假数据字符串->>>>7,10,10,10,10,10,1,10,10,10,10,10,1,10,10,10,10,10,10,10,10<br>原假数据->>>>57 51 51<br>计算个位数的假数据->>>>7 1 1<br>当前最新期号-->3700533    数据期号--->3700533<br>等待新加坡28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468666---->http://localhost:8123/abcaiji/jslhc.php
+<span style='color:red;'>極速六合彩</span><br>等待 09,21,37,35,02,46,13 刷新<br>
+<style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=4
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468666---->http://localhost:8123/abcaiji/jsssc.php
+<span style='color:red;'>極速時時彩</span><br>等待 8,1,6,9,4 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=10
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468666---->http://localhost:8123/abcaiji/twk3.php
+<span style='color:red;'>台湾快三</span><br>等待 5,4,5 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->468666---->http://localhost:8123/abcaiji/jnd28.php
+<span style='color:red;'>加拿大28</span><br>数据返回------>"{\"rows\":1,\"info\":\"\u6570\u636e\u7531kaijiang-api.com\u6536\u5f55\uff0c\u5f53\u524d\u8bbf\u95eeIP\uff1a104.219.211.74\uff0c\u670d1\uff0c\u5f00\u5956\u7f51v7.5\uff0c\u6280\u672fQQ\uff1a82279178\",\"code\":\"jnd28\",\"data\":[{\"expect\":\"3068561\",\"opencode\":\"4,7,8\",\"opentime\":\"2023-11-14 20:00:30\"}]}"<br>真数据4,7,8假数据字符串->>>>10,4,7,8,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10<br>原假数据->>>>54 57 58<br>计算个位数的假数据->>>>4 7 8<br>当前最新期号-->3068561    数据期号--->3068561<br>当前开奖时间   2023-11-14 20:57:22  下期开奖时间  2023-11-14 20:04:00<br>等待加拿大28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 15
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468666---->http://localhost:8123/abcaiji/ny28.php
+<span style='color:red;'>纽约28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:57:00","expect":"7565557","opencode":"2,7,5","load_time":"2023-11-14 20:57:22","next_phase":"7565558","next_time":"2023-11-14 20:58:30","now":"2023-11-14 20:57:22"}],"now":"2023-11-14 20:57:22"}<br>真数据2,7,5假数据字符串->>>>2,10,10,10,10,10,7,10,10,10,10,10,5,10,10,10,10,10,10,10,10<br>原假数据->>>>52 57 55<br>计算个位数的假数据->>>>2 7 5<br>当前最新期号-->7565557    数据期号--->7565557下次开奖时间2023-11-14 20:58:30<br>等待纽约28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468669---->http://localhost:8123/abcaiji/bjpk10.php
+<span style='color:red;'>北京赛车PK10</span><br>数据返回------>{"expect":"800310","opencode":"4,5,3,6,2,1,7,9,8,10","opentime":"2023-11-14 20:50:00"}<br>当前最新期号-->800310    数据期号--->800310<br>等待更新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 6
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468669---->http://localhost:8123/abcaiji/bjkl8.php
+<span style='color:red;'>新加坡28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:55:00","expect":"3700533","opencode":"7,7,8","load_time":"2023-11-14 20:57:23","next_phase":"3700534","next_time":"2023-11-14 20:57:30","now":"2023-11-14 20:57:23"}],"now":"2023-11-14 20:57:23"}<br>真数据7,7,8假数据字符串->>>>7,10,10,10,10,10,7,10,10,10,10,10,8,10,10,10,10,10,10,10,10<br>原假数据->>>>57 57 58<br>计算个位数的假数据->>>>7 7 8<br>当前最新期号-->3700533    数据期号--->3700533<br>等待新加坡28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468669---->http://localhost:8123/abcaiji/jslhc.php
+<span style='color:red;'>極速六合彩</span><br>等待 28,07,44,15,29,37,27 刷新<br>
+<style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=4
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468669---->http://localhost:8123/abcaiji/jsssc.php
+<span style='color:red;'>極速時時彩</span><br>等待 0,0,2,2,6 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=10
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468669---->http://localhost:8123/abcaiji/twk3.php
+<span style='color:red;'>台湾快三</span><br>等待 1,4,5 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->468669---->http://localhost:8123/abcaiji/jnd28.php
+<span style='color:red;'>加拿大28</span><br>数据返回------>"{\"rows\":1,\"info\":\"\u6570\u636e\u7531kaijiang-api.com\u6536\u5f55\uff0c\u5f53\u524d\u8bbf\u95eeIP\uff1a104.219.211.74\uff0c\u670d1\uff0c\u5f00\u5956\u7f51v7.5\uff0c\u6280\u672fQQ\uff1a82279178\uff0cc\",\"code\":\"jnd28\",\"data\":[{\"expect\":\"3068561\",\"opencode\":\"4,7,8\",\"opentime\":\"2023-11-14 20:00:30\"}]}"<br>真数据4,7,8假数据字符串->>>>10,4,7,8,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10<br>原假数据->>>>54 57 58<br>计算个位数的假数据->>>>4 7 8<br>当前最新期号-->3068561    数据期号--->3068561<br>当前开奖时间   2023-11-14 20:57:23  下期开奖时间  2023-11-14 20:04:00<br>等待加拿大28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 15
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468669---->http://localhost:8123/abcaiji/ny28.php
+<span style='color:red;'>纽约28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:57:00","expect":"7565557","opencode":"1,3,6","load_time":"2023-11-14 20:57:23","next_phase":"7565558","next_time":"2023-11-14 20:58:30","now":"2023-11-14 20:57:23"}],"now":"2023-11-14 20:57:23"}<br>真数据1,3,6假数据字符串->>>>1,10,10,10,10,10,3,10,10,10,10,10,6,10,10,10,10,10,10,10,10<br>原假数据->>>>51 53 56<br>计算个位数的假数据->>>>1 3 6<br>当前最新期号-->7565557    数据期号--->7565557下次开奖时间2023-11-14 20:58:30<br>等待纽约28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468672---->http://localhost:8123/abcaiji/bjpk10.php
+<span style='color:red;'>北京赛车PK10</span><br>数据返回------>{"expect":"800310","opencode":"4,5,3,6,2,1,7,9,8,10","opentime":"2023-11-14 20:50:00"}<br>当前最新期号-->800310    数据期号--->800310<br>等待更新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 6
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468672---->http://localhost:8123/abcaiji/bjkl8.php
+<span style='color:red;'>新加坡28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:55:00","expect":"3700533","opencode":"9,2,4","load_time":"2023-11-14 20:57:25","next_phase":"3700534","next_time":"2023-11-14 20:57:30","now":"2023-11-14 20:57:25"}],"now":"2023-11-14 20:57:25"}<br>真数据9,2,4假数据字符串->>>>9,10,10,10,10,10,2,10,10,10,10,10,4,10,10,10,10,10,10,10,10<br>原假数据->>>>59 52 54<br>计算个位数的假数据->>>>9 2 4<br>当前最新期号-->3700533    数据期号--->3700533<br>等待新加坡28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468672---->http://localhost:8123/abcaiji/jslhc.php
+<span style='color:red;'>極速六合彩</span><br>等待 41,01,42,02,06,07,08 刷新<br>
+<style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=4
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468672---->http://localhost:8123/abcaiji/jsssc.php
+<span style='color:red;'>極速時時彩</span><br>等待 7,8,4,0,9 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit=10
+    // if (document.images){
+    // 	var parselimit=limit
+    // }
+    // function beginrefresh(){
+    // if (!document.images)
+    // 	return
+    // if (parselimit==1)
+    // 	window.location.reload()
+    // else{
+    // 	parselimit-=1
+    // 	curmin=Math.floor(parselimit)
+    // 	if (curmin!=0)
+    // 		curtime=curmin+"秒后自动获取!"
+    // 	else
+    // 		curtime=cursec+"秒后自动获取!"
+    // 		timeinfo.innerText=curtime
+    // 		setTimeout("beginrefresh()",1000)
+    // 	}
+    // }
+    // window.onload=beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468672---->http://localhost:8123/abcaiji/twk3.php
+<span style='color:red;'>台湾快三</span><br>等待 5,4,6 刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 4
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+
+请求：--->468672---->http://localhost:8123/abcaiji/jnd28.php
+<span style='color:red;'>加拿大28</span><br>数据返回------>"{\"rows\":1,\"info\":\"\u6570\u636e\u7531kaijiang-api.com\u6536\u5f55\uff0c\u5f53\u524d\u8bbf\u95eeIP\uff1a104.219.211.74\uff0c\u670d1\uff0c\u5f00\u5956\u7f51v7.5\uff0c\u6280\u672fQQ\uff1a82279178\",\"code\":\"jnd28\",\"data\":[{\"expect\":\"3068561\",\"opencode\":\"4,7,8\",\"opentime\":\"2023-11-14 20:00:30\"}]}"<br>真数据4,7,8假数据字符串->>>>10,4,7,8,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10<br>原假数据->>>>54 57 58<br>计算个位数的假数据->>>>4 7 8<br>当前最新期号-->3068561    数据期号--->3068561<br>当前开奖时间   2023-11-14 20:57:26  下期开奖时间  2023-11-14 20:04:00<br>等待加拿大28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    // var limit = 15
+    // if (document.images) {
+    //     var parselimit = limit
+    // }
+    //
+    // function beginrefresh() {
+    //     if (!document.images)
+    //         return
+    //     if (parselimit == 1)
+    //         window.location.reload()
+    //     else {
+    //         parselimit -= 1
+    //         curmin = Math.floor(parselimit)
+    //         if (curmin != 0)
+    //             curtime = curmin + "秒后自动获取!"
+    //         else
+    //             curtime = cursec + "秒后自动获取!"
+    //         timeinfo.innerText = curtime
+    //         setTimeout("beginrefresh()", 1000)
+    //     }
+    // }
+    //
+    // window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+
+请求：--->468672---->http://localhost:8123/abcaiji/ny28.php
+<span style='color:red;'>纽约28</span><br><br>当前数据->>>{"rows":1,"data":[{"code":"ny28","opentime":"2023-11-14 20:57:00","expect":"7565557","opencode":"8,6,2","load_time":"2023-11-14 20:57:26","next_phase":"7565558","next_time":"2023-11-14 20:58:30","now":"2023-11-14 20:57:26"}],"now":"2023-11-14 20:57:26"}<br>真数据8,6,2假数据字符串->>>>8,10,10,10,10,10,6,10,10,10,10,10,2,10,10,10,10,10,10,10,10<br>原假数据->>>>58 56 52<br>计算个位数的假数据->>>>8 6 2<br>当前最新期号-->7565557    数据期号--->7565557下次开奖时间2023-11-14 20:58:30<br>等待纽约28刷新<br><style type="text/css">
+    <!--
+    body, td, th {
+        font-size: 12px;
+    }
+
+    body {
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+
+    #timeinfo {
+        color: #C60
+    }
+
+    -->
+</style>
+<script>
+    var limit = 4
+    if (document.images) {
+        var parselimit = limit
+    }
+
+    function beginrefresh() {
+        if (!document.images)
+            return
+        if (parselimit == 1)
+            window.location.reload()
+        else {
+            parselimit -= 1
+            curmin = Math.floor(parselimit)
+            if (curmin != 0)
+                curtime = curmin + "秒后自动获取!"
+            else
+                curtime = cursec + "秒后自动获取!"
+            timeinfo.innerText = curtime
+            setTimeout("beginrefresh()", 1000)
+        }
+    }
+
+    window.onload = beginrefresh
+</script>
+<input type=button name=button value="刷新" onClick="window.location.reload()">
+<span id="timeinfo"></span>
+
+请求：--->468675---->http://localhost:8123/abcaiji/bjpk10.php
