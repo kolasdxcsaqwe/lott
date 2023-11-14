@@ -6,6 +6,7 @@ function sql_write_log($data){
     file_put_contents(dirname(dirname(preg_replace('@\(.*\(.*$@', '', __FILE__))) . "/sql_error/" . $t . '.log', $data, FILE_APPEND);
     return $t;
 }
+
 function db_connect($host, $name, $pass, $dbname, $port = 3306){
     $db = new mysqli($host, $name, $pass, $dbname, $port);
     if ($db -> connect_errno)errorc__("系统出现错误,请将错误编码告知管理员,并重试操作,错误编码:[" . sql_write_log(array('数据库链接出错', $db -> connect_errno, $db -> connect_error)) . "]");
