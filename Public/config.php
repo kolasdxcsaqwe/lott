@@ -1,37 +1,38 @@
 <?php
 //源码转载www.v9ym.com
 if (!isset($_SESSION)) {
-  // no session has been started yet
-  session_start();
+    // no session has been started yet
+    session_start();
 }
 error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
 date_default_timezone_set("Asia/Shanghai");
 header("Content-type:text/html;charset=utf-8");
 $load = 5;
-include_once ("sql.php");
-$console = "v9ym"; 
+include_once("sql.php");
+$console = "v9ym";
 $db['host'] = "127.0.0.1";
-$db['user'] = "d9a990007224f595";//用户名 线上
-$db['pass'] = "379762c16d019f0e";//密码 线上
+$db['user'] = "root";//用户名 线上
+$db['pass'] = "4318471pk";//密码 线上
 $db['name'] = "v9ym";//数据库名
 
-// $db['user'] = "root";//用户名 线上
-// $db['pass'] = "123qwe";//密码 线上
+//$db['user'] = "root";//用户名 线上
+//$db['pass'] = "123qwe";//密码 线上
 
-$isWeiXInBrowse=true;//开关 如果上公众号的话把这个打开
+$isWeiXInBrowse = true;//开关 如果上公众号的话把这个打开
 
 $dbconn = db_connect($db['host'], $db['user'], $db['pass'], $db['name']);
 $uploadurl = "http://cdn.ononn.com";
-define("UPLOADPIC","http://cdn.ononn.com");
-include_once ("db.class.php");
+define("UPLOADPIC", "http://cdn.ononn.com");
+include_once("db.class.php");
 $mydb = new db(array($db['host'], 'DB_USER' => $db['user'], 'DB_PWD' => $db['pass'], 'DB_NAME' => $db['name']));
 $wx['ID'] = 'wx07a1f8b12290ba3b';
 $wx['key'] = '85311c0d23e490367bd44882f1e1ad6e'; //这里是公众号 不用管  我们没有公众号
 $redirect_uri = urlencode("http://{$_SERVER["HTTP_HOST"]}/wx_login.php?agent={$_GET['agent']}&g={$_GET['g']}&room={$_GET['room']}");
 $oauth = "http://shuaih.cn/1.html?appid={$wx["ID"]}&redirect_uri={$redirect_uri}&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
 $info_singset = $mydb->table('fn_sign_set')->field('*')->where(array('id' => 1))->find();//
-$_SESSION['singset']=$info_singset;
-function room_isOK($roomid) {
+$_SESSION['singset'] = $info_singset;
+function room_isOK($roomid)
+{
     $status = get_query_val('fn_room', 'id', array('roomid' => $roomid));
     if ($status == "") {
         return false;
@@ -39,7 +40,8 @@ function room_isOK($roomid) {
     return true;
 }
 
-function vpost($url, $data = array()) {// 模拟提交数据函数
+function vpost($url, $data = array())
+{// 模拟提交数据函数
     $curl = curl_init();
     // 启动一个CURL会话
     curl_setopt($curl, CURLOPT_URL, $url);
@@ -76,7 +78,8 @@ function vpost($url, $data = array()) {// 模拟提交数据函数
     // 返回数据
 }
 
-function wx_gettoken($Appid, $Appkey, $code) {
+function wx_gettoken($Appid, $Appkey, $code)
+{
     $url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=" . $Appid . "&secret=" . $Appkey . "&code=" . $code . "&grant_type=authorization_code";
     $html = vpost($url);
     $json = json_decode($html, 1);
@@ -104,7 +107,8 @@ function wx_gettoken($Appid, $Appkey, $code) {
 // return array("nickname" => $nickname, 'headimg' => $headhtml);
 // }
 
-function wx_getinfo($token, $openid) {
+function wx_getinfo($token, $openid)
+{
     $url = "https://api.weixin.qq.com/sns/userinfo?access_token=" . $token . "&openid=" . $openid . "&lang=zh_CN";
     $html = vpost($url);
     $json = json_decode($html, 1);
@@ -113,19 +117,20 @@ function wx_getinfo($token, $openid) {
     return array("nickname" => $nickname, 'headimg' => $headhtml);
 }
 
-function U_create($userid, $username, $headimg, $agent = "null",$level=1) {
+function U_create($userid, $username, $headimg, $agent = "null", $level = 1)
+{
     if ($agent == "") {
         $agent = 'null';
     }
-    $username = str_replace('"',"",$username);
+    $username = str_replace('"', "", $username);
     //insert_query("fn_user", array("userid" => $userid, 'username' => $username, 'headimg' => $_SESSION['headimg'], 'money' => '0', 'roomid' => $_SESSION['roomid'], 'statustime' => time(), 'agent' => $agent, 'isagent' => 'false', 'jia' => 'false'));
-    insert_query("fn_user", array("userid" => $userid, 'username' => $username, 'headimg' => $headimg, 'money' => '0', 'roomid' => $_SESSION['roomid'], 'statustime' => time(), 'agent' => $agent,'level' => $level, 'isagent' => 'false', 'jia' => 'false'));
+    insert_query("fn_user", array("userid" => $userid, 'username' => $username, 'headimg' => $headimg, 'money' => '0', 'roomid' => $_SESSION['roomid'], 'statustime' => time(), 'agent' => $agent, 'level' => $level, 'isagent' => 'false', 'jia' => 'false'));
     return true;
 }
 
 
-
-function U_isOK($userid, $headimg) {
+function U_isOK($userid, $headimg)
+{
     $status = get_query_val('fn_user', 'id', array('userid' => $userid, 'roomid' => $_SESSION['roomid']));
     if ($status == "") {
         return false;
@@ -135,7 +140,8 @@ function U_isOK($userid, $headimg) {
 }
 
 //网页登录处理
-function web_login() {
+function web_login()
+{
     global $mydb;
     $loginuser = $_POST['loginuser'];
     $loginpass = md5($_POST['loginpass']);
@@ -148,19 +154,21 @@ function web_login() {
 }
 
 //登录过程
-function auto_login($id) {
+function auto_login($id)
+{
     global $mydb;
     $_r = $mydb->table('fn_user')->where(array('id' => $id))->find();
     $_SESSION['userid'] = $_r['userid'];
     $_SESSION['username'] = $_r['username'];
     $_SESSION['headimg'] = $_r['headimg'];
-   $_SESSION['roomid'] = $_r['roomid'];
+    $_SESSION['roomid'] = $_r['roomid'];
 
     return true;
 }
 
 //检查是否登录
-function check_login() {
+function check_login()
+{
     if (empty($_SESSION['userid'])) {
         if (isWeixin()) {
             header('Location: wx_login.php');
@@ -171,10 +179,10 @@ function check_login() {
 }
 
 //是否在微信内
-function isWeixin() {
+function isWeixin()
+{
     global $isWeiXInBrowse;
-    if($isWeiXInBrowse)
-    {
+    if ($isWeiXInBrowse) {
         return true;
     }
     if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {
@@ -184,7 +192,8 @@ function isWeixin() {
     }
 }
 
-function get_user_money() {
+function get_user_money()
+{
     global $mydb;
     $r = $mydb->table('fn_user')->field('money')->where(array('userid' => $_SESSION['userid']))->find();
     $time = array();
@@ -196,11 +205,11 @@ function get_user_money() {
     $map['type'] = '上分';
     $map['time'] = array('between', array('' . $time[0] . '', '' . $time[1] . ''));
     $sf = $mydb->table('fn_upmark')->field('sum(money)')->where($map)->find();
-    $sf = (int) $sf['sum(money)'];
+    $sf = (int)$sf['sum(money)'];
 
     $map['type'] = '下分';
     $xf = $mydb->table('fn_upmark')->field('sum(money)')->where($map)->find();
-    $xf = (int) $xf['sum(money)'];
+    $xf = (int)$xf['sum(money)'];
 
     unset($map['type']);
     unset($map['time']);
@@ -208,7 +217,7 @@ function get_user_money() {
     $map['_string'] = 'status > 0';
     $allz = $mydb->table('fn_order')->field('sum(status)')->where($map)->find();
     $allz = $allz['sum(status)'];
-    
+
     $sscz = $mydb->table('fn_sscorder')->field('sum(status)')->where($map)->find();
     $sscz = $sscz['sum(status)'];
     $jssscz = $mydb->table('fn_jssscorder')->field('sum(status)')->where($map)->find();
@@ -221,13 +230,13 @@ function get_user_money() {
     $pcz = $pcz['sum(status)'];
     $bjlz = $mydb->table('fn_bjlorder')->field('sum(status)')->where($map)->find();
     $bjlz = $bjlz['sum(status)'];
-    
+
     unset($map['status']);
     $map['_string'] = 'status > 0 or status < 0';
     $allm = $mydb->table('fn_order')->field('sum(money)')->where($map)->find();
     $allm = $allm ['sum(money)'];
-    
-    
+
+
     $sscm = $mydb->table('fn_sscorder')->field('sum(money)')->where($map)->find();
     $sscm = $sscm['sum(status)'];
     $jssscm = $mydb->table('fn_jssscorder')->field('sum(money)')->where($map)->find();
@@ -248,14 +257,15 @@ function get_user_money() {
     $pcyk = $pcz - $pcm;
     $bjlyk = $bjlz - $bjlm;
     $yk = $allz - $allm;
-    $yk += $pcyk + $mtyk + $sscyk + $jsscyk + $jssscyk+$bjlyk;
-    $allm += $pcm + $mtm + $sscm + $jsscm + $jssscm+$bjlm;
+    $yk += $pcyk + $mtyk + $sscyk + $jsscyk + $jssscyk + $bjlyk;
+    $allm += $pcm + $mtm + $sscm + $jsscm + $jssscm + $bjlm;
     $yk = round($yk, 2);
     $r['yk'] = $yk;
     $r['liu'] = $allm;
 
     return $r;
 }
+
 
 
 ?>
