@@ -12,8 +12,8 @@ function db_connect($host, $name, $pass, $dbname, $port = 3306){
     $GLOBALS['D'] = $db;
     $GLOBALS['dbcontent'] = true;
     db_query("set time_zone = '+8:00';");
-    db_query("SET sql_mode='NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';");
-    db_query("SET NAMES UTF8");
+    // db_query("SET sql_mode='NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';");
+    // db_query("SET NAMES UTF8");
 }
 function db_query($sqlstr, $is = false){
     if($GLOBALS['dbcontent'] !== true)db_connect();
