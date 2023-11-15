@@ -16,18 +16,18 @@ $(function () {
 
 function send_msg(msg) {
 
-    if(info!=undefined && info!=null)
-    {
-        if(info.game=='ny28' || info.game=='xy28' || info.game=='jnd28')
-        {
-            console.log("End--->"+window.frames[0].window.frames[0].document.getElementById("ThisEnd").innerHTML);
-            var betEnd = window.frames[0].window.frames[0].document.getElementById("ThisEnd").innerHTML;
-            if (betEnd != null && parseInt(betEnd) < 1) {
-                zy.tips("下注已截止,请客官等待下期!");
-                return;
-            }
-        }
-    }
+    // if(info!=undefined && info!=null)
+    // {
+    //     if(info.game=='ny28' || info.game=='xy28' || info.game=='jnd28')
+    //     {
+    //         console.log("End--->"+window.frames[0].window.frames[0].document.getElementById("ThisEnd").innerHTML);
+    //         var betEnd = window.frames[0].window.frames[0].document.getElementById("ThisEnd").innerHTML;
+    //         if (betEnd != null && parseInt(betEnd) < 1) {
+    //             zy.tips("下注已截止,请客官等待下期!");
+    //             return;
+    //         }
+    //     }
+    // }
 
 
     var msgtxt = msg;

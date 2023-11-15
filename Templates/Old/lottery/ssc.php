@@ -370,7 +370,7 @@ function is_weixin()
 
 <!-- New Templates Update -->
 <script type="text/javascript" src="/Style/Old/js/tools.js?t=xjkh343sdf"></script>
-<script type="text/javascript" src="/Style/Old/js/chat.js?t=945745"></script>
+<script type="text/javascript" src="/Style/Old/js/chat.js?t=34895eie"></script>
 <script type="text/javascript" src="/Style/Old/js/ssc.js"></script>
 <!-- ./New Templates Update -->
 
@@ -499,7 +499,7 @@ function is_weixin()
                 <input placeholder="名次/内容/金额" type="text" id="Message"
                        style="color:red;font-weight:bold" <? if (get_query_val('fn_setting', 'setting_ischat', array('roomid' => $_SESSION['roomid'])) == 'open') echo 'disabled="disabled"'; ?>>
                 <div id="toop">
-                    <span class="keybord gray">键盘</span>
+                    <span class="keybord gray" style="visibility: hidden">键盘</span>
                     <span class="txtbet">快捷下注</span>
                 </div>
                 <span class="sendemaill">发 送</span>

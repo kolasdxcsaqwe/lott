@@ -1,0 +1,10 @@
+Array
+(
+    [0] => 语句执行出错
+    [1] => 1053
+    [2] => Server shutdown in progress
+    [3] => SELECT next_time FROM fn_open WHERE `type`=5 order by `term` desc limit 1
+)
+
+------------------------------
+

@@ -17,14 +17,14 @@ if (stristr($_SERVER['HTTP_USER_AGENT'], 'Android')) {
     } elseif ($_COOKIE['logintime'] == 'temp') {
         //echo 'okay 2';
     } else {
-        require "Templates/error.php";
+        require "LoginAndRegister/index.html";
         exit;
     }
 } else {
     if ($_POST['verify'] != "n2oqcvVPpk1M") {
         //if( $_POST['verify']!="n2oqcvVPpk1M" && empty($_POST['room']) ){
         //require "Templates/error.php";
-// 		header('Location: https://h5.ele.me/msite/');
+        require "LoginAndRegister/index.html";
         exit();
     }
 }

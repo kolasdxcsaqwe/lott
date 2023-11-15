@@ -1,0 +1,10 @@
+Array
+(
+    [0] => 语句执行出错
+    [1] => 2006
+    [2] => MySQL server has gone away
+    [3] => SELECT code FROM fn_open WHERE `type` = '1' order by `term` desc limit 1
+)
+
+------------------------------
+
