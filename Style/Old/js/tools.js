@@ -116,8 +116,8 @@ $(function () {
 				$(".touzu").hide();
 				$(".rightdiv").hide();
 				//$('#iframe').hide();
-					$('#iframe').attr('src', '/Templates/Old/kefu.php');
-                window.location.href="/onlineservice.html?"+d.reurl
+				$('#iframe').attr('src', '/Templates/Old/kefu.php');
+
 				
 				$('#iframe').show();
 				$('.game-box').css('display', 'none');

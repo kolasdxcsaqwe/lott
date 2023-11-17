@@ -30,7 +30,7 @@ switch ($type) {
             echo "";
             exit();
         }
-        $BetTerm = get_query_val('fn_open', 'next_term', "type = $nowTerm order by term desc limit 1");
+        $BetTerm = get_query_val('fn_open', 'next_term', "type = $nowTerm order by next_term desc limit 1");
         $body['betTerm']=$BetTerm;
         $body['list']=$arr;
         echo json_encode($body);
