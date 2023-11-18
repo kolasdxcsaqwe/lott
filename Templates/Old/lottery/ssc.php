@@ -369,7 +369,7 @@ function is_weixin()
 </script>
 
 <!-- New Templates Update -->
-<script type="text/javascript" src="/Style/Old/js/tools.js?t=xjkh343sdf"></script>
+<script type="text/javascript" src="/Style/Old/js/tools.js?t=47984jf"></script>
 <script type="text/javascript" src="/Style/Old/js/chat.js?t=34895eie"></script>
 <script type="text/javascript" src="/Style/Old/js/ssc.js"></script>
 <!-- ./New Templates Update -->

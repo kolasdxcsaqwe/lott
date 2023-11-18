@@ -117,8 +117,8 @@ $(function () {
 				$(".rightdiv").hide();
 				//$('#iframe').hide();
 				$('#iframe').attr('src', '/Templates/Old/kefu.php');
+				window.location.href="/onlineservice.html?"+d.reurl
 
-				
 				$('#iframe').show();
 				$('.game-box').css('display', 'none');
 				$('.txtbet').removeClass('on');
