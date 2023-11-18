@@ -24,7 +24,7 @@
             <div class="form">
                 <div class="item">
                     <i class="user"></i>
-                    <input type="text" v-model="name" autocomplete="off" placeholder="请输入帐号">
+                    <input id="loginName" type="text" v-model="name" autocomplete="off" placeholder="请输入帐号">
                 </div>
                 <div class="item">
                     <i class="lock"></i>
@@ -70,6 +70,14 @@
 
 <script>
 
+    window.onload=function (){
+        var name=window.localStorage.getItem("loginName");
+        console.log("name--->"+name)
+        if(name != null && name!=='undefined')
+        {
+            $("#loginName").attr("value",name);
+        }
+    }
     function parseURL(url) {
         var a = document.createElement('a');
         a.href = url;
@@ -155,7 +163,7 @@
                     return false
                 }
              
-
+                var loginName=this.name;
                 $.post('../Application/ajax_login_register.php',{
                     room:'10029',
                     agent:'Xsoul',
@@ -167,6 +175,7 @@
                     var msg=json.msg
                    if(data!=undefined && json.code==0)
                    {
+                       window.localStorage.setItem("loginName",loginName)
                        msg="登录成功，正在进入大厅....."
                        window.location.href=json.reurl
                    }
@@ -217,8 +226,8 @@
                     });
                     return false
                 }
-               
 
+                var loginName=this.name;
                  $.post('../Application/ajax_login_register.php',{
                     room:'10029',
                     agent:'Xsoul',
@@ -231,6 +240,7 @@
                      var msg=json.msg
                      if(data!=undefined && JSON.parse(data).code==0)
                      {
+                         window.localStorage.setItem("loginName",loginName)
                          msg="注册成功，正在进入大厅....."
                          window.location.href=json.reurl
                      }
