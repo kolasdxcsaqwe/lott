@@ -43,95 +43,100 @@ box-shadow: #666 0px 0px 10px; background: #f4f4f4;
   
 </head>
 <body>
-   
 
-	<tbody>
-    
-		<tr> 
-			<td style="wdith:100%">
-				<input type="text" id="msg" placeholder="请输入咨询内容，客服会立即回复" maxlength="50" style="width: 700px; height: 70px; border: 2px solid #888; font-size: 32px; margin: 10px 10px;">
-				<button id="butSend" style="background: #a0e759; width: 120px; height: 70px; font-size: 25px; margin: 0 10px;border:0px;">发 送</button>
-			</td>
-		</tr>
-        
-	</tbody>
-  
-    
-<?php $kefu = get_query_val('fn_setting', 'setting_kefu', array("roomid" => $_SESSION['roomid']));
-if($kefu != ""){
-    ?>
-<div align="center">
-	<div class="bubble bubbleS4" style="font-size:30px;"><font style="font-size:35px;">公   告</font><br><?php echo $kefu;
-    ?></div>
-</div>
-<?php }
-?>
-<div id="messageWindow" class="messageWindow">
-	<div id="messageLoading">Loading...</div>
-	<!--table class="msgItem msgUsr">
-		<tbody>
-			<tr>
-				<td class="msgItem1">
-					<img src="http://wx.qlogo.cn/mmopen/tf6MhYwQwkIQslWUkgxbYD4q0vQJ8XnRqPNicXWDwRT8FYuXzwzXg7Zd32RibzZ7kkIQZTAibRZ6jw8PRRia3ZQWS8zefJegu44Q/0">
-				</td>
-				<td class="msgItem2">
-					<span class="msgName">爱来尔</span>
-					<span class="msgTime">01:22:17</span>
-					<br>
-					<div class="bubble bubbleL bubbleU3">小50</div>
-				</td>
-			</tr>
-		</tbody>
-	</table>	
-	<table class="msgItem msgUsr">
-		<tbody>
-			<tr>
-				<td class="msgItem1">
-					<img src="http://wx.qlogo.cn/mmopen/tf6MhYwQwkIQslWUkgxbYD4q0vQJ8XnRqPNicXWDwRT8FYuXzwzXg7Zd32RibzZ7kkIQZTAibRZ6jw8PRRia3ZQWS8zefJegu44Q/0">
-				</td>
-				<td class="msgItem2">
-					<span class="msgName">爱来尔</span>
-					<span class="msgTime">01:22:17</span>
-					<br>
-					<div class="bubble bubbleL bubbleU1">小50</div>
-				</td>
-			</tr>
-		</tbody>
-	</table>	
-	<table class="msgItem msgUsr">
-		<tbody>
-			<tr>
-				<td class="msgItem1">
-					<img src="http://wx.qlogo.cn/mmopen/tf6MhYwQwkIQslWUkgxbYD4q0vQJ8XnRqPNicXWDwRT8FYuXzwzXg7Zd32RibzZ7kkIQZTAibRZ6jw8PRRia3ZQWS8zefJegu44Q/0">
-				</td>
-				<td class="msgItem2">
-					<span class="msgName">爱来尔</span>
-					<span class="msgTime">01:22:17</span>
-					<br>
-					<div class="bubble bubbleL bubbleU2">小50</div>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-	<table class="msgItem msgSys">
-		<tbody>
-			<tr>
-				<td class="msgItem2">
-					<span class="msgTime">01:18:46</span>
-					<span class="msgName">管理员</span>
-					<br>
-					<div class="bubble bubbleR bubbleS3">你好，有什么可以帮到您呢？</div>
-				</td>
-				<td class="msgItem1">
-					<img src="../images/avatar-AdmIssu.jpg">
-				</td>
-			</tr>
-		</tbody>
-	</table-->
-</div>
 
-  
-      
+<!--window.location.href="/onlineservice.html?"+d.reurl-->
+
+
+
+<!---->
+<!--	<tbody>-->
+<!--    -->
+<!--		<tr> -->
+<!--			<td style="wdith:100%">-->
+<!--				<input type="text" id="msg" placeholder="请输入咨询内容，客服会立即回复" maxlength="50" style="width: 700px; height: 70px; border: 2px solid #888; font-size: 32px; margin: 10px 10px;">-->
+<!--				<button id="butSend" style="background: #a0e759; width: 120px; height: 70px; font-size: 25px; margin: 0 10px;border:0px;">发 送</button>-->
+<!--			</td>-->
+<!--		</tr>-->
+<!--        -->
+<!--	</tbody>-->
+<!--  -->
+<!--    -->
+<?php //$kefu = get_query_val('fn_setting', 'setting_kefu', array("roomid" => $_SESSION['roomid']));
+//if($kefu != ""){
+//    ?>
+<!--<div align="center">-->
+<!--	<div class="bubble bubbleS4" style="font-size:30px;"><font style="font-size:35px;">公   告</font><br>--><?php //echo $kefu;
+//    ?><!--</div>-->
+<!--</div>-->
+<?php //}
+//?>
+<!--<div id="messageWindow" class="messageWindow">-->
+<!--	<div id="messageLoading">Loading...</div>-->
+<!--	<!--table class="msgItem msgUsr">-->
+<!--		<tbody>-->
+<!--			<tr>-->
+<!--				<td class="msgItem1">-->
+<!--					<img src="http://wx.qlogo.cn/mmopen/tf6MhYwQwkIQslWUkgxbYD4q0vQJ8XnRqPNicXWDwRT8FYuXzwzXg7Zd32RibzZ7kkIQZTAibRZ6jw8PRRia3ZQWS8zefJegu44Q/0">-->
+<!--				</td>-->
+<!--				<td class="msgItem2">-->
+<!--					<span class="msgName">爱来尔</span>-->
+<!--					<span class="msgTime">01:22:17</span>-->
+<!--					<br>-->
+<!--					<div class="bubble bubbleL bubbleU3">小50</div>-->
+<!--				</td>-->
+<!--			</tr>-->
+<!--		</tbody>-->
+<!--	</table>	-->
+<!--	<table class="msgItem msgUsr">-->
+<!--		<tbody>-->
+<!--			<tr>-->
+<!--				<td class="msgItem1">-->
+<!--					<img src="http://wx.qlogo.cn/mmopen/tf6MhYwQwkIQslWUkgxbYD4q0vQJ8XnRqPNicXWDwRT8FYuXzwzXg7Zd32RibzZ7kkIQZTAibRZ6jw8PRRia3ZQWS8zefJegu44Q/0">-->
+<!--				</td>-->
+<!--				<td class="msgItem2">-->
+<!--					<span class="msgName">爱来尔</span>-->
+<!--					<span class="msgTime">01:22:17</span>-->
+<!--					<br>-->
+<!--					<div class="bubble bubbleL bubbleU1">小50</div>-->
+<!--				</td>-->
+<!--			</tr>-->
+<!--		</tbody>-->
+<!--	</table>	-->
+<!--	<table class="msgItem msgUsr">-->
+<!--		<tbody>-->
+<!--			<tr>-->
+<!--				<td class="msgItem1">-->
+<!--					<img src="http://wx.qlogo.cn/mmopen/tf6MhYwQwkIQslWUkgxbYD4q0vQJ8XnRqPNicXWDwRT8FYuXzwzXg7Zd32RibzZ7kkIQZTAibRZ6jw8PRRia3ZQWS8zefJegu44Q/0">-->
+<!--				</td>-->
+<!--				<td class="msgItem2">-->
+<!--					<span class="msgName">爱来尔</span>-->
+<!--					<span class="msgTime">01:22:17</span>-->
+<!--					<br>-->
+<!--					<div class="bubble bubbleL bubbleU2">小50</div>-->
+<!--				</td>-->
+<!--			</tr>-->
+<!--		</tbody>-->
+<!--	</table>-->
+<!--	<table class="msgItem msgSys">-->
+<!--		<tbody>-->
+<!--			<tr>-->
+<!--				<td class="msgItem2">-->
+<!--					<span class="msgTime">01:18:46</span>-->
+<!--					<span class="msgName">管理员</span>-->
+<!--					<br>-->
+<!--					<div class="bubble bubbleR bubbleS3">你好，有什么可以帮到您呢？</div>-->
+<!--				</td>-->
+<!--				<td class="msgItem1">-->
+<!--					<img src="../images/avatar-AdmIssu.jpg">-->
+<!--				</td>-->
+<!--			</tr>-->
+<!--		</tbody>-->
+<!--	</table-->-->
+<!--</div>-->
+<!---->
+<!--  -->
+<!--      -->
 
 </body>
 </html>
