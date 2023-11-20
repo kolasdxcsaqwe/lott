@@ -2,10 +2,11 @@
 
 include_once("../../Public/config.php");
 $roomid =$_SESSION['agent_room'];
-function 管理员喊话($Content, $chat_term='', $chat_status='', $roomid, $game){
-    $headimg = get_query_val('fn_setting', 'setting_robotsimg', array('roomid' => $roomid));
-    insert_query("fn_chat", array("username" => "播报员", "headimg" => $headimg, 'chat_term'=>$chat_term,'chat_status'=>$chat_status,'content' => $Content, 'addtime' => date('H:i:s'), 'time'=>date('Y-m-d H:i:s'), 'type' => 'S3', 'userid' => 'system', 'game' => $game, 'roomid' => $roomid));
+function Broadcast($Content, $chat_term = '', $chat_status = '', $roomid, $game)
+{
+    robotBroadcast($Content,$chat_term,$chat_status,$roomid,$game,'S3','system');
 }
+
 if($roomid){ 
 
 $gdx5djs = strtotime(get_query_val('fn_open', 'next_time', "`type` = '11' order by `term` desc limit 1")) - time();
@@ -39,23 +40,23 @@ $gdx5djs = strtotime(get_query_val('fn_open', 'next_time', "`type` = '11' order 
         if($gdx5time + 30 == $gdx5djs||$gdx5time + 29 == $gdx5djs||$gdx5time + 28 == $gdx5djs||$gdx5time + 27 == $gdx5djs||$gdx5time + 26 == $gdx5djs||$gdx5time + 25 == $gdx5djs){
           if($addterm==$qishu11){
           }else{
-            管理员喊话( $contests1, $qishu11, 'djs',$roomid, 'gd11x5');
+            Broadcast( $contests1, $qishu11, 'djs',$roomid, 'gd11x5');
           }
         }
         if($gdx5time == $gdx5djs||$gdx5time-1 == $gdx5djs||$gdx5time-2 == $gdx5djs||$gdx5time-3 == $gdx5djs||$gdx5time-4 == $gdx5djs||$gdx5time-5 == $gdx5djs){
           if($fpterm==$qishu11){
           }else{
-            管理员喊话( $contests2, $qishu11, 'fp',$roomid, 'gd11x5');
+            Broadcast( $contests2, $qishu11, 'fp',$roomid, 'gd11x5');
           }
         }
         if($msg1_cont != "" && $gdx5djs == $msg1){
-            管理员喊话($msg1_cont, $chatterm='',$chatstatus='',$roomid, 'gd11x5');
+            Broadcast($msg1_cont, $chatterm='',$chatstatus='',$roomid, 'gd11x5');
         }
         if($msg2_cont != "" && $gdx5djs == $msg2){
-            管理员喊话($msg2_cont, $chatterm='',$chatstatus='', $roomid, 'gd11x5');
+            Broadcast($msg2_cont, $chatterm='',$chatstatus='', $roomid, 'gd11x5');
         }
         if($msg3_cont != "" && $gdx5djs == $msg3){
-            管理员喊话($msg3_cont, $chatterm='',$chatstatus='',  $roomid, 'gd11x5');
+            Broadcast($msg3_cont, $chatterm='',$chatstatus='',  $roomid, 'gd11x5');
         }
     }
   

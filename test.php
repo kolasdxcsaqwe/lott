@@ -1,4 +1,5 @@
 <?
+global $roboImg;
 include_once("./Public/config.php");
 $withdrawTime=get_query_val('fn_upmark','time',array('userid' => 'oWNAL0tlmHRQSisrrn2iciSfRXy4'));
 $time=getMillisecond();
@@ -24,8 +25,7 @@ $roomid='10029';
 //$time=getMillisecond();
 //PC_jiesuan222('ny28');
 //echo "使用时间:".(getMillisecond()-$time);
-
-echo date('Y-m-d H:i:s', strtotime("2023-11-08 23:04:21") + 210);
+phpinfo();
 
 function getTimestamp($digits = false)
 {

@@ -11465,7 +11465,7 @@ function kaizd($game, $term, $roomid)
         $con = get_query_vals('fn_lottery1', '*', array('roomid' => $roomid));
 
         if ($con['jsdiy'] == '1') continue;
-        管理员喊话1("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'pk10');
+        Broadcast("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'pk10');
         echo "bjpk10喊话-" . $con['roomid'] . '..<br>';
 
     } elseif ($game == 'mlaft') {
@@ -11518,7 +11518,7 @@ function kaizd($game, $term, $roomid)
         }
         $con = get_query_vals('fn_lottery2', '*', array('roomid' => $roomid));
         if ($con['jsdiy'] == '1') return;
-        管理员喊话1("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'xyft');
+        Broadcast("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'xyft');
         echo "xyft喊话-" . $con['roomid'] . '..<br>';
 
     } elseif ($game == 'cqssc') {
@@ -11571,7 +11571,7 @@ function kaizd($game, $term, $roomid)
         }
         $con = get_query_vals('fn_lottery3', '*', array('roomid' => $roomid));
         if ($con['jsdiy'] == '1') continue;
-        管理员喊话1("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'cqssc');
+        Broadcast("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'cqssc');
         echo "cqssc喊话-" . $con['roomid'] . '..<br>';
 
     } elseif ($game == 'bjkl8') {
@@ -11626,7 +11626,7 @@ function kaizd($game, $term, $roomid)
         $con = get_query_vals('fn_lottery4', '*', array('roomid' => $roomid));
 
         if ($con['jsdiy'] == '1') continue;
-        管理员喊话1("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'xy28');
+        Broadcast("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'xy28');
         echo "bjkl8喊话-" . $con['roomid'] . '..<br>';
 
     }elseif ($game == 'ny28') {
@@ -11681,7 +11681,7 @@ function kaizd($game, $term, $roomid)
         $con = get_query_vals('fn_lottery19', '*', array('roomid' => $roomid));
 
         if ($con['jsdiy'] == '1') continue;
-        管理员喊话1("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'ny28');
+        Broadcast("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'ny28');
         echo "bjkl8喊话-" . $con['roomid'] . '..<br>';
 
     } elseif ($game == 'jnd28') {
@@ -11734,7 +11734,7 @@ function kaizd($game, $term, $roomid)
         }
         $con = get_query_vals('fn_lottery5', '*', array('roomid' => $roomid));
         if ($con['jsdiy'] == '1') continue;
-        管理员喊话1("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'jnd28');
+        Broadcast("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'jnd28');
         echo "cakeno喊话-" . $con['roomid'] . '..<br>';
 
     } elseif ($game == 'jsmt') {
@@ -11788,7 +11788,7 @@ function kaizd($game, $term, $roomid)
         $con = get_query_vals('fn_lottery6', '*', array('roomid' => $roomid));
         if ($con['jsdiy'] == '1') continue;
         if ($con['kongzhi'] == '1') continue;
-        管理员喊话1("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'jsmt');
+        Broadcast("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'jsmt');
         echo "jsmt喊话-" . $con['roomid'] . '..<br>';
 
     } elseif ($game == 'jssc') {
@@ -11842,7 +11842,7 @@ function kaizd($game, $term, $roomid)
         $con = get_query_vals('fn_lottery7', '*', array('roomid' => $roomid));
         if ($con['jsdiy'] == '1') continue;
         if ($con['kongzhi'] == '1') continue;
-        管理员喊话1("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'jssc');
+        Broadcast("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'jssc');
         echo "jssc喊话-" . $con['roomid'] . '..<br>';
 
     } elseif ($game == 'jsssc') {
@@ -11896,7 +11896,7 @@ function kaizd($game, $term, $roomid)
         $con = get_query_vals('fn_lottery8', '*', array('roomid' => $roomid));
         if ($con['jsdiy'] == '1') continue;
         if ($con['kongzhi'] == '1') continue;
-        管理员喊话1("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'jsssc');
+        Broadcast("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'jsssc');
         echo "jsssc喊话-" . $con['roomid'] . '..<br>';
 
     } elseif ($game == 'jsk3') {
@@ -11949,7 +11949,7 @@ function kaizd($game, $term, $roomid)
         }
         $con = get_query_vals('fn_lottery9', '*', array('roomid' => $roomid));
         if ($con['jsdiy'] == '1') continue;
-        管理员喊话1("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'kuai3');
+        Broadcast("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'kuai3');
         echo "kuai3喊话-" . $con['roomid'] . '..<br>';
 
     } elseif ($game == 'bjl') {
@@ -12004,7 +12004,7 @@ function kaizd($game, $term, $roomid)
         $con = get_query_vals('fn_lottery10', '*', array('roomid' => $roomid));
         if ($con['jsdiy'] == '1') continue;
         if ($con['kongzhi'] == '1') continue;
-        管理员喊话1("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'bjl');
+        Broadcast("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'bjl');
         echo "bjl喊话-" . $con['roomid'] . '..<br>';
 
     } elseif ($game == 'gd11x5') {
@@ -12057,7 +12057,7 @@ function kaizd($game, $term, $roomid)
         }
         $con = get_query_vals('fn_lottery11', '*', array('roomid' => $roomid));
         if ($con['jsdiy'] == '1') continue;
-        管理员喊话1("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'gd11x5');
+        Broadcast("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'gd11x5');
         echo "gd11x5喊话-" . $con['roomid'] . '..<br>';
 
     } elseif ($game == 'jssm') {
@@ -12111,7 +12111,7 @@ function kaizd($game, $term, $roomid)
         $con = get_query_vals('fn_lottery12', '*', array('roomid' => $roomid));
         if ($con['jsdiy'] == '1') continue;
         if ($con['kongzhi'] == '1') continue;
-        管理员喊话1("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'jssm');
+        Broadcast("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'jssm');
         echo "jssm喊话-" . $con['roomid'] . '..<br>';
 
     } elseif ($game == 'lhc') {
@@ -12164,7 +12164,7 @@ function kaizd($game, $term, $roomid)
         }
         $con = get_query_vals('fn_lottery13', '*', array('roomid' => $roomid));
         if ($con['jsdiy'] == '1') continue;
-        管理员喊话1("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'lhc');
+        Broadcast("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'lhc');
         echo "lhc喊话-" . $con['roomid'] . '..<br>';
 
     } elseif ($game == 'jslhc') {
@@ -12218,7 +12218,7 @@ function kaizd($game, $term, $roomid)
         $con = get_query_vals('fn_lottery14', '*', array('roomid' => $roomid));
         if ($con['jsdiy'] == '1') continue;
         if ($con['kongzhi'] == '1') continue;
-        管理员喊话1("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'jslhc');
+        Broadcast("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'jslhc');
         echo "jslhc喊话-" . $con['roomid'] . '..<br>';
 
     } elseif ($game == 'twk3') {
@@ -12272,7 +12272,7 @@ function kaizd($game, $term, $roomid)
         $con = get_query_vals('fn_lottery15', '*', array('roomid' => $roomid));
         if ($con['jsdiy'] == '1') continue;
         if ($con['kongzhi'] == '1') continue;
-        管理员喊话1("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'twk3');
+        Broadcast("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'twk3');
         echo "twk3喊话-" . $con['roomid'] . '..<br>';
 
     } elseif ($game == 'txffc') {
@@ -12325,7 +12325,7 @@ function kaizd($game, $term, $roomid)
         }
         $con = get_query_vals('fn_lottery16', '*', array('roomid' => $roomid));
         if ($con['jsdiy'] == '1') continue;
-        管理员喊话1("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'txffc');
+        Broadcast("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'txffc');
         echo "txffc喊话-" . $con['roomid'] . '..<br>';
 
     } elseif ($game == 'azxy10') {
@@ -12378,7 +12378,7 @@ function kaizd($game, $term, $roomid)
         }
         $con = get_query_vals('fn_lottery17', '*', array('roomid' => $roomid));
         if ($con['jsdiy'] == '1') return;
-        管理员喊话1("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'azxy10');
+        Broadcast("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'azxy10');
         echo "azxy10喊话-" . $con['roomid'] . '..<br>';
 
     } elseif ($game == 'azxy5') {
@@ -12431,7 +12431,7 @@ function kaizd($game, $term, $roomid)
         }
         $con = get_query_vals('fn_lottery18', '*', array('roomid' => $roomid));
         if ($con['jsdiy'] == '1') return;
-        管理员喊话1("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'azxy5');
+        Broadcast("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'azxy5');
         echo "azxy5喊话-" . $con['roomid'] . '..<br>';
 
     }
@@ -12439,10 +12439,9 @@ function kaizd($game, $term, $roomid)
 }
 
 
-function 管理员喊话1($Content, $roomid, $game)
+function Broadcast($Content, $roomid, $game)
 {
-    $headimg = get_query_val('fn_setting', 'setting_robotsimg', array('roomid' => $roomid));
-    insert_query("fn_chat", array("username" => "播报员", "headimg" => $headimg, 'content' => $Content, 'game' => $game, 'addtime' => date('H:i:s'), 'time' => date('Y-m-d H:i:s', time()), 'type' => 'S3', 'userid' => 'system', 'roomid' => $roomid));
+    robotBroadcast($Content,'','',$roomid,$game,'S3','system');
 }
 
 

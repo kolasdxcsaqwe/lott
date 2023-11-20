@@ -9764,7 +9764,7 @@ function kaichat($game, $term, $roomid)
         foreach ($cons as $con) {
             if ($roomid != $con['roomid']) continue;
             $kjqh = get_query_val('fn_open', 'term', "`type` = '1' order by `term` desc limit 1");
-            管理员喊话("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'pk10');
+            Broadcast("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'pk10');
 
         }
     } elseif ($game == 'mlaft') {
@@ -9780,7 +9780,7 @@ function kaichat($game, $term, $roomid)
         foreach ($cons as $con) {
             if ($roomid != $con['roomid']) continue;
             $kjqh = get_query_val('fn_open', 'term', "`type` = '2' order by `term` desc limit 1");
-            管理员喊话("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'xyft');
+            Broadcast("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'xyft');
 
         }
     } elseif ($game == 'cqssc') {
@@ -9796,7 +9796,7 @@ function kaichat($game, $term, $roomid)
         foreach ($cons as $con) {
             if ($roomid != $con['roomid']) continue;
             $kjqh = get_query_val('fn_open', 'term', "`type` = '3' order by `term` desc limit 1");
-            管理员喊话("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'cqssc');
+            Broadcast("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'cqssc');
 
         }
     } elseif ($game == 'ny28') {
@@ -9825,7 +9825,7 @@ function kaichat($game, $term, $roomid)
         foreach ($cons as $con) {
             if ($roomid != $con['roomid']) continue;
             $kjqh = get_query_val('fn_open', 'term', "`type` = '19' order by `term` desc limit 1");
-            管理员喊话("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'ny28');
+            Broadcast("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'ny28');
 
         }
     }elseif ($game == 'xy28') {
@@ -9854,7 +9854,7 @@ function kaichat($game, $term, $roomid)
         foreach ($cons as $con) {
             if ($roomid != $con['roomid']) continue;
             $kjqh = get_query_val('fn_open', 'term', "`type` = '4' order by `term` desc limit 1");
-            管理员喊话("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'xy28');
+            Broadcast("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'xy28');
 
         }
     } elseif ($game == 'jnd28') {
@@ -9881,7 +9881,7 @@ function kaichat($game, $term, $roomid)
         foreach ($cons as $con) {
             if ($roomid != $con['roomid']) continue;
             $kjqh = get_query_val('fn_open', 'term', "`type` = '5' order by `term` desc limit 1");
-            管理员喊话("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'jnd28');
+            Broadcast("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'jnd28');
 
         }
     } elseif ($game == 'jsmt') {
@@ -9898,7 +9898,7 @@ function kaichat($game, $term, $roomid)
             if ($roomid != $con['roomid']) continue;
             if ($con['kongzhi'] == '1') continue;
             $kjqh = get_query_val('fn_open', 'term', "`type` = '6' order by `term` desc limit 1");
-            管理员喊话("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'jsmt');
+            Broadcast("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'jsmt');
 
         }
     } elseif ($game == 'jssc') {
@@ -9916,7 +9916,7 @@ function kaichat($game, $term, $roomid)
             if ($roomid != $con['roomid']) continue;
             if ($con['kongzhi'] == '1') continue;
             $kjqh = get_query_val('fn_open', 'term', "`type` = '7' order by `term` desc limit 1");
-            管理员喊话("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'jssc');
+            Broadcast("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'jssc');
 
         }
     } elseif ($game == 'jsssc') {
@@ -9934,7 +9934,7 @@ function kaichat($game, $term, $roomid)
             if ($roomid != $con['roomid']) continue;
             if ($con['kongzhi'] == '1') continue;
             $kjqh = get_query_val('fn_open', 'term', "`type` = '8' order by `term` desc limit 1");
-            管理员喊话("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'jsssc');
+            Broadcast("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'jsssc');
 
         }
     } elseif ($game == 'kuai3') {
@@ -9950,7 +9950,7 @@ function kaichat($game, $term, $roomid)
         foreach ($cons as $con) {
             if ($roomid != $con['roomid']) continue;
             $kjqh = get_query_val('fn_open', 'term', "`type` = '9' order by `term` desc limit 1");
-            管理员喊话("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'kuai3');
+            Broadcast("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'kuai3');
 
         }
     } elseif ($game == 'bjl') {
@@ -9967,7 +9967,7 @@ function kaichat($game, $term, $roomid)
             if ($roomid != $con['roomid']) continue;
             if ($con['kongzhi'] == '1') continue;
             $kjqh = get_query_val('fn_open', 'term', "`type` = '10' order by `term` desc limit 1");
-            管理员喊话("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'bjl');
+            Broadcast("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'bjl');
 
         }
     } elseif ($game == '11x5') {
@@ -9983,7 +9983,7 @@ function kaichat($game, $term, $roomid)
         foreach ($cons as $con) {
             if ($roomid != $con['roomid']) continue;
             $kjqh = get_query_val('fn_open', 'term', "`type` = '11' order by `term` desc limit 1");
-            管理员喊话("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'gd11x5');
+            Broadcast("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'gd11x5');
 
         }
     } elseif ($game == 'jssm') {
@@ -10002,7 +10002,7 @@ function kaichat($game, $term, $roomid)
             if ($roomid != $con['roomid']) continue;
             if ($con['kongzhi'] == '1') continue;
             $kjqh = get_query_val('fn_open', 'term', "`type` = '12' order by `term` desc limit 1");
-            管理员喊话("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'jssm');
+            Broadcast("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'jssm');
 
         }
     } elseif ($game == 'lhc') {
@@ -10018,7 +10018,7 @@ function kaichat($game, $term, $roomid)
         foreach ($cons as $con) {
             if ($roomid != $con['roomid']) continue;
             $kjqh = get_query_val('fn_open', 'term', "`type` = '13' order by `term` desc limit 1");
-            管理员喊话("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'lhc');
+            Broadcast("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'lhc');
 
         }
     } elseif ($game == 'jslhc') {
@@ -10036,7 +10036,7 @@ function kaichat($game, $term, $roomid)
             if ($roomid != $con['roomid']) continue;
             if ($con['kongzhi'] == '1') continue;
             $kjqh = get_query_val('fn_open', 'term', "`type` = '14' order by `term` desc limit 1");
-            管理员喊话("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'jslhc');
+            Broadcast("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'jslhc');
 
         }
     } elseif ($game == 'twk3') {
@@ -10053,7 +10053,7 @@ function kaichat($game, $term, $roomid)
             if ($roomid != $con['roomid']) continue;
             if ($con['kongzhi'] == '1') continue;
             $kjqh = get_query_val('fn_open', 'term', "`type` = '15' order by `term` desc limit 1");
-            管理员喊话("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'twk3');
+            Broadcast("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'twk3');
 
         }
     } elseif ($game == 'txffc') {
@@ -10069,16 +10069,15 @@ function kaichat($game, $term, $roomid)
         foreach ($cons as $con) {
             if ($roomid != $con['roomid']) continue;
             $kjqh = get_query_val('fn_open', 'term', "`type` = '16' order by `term` desc limit 1");
-            管理员喊话("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'txffc');
+            Broadcast("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br> $term 期已经开启,请下注!", $con['roomid'], 'txffc');
 
         }
     }
 }
 
-function 管理员喊话($Content, $roomid, $game)
+function Broadcast($Content, $roomid, $game)
 {
-    $headimg = get_query_val('fn_setting', 'setting_robotsimg', array('roomid' => $roomid));
-    insert_query("fn_chat", array("username" => "播报员", "headimg" => $headimg, 'content' => $Content, 'game' => $game, 'addtime' => date('H:i:s'), 'type' => 'S3', 'userid' => 'system', 'roomid' => $roomid));
+    robotBroadcast($Content,'','',$roomid,$game,'S3','system');
 }
 
 function 文本_逐字分割($str, $split_len = 1)

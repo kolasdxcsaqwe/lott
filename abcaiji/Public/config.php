@@ -8,11 +8,11 @@ $load = 5;
 include_once ("sql.php");
 $console = "九都";
 $db['host'] = "127.0.0.1";
-$db['user'] = "root";
-$db['pass'] = "4318471pk";
-
 //$db['user'] = "root";
-//$db['pass'] = "123qwe";
+//$db['pass'] = "4318471pk";
+
+$db['user'] = "root";
+$db['pass'] = "123qwe";
 
 $db['name'] = "v9ym";
 $dbconn = db_connect($db['host'], $db['user'], $db['pass'], $db['name']);
@@ -241,5 +241,24 @@ function get_user_money() {
     return $r;
 }
 
+function robotBroadcast($Content, $chat_term='', $chat_status='', $roomid, $game,$chatType="S3",$userid,$betTerm=''){
+    $headimg = get_query_val('fn_setting', 'setting_robotsimg', array('roomid' => $roomid));
+    insert_query("fn_chat", array("username" => "播报员", "headimg" => $headimg, 'chat_term'=>$chat_term,
+        'chat_status'=>$chat_status,'content' => $Content, 'addtime' => date('H:i:s'),
+        'time'=>date('Y-m-d H:i:s'), 'type' => $chatType, 'userid' => $userid, 'game' => $game, 'roomid' => $roomid,'betterm'=>$betTerm));
+}
+
+function adminBroadcast($Content, $chat_term='', $chat_status='', $roomid, $game,$chatType="S1",$userid){
+    $headimg = get_query_val('fn_setting', 'setting_sysimg', array('roomid' => $_SESSION['agent_room']));
+    insert_query("fn_chat", array("username" => "管理员", "headimg" => $headimg, 'chat_term'=>$chat_term,
+        'chat_status'=>$chat_status,'content' => $Content, 'addtime' => date('H:i:s'),
+        'time'=>date('Y-m-d H:i:s'), 'type' => $chatType, 'userid' => $userid, 'game' => $game, 'roomid' => $roomid));
+}
+
+function roomBroadcast($headimg,$userName,$Content, $chat_term='', $chat_status='', $roomid, $game,$chatType="S3",$userid,$chatid=''){
+    insert_query("fn_chat", array("username" => $userName, "headimg" => $headimg, 'chat_term'=>$chat_term,
+        'chat_status'=>$chat_status,'content' => $Content, 'addtime' => date('H:i:s'),
+        'time'=>date('Y-m-d H:i:s'), 'type' => $chatType, 'userid' => $userid, 'game' => $game, 'roomid' => $roomid,'chatid'=>$chatid));
+}
 
 ?>

@@ -353,7 +353,7 @@ switch ($type) {
             if ($content == "取消") {
                 CancelBet($_SESSION['userid'], $BetTerm, $BetGame, $fengpan);
                 echo json_encode(array("success" => true, "content" => $content));
-                insert_query("fn_chat", array("username" => $nickname, 'content' => $content, 'addtime' => date('H:i:s'), 'time' => date('Y-m-d H:i:s', time()), 'game' => $_COOKIE['game'], 'headimg' => $headimg, 'type' => $type, 'userid' => $_SESSION['userid'], 'roomid' => $_SESSION['roomid']));
+                roomBroadcast($headimg,$nickname,$content,'','',$_SESSION['roomid'],$_COOKIE['game'],$type,$_SESSION['userid']);
                 break;
             }
         }
@@ -367,7 +367,7 @@ switch ($type) {
             $cur = $bjl->get_period_info($bjl->getTodayCur());
             $myy_time = strtotime($cur['awardTime']);
             if (time() - $myy_time < 10) {
-                管理员喊话("@" . $_SESSION['username'] . " ,[$BetTerm]期还未开始投注！");
+                Broadcast("@" . $_SESSION['username'] . " ,[$BetTerm]期还未开始投注！");
                 exit;
             } else {
                 $co = addBJLBet($_SESSION['userid'], $_SESSION['username'], $_SESSION['headimg'], $content, $BetTerm, $fengpan,$BetGame);
@@ -389,7 +389,7 @@ switch ($type) {
             break;
         } else {
             echo json_encode(array("success" => true, "content" => $content,'betTerm'=>$BetTerm));
-            insert_query("fn_chat", array("username" => $nickname, 'betterm'=>$BetTerm,'content' => $content, 'addtime' => date('H:i:s'), 'time' => date('Y-m-d H:i:s', time()), 'game' => $_COOKIE['game'], 'headimg' => $headimg, 'type' => $type, 'userid' => $_SESSION['userid'], 'roomid' => $_SESSION['roomid'], 'chatid' => $co[1]));
+            roomBroadcast($headimg,$nickname,$content,'','',$_SESSION['roomid'],$_COOKIE['game'],$type,$_SESSION['userid'],$co[1]);
         }
         break;
 }
@@ -715,10 +715,9 @@ function 用户_上分($Userid, $Money)
     insert_query("fn_marklog", array("userid" => $Userid, 'type' => '上分', 'content' => '投注撤单退还', 'money' => $Money, 'roomid' => $_SESSION['roomid'], 'addtime' => 'now()'));
 }
 
-function 管理员喊话($Content)
+function Broadcast($Content)
 {
-    $headimg = get_query_val('fn_setting', 'setting_robotsimg', array('roomid' => $_SESSION['roomid']));
-    insert_query("fn_chat", array("userid" => "system", "username" => "播报员", "game" => $_COOKIE['game'], 'headimg' => $headimg, 'content' => $Content, 'addtime' => date('H:i:s'), 'time' => date('Y-m-d H:i:s', time()), 'type' => 'S3', 'roomid' => $_SESSION['roomid']));
+    robotBroadcast($Content,'','',$_SESSION['roomid'],$_COOKIE['game'],'S3','system');
 }
 
 function 插入上分($username, $userid, $money)
@@ -727,22 +726,22 @@ function 插入上分($username, $userid, $money)
     insert_query("fn_upmark", array("userid" => $userid, 'headimg' => $_SESSION['headimg'], 'username' => $username, 'type' => '上分', 'money' => $money, 'status' => '未处理', 'time' => 'now()', 'game' => $_COOKIE['game'], 'roomid' => $_SESSION['roomid'], 'jia' => $jia));
 }
 
-function 插入下分($username, $userid, $money)
-{
-    $m = (int)get_query_val('fn_user', 'money', array('roomid' => $_SESSION['roomid'], 'userid' => $userid));
-    if (($m - (int)$money) < 0) {
-        管理员喊话("@$username,您的分数不够回这么多分!", $game);
-        return;
-    }
-    $jia = get_query_val('fn_user', 'jia', array('userid' => $userid));
-    insert_query("fn_upmark", array("userid" => $userid, 'headimg' => $_SESSION['headimg'], 'username' => $username, 'type' => '下分', 'money' => $money, 'status' => '未处理', 'time' => 'now()', 'game' => $_COOKIE['game'], 'roomid' => $_SESSION['roomid'], 'jia' => $jia));
-    if (get_query_val("fn_setting", "setting_downmark", array("roomid" => $_SESSION['roomid'])) == 'true') {
-        update_query('fn_user', array('money' => '-=' . $money), array('userid' => $userid, 'roomid' => $_SESSION['roomid']));
-        insert_query("fn_marklog", array("roomid" => $_SESSION['roomid'], 'userid' => $userid, 'type' => '下分', 'content' => '系统自动同意下分' . $money, 'money' => $money, 'addtime' => 'now()'));
-        $headimg = get_query_val('fn_setting', 'setting_sysimg', array('roomid' => $_SESSION['roomid']));
-        insert_query("fn_chat", array("userid" => "system", "username" => "管理员", "game" => $_COOKIE['game'], 'headimg' => $headimg, 'content' => "@{$username}, 您的下分请求已接收,请稍后查账!", 'addtime' => date('H:i:s'), 'time' => date('Y-m-d H:i:s', time()), 'type' => 'S1', 'roomid' => $_SESSION['roomid']));
-    }
-}
+//function 插入下分($username, $userid, $money)
+//{
+//    $m = (int)get_query_val('fn_user', 'money', array('roomid' => $_SESSION['roomid'], 'userid' => $userid));
+//    if (($m - (int)$money) < 0) {
+//        Broadcast("@$username,您的分数不够回这么多分!", $game);
+//        return;
+//    }
+//    $jia = get_query_val('fn_user', 'jia', array('userid' => $userid));
+//    insert_query("fn_upmark", array("userid" => $userid, 'headimg' => $_SESSION['headimg'], 'username' => $username, 'type' => '下分', 'money' => $money, 'status' => '未处理', 'time' => 'now()', 'game' => $_COOKIE['game'], 'roomid' => $_SESSION['roomid'], 'jia' => $jia));
+//    if (get_query_val("fn_setting", "setting_downmark", array("roomid" => $_SESSION['roomid'])) == 'true') {
+//        update_query('fn_user', array('money' => '-=' . $money), array('userid' => $userid, 'roomid' => $_SESSION['roomid']));
+//        insert_query("fn_marklog", array("roomid" => $_SESSION['roomid'], 'userid' => $userid, 'type' => '下分', 'content' => '系统自动同意下分' . $money, 'money' => $money, 'addtime' => 'now()'));
+//        $headimg = get_query_val('fn_setting', 'setting_sysimg', array('roomid' => $_SESSION['roomid']));
+//        insert_query("fn_chat", array("userid" => "system", "username" => "管理员", "game" => $_COOKIE['game'], 'headimg' => $headimg, 'content' => "@{$username}, 您的下分请求已接收,请稍后查账!", 'addtime' => date('H:i:s'), 'time' => date('Y-m-d H:i:s', time()), 'type' => 'S1', 'roomid' => $_SESSION['roomid']));
+//    }
+//}
 
 function CancelBet($userid, $term, $game, $fengpan)
 {
@@ -751,7 +750,7 @@ function CancelBet($userid, $term, $game, $fengpan)
         return;
     } else {
         if ($fengpan) {
-            管理员喊话("@" . $_SESSION['username'] . " ,[$term]期已经停止投注！无法取消！");
+            Broadcast("@" . $_SESSION['username'] . " ,[$term]期已经停止投注！无法取消！");
             return false;
         }
         switch ($game) {
@@ -826,14 +825,14 @@ function CancelBet($userid, $term, $game, $fengpan)
         $all = (int)get_query_val($table, 'sum(`money`)', "userid = '$userid' and term = '$term' and status = '未结算' and roomid = {$_SESSION['roomid']}");
         update_query($table, array('status' => '已撤单'), "userid = '$userid' and term = '$term' and roomid = {$_SESSION['roomid']}");
         用户_上分($userid, $all);
-        管理员喊话("@{$_SESSION['username']} ,[$term]期投注已经退还!");
+        Broadcast("@{$_SESSION['username']} ,[$term]期投注已经退还!");
     }
 }
 
 function addLHCBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$BetGame)
 {
     if ($fengpan) {
-        管理员喊话("@" . $nickname . " ,[$addQihao]期已经停止投注！下注无效！");
+        Broadcast("@" . $nickname . " ,[$addQihao]期已经停止投注！下注无效！");
         $carr[0] = false;
         $carr[1] = $chat_id;
         return $carr;
@@ -1592,19 +1591,19 @@ function addLHCBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$
 
     if ($zym_2 != "") {
         if ($chaozhu) {
-            管理员喊话("@{$nickname},您的:{$zym_2}未接<br>您的投注已超出限制！<br>本房投注限制如下:<br>大小最低{$dx_min}起,最高{$dx_max}<br>单双最低{$ds_min}起,最高{$ds_max}<br>龙虎最低{$lh_min}起,最高{$lh_max}<br>特码最低{$tm_min}起,最高{$tm_max}<br>和值最低{$hz_min}起,最高{$hz_max}<br>------------<br>最高投注均为已下注总注");
+            Broadcast("@{$nickname},您的:{$zym_2}未接<br>您的投注已超出限制！<br>本房投注限制如下:<br>大小最低{$dx_min}起,最高{$dx_max}<br>单双最低{$ds_min}起,最高{$ds_max}<br>龙虎最低{$lh_min}起,最高{$lh_max}<br>特码最低{$tm_min}起,最高{$tm_max}<br>和值最低{$hz_min}起,最高{$hz_max}<br>------------<br>最高投注均为已下注总注");
 
             $carr[0] = true;
             $carr[1] = $chat_id;
             return $carr;
         } else {
-            管理员喊话("@{$nickname},您的:{$zym_2}未接，您的余额：" . 查询用户余额($userid));
+            Broadcast("@{$nickname},您的:{$zym_2}未接，您的余额：" . 查询用户余额($userid));
             $carr[0] = true;
             $carr[1] = $chat_id;
             return $carr;
         }
     } elseif (get_query_val("fn_setting", "setting_tishi", array("roomid" => $_SESSION['roomid'])) == 'open' && $touzhu == true) {
-        管理员喊话("@$nickname,投注成功！请选择左侧菜单核对投注！");
+        Broadcast("@$nickname,投注成功！请选择左侧菜单核对投注！");
         $carr[0] = true;
         $carr[1] = $chat_id;
         return $carr;
@@ -1622,7 +1621,7 @@ function addK3Bet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$B
 {
 
     if ($fengpan) {
-        管理员喊话("@" . $nickname . " ,[$addQihao]期已经停止投注！下注无效！");
+        Broadcast("@" . $nickname . " ,[$addQihao]期已经停止投注！下注无效！");
         $carr[0] = false;
         $carr[1] = $chat_id;
         return $carr;
@@ -1838,7 +1837,7 @@ function addK3Bet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$B
     }
     if ($zym_2 != "") {
         if ($chaozhu) {
-            管理员喊话("@$nickname,本次投注已超注！投注无效");
+            Broadcast("@$nickname,本次投注已超注！投注无效");
             $carr[0] = true;
             $carr[1] = $chat_id;
             return $carr;
@@ -1858,18 +1857,18 @@ function addK3Bet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$B
             } else {
                 $nr2 = "";
             }
-            管理员喊话("@{$nickname},您的:{$zym_2}未接<br>本房$nr" . $nr2);
+            Broadcast("@{$nickname},您的:{$zym_2}未接<br>本房$nr" . $nr2);
             $carr[0] = true;
             $carr[1] = $chat_id;
             return $carr;
         } else {
-            管理员喊话("@{$nickname},您的:{$zym_2}未接，您的余额：" . 查询用户余额($userid));
+            Broadcast("@{$nickname},您的:{$zym_2}未接，您的余额：" . 查询用户余额($userid));
             $carr[0] = true;
             $carr[1] = $chat_id;
             return $carr;
         }
     } elseif (get_query_val("fn_setting", "setting_tishi", array("roomid" => $_SESSION['roomid'])) == 'open' && $touzhu == true) {
-        管理员喊话("@{$nickname},投注成功！请选择左侧菜单核对投注！");
+        Broadcast("@{$nickname},投注成功！请选择左侧菜单核对投注！");
         $carr[0] = true;
         $carr[1] = $chat_id;
         return $carr;
@@ -1888,7 +1887,7 @@ function addBJLBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$
 {
 
     if ($fengpan) {
-        管理员喊话("@" . $nickname . " ,[$addQihao]期已经停止投注！下注无效！");
+        Broadcast("@" . $nickname . " ,[$addQihao]期已经停止投注！下注无效！");
         $carr[0] = false;
         $carr[1] = $chat_id;
         return $carr;
@@ -1988,7 +1987,7 @@ function addBJLBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$
     }
     if ($zym_2 != "") {
         if ($chaozhu) {
-            管理员喊话("@$nickname,本次投注已超注！<br>本房投注限制如下:<br>庄最低{$zhuang_min},最高{$zhuang_max}<br>闲最低{$xian_min },最高{$xian_max }<br>和最低{$he_min},最高{$he_max}<br>庄对最低{$zhuangdui_min},最高{$zhuangdui_max}<br>闲对最低{$xiandui_min},最高{$xiandui_max}<br>任意对最低{$anydui_min},最高{$anydui_max}<br>");
+            Broadcast("@$nickname,本次投注已超注！<br>本房投注限制如下:<br>庄最低{$zhuang_min},最高{$zhuang_max}<br>闲最低{$xian_min },最高{$xian_max }<br>和最低{$he_min},最高{$he_max}<br>庄对最低{$zhuangdui_min},最高{$zhuangdui_max}<br>闲对最低{$xiandui_min},最高{$xiandui_max}<br>任意对最低{$anydui_min},最高{$anydui_max}<br>");
             $carr[0] = true;
             $carr[1] = $chat_id;
             return $carr;
@@ -2008,18 +2007,18 @@ function addBJLBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$
             } else {
                 $nr2 = "";
             }
-            管理员喊话("@{$nickname},您的:{$zym_2}未接<br>本房$nr" . $nr2);
+            Broadcast("@{$nickname},您的:{$zym_2}未接<br>本房$nr" . $nr2);
             $carr[0] = true;
             $carr[1] = $chat_id;
             return $carr;
         } else {
-            管理员喊话("@{$nickname},您的:{$zym_2}未接，您的余额：" . 查询用户余额($userid));
+            Broadcast("@{$nickname},您的:{$zym_2}未接，您的余额：" . 查询用户余额($userid));
             $carr[0] = true;
             $carr[1] = $chat_id;
             return $carr;
         }
     } elseif (get_query_val("fn_setting", "setting_tishi", array("roomid" => $_SESSION['roomid'])) == 'open' && $touzhu == true) {
-        管理员喊话("@{$nickname},投注成功！请选择左侧菜单核对投注！");
+        Broadcast("@{$nickname},投注成功！请选择左侧菜单核对投注！");
         $carr[0] = true;
         $carr[1] = $chat_id;
         return $carr;
@@ -2036,7 +2035,7 @@ function addBJLBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$
 function addBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$BetGame)
 {
     if ($fengpan) {
-        管理员喊话("@" . $nickname . " ,[$addQihao]期已经停止投注！下注无效！");
+        Broadcast("@" . $nickname . " ,[$addQihao]期已经停止投注！下注无效！");
         $carr[0] = false;
         $carr[1] = $chat_id;
         return $carr;
@@ -2130,12 +2129,12 @@ function addBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$Bet
         $zym_6 = $b[1];
         $zym_5 = (int)$b[2];
         if ($zym_6 == '和') {
-            管理员喊话("@" . $nickname . " ,下注格式出错！冠亚和值下注格式为:和3/100");
+            Broadcast("@" . $nickname . " ,下注格式出错！冠亚和值下注格式为:和3/100");
             continue;
         }
         if ($zym_10 == '和') {
             if ($zym_6 == "大单" || $zym_6 == "大双" || $zym_6 == "小双" || $zym_6 == "小单") {
-                管理员喊话("@" . $nickname . " ,下注格式出错！冠亚和值无此类型下注！");
+                Broadcast("@" . $nickname . " ,下注格式出错！冠亚和值无此类型下注！");
                 continue;
             }
             if ($zym_6 == "大" || $zym_6 == "小" || $zym_6 == "单" || $zym_6 == "双") {
@@ -2155,7 +2154,7 @@ function addBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$Bet
             $zym_6_分割 = 和值分割($zym_6);
             foreach ($zym_6_分割 as $ii) {
                 if ($ii < 3 || $ii > 19) {
-                    管理员喊话("@" . $nickname . " ,下注格式出错！冠亚和值为3 - 19！入单失败！");
+                    Broadcast("@" . $nickname . " ,下注格式出错！冠亚和值为3 - 19！入单失败！");
                     break;
                 }
                 if (!is_numeric($ii)) {
@@ -2228,7 +2227,7 @@ function addBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$Bet
                     continue;
                 }
                 if ((int)$ii > 5 && $zym_6 == '龙' || (int)$ii > 5 && $zym_6 == '虎') {
-                    管理员喊话("@{$nickname},龙虎投注仅限1~5名！");
+                    Broadcast("@{$nickname},龙虎投注仅限1~5名！");
                     continue;
                 }
                 $touzhu = true;
@@ -2262,18 +2261,18 @@ function addBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$Bet
     }
     if ($zym_2 != "") {
         if ($chaozhu) {
-            管理员喊话("@{$nickname},您的:{$zym_2}未接<br>您的投注已超出限制！<br>本房投注限制如下:<br>大小最低{$dx_min}起,最高{$dx_max}<br>单双最低{$ds_min}起,最高{$ds_max}<br>龙虎最低{$lh_min}起,最高{$lh_max}<br>特码最低{$tm_min}起,最高{$tm_max}<br>和值最低{$hz_min}起,最高{$hz_max}<br>------------<br>最高投注均为已下注总注");
+            Broadcast("@{$nickname},您的:{$zym_2}未接<br>您的投注已超出限制！<br>本房投注限制如下:<br>大小最低{$dx_min}起,最高{$dx_max}<br>单双最低{$ds_min}起,最高{$ds_max}<br>龙虎最低{$lh_min}起,最高{$lh_max}<br>特码最低{$tm_min}起,最高{$tm_max}<br>和值最低{$hz_min}起,最高{$hz_max}<br>------------<br>最高投注均为已下注总注");
             $carr[0] = true;
             $carr[1] = $chat_id;
             return $carr;
         } else {
-            管理员喊话("@{$nickname},您的:{$zym_2}未接，您的余额：" . 查询用户余额($userid));
+            Broadcast("@{$nickname},您的:{$zym_2}未接，您的余额：" . 查询用户余额($userid));
             $carr[0] = true;
             $carr[1] = $chat_id;
             return $carr;
         }
     } elseif (get_query_val("fn_setting", "setting_tishi", array("roomid" => $_SESSION['roomid'])) == 'open' && $touzhu == true) {
-        管理员喊话("@$nickname,投注成功！请选择左侧菜单核对投注！");
+        Broadcast("@$nickname,投注成功！请选择左侧菜单核对投注！");
         $carr[0] = true;
         $carr[1] = $chat_id;
         return $carr;
@@ -2290,7 +2289,7 @@ function addBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$Bet
 function addPCBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$BetGame)
 {
     if ($fengpan) {
-        管理员喊话("@" . $nickname . " ,[$addQihao]期已经停止投注！下注无效！");
+        Broadcast("@" . $nickname . " ,[$addQihao]期已经停止投注！下注无效！");
         $carr[0] = false;
         $carr[1] = $chat_id;
         return $carr;
@@ -2582,7 +2581,7 @@ function addPCBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$B
     }
     if ($zym_2 != "") {
         if ($chaozhu) {
-            管理员喊话("@$nickname,本次投注已超注！<br>本房投注限制如下:<br>单点数字最低{$zym_17_min},最高{$zym_16_max}<br>大小单双最低{$zym_17_min},最高{$zym_15_max}<br>组合最低{$zym_17_min},最高{$zym_19_max}<br>极大极小最低{$zym_17_min},最高{$zym_11_max}<br>豹子最低{$zym_17_min},最高{$zym_20_max}<br>对子最低{$zym_17_min},最高{$zym_18_max}<br>顺子最低{$zym_17_min},最高{$zym_13_max}<br>-----------<br>总注不得超过:{$zym_12_max},您已投注:{$zym_7}");
+            Broadcast("@$nickname,本次投注已超注！<br>本房投注限制如下:<br>单点数字最低{$zym_17_min},最高{$zym_16_max}<br>大小单双最低{$zym_17_min},最高{$zym_15_max}<br>组合最低{$zym_17_min},最高{$zym_19_max}<br>极大极小最低{$zym_17_min},最高{$zym_11_max}<br>豹子最低{$zym_17_min},最高{$zym_20_max}<br>对子最低{$zym_17_min},最高{$zym_18_max}<br>顺子最低{$zym_17_min},最高{$zym_13_max}<br>-----------<br>总注不得超过:{$zym_12_max},您已投注:{$zym_7}");
             $carr[0] = true;
             $carr[1] = $chat_id;
             return $carr;
@@ -2602,18 +2601,18 @@ function addPCBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$B
             } else {
                 $nr2 = "";
             }
-            管理员喊话("@{$nickname},您的:{$zym_2}未接<br>本房$nr" . $nr2);
+            Broadcast("@{$nickname},您的:{$zym_2}未接<br>本房$nr" . $nr2);
             $carr[0] = true;
             $carr[1] = $chat_id;
             return $carr;
         } else {
-            管理员喊话("@{$nickname},您的:{$zym_2}未接，您的余额：" . 查询用户余额($userid));
+            Broadcast("@{$nickname},您的:{$zym_2}未接，您的余额：" . 查询用户余额($userid));
             $carr[0] = true;
             $carr[1] = $chat_id;
             return $carr;
         }
     } elseif (get_query_val("fn_setting", "setting_tishi", array("roomid" => $_SESSION['roomid'])) == 'open' && $touzhu == true) {
-        管理员喊话("@{$nickname},投注成功！请选择左侧菜单核对投注！");
+        Broadcast("@{$nickname},投注成功！请选择左侧菜单核对投注！");
         $carr[0] = true;
         $carr[1] = $chat_id;
         return $carr;
@@ -2630,7 +2629,7 @@ function addPCBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$B
 function add11X5Bet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$BetGame)
 {
     if ($fengpan) {
-        管理员喊话("@" . $nickname . " ,[$addQihao]期已经停止投注！下注无效！");
+        Broadcast("@" . $nickname . " ,[$addQihao]期已经停止投注！下注无效！");
         $carr[0] = false;
         $carr[1] = $chat_id;
         return $carr;
@@ -2759,7 +2758,7 @@ function add11X5Bet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,
             $zym_10_分割 = 文本_逐字分割($zym_10);
             foreach ($zym_10_分割 as $ii) {
                 if ((int)$ii > 5) {
-                    管理员喊话("时时彩没有5球以上!本次投注请自行核对与撤单!");
+                    Broadcast("时时彩没有5球以上!本次投注请自行核对与撤单!");
                     break;
                 }
                 if ($zym_9 < count($zym_10_分割) * (int)$zym_5) {
@@ -2851,7 +2850,7 @@ function add11X5Bet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,
                 break;
             }
             if ((int)$ii > 5) {
-                管理员喊话("时时彩没有5球以上!本次投注请自行核对与撤单!");
+                Broadcast("时时彩没有5球以上!本次投注请自行核对与撤单!");
                 break;
             }
             foreach ($zym_6_分割 as $iii) {
@@ -2872,18 +2871,18 @@ function add11X5Bet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,
     }
     if ($zym_2 != "") {
         if ($chaozhu) {
-            管理员喊话("@{$nickname},您的:{$zym_2}未接<br>您的投注已超出限制！<br>本房投注限制如下:<br>大小最低{$dx_min}起,最高{$dx_max}<br>单双最低{$ds_min}起,最高{$ds_max}<br>龙虎最低{$lh_min}起,最高{$lh_max}<br>特码最低{$tm_min}起,最高{$tm_max}<br>豹子最低{$bz_min}起,最高{$bz_max}<br>对子最低{$dz_min}起,最高{$dz_max}<br>顺子最低{$sz_min}起,最高{$sz_max}<br>半顺最低{$bs_min}起,最高{$bs_max}<br>杂六最低{$zl_min}起,最高{$zl_max}<br>总和大小单双最低{$zh_min}起,最高{$zh_max}");
+            Broadcast("@{$nickname},您的:{$zym_2}未接<br>您的投注已超出限制！<br>本房投注限制如下:<br>大小最低{$dx_min}起,最高{$dx_max}<br>单双最低{$ds_min}起,最高{$ds_max}<br>龙虎最低{$lh_min}起,最高{$lh_max}<br>特码最低{$tm_min}起,最高{$tm_max}<br>豹子最低{$bz_min}起,最高{$bz_max}<br>对子最低{$dz_min}起,最高{$dz_max}<br>顺子最低{$sz_min}起,最高{$sz_max}<br>半顺最低{$bs_min}起,最高{$bs_max}<br>杂六最低{$zl_min}起,最高{$zl_max}<br>总和大小单双最低{$zh_min}起,最高{$zh_max}");
             $carr[0] = true;
             $carr[1] = $chat_id;
             return $carr;
         } else {
-            管理员喊话("@{$nickname},您的:{$zym_2}未接，您的余额：" . 查询用户余额($userid));
+            Broadcast("@{$nickname},您的:{$zym_2}未接，您的余额：" . 查询用户余额($userid));
             $carr[0] = true;
             $carr[1] = $chat_id;
             return $carr;
         }
     } elseif (get_query_val("fn_setting", "setting_tishi", array("roomid" => $_SESSION['roomid'])) == 'open' && $touzhu == true) {
-        管理员喊话("@$nickname,投注成功！请选择左侧菜单核对投注！");
+        Broadcast("@$nickname,投注成功！请选择左侧菜单核对投注！");
         $carr[0] = true;
         $carr[1] = $chat_id;
         return $carr;
@@ -2900,7 +2899,7 @@ function add11X5Bet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,
 function addSSCBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$BetGame)
 {
     if ($fengpan) {
-        管理员喊话("@" . $nickname . " ,[$addQihao]期已经停止投注！下注无效！");
+        Broadcast("@" . $nickname . " ,[$addQihao]期已经停止投注！下注无效！");
         $carr[0] = false;
         $carr[1] = $chat_id;
         return $carr;
@@ -3043,7 +3042,7 @@ function addSSCBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$
             $zym_10_分割 = 文本_逐字分割($zym_10);
             foreach ($zym_10_分割 as $ii) {
                 if ((int)$ii > 5) {
-                    管理员喊话("时时彩没有5球以上!本次投注请自行核对与撤单!");
+                    Broadcast("时时彩没有5球以上!本次投注请自行核对与撤单!");
                     break;
                 }
                 if ($zym_9 < count($zym_10_分割) * (int)$zym_5) {
@@ -3135,7 +3134,7 @@ function addSSCBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$
                 break;
             }
             if ((int)$ii > 5) {
-                管理员喊话("时时彩没有5球以上!本次投注请自行核对与撤单!");
+                Broadcast("时时彩没有5球以上!本次投注请自行核对与撤单!");
                 break;
             }
             foreach ($zym_6_分割 as $iii) {
@@ -3156,18 +3155,18 @@ function addSSCBet($userid, $nickname, $headimg, $content, $addQihao, $fengpan,$
     }
     if ($zym_2 != "") {
         if ($chaozhu) {
-            管理员喊话("@{$nickname},您的:{$zym_2}未接<br>您的投注已超出限制！<br>本房投注限制如下:<br>大小最低{$dx_min}起,最高{$dx_max}<br>单双最低{$ds_min}起,最高{$ds_max}<br>龙虎最低{$lh_min}起,最高{$lh_max}<br>特码最低{$tm_min}起,最高{$tm_max}<br>豹子最低{$bz_min}起,最高{$bz_max}<br>对子最低{$dz_min}起,最高{$dz_max}<br>顺子最低{$sz_min}起,最高{$sz_max}<br>半顺最低{$bs_min}起,最高{$bs_max}<br>杂六最低{$zl_min}起,最高{$zl_max}<br>总和大小单双最低{$zh_min}起,最高{$zh_max}");
+            Broadcast("@{$nickname},您的:{$zym_2}未接<br>您的投注已超出限制！<br>本房投注限制如下:<br>大小最低{$dx_min}起,最高{$dx_max}<br>单双最低{$ds_min}起,最高{$ds_max}<br>龙虎最低{$lh_min}起,最高{$lh_max}<br>特码最低{$tm_min}起,最高{$tm_max}<br>豹子最低{$bz_min}起,最高{$bz_max}<br>对子最低{$dz_min}起,最高{$dz_max}<br>顺子最低{$sz_min}起,最高{$sz_max}<br>半顺最低{$bs_min}起,最高{$bs_max}<br>杂六最低{$zl_min}起,最高{$zl_max}<br>总和大小单双最低{$zh_min}起,最高{$zh_max}");
             $carr[0] = true;
             $carr[1] = $chat_id;
             return $carr;
         } else {
-            管理员喊话("@{$nickname},您的:{$zym_2}未接，您的余额：" . 查询用户余额($userid));
+            Broadcast("@{$nickname},您的:{$zym_2}未接，您的余额：" . 查询用户余额($userid));
             $carr[0] = true;
             $carr[1] = $chat_id;
             return $carr;
         }
     } elseif (get_query_val("fn_setting", "setting_tishi", array("roomid" => $_SESSION['roomid'])) == 'open' && $touzhu == true) {
-        管理员喊话("@$nickname,投注成功！请选择左侧菜单核对投注！");
+        Broadcast("@$nickname,投注成功！请选择左侧菜单核对投注！");
         $carr[0] = true;
         $carr[1] = $chat_id;
         return $carr;

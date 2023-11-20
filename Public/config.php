@@ -11,12 +11,12 @@ $load = 5;
 include_once("sql.php");
 $console = "v9ym";
 $db['host'] = "127.0.0.1";
-$db['user'] = "root";//用户名 线上
-$db['pass'] = "4318471pk";//密码 线上
+//$db['user'] = "root";//用户名 线上
+//$db['pass'] = "4318471pk";//密码 线上
 $db['name'] = "v9ym";//数据库名
 
-//$db['user'] = "root";//用户名 线上
-//$db['pass'] = "123qwe";//密码 线上
+$db['user'] = "root";//用户名 线上
+$db['pass'] = "123qwe";//密码 线上
 
 $isWeiXInBrowse = true;//开关 如果上公众号的话把这个打开
 
@@ -30,7 +30,9 @@ $wx['key'] = '85311c0d23e490367bd44882f1e1ad6e'; //这里是公众号 不用管 
 $redirect_uri = urlencode("http://{$_SERVER["HTTP_HOST"]}/wx_login.php?agent={$_GET['agent']}&g={$_GET['g']}&room={$_GET['room']}");
 $oauth = "http://shuaih.cn/1.html?appid={$wx["ID"]}&redirect_uri={$redirect_uri}&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
 $info_singset = $mydb->table('fn_sign_set')->field('*')->where(array('id' => 1))->find();//
+
 $_SESSION['singset'] = $info_singset;
+
 function room_isOK($roomid)
 {
     $status = get_query_val('fn_room', 'id', array('roomid' => $roomid));
@@ -266,6 +268,24 @@ function get_user_money()
     return $r;
 }
 
+function robotBroadcast($Content, $chat_term='', $chat_status='', $roomid, $game,$chatType="S3",$userid,$betTerm=''){
+    $headimg = get_query_val('fn_setting', 'setting_robotsimg', array('roomid' => $roomid));
+    insert_query("fn_chat", array("username" => "播报员", "headimg" => $headimg, 'chat_term'=>$chat_term,
+        'chat_status'=>$chat_status,'content' => $Content, 'addtime' => date('H:i:s'),
+        'time'=>date('Y-m-d H:i:s'), 'type' => $chatType, 'userid' => $userid, 'game' => $game, 'roomid' => $roomid,'betterm'=>$betTerm));
+}
 
+function adminBroadcast($Content, $chat_term='', $chat_status='', $roomid, $game,$chatType="S1",$userid){
+    $headimg = get_query_val('fn_setting', 'setting_sysimg', array('roomid' => $_SESSION['agent_room']));
+    insert_query("fn_chat", array("username" => "管理员", "headimg" => $headimg, 'chat_term'=>$chat_term,
+        'chat_status'=>$chat_status,'content' => $Content, 'addtime' => date('H:i:s'),
+        'time'=>date('Y-m-d H:i:s'), 'type' => $chatType, 'userid' => $userid, 'game' => $game, 'roomid' => $roomid));
+}
+
+function roomBroadcast($headimg,$userName,$Content, $chat_term='', $chat_status='', $roomid, $game,$chatType="S3",$userid,$chatid=''){
+    insert_query("fn_chat", array("username" => $userName, "headimg" => $headimg, 'chat_term'=>$chat_term,
+        'chat_status'=>$chat_status,'content' => $Content, 'addtime' => date('H:i:s'),
+        'time'=>date('Y-m-d H:i:s'), 'type' => $chatType, 'userid' => $userid, 'game' => $game, 'roomid' => $roomid,'chatid'=>$chatid));
+}
 
 ?>

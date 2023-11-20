@@ -1,9 +1,9 @@
 <?php
 include_once("./Public/config.php");
-function 管理员喊话($Content, $roomid, $game){
-    $headimg = get_query_val('fn_setting', 'setting_robotsimg', array('roomid' => $roomid));
-    insert_query("fn_chat", array("username" => "播报员", "headimg" => $headimg, 'content' => $Content, 'addtime' => date('H:i:s'),  'time'=>date('Y-m-d H:i:s',time()),'type' => 'S3', 'userid' => 'system', 'game' => $game, 'roomid' => $roomid));
+function Broadcast($Content, $roomid, $game){
+    robotBroadcast($Content,'','',$roomid,$game,'S3','system');
 }
+
 $pkdjs = strtotime(get_query_val('fn_open', 'next_time', "`type` = '1' order by `term` desc limit 1")) - time();
 //var_dump($pkdjs);
 $xyftdjs = strtotime(get_query_val('fn_open', 'next_time', "`type` = '2' order by `term` desc limit 1")) - time();
@@ -143,19 +143,19 @@ foreach($cons as $con){
        $contest2 = str_replace("[期号]",$qishu1,$fengpanxiaoxi);
        $contests2 = str_replace("[换行]","<br>",$contest2);
         if($pk10time + 30 == $pkdjs){
-            管理员喊话( $contests1, $roomid, 'pk10');
+            Broadcast( $contests1, $roomid, 'pk10');
         }
         if($pk10time == $pkdjs){
-            管理员喊话( $contests2, $roomid, 'pk10');
+            Broadcast( $contests2, $roomid, 'pk10');
         }
         if($msg1_cont != "" && $pkdjs == $msg1){
-            管理员喊话($msg1_cont, $roomid, 'pk10');
+            Broadcast($msg1_cont, $roomid, 'pk10');
         }
         if($msg2_cont != "" && $pkdjs == $msg2){
-            管理员喊话($msg2_cont, $roomid, 'pk10');
+            Broadcast($msg2_cont, $roomid, 'pk10');
         }
         if($msg3_cont != "" && $pkdjs == $msg3){
-            管理员喊话($msg3_cont, $roomid, 'pk10');
+            Broadcast($msg3_cont, $roomid, 'pk10');
         }
     }
     if($xyftopen){
@@ -164,19 +164,19 @@ foreach($cons as $con){
        $contest2 = str_replace("[期号]",$qishu2,$fengpanxiaoxi);
        $contests2 = str_replace("[换行]","<br>",$contest2);
         if($xyfttime + 30 == $xyftdjs){
-            管理员喊话( $contests1, $roomid, 'xyft');
+            Broadcast( $contests1, $roomid, 'xyft');
         }
         if($xyfttime == $xyftdjs){
-            管理员喊话( $contests2, $roomid, 'xyft');
+            Broadcast( $contests2, $roomid, 'xyft');
         }
         if($msg1_cont != "" && $xyftdjs == $msg1){
-            管理员喊话($msg1_cont, $roomid, 'xyft');
+            Broadcast($msg1_cont, $roomid, 'xyft');
         }
         if($msg2_cont != "" && $xyftdjs == $msg2){
-            管理员喊话($msg2_cont, $roomid, 'xyft');
+            Broadcast($msg2_cont, $roomid, 'xyft');
         }
         if($msg3_cont != "" && $xyftdjs == $msg3){
-            管理员喊话($msg3_cont, $roomid, 'xyft');
+            Broadcast($msg3_cont, $roomid, 'xyft');
         }
     }
     if($cqsscopen){
@@ -185,19 +185,19 @@ foreach($cons as $con){
        $contest2 = str_replace("[期号]",$qishu3,$fengpanxiaoxi);
        $contests2 = str_replace("[换行]","<br>",$contest2);
         if($cqssctime + 30 == $cqsscdjs){
-            管理员喊话( $contests1, $roomid, 'cqssc');
+            Broadcast( $contests1, $roomid, 'cqssc');
         }
         if($cqssctime == $cqsscdjs){
-            管理员喊话( $contests2, $roomid, 'cqssc');
+            Broadcast( $contests2, $roomid, 'cqssc');
         }
         if($msg1_cont != "" && $cqsscdjs == $msg1){
-            管理员喊话($msg1_cont, $roomid, 'cqssc');
+            Broadcast($msg1_cont, $roomid, 'cqssc');
         }
         if($msg2_cont != "" && $cqsscdjs == $msg2){
-            管理员喊话($msg2_cont, $roomid, 'cqssc');
+            Broadcast($msg2_cont, $roomid, 'cqssc');
         }
         if($msg3_cont != "" && $cqsscdjs == $msg3){
-            管理员喊话($msg3_cont, $roomid, 'cqssc');
+            Broadcast($msg3_cont, $roomid, 'cqssc');
         }
     }
     if($xy28open){
@@ -206,19 +206,19 @@ foreach($cons as $con){
        $contest2 = str_replace("[期号]",$qishu4,$fengpanxiaoxi);
        $contests2 = str_replace("[换行]","<br>",$contest2);
         if($pctime + 30 == $pcdjs){
-            管理员喊话( $contests1, $roomid, 'xy28');
+            Broadcast( $contests1, $roomid, 'xy28');
         }
         if($pctime == $pcdjs){
-            管理员喊话( $contests2, $roomid, 'xy28');
+            Broadcast( $contests2, $roomid, 'xy28');
         }
         if($msg1_cont != "" && $pcdjs == $msg1){
-            管理员喊话($msg1_cont, $roomid, 'xy28');
+            Broadcast($msg1_cont, $roomid, 'xy28');
         }
         if($msg2_cont != "" && $pcdjs == $msg2){
-            管理员喊话($msg2_cont, $roomid, 'xy28');
+            Broadcast($msg2_cont, $roomid, 'xy28');
         }
         if($msg3_cont != "" && $pcdjs == $msg3){
-            管理员喊话($msg3_cont, $roomid, 'xy28');
+            Broadcast($msg3_cont, $roomid, 'xy28');
         }
     }
     if($ny28open){
@@ -227,19 +227,19 @@ foreach($cons as $con){
         $contest2 = str_replace("[期号]",$qishu19,$fengpanxiaoxi);
         $contests2 = str_replace("[换行]","<br>",$contest2);
         if($ny28time + 30 == $ny28js){
-            管理员喊话( $contests1, $roomid, 'ny28');
+            Broadcast( $contests1, $roomid, 'ny28');
         }
         if($ny28time == $ny28js){
-            管理员喊话( $contests2, $roomid, 'ny28');
+            Broadcast( $contests2, $roomid, 'ny28');
         }
         if($msg1_cont != "" && $ny28js == $msg1){
-            管理员喊话($msg1_cont, $roomid, 'ny28');
+            Broadcast($msg1_cont, $roomid, 'ny28');
         }
         if($msg2_cont != "" && $ny28js == $msg2){
-            管理员喊话($msg2_cont, $roomid, 'ny28');
+            Broadcast($msg2_cont, $roomid, 'ny28');
         }
         if($msg3_cont != "" && $ny28js == $msg3){
-            管理员喊话($msg3_cont, $roomid, 'ny28');
+            Broadcast($msg3_cont, $roomid, 'ny28');
         }
     }
     if($jnd28open){
@@ -248,19 +248,19 @@ foreach($cons as $con){
        $contest2 = str_replace("[期号]",$qishu5,$fengpanxiaoxi);
        $contests2 = str_replace("[换行]","<br>",$contest2);
         if($jndtime + 30 == $jnddjs){
-            管理员喊话( $contests1, $roomid, 'jnd28');
+            Broadcast( $contests1, $roomid, 'jnd28');
         }
         if($jndtime == $jnddjs){
-            管理员喊话( $contests2, $roomid, 'jnd28');
+            Broadcast( $contests2, $roomid, 'jnd28');
         }
         if($msg1_cont != "" && $jnddjs == $msg1){
-            管理员喊话($msg1_cont, $roomid, 'jnd28');
+            Broadcast($msg1_cont, $roomid, 'jnd28');
         }
         if($msg2_cont != "" && $jnddjs == $msg2){
-            管理员喊话($msg2_cont, $roomid, 'jnd28');
+            Broadcast($msg2_cont, $roomid, 'jnd28');
         }
         if($msg3_cont != "" && $jnddjs == $msg3){
-            管理员喊话($msg3_cont, $roomid, 'jnd28');
+            Broadcast($msg3_cont, $roomid, 'jnd28');
         }
     }
     if($jsmtopen){
@@ -269,19 +269,19 @@ foreach($cons as $con){
        $contest2 = str_replace("[期号]",$qishu6,$fengpanxiaoxi);
        $contests2 = str_replace("[换行]","<br>",$contest2);
         if($jsmttime + 30 == $jsmtdjs){
-            管理员喊话( $contests1, $roomid, 'jsmt');
+            Broadcast( $contests1, $roomid, 'jsmt');
         }
         if($jsmttime == $jsmtdjs){
-            管理员喊话( $contests2, $roomid, 'jsmt');
+            Broadcast( $contests2, $roomid, 'jsmt');
         }
         if($msg1_cont != "" && $jsmtdjs == $msg1){
-            管理员喊话($msg1_cont, $roomid, 'jsmt');
+            Broadcast($msg1_cont, $roomid, 'jsmt');
         }
         if($msg2_cont != "" && $jsmtdjs == $msg2){
-            管理员喊话($msg2_cont, $roomid, 'jsmt');
+            Broadcast($msg2_cont, $roomid, 'jsmt');
         }
         if($msg3_cont != "" && $jsmtdjs == $msg3){
-            管理员喊话($msg3_cont, $roomid, 'jsmt');
+            Broadcast($msg3_cont, $roomid, 'jsmt');
         }
     }
     if($jsscopen){
@@ -290,19 +290,19 @@ foreach($cons as $con){
        $contest2 = str_replace("[期号]",$qishu7,$fengpanxiaoxi);
        $contests2 = str_replace("[换行]","<br>",$contest2);
         if($jssctime + 30 == $jsscdjs){
-            管理员喊话( $contests1, $roomid, 'jssc');
+            Broadcast( $contests1, $roomid, 'jssc');
         }
         if($jssctime == $jsscdjs){
-            管理员喊话( $contests2, $roomid, 'jssc');
+            Broadcast( $contests2, $roomid, 'jssc');
         }
         if($msg1_cont != "" && $jsscdjs == $msg1){
-            管理员喊话($msg1_cont, $roomid, 'jssc');
+            Broadcast($msg1_cont, $roomid, 'jssc');
         }
         if($msg2_cont != "" && $jsscdjs == $msg2){
-            管理员喊话($msg2_cont, $roomid, 'jssc');
+            Broadcast($msg2_cont, $roomid, 'jssc');
         }
         if($msg3_cont != "" && $jsscdjs == $msg3){
-            管理员喊话($msg3_cont, $roomid, 'jssc');
+            Broadcast($msg3_cont, $roomid, 'jssc');
         }
     }
     if($jssscopen){
@@ -311,19 +311,19 @@ foreach($cons as $con){
        $contest2 = str_replace("[期号]",$qishu8,$fengpanxiaoxi);
        $contests2 = str_replace("[换行]","<br>",$contest2);
         if($jsssctime + 30 == $jssscdjs){
-            管理员喊话( $contests1, $roomid, 'jsssc');
+            Broadcast( $contests1, $roomid, 'jsssc');
         }
         if($jsssctime == $jssscdjs){
-            管理员喊话( $contests2, $roomid, 'jsssc');
+            Broadcast( $contests2, $roomid, 'jsssc');
         }
         if($msg1_cont != "" && $jssscdjs == $msg1){
-            管理员喊话($msg1_cont, $roomid, 'jsssc');
+            Broadcast($msg1_cont, $roomid, 'jsssc');
         }
         if($msg2_cont != "" && $jssscdjs == $msg2){
-            管理员喊话($msg2_cont, $roomid, 'jsssc');
+            Broadcast($msg2_cont, $roomid, 'jsssc');
         }
         if($msg3_cont != "" && $jssscdjs == $msg3){
-            管理员喊话($msg3_cont, $roomid, 'jsssc');
+            Broadcast($msg3_cont, $roomid, 'jsssc');
         }
     }
   if($kuai3open){
@@ -332,19 +332,19 @@ foreach($cons as $con){
        $contest2 = str_replace("[期号]",$qishu9,$fengpanxiaoxi);
        $contests2 = str_replace("[换行]","<br>",$contest2);
         if($kuai3time + 30 == $kuai3djs){
-            管理员喊话( $contests1, $roomid, 'kuai3');
+            Broadcast( $contests1, $roomid, 'kuai3');
         }
         if($kuai3time == $kuai3djs){
-            管理员喊话( $contests2, $roomid, 'kuai3');
+            Broadcast( $contests2, $roomid, 'kuai3');
         }
         if($msg1_cont != "" && $kuai3djs == $msg1){
-            管理员喊话($msg1_cont, $roomid, 'kuai3');
+            Broadcast($msg1_cont, $roomid, 'kuai3');
         }
         if($msg2_cont != "" && $kuai3djs == $msg2){
-            管理员喊话($msg2_cont, $roomid, 'kuai3');
+            Broadcast($msg2_cont, $roomid, 'kuai3');
         }
         if($msg3_cont != "" && $kuai3djs == $msg3){
-            管理员喊话($msg3_cont, $roomid, 'kuai3');
+            Broadcast($msg3_cont, $roomid, 'kuai3');
         }
     }
   if($bjlopen){
@@ -353,19 +353,19 @@ foreach($cons as $con){
        $contest2 = str_replace("[期号]",$qishu10,$fengpanxiaoxi);
        $contests2 = str_replace("[换行]","<br>",$contest2);
         if($bjltime + 30 == $bjldjs){
-            管理员喊话( $contests1, $roomid, 'bjl');
+            Broadcast( $contests1, $roomid, 'bjl');
         }
         if($bjltime == $bjldjs){
-            管理员喊话( $contests2, $roomid, 'bjl');
+            Broadcast( $contests2, $roomid, 'bjl');
         }
         if($msg1_cont != "" && $bjldjs == $msg1){
-            管理员喊话($msg1_cont, $roomid, 'bjl');
+            Broadcast($msg1_cont, $roomid, 'bjl');
         }
         if($msg2_cont != "" && $bjldjs == $msg2){
-            管理员喊话($msg2_cont, $roomid, 'bjl');
+            Broadcast($msg2_cont, $roomid, 'bjl');
         }
         if($msg3_cont != "" && $bjldjs == $msg3){
-            管理员喊话($msg3_cont, $roomid, 'bjl');
+            Broadcast($msg3_cont, $roomid, 'bjl');
         }
     }
   if($gdx5open){
@@ -374,19 +374,19 @@ foreach($cons as $con){
        $contest2 = str_replace("[期号]",$qishu11,$fengpanxiaoxi);
        $contests2 = str_replace("[换行]","<br>",$contest2);
         if($gdx5time + 30 == $gdx5djs){
-            管理员喊话( $contests1, $roomid, 'gd11x5');
+            Broadcast( $contests1, $roomid, 'gd11x5');
         }
         if($gdx5time == $gdx5djs){
-            管理员喊话( $contests2, $roomid, 'gd11x5');
+            Broadcast( $contests2, $roomid, 'gd11x5');
         }
         if($msg1_cont != "" && $gdx5djs == $msg1){
-            管理员喊话($msg1_cont, $roomid, 'gd11x5');
+            Broadcast($msg1_cont, $roomid, 'gd11x5');
         }
         if($msg2_cont != "" && $gdx5djs == $msg2){
-            管理员喊话($msg2_cont, $roomid, 'gd11x5');
+            Broadcast($msg2_cont, $roomid, 'gd11x5');
         }
         if($msg3_cont != "" && $gdx5djs == $msg3){
-            管理员喊话($msg3_cont, $roomid, 'gd11x5');
+            Broadcast($msg3_cont, $roomid, 'gd11x5');
         }
     }
    if($jssmopen){
@@ -395,19 +395,19 @@ foreach($cons as $con){
        $contest2 = str_replace("[期号]",$qishu12,$fengpanxiaoxi);
        $contests2 = str_replace("[换行]","<br>",$contest2);
         if($jssmtime + 30 == $jssmdjs){
-            管理员喊话( $contests1, $roomid, 'jssm');
+            Broadcast( $contests1, $roomid, 'jssm');
         }
         if($jssmtime == $jssmdjs){
-            管理员喊话( $contests2, $roomid, 'jssm');
+            Broadcast( $contests2, $roomid, 'jssm');
         }
         if($msg1_cont != "" && $jssmdjs == $msg1){
-            管理员喊话($msg1_cont, $roomid, 'jssm');
+            Broadcast($msg1_cont, $roomid, 'jssm');
         }
         if($msg2_cont != "" && $jssmdjs == $msg2){
-            管理员喊话($msg2_cont, $roomid, 'jssm');
+            Broadcast($msg2_cont, $roomid, 'jssm');
         }
         if($msg3_cont != "" && $jssmdjs == $msg3){
-            管理员喊话($msg3_cont, $roomid, 'jssm');
+            Broadcast($msg3_cont, $roomid, 'jssm');
         }
     }
    if($lhcopen){
@@ -416,19 +416,19 @@ foreach($cons as $con){
        $contest2 = str_replace("[期号]",$qishu13,$fengpanxiaoxi);
        $contests2 = str_replace("[换行]","<br>",$contest2);
         if($lhctime + 30 == $lhcdjs){
-            管理员喊话( $contests1, $roomid, 'lhc');
+            Broadcast( $contests1, $roomid, 'lhc');
         }
         if($lhctime == $lhcdjs){
-            管理员喊话( $contests2, $roomid, 'lhc');
+            Broadcast( $contests2, $roomid, 'lhc');
         }
         if($msg1_cont != "" && $lhcdjs == $msg1){
-            管理员喊话($msg1_cont, $roomid, 'lhc');
+            Broadcast($msg1_cont, $roomid, 'lhc');
         }
         if($msg2_cont != "" && $lhcdjs == $msg2){
-            管理员喊话($msg2_cont, $roomid, 'lhc');
+            Broadcast($msg2_cont, $roomid, 'lhc');
         }
         if($msg3_cont != "" && $lhcdjs == $msg3){
-            管理员喊话($msg3_cont, $roomid, 'lhc');
+            Broadcast($msg3_cont, $roomid, 'lhc');
         }
     }
    if($jslhcopen){
@@ -437,19 +437,19 @@ foreach($cons as $con){
        $contest2 = str_replace("[期号]",$qishu14,$fengpanxiaoxi);
        $contests2 = str_replace("[换行]","<br>",$contest2);
         if($jslhctime + 30 == $jslhcdjs){
-            管理员喊话( $contests1, $roomid, 'jslhc');
+            Broadcast( $contests1, $roomid, 'jslhc');
         }
         if($jslhctime == $jslhcdjs){
-            管理员喊话( $contests2, $roomid, 'jslhc');
+            Broadcast( $contests2, $roomid, 'jslhc');
         }
         if($msg1_cont != "" && $jslhcdjs == $msg1){
-            管理员喊话($msg1_cont, $roomid, 'jslhc');
+            Broadcast($msg1_cont, $roomid, 'jslhc');
         }
         if($msg2_cont != "" && $jslhcdjs == $msg2){
-            管理员喊话($msg2_cont, $roomid, 'jslhc');
+            Broadcast($msg2_cont, $roomid, 'jslhc');
         }
         if($msg3_cont != "" && $jslhcdjs == $msg3){
-            管理员喊话($msg3_cont, $roomid, 'jslhc');
+            Broadcast($msg3_cont, $roomid, 'jslhc');
         }
     }
      if($twk3open){
@@ -458,19 +458,19 @@ foreach($cons as $con){
        $contest2 = str_replace("[期号]",$qishu15,$fengpanxiaoxi);
        $contests2 = str_replace("[换行]","<br>",$contest2);
         if($twk3time + 30 == $twk3djs){
-            管理员喊话( $contests1, $roomid, 'twk3');
+            Broadcast( $contests1, $roomid, 'twk3');
         }
         if($twk3time == $twk3djs){
-            管理员喊话( $contests2, $roomid, 'twk3');
+            Broadcast( $contests2, $roomid, 'twk3');
         }
         if($msg1_cont != "" && $twk3djs == $msg1){
-            管理员喊话($msg1_cont, $roomid, 'twk3');
+            Broadcast($msg1_cont, $roomid, 'twk3');
         }
         if($msg2_cont != "" && $twk3djs == $msg2){
-            管理员喊话($msg2_cont, $roomid, 'twk3');
+            Broadcast($msg2_cont, $roomid, 'twk3');
         }
         if($msg3_cont != "" && $twk3djs == $msg3){
-            管理员喊话($msg3_cont, $roomid, 'twk3');
+            Broadcast($msg3_cont, $roomid, 'twk3');
         }
     }
   if($txffcopen){
@@ -479,19 +479,19 @@ foreach($cons as $con){
        $contest2 = str_replace("[期号]",$qishu16,$fengpanxiaoxi);
        $contests2 = str_replace("[换行]","<br>",$contest2);
         if($txffctime + 30 == $txffcdjs){
-            管理员喊话( $contests1, $roomid, 'txffc');
+            Broadcast( $contests1, $roomid, 'txffc');
         }
         if($txffctime == $txffcdjs){
-            管理员喊话( $contests2, $roomid, 'txffc');
+            Broadcast( $contests2, $roomid, 'txffc');
         }
         if($msg1_cont != "" && $txffcdjs == $msg1){
-            管理员喊话($msg1_cont, $roomid, 'txffc');
+            Broadcast($msg1_cont, $roomid, 'txffc');
         }
         if($msg2_cont != "" && $txffcdjs == $msg2){
-            管理员喊话($msg2_cont, $roomid, 'txffc');
+            Broadcast($msg2_cont, $roomid, 'txffc');
         }
         if($msg3_cont != "" && $txffcdjs == $msg3){
-            管理员喊话($msg3_cont, $roomid, 'txffc');
+            Broadcast($msg3_cont, $roomid, 'txffc');
         }
     }
   if($azxy10open){
@@ -500,19 +500,19 @@ foreach($cons as $con){
        $contest2 = str_replace("[期号]",$qishu17,$fengpanxiaoxi);
        $contests2 = str_replace("[换行]","<br>",$contest2);
         if($azxy10time + 70 == $azxy10djs){
-            管理员喊话( $contests1, $roomid, 'azxy10');
+            Broadcast( $contests1, $roomid, 'azxy10');
         }
         if($azxy10time == $azxy10djs){
-            管理员喊话( $contests2, $roomid, 'azxy10');
+            Broadcast( $contests2, $roomid, 'azxy10');
         }
         if($msg1_cont != "" && $azxy10djs == $msg1){
-            管理员喊话($msg1_cont, $roomid, 'azxy10');
+            Broadcast($msg1_cont, $roomid, 'azxy10');
         }
         if($msg2_cont != "" && $azxy10djs == $msg2){
-            管理员喊话($msg2_cont, $roomid, 'azxy10');
+            Broadcast($msg2_cont, $roomid, 'azxy10');
         }
         if($msg3_cont != "" && $azxy10djs == $msg3){
-            管理员喊话($msg3_cont, $roomid, 'azxy10');
+            Broadcast($msg3_cont, $roomid, 'azxy10');
         }
     }
   if($azxy5open){
@@ -521,19 +521,19 @@ foreach($cons as $con){
        $contest2 = str_replace("[期号]",$qishu18,$fengpanxiaoxi);
        $contests2 = str_replace("[换行]","<br>",$contest2);
         if($azxy5time + 30 == $azxy5djs){
-            管理员喊话( $contests1, $roomid, 'azxy5');
+            Broadcast( $contests1, $roomid, 'azxy5');
         }
         if($azxy5time == $azxy5djs){
-            管理员喊话( $contests2, $roomid, 'azxy5');
+            Broadcast( $contests2, $roomid, 'azxy5');
         }
         if($msg1_cont != "" && $azxy5djs == $msg1){
-            管理员喊话($msg1_cont, $roomid, 'azxy5');
+            Broadcast($msg1_cont, $roomid, 'azxy5');
         }
         if($msg2_cont != "" && $azxy5djs == $msg2){
-            管理员喊话($msg2_cont, $roomid, 'azxy5');
+            Broadcast($msg2_cont, $roomid, 'azxy5');
         }
         if($msg3_cont != "" && $azxy5djs == $msg3){
-            管理员喊话($msg3_cont, $roomid, 'azxy5');
+            Broadcast($msg3_cont, $roomid, 'azxy5');
         }
     }
 }

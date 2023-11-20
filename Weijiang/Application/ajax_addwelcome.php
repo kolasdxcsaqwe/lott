@@ -29,7 +29,7 @@ if($type == 'add'){
     $game = $sql['game'];
     $room = $sql['roomid'];
     $headimg = get_query_val('fn_setting', 'setting_sysimg', array('roomid' => $room));
-    insert_query("fn_chat", array("userid" => "system", "username" => "管理员", "headimg" => $headimg, 'content' => '@' . $username . ', ' . $text, 'addtime' => date('H:i:s'), 'game' => $game, 'roomid' => $room, 'type' => 'S1'));
+    adminBroadcast('@' . $username . ', ' . $text,'','',$room,$game,'S1','system');
     echo json_encode(array("success" => true));
     exit();
 }elseif($type == 'sendcustom'){
