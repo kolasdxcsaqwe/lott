@@ -14,16 +14,19 @@ function getTimestamp($digits = false)
 error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 date_default_timezone_set("Asia/Shanghai");
 
-
+$endTime=30;
 if ($_COOKIE['game'] == 'xy28' || $_COOKIE['game'] == 'ny28') {
     $gametype = 'pc28a';
 
+
     if ($_COOKIE['game'] == 'xy28') {
         $data = get_query_vals('fn_open', '*', "type = 4 order by term desc limit 1");
+        $endTime=get_query_val('fn_lottery4', 'fengtime','');
     }
 
     if ($_COOKIE['game'] == 'ny28') {
         $data = get_query_vals('fn_open', '*', "type = 19 order by term desc limit 1");
+        $endTime=get_query_val('fn_lottery19', 'fengtime','');
     }
 
     $term = $data['term'];
@@ -49,6 +52,7 @@ if ($_COOKIE['game'] == 'xy28' || $_COOKIE['game'] == 'ny28') {
 
     echo "
     {
+        \"endTime\":" . $endTime . ",
        \"time\":" . getTimestamp(13) . ",
        \"current\": {
           \"game\":\"" . $gametype . "\",
@@ -98,9 +102,10 @@ if ($_COOKIE['game'] == 'xy28' || $_COOKIE['game'] == 'ny28') {
     $next_term = $data['next_term'];
     $next_ss = (int)strtotime($next_times) . '000' - getTimestamp(13);
 
-
+    $endTime=get_query_val('fn_lottery5', 'fengtime','');
     echo "
   {
+  \"endTime\":" . $endTime . ",
    \"time\":" . getTimestamp(13) . ",
    \"current\": {
       \"game\":\"" . $gametype . "\",

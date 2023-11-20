@@ -235,7 +235,7 @@ function init() {
             console.log("awardTime:"+awardTime)
             setTimer(awardTime, "NextStart", 0);
             // setTimer(awardTime,"ThisEnd",(Jdata.next.delayTimeInterval*1));
-            setTimer(awardTime, "ThisEnd", 30);
+            setTimer(awardTime, "ThisEnd", Jdata.endTime);
             //  $('#NextStart').timer('start');
             //  $('#ThisEnd').timer('start');
             //alert("SUCCESS!!!");
