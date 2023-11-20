@@ -376,7 +376,7 @@ switch ($type) {
             break;
         } else {
             echo json_encode(array("success" => true, "content" => $content));
-            roomBroadcast($headimg,$nickname,$content,'','',$postRoomid,$BetGame,$postUserid,$co[1]);
+            roomBroadcast($headimg,$nickname,$content,'','',$postRoomid,$BetGame,$type,$postUserid,$co[1]);
         }
         break;
 }
