@@ -261,4 +261,5 @@ function roomBroadcast($headimg,$userName,$Content, $chat_term='', $chat_status=
         'time'=>date('Y-m-d H:i:s'), 'type' => $chatType, 'userid' => $userid, 'game' => $game, 'roomid' => $roomid,'chatid'=>$chatid));
 }
 
+
 ?>
