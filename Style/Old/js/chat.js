@@ -1,8 +1,15 @@
 var sendtime = 0;
 var id = 1;
 var nowTerm=""
+
+var websocket = null;
+var url = "";
+var delayRun;
+var lockReconnect = false;//避免重复连接
+
+
 $(function () {
-    FirstGetContent();
+
     $('.sendemaill').click(function () { // 重点是这里，从这里向服务器端发送数据
         var msgtxt = $('#Message').val();
         send_msg(msgtxt);
@@ -12,6 +19,14 @@ $(function () {
     setInterval(function () {
         getUserInfo()
     }, 30000);
+
+    $(document).ready(function () {
+        var myURL = parseURL(window.location.href);
+        console.log(myURL.host)
+        url = "ws://"+myURL.host+":8653/chat/"+info.roomid+"/" + info.game + "/" + info.userid;
+        connect(url,0)
+    });
+
 });
 
 function send_msg(msg) {
@@ -256,4 +271,106 @@ Date.prototype.format = function (format) {
             RegExp.$1.length == 1 ? o[k] :
                 ("00" + o[k]).substr(("" + o[k]).length));
     return format;
+}
+
+//重试连接socket
+function connect(url,delay) {
+    if(lockReconnect) {
+        return;
+    };
+    lockReconnect = true;
+    //没连接上会一直重连，设置延迟避免请求过多
+    clearTimeout(delayRun)
+    setTimeout(function () {
+        createWebSocket(url);
+    },delay);
+}
+
+function createWebSocket() {
+    //判断当前浏览器是否支持WebSocket
+    if('WebSocket' in window){
+        websocket = new WebSocket(url);
+    }
+    else{
+        alert('当前浏览器不支持，请更换浏览器')
+    }
+
+    //连接发生错误的回调方法
+    websocket.onerror = function(){
+        // setMessageInnerHTML("error");
+        console.log(' onerror');
+    };
+
+    //连接成功建立的回调方法
+    websocket.onopen = function(event){
+        //setMessageInnerHTML("open");
+        console.log(" Socket is On");
+        //心跳检测重置
+        websocket.send('heartbeat');
+    }
+
+    //接收到消息的回调方法
+    websocket.onmessage = function(event){
+        // 维持心跳
+        console.log("onmessage==>"+event.data)
+
+        if(event.data ==='heartbeat'){
+            setTimeout(function(){
+                //这里发送一个心跳，后端收到后，返回一个心跳消息，
+                //onmessage拿到返回的心跳就说明连接正常
+                websocket.send('heartbeat');
+            }, 5000)
+        }else
+        {
+            var jsonOBJ=JSON.parse(event.data);
+            if(jsonOBJ!=null && jsonOBJ!=undefined)
+            {
+                if(jsonOBJ.datas.betTerm!=null)
+                {
+                    nowTerm=jsonOBJ.datas.betTerm
+                    WelcomMsg(welcome, welHeadimg);
+                }
+                addMessage(jsonOBJ.datas.list);
+            }
+        }
+    }
+
+    //连接关闭的回调方法
+    websocket.onclose = function(){
+        // websocket.setMessageInnerHTML("close");
+        console.log(" Socket closed");
+        lockReconnect = false;
+        connect(url,5000);
+    }
+}
+
+
+function parseURL(url) {
+    var a = document.createElement('a');
+    a.href = url;
+    return {
+        source: url,
+        protocol: a.protocol.replace(':', ''),
+        host: a.hostname,
+        port: a.port,
+        query: a.search,
+        params: (function () {
+            var ret = {},
+                seg = a.search.replace(/^\?/, '').split('&'),
+                len = seg.length, i = 0, s;
+            for (; i < len; i++) {
+                if (!seg[i]) {
+                    continue;
+                }
+                s = seg[i].split('=');
+                ret[s[0]] = s[1];
+            }
+            return ret;
+        })(),
+        file: (a.pathname.match(/\/([^\/?#]+)$/i) || [, ''])[1],
+        hash: a.hash.replace('#', ''),
+        path: a.pathname.replace(/^([^\/])/, '/$1'),
+        relative: (a.href.match(/tps?:\/\/[^\/]+(.+)/) || [, ''])[1],
+        segments: a.pathname.replace(/^\//, '').split('/')
+    };
 }
