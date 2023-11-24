@@ -11543,7 +11543,7 @@ function kaichat($game, $term)
             if ($con['jsdiy'] == '1') continue;
             $kjqh = get_query_val('fn_open', 'term', "`type` = '19' order by `term` desc limit 1");
             Broadcast("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br>第 $term 期已开启下注!", $con['roomid'], 'ny28',$term);
-            echo "bjkl8喊话-" . $con['roomid'] . '..<br>';
+            echo "ny28喊话-" . $con['roomid'] . '..<br>';
         }
     } elseif ($game == 'jnd28') {
         $haoma = get_query_val('fn_open', 'code', "`type` = '5' order by `term` desc limit 1");

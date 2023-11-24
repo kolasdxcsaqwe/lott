@@ -154,29 +154,12 @@ function addMessage(data) {
     if (data == null || data.length < 0) {
         return;
     }
+
     //S1代理  S2待定  S3机器人  S4全局公告
     var str = "";
     for (i = 0; i < data.length; i++) {
         if (parseInt(data[i].id) > id) {
             id = data[i].id;
-        }
-
-        if(info!=undefined && info!=null)
-        {
-            if(info.game=='ny28' || info.game=='xy28' || info.game=='jnd28')
-            {
-                if(data[i].betTerm!==undefined && data[i].betTerm!=='' && data[i].betTerm!==null && parseInt(nowTerm) < parseInt(data[i].betTerm))
-                {
-                    nowTerm=data[i].betTerm;
-                    if(window.frames.length>0 && window.frames[0].window.frames.length>0)
-                    {
-                        if(window.frames[0].window.frames[0].window!=null)
-                        {
-                            window.frames[0].window.frames[0].window.init()
-                        }
-                    }
-                }
-            }
         }
 
         var type = data[i].type;
@@ -190,7 +173,7 @@ function addMessage(data) {
             str += '<div class="saidleft">' +
                 '<img src="' + data[i].headimg + '">' +
                 '<div class="tousaid">' +
-                '<span class="tousaid1">' + data[i].nickname + '</span>&nbsp;&nbsp;' +
+                '<span class="tousaid1">' + data[i].username + '</span>&nbsp;&nbsp;' +
                 '<span class="tousaid2">' + data[i].addtime + '</span>' + qihao +
                 '</div>' +
                 '<div class="tsf">' +
@@ -204,7 +187,7 @@ function addMessage(data) {
                 '<img src="' + headimg + '">' +
                 '<div class="tousaidl">' +
                 '<span class="tousaid2">' + data[i].addtime + '</span>&nbsp;&nbsp;' +
-                '<span class="tousaid1">' + data[i].nickname + '</span>' +
+                '<span class="tousaid1">' + data[i].username + '</span>' +
                 '</div>' +
                 '<div class="ts">' +
                 '<b></b>' +
@@ -217,7 +200,7 @@ function addMessage(data) {
                 '<img src="' + headimg + '">' +
                 '<div class="tousaidl">' +
                 '<span class="tousaid2">' + data[i].addtime + '</span>&nbsp;&nbsp;' +
-                '<span class="tousaid1">' + data[i].nickname + '</span>' +
+                '<span class="tousaid1">' + data[i].username + '</span>' +
                 '</div>' +
                 '<div class="ts">' +
                 '<b style="border-color:transparent transparent transparent #98E165;"></b>' +
@@ -302,11 +285,12 @@ function createWebSocket() {
     };
 
     //连接成功建立的回调方法
-    websocket.onopen = function(event){
+    websocket.onopen = function(){
         //setMessageInnerHTML("open");
         console.log(" Socket is On");
         //心跳检测重置
         websocket.send('heartbeat');
+
     }
 
     //接收到消息的回调方法
@@ -327,9 +311,26 @@ function createWebSocket() {
             {
                 if(jsonOBJ.datas.betTerm!=null)
                 {
-                    nowTerm=jsonOBJ.datas.betTerm
-                    WelcomMsg(welcome, welHeadimg);
+                    if(info!=undefined && info!=null)
+                    {
+                        if(info.game=='ny28' || info.game=='xy28' || info.game=='jnd28')
+                        {
+                            if(jsonOBJ.datas.betTerm!==undefined && jsonOBJ.datas.betTerm!=='' && jsonOBJ.datas.betTerm!==null && parseInt(nowTerm) < parseInt(jsonOBJ.datas.betTerm))
+                            {
+                                nowTerm=jsonOBJ.datas.betTerm;
+                                if(window.frames.length>0 && window.frames[0].window.frames.length>0)
+                                {
+                                    if(window.frames[0].window.frames[0].window!=null)
+                                    {
+                                        window.frames[0].window.frames[0].window.init()
+                                    }
+                                }
+                            }
+                        }
+                    }
+
                 }
+
                 addMessage(jsonOBJ.datas.list);
             }
         }
