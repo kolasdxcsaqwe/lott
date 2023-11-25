@@ -33,5 +33,9 @@
 	{
 		"url": "http://localhost:8123/clearCache.php",
 		"sec": 3600
+	},
+	{
+		"url": "http://localhost:8123/ClearOrderCache.php",
+		"sec": 604800
 	}
 ]
