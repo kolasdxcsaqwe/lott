@@ -14,7 +14,6 @@ switch ($action){
 		break;
 }
 function add(){
-	global $mydb;
 	$data['cat_id'] = $_POST['cat_id'];
 	$data['res_code'] = $_POST['res_code'];
 	$data['res_time'] = $_POST['res_time'];
@@ -38,7 +37,7 @@ function add(){
 			}
 			$data['res_code']= implode(',', $res);
 		}
-	$r = $mydb->table('fn_res_open')->data($data)->insert();
+    $r=insert_query("fn_res_open",$data);
 	if($r){
 		$arr['success'] = true;
 	}else{
@@ -48,36 +47,28 @@ function add(){
 	echo json_encode($arr);
 }
 function del(){
-	global $mydb;
-	$map['id'] = $_POST['id'];
-	
-	$r = $mydb->table('fn_res_open')->where($map)->delete();
-	if($r){
-		$arr['success'] = true;
-	}else{
-		$arr['success'] = false;
-    	$arr['msg'] = '参数错误..Err(-9999)';
-	}
+    $id=$_POST['id'];
+    delete_query("fn_res_open","id = $id");
+    $arr['success'] = true;
 	echo json_encode($arr);
 }
 function restore(){
-	global $mydb;
-	$map['id'] = $_POST['id'];
+	$id = $_POST['id'];
 	//本体
-	$data = $mydb->table('fn_res_open')->where($map)->find();
+    $data=get_query_vals("fn_res_open","*","id = $id");
 	//还原开奖结果
-	$rs = $mydb->table('fn_open')
-		->where(array('term'=>$data['term'],'type'=>$data['cat_id']))
-		->data(array('code'=>$data['code']))
-		->update();
-	if($rs){
-		//更新预设表状态
-		$mydb->table('fn_res_open')->where($map)->data(array('status'=>2))->update(true);
-		$arr['success'] = true;
-	}else{
-		$arr['success'] = false;
-    	$arr['msg'] = '开奖期号数据不存在';
-	}
-	echo json_encode($arr);
+//	$rs = $mydb->table('fn_open')
+//		->where(array('term'=>$data['term'],'type'=>$data['cat_id']))
+//		->data(array('code'=>$data['code']))
+//		->update();
+//	if($rs){
+//		//更新预设表状态
+//		$mydb->table('fn_res_open')->where($map)->data(array('status'=>2))->update(true);
+//		$arr['success'] = true;
+//	}else{
+//		$arr['success'] = false;
+//    	$arr['msg'] = '开奖期号数据不存在';
+//	}
+//	echo json_encode($arr);
 }
 ?>

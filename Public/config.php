@@ -13,25 +13,27 @@ $console = "v9ym";
 $db['host'] = "127.0.0.1";
 $db['user'] = "root";//用户名 线上
 $db['pass'] = "4318471pk";//密码 线上
-$db['name'] = "v9ym";//数据库名
 
 //$db['user'] = "root";//用户名 线上
 //$db['pass'] = "123qwe";//密码 线上
 
+$db['name'] = "v9ym";//数据库名
 $isWeiXInBrowse = true;//开关 如果上公众号的话把这个打开
 
 $dbconn = db_connect($db['host'], $db['user'], $db['pass'], $db['name']);
 $uploadurl = "http://cdn.ononn.com";
 define("UPLOADPIC", "http://cdn.ononn.com");
 include_once("db.class.php");
-$mydb = new db(array($db['host'], 'DB_USER' => $db['user'], 'DB_PWD' => $db['pass'], 'DB_NAME' => $db['name']));
 $wx['ID'] = 'wx07a1f8b12290ba3b';
 $wx['key'] = '85311c0d23e490367bd44882f1e1ad6e'; //这里是公众号 不用管  我们没有公众号
 $redirect_uri = urlencode("http://{$_SERVER["HTTP_HOST"]}/wx_login.php?agent={$_GET['agent']}&g={$_GET['g']}&room={$_GET['room']}");
 $oauth = "http://shuaih.cn/1.html?appid={$wx["ID"]}&redirect_uri={$redirect_uri}&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
-$info_singset = $mydb->table('fn_sign_set')->field('*')->where(array('id' => 1))->find();//
+if(empty($_SESSION['singset']))
+{
+    $info_singset = get_query_vals("fn_sign_set","*"," id =1 ");
+    $_SESSION['singset'] = $info_singset;
+}
 
-$_SESSION['singset'] = $info_singset;
 
 function room_isOK($roomid)
 {
@@ -142,24 +144,23 @@ function U_isOK($userid, $headimg)
 }
 
 //网页登录处理
-function web_login()
-{
-    global $mydb;
-    $loginuser = $_POST['loginuser'];
-    $loginpass = md5($_POST['loginpass']);
-    $r = $mydb->table('fn_user')->where(array('loginuser' => $loginuser, 'loginpass' => $loginpass))->find();
-    if ($r) {
-        return auto_login($r['id']);
-    } else {
-        return false;
-    }
-}
+//function web_login()
+//{
+//    global $mydb;
+//    $loginuser = $_POST['loginuser'];
+//    $loginpass = md5($_POST['loginpass']);
+//    $r = $mydb->table('fn_user')->where(array('loginuser' => $loginuser, 'loginpass' => $loginpass))->find();
+//    if ($r) {
+//        return auto_login($r['id']);
+//    } else {
+//        return false;
+//    }
+//}
 
 //登录过程
 function auto_login($id)
 {
-    global $mydb;
-    $_r = $mydb->table('fn_user')->where(array('id' => $id))->find();
+    $_r=get_query_vals("fn_user","*"," id = $id");
     $_SESSION['userid'] = $_r['userid'];
     $_SESSION['username'] = $_r['username'];
     $_SESSION['headimg'] = $_r['headimg'];
@@ -194,79 +195,79 @@ function isWeixin()
     }
 }
 
-function get_user_money()
-{
-    global $mydb;
-    $r = $mydb->table('fn_user')->field('money')->where(array('userid' => $_SESSION['userid']))->find();
-    $time = array();
-    $time[0] = date('Y-m-d') . " 00:00:00";
-    $time[1] = date('Y-m-d') . " 23:59:59";
-    $map['roomid'] = $_SESSION['roomid'];
-    $map['userid'] = $_SESSION['userid'];
-
-    $map['type'] = '上分';
-    $map['time'] = array('between', array('' . $time[0] . '', '' . $time[1] . ''));
-    $sf = $mydb->table('fn_upmark')->field('sum(money)')->where($map)->find();
-    $sf = (int)$sf['sum(money)'];
-
-    $map['type'] = '下分';
-    $xf = $mydb->table('fn_upmark')->field('sum(money)')->where($map)->find();
-    $xf = (int)$xf['sum(money)'];
-
-    unset($map['type']);
-    unset($map['time']);
-    $map['addtime'] = array('between', array('' . $time[0] . '', '' . $time[1] . ''));
-    $map['_string'] = 'status > 0';
-    $allz = $mydb->table('fn_order')->field('sum(status)')->where($map)->find();
-    $allz = $allz['sum(status)'];
-
-    $sscz = $mydb->table('fn_sscorder')->field('sum(status)')->where($map)->find();
-    $sscz = $sscz['sum(status)'];
-    $jssscz = $mydb->table('fn_jssscorder')->field('sum(status)')->where($map)->find();
-    $jssscz = $jssscz['sum(status)'];
-    $jsscz = $mydb->table('fn_jsscorder')->field('sum(status)')->where($map)->find();
-    $jsscz = $jsscz['sum(status)'];
-    $mtz = $mydb->table('fn_mtorder')->field('sum(status)')->where($map)->find();
-    $mtz = $mtz['sum(status)'];
-    $pcz = $mydb->table('fn_pcorder')->field('sum(status)')->where($map)->find();
-    $pcz = $pcz['sum(status)'];
-    $bjlz = $mydb->table('fn_bjlorder')->field('sum(status)')->where($map)->find();
-    $bjlz = $bjlz['sum(status)'];
-
-    unset($map['status']);
-    $map['_string'] = 'status > 0 or status < 0';
-    $allm = $mydb->table('fn_order')->field('sum(money)')->where($map)->find();
-    $allm = $allm ['sum(money)'];
-
-
-    $sscm = $mydb->table('fn_sscorder')->field('sum(money)')->where($map)->find();
-    $sscm = $sscm['sum(status)'];
-    $jssscm = $mydb->table('fn_jssscorder')->field('sum(money)')->where($map)->find();
-    $jssscm = $jssscm['sum(status)'];
-    $jsscm = $mydb->table('fn_jsscorder')->field('sum(money)')->where($map)->find();
-    $jsscm = $jsscm['sum(status)'];
-    $mtm = $mydb->table('fn_mtorder')->field('sum(money)')->where($map)->find();
-    $mtm = $mtm['sum(status)'];
-    $pcm = $mydb->table('fn_pcorder')->field('sum(money)')->where($map)->find();
-    $pcm = $pcm['sum(status)'];
-    $bjlm = $mydb->table('fn_bjlorder')->field('sum(money)')->where($map)->find();
-    $bjlm = $bjlm['sum(money)'];
-
-    $sscyk = $sscz - $sscm;
-    $jssscyk = $jssscz - $jssscm;
-    $jsscyk = $jsscz - $jsscm;
-    $mtyk = $mtz - $mtm;
-    $pcyk = $pcz - $pcm;
-    $bjlyk = $bjlz - $bjlm;
-    $yk = $allz - $allm;
-    $yk += $pcyk + $mtyk + $sscyk + $jsscyk + $jssscyk + $bjlyk;
-    $allm += $pcm + $mtm + $sscm + $jsscm + $jssscm + $bjlm;
-    $yk = round($yk, 2);
-    $r['yk'] = $yk;
-    $r['liu'] = $allm;
-
-    return $r;
-}
+//function get_user_money()
+//{
+//    global $mydb;
+//    $r = $mydb->table('fn_user')->field('money')->where(array('userid' => $_SESSION['userid']))->find();
+//    $time = array();
+//    $time[0] = date('Y-m-d') . " 00:00:00";
+//    $time[1] = date('Y-m-d') . " 23:59:59";
+//    $map['roomid'] = $_SESSION['roomid'];
+//    $map['userid'] = $_SESSION['userid'];
+//
+//    $map['type'] = '上分';
+//    $map['time'] = array('between', array('' . $time[0] . '', '' . $time[1] . ''));
+//    $sf = $mydb->table('fn_upmark')->field('sum(money)')->where($map)->find();
+//    $sf = (int)$sf['sum(money)'];
+//
+//    $map['type'] = '下分';
+//    $xf = $mydb->table('fn_upmark')->field('sum(money)')->where($map)->find();
+//    $xf = (int)$xf['sum(money)'];
+//
+//    unset($map['type']);
+//    unset($map['time']);
+//    $map['addtime'] = array('between', array('' . $time[0] . '', '' . $time[1] . ''));
+//    $map['_string'] = 'status > 0';
+//    $allz = $mydb->table('fn_order')->field('sum(status)')->where($map)->find();
+//    $allz = $allz['sum(status)'];
+//
+//    $sscz = $mydb->table('fn_sscorder')->field('sum(status)')->where($map)->find();
+//    $sscz = $sscz['sum(status)'];
+//    $jssscz = $mydb->table('fn_jssscorder')->field('sum(status)')->where($map)->find();
+//    $jssscz = $jssscz['sum(status)'];
+//    $jsscz = $mydb->table('fn_jsscorder')->field('sum(status)')->where($map)->find();
+//    $jsscz = $jsscz['sum(status)'];
+//    $mtz = $mydb->table('fn_mtorder')->field('sum(status)')->where($map)->find();
+//    $mtz = $mtz['sum(status)'];
+//    $pcz = $mydb->table('fn_pcorder')->field('sum(status)')->where($map)->find();
+//    $pcz = $pcz['sum(status)'];
+//    $bjlz = $mydb->table('fn_bjlorder')->field('sum(status)')->where($map)->find();
+//    $bjlz = $bjlz['sum(status)'];
+//
+//    unset($map['status']);
+//    $map['_string'] = 'status > 0 or status < 0';
+//    $allm = $mydb->table('fn_order')->field('sum(money)')->where($map)->find();
+//    $allm = $allm ['sum(money)'];
+//
+//
+//    $sscm = $mydb->table('fn_sscorder')->field('sum(money)')->where($map)->find();
+//    $sscm = $sscm['sum(status)'];
+//    $jssscm = $mydb->table('fn_jssscorder')->field('sum(money)')->where($map)->find();
+//    $jssscm = $jssscm['sum(status)'];
+//    $jsscm = $mydb->table('fn_jsscorder')->field('sum(money)')->where($map)->find();
+//    $jsscm = $jsscm['sum(status)'];
+//    $mtm = $mydb->table('fn_mtorder')->field('sum(money)')->where($map)->find();
+//    $mtm = $mtm['sum(status)'];
+//    $pcm = $mydb->table('fn_pcorder')->field('sum(money)')->where($map)->find();
+//    $pcm = $pcm['sum(status)'];
+//    $bjlm = $mydb->table('fn_bjlorder')->field('sum(money)')->where($map)->find();
+//    $bjlm = $bjlm['sum(money)'];
+//
+//    $sscyk = $sscz - $sscm;
+//    $jssscyk = $jssscz - $jssscm;
+//    $jsscyk = $jsscz - $jsscm;
+//    $mtyk = $mtz - $mtm;
+//    $pcyk = $pcz - $pcm;
+//    $bjlyk = $bjlz - $bjlm;
+//    $yk = $allz - $allm;
+//    $yk += $pcyk + $mtyk + $sscyk + $jsscyk + $jssscyk + $bjlyk;
+//    $allm += $pcm + $mtm + $sscm + $jsscm + $jssscm + $bjlm;
+//    $yk = round($yk, 2);
+//    $r['yk'] = $yk;
+//    $r['liu'] = $allm;
+//
+//    return $r;
+//}
 
 function robotBroadcast($Content, $chat_term='', $chat_status='', $roomid, $game,$chatType="S3",$userid,$betTerm=''){
     $headimg = get_query_val('fn_setting', 'setting_robotsimg', array('roomid' => $roomid));
