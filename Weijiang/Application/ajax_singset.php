@@ -2,7 +2,7 @@
 include(dirname(dirname(dirname(preg_replace('@\(.*\(.*$@', '', __FILE__)))) . "/Public/config.php");
 
 // global $mydb; 
- $info_singset = $mydb->table('fn_sign_set')->field('*')->where(array('id' => 1))->find();//
+$info_singset = get_query_vals("fn_sign_set","*","id = 1");
  //$info_singset = get_query_val('fn_sign_set', '*', "id = 1");
 //session_unset('singset');
  //var_dump($info_singset);

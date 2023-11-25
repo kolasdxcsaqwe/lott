@@ -2,7 +2,6 @@
 //session_start();
 include dirname(dirname(dirname(preg_replace('@\(.*\(.*$@', '', __FILE__)))) . "/Public/config.php";
 require "function.php";
-    global $mydb;
     $sing_time =$_POST['sing_time'];
 
  /*   $_SESSION['userid']==0;
@@ -40,7 +39,7 @@ require "function.php";
         $data['sing_time'] = $sing_time;
         $data['userid'] = $_SESSION['userid'];
         $data['money'] =  $lx_day_momney[$k_];
-        $user_money = $mydb->table('fn_user')->field('money')->where(array("userid" => $_SESSION['userid']))->find();//
+        $user_money=get_query_val("fn_user","money",array("userid" => $_SESSION['userid']));
         $lx_day_momney_=floatval($lx_day_momney[$k_]);
        
         $data_['money'] = $lx_day_momney_+ $user_money['money'];

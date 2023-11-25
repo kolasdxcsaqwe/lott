@@ -1,6 +1,5 @@
 <?php
-include_once "../Public/db.class.php";
-$db = new db(array($db['host'] ,'DB_USER'=>$db['user'],'DB_PWD'=>$db['pass'],'DB_NAME'=>$db['name']));
+include_once "../Public/config.php";
 ?>
 <link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
 <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
@@ -64,8 +63,16 @@ $db = new db(array($db['host'] ,'DB_USER'=>$db['user'],'DB_PWD'=>$db['pass'],'DB
             	'<span class="label label-success">已还原</span>');
             	$map = array();
             	$status = $_GET['status'];
-            	if(!empty($status)) $map['status'] = $status;
-              $data = $db->table('fn_res_open')->where($map)->order('id Desc')->select();
+            	if(!empty($status)){
+                    select_query("fn_res_open","*","status = $status order by id Desc");
+                }
+                else
+                {
+                    select_query("fn_res_open","*"," order by id Desc");
+                }
+                while ($con = db_fetch_array()) {
+                $data[] = $con;
+                }
             ?>
             <?php foreach($data as $k=>$v):?>
               <tr id='<?php echo $v['id']?>'>
