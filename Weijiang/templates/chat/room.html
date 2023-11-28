@@ -1,5 +1,6 @@
 <?
 $g = $_GET['game'] == '' ? 'pk10' : $_GET['game'];
+$roomid=$_SESSION['agent_room'];
 
 switch($g){
     case 'pk10': $game = '北京赛车'; break;
@@ -148,8 +149,8 @@ switch($g){
         var game = '<? echo $g; ?>';
         var first = true;
         var time = 0;
-        var roomid="10029"
-        var userid="10029admin"
+        var roomid='<? echo $roomid; ?>'
+        var userid="<? echo $roomid; ?>admin"
 
         getgame();
         tablestart();
@@ -188,15 +189,15 @@ switch($g){
         }
 
         function updateContent() {
-            $.ajax({
-                url: 'Application/ajax_chat.php?type=update&id=' + id + '&game=' + game,
-                type: 'get',
-                dataType: 'json',
-                success: function (data) {
-                    addMessage(data);
-                },
-                error: function () { }
-            });
+            // $.ajax({
+            //     url: 'Application/ajax_chat.php?type=update&id=' + id + '&game=' + game,
+            //     type: 'get',
+            //     dataType: 'json',
+            //     success: function (data) {
+            //         addMessage(data);
+            //     },
+            //     error: function () { }
+            // });
         }
 
         function addMessage(data) {
