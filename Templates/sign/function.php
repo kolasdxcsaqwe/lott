@@ -1,7 +1,6 @@
 <?php
  function getSign_status($sing_time='')
 {
-    global $mydb;
     if (!$sing_time) {
        return false;
     } 
@@ -15,8 +14,8 @@
     if (intval($sing_time) <10) {
         $sing_time=sprintf ( "%02d",intval($sing_time));
     } 
-    $sing_time =date("Ym" . $sing_time . ""); 
-    $r = $mydb->table('fn_sign')->field('*')->where(array('userid' => $s_userid,'sing_time'=>$sing_time))->find();
+    $sing_time =date("Ym" . $sing_time . "");
+    $r=get_query_vals("fn_sign","*",array('userid' => $s_userid,'sing_time'=>$sing_time));
     //return $sing_time;
     //get_query_vals('fn_sign', '*', array('userid' => $s_userid,'sing_time'=>$sing_time));//
     //$r =  select_query("fn_sign", '*', "`userid` = '{$s_userid}' and `sing_time` = '{$sing_time}' ");
@@ -32,7 +31,6 @@
  * 
  */
 function get_weeks($time = '', $format='Ymd'){
-    global $mydb;
     $s_userid = $_SESSION['userid'];
    if (empty($s_userid)) {
         return array();
@@ -49,8 +47,8 @@ function get_weeks($time = '', $format='Ymd'){
     unset($date[count($date)]);
   foreach ($date as $key => $value) {
 
-   $r =$mydb->table('fn_sign')->field('*')->where(array('userid' => $s_userid,'sing_time'=>$date[$key]))->find();// get_query_vals('fn_sign', '*', array('userid' => $s_userid,'sing_time'=>$date[$key]));//
     // $r =  select_query("fn_sign", '*', "`userid` = '{$s_userid}' and `sing_time` = '{$date[$key]}' ");
+      $r=get_query_vals("fn_sign","*",array('userid' => $s_userid,'sing_time'=> $value));
       if (empty($r)) {
        
       // $lx_day=$date[$key]; 

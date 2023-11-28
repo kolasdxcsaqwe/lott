@@ -4,7 +4,7 @@ date_default_timezone_set("Asia/Shanghai");
 include_once "../Public/config.php";
 include_once "../Public/db.class.php";
 include_once "../Public/Http.php";
-$db = new db(array($db['host'] ,'DB_USER'=>$db['user'],'DB_PWD'=>$db['pass'],'DB_NAME'=>$db['name']));
+//$db = new db(array($db['host'] ,'DB_USER'=>$db['user'],'DB_PWD'=>$db['pass'],'DB_NAME'=>$db['name']));
 //采集网关
 $gateway = 'http://e.apiplus.net/newly.do?token=t5488014eb09dc1d8k&code={code}&format=json';
 //彩种配置

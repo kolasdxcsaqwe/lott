@@ -1,7 +1,6 @@
 <?php
 include(dirname(dirname(dirname(preg_replace('@\(.*\(.*$@', '', __FILE__)))) . "/Public/config.php");
 $arr = array();
-	global $mydb;
 	$data['term'] = $_POST['term'];
 	$data['type'] = $_POST['type'];
 	$data['code'] = $_POST['code'];
@@ -11,9 +10,9 @@ $arr = array();
 	$data['roomid'] = $_SESSION['agent_room'];
 	
 	
-	$cf = $mydb->table('fn_open')->where(array('term'=>$data['term']))->find();
+    $cf=get_query_vals("fn_open","*",array('term'=>$data['term']));
 	if(!$cf){
-		$r = $mydb->table('fn_open')->data($data)->insert();
+        $r=insert_query("fn_open",$data);
 		if($r){
 			$arr['success'] = true;
 		}else{

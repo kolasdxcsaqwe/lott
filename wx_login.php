@@ -20,17 +20,14 @@ else
     $_SESSION['agent'] =  $agent;
     $_SESSION['roomid']=$room;
     if (U_isOK($openid, $headimg)) {
-        $r = $mydb->table('fn_user')->where(array(
-            'userid' => $openid
-        ))->find();
+        $r=get_query_vals("fn_user","*"," userid = $openid");
+
         auto_login($r['id']);
         // var_dump("Location: qr.php?room=" . $room."&agent=".$agent."&userid=".$openid."&username=".$nickname."&headimg=".$headimg);
           header("Location: qr.php?room=" . $room."&agent=".$agent."&userid=".$openid."&username=".$nickname."&headimg=".$headimg);
     } else {
         U_create($openid, $nickname, $headimg, $agent);
-        $r = $mydb->table('fn_user')->where(array(
-            'userid' => $openid
-        ))->find();
+        $r=get_query_vals("fn_user","*"," userid = $openid");
         auto_login($r['id']);
         header("Location: qr.php?room=" . $room."&agent=".$agent."&userid=".$openid."&username=".$nickname."&headimg=".$headimg);
         //   var_dump("22Location: qr.php?room=" . $room."&agent=".$agent."&userid=".$openid."&username=".$nickname."&headimg=".$headimg);

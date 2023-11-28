@@ -116,15 +116,6 @@ function login($loginuser,$loginpass) {
     }
 }
 
-
-function enter($id) {
-    global $mydb;
-    $_r = $mydb->table('fn_user')->where(array('id' => $id))->find();
-
-
-    return true;
-}
-
 function  uuid()
 {
     $chars = md5(uniqid(mt_rand(), true));
