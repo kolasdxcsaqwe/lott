@@ -22,7 +22,9 @@
 //echo json_encode($jj);
 
 include_once("./Public/config.php");
-echo "sadsad";
+$nowTime= date('Y-m-d H:i:s', time());
+$time= date('Y-m-d H:i:s', time() - (60 * 60 * 24 * 30));
+echo $nowTime."    ".$time;
 
 
 
