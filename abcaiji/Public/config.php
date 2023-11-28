@@ -241,23 +241,21 @@ function isWeixin() {
 //}
 
 function robotBroadcast($Content, $chat_term='', $chat_status='', $roomid, $game,$chatType="S3",$userid,$betTerm=''){
-    $headimg = get_query_val('fn_setting', 'setting_robotsimg', array('roomid' => $roomid));
-    insert_query("fn_chat", array("username" => "播报员", "headimg" => $headimg, 'chat_term'=>$chat_term,
+    vpost("http://localhost:8653/sendChat", array("username" => "播报员", "imgType" => 'robot', 'chat_term'=>$chat_term,
         'chat_status'=>$chat_status,'content' => $Content, 'addtime' => date('H:i:s'),
-        'time'=>date('Y-m-d H:i:s'), 'type' => $chatType, 'userid' => $userid, 'game' => $game, 'roomid' => $roomid,'betterm'=>$betTerm));
+        'time'=>date('Y-m-d H:i:s'), 'chatType' => $chatType, 'userid' => $userid, 'game' => $game, 'roomid' => $roomid,'betTerm'=>$betTerm));
 }
 
 function adminBroadcast($Content, $chat_term='', $chat_status='', $roomid, $game,$chatType="S1",$userid){
-    $headimg = get_query_val('fn_setting', 'setting_sysimg', array('roomid' => $_SESSION['agent_room']));
-    insert_query("fn_chat", array("username" => "管理员", "headimg" => $headimg, 'chat_term'=>$chat_term,
+    vpost("http://localhost:8653/sendChat", array("username" => "管理员", "imgType" => 'admin', 'chat_term'=>$chat_term,
         'chat_status'=>$chat_status,'content' => $Content, 'addtime' => date('H:i:s'),
-        'time'=>date('Y-m-d H:i:s'), 'type' => $chatType, 'userid' => $userid, 'game' => $game, 'roomid' => $roomid));
+        'time'=>date('Y-m-d H:i:s'), 'chatType' => $chatType, 'userid' => $userid, 'game' => $game, 'roomid' => $roomid));
 }
 
 function roomBroadcast($headimg,$userName,$Content, $chat_term='', $chat_status='', $roomid, $game,$chatType="S3",$userid,$chatid=''){
-    insert_query("fn_chat", array("username" => $userName, "headimg" => $headimg, 'chat_term'=>$chat_term,
+    vpost("http://localhost:8653/sendChat", array("username" => $userName, "headimg" => $headimg, 'chat_term'=>$chat_term,
         'chat_status'=>$chat_status,'content' => $Content, 'addtime' => date('H:i:s'),
-        'time'=>date('Y-m-d H:i:s'), 'type' => $chatType, 'userid' => $userid, 'game' => $game, 'roomid' => $roomid,'chatid'=>$chatid));
+        'time'=>date('Y-m-d H:i:s'), 'chatType' => $chatType, 'userid' => $userid, 'game' => $game, 'roomid' => $roomid,'chatid'=>$chatid));
 }
 
 
