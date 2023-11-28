@@ -138,16 +138,16 @@ function FirstGetContent() {
 }
 
 function updateContent() {
-    $.ajax({
-        url: '/Application/ajax_chat.php?type=update&id=' + id,
-        type: 'get',
-        dataType: 'json',
-        success: function (data) {
-            addMessage(data);
-        },
-        error: function () {
-        }
-    });
+    // $.ajax({
+    //     url: '/Application/ajax_chat.php?type=update&id=' + id,
+    //     type: 'get',
+    //     dataType: 'json',
+    //     success: function (data) {
+    //         addMessage(data);
+    //     },
+    //     error: function () {
+    //     }
+    // });
 }
 
 function addMessage(data) {
