@@ -25,7 +25,11 @@ $roomid='10029';
 //$time=getMillisecond();
 //PC_jiesuan222('ny28');
 //echo "使用时间:".(getMillisecond()-$time);
-phpinfo();
+
+$data=get_query_val("fn_user", "money", array("userid" => "c9d1e357-30b3-9710-8d4c-9a28d2e47d97"));
+$data2=get_query_vals("fn_sign","*",array('userid' => "c9d1e357-30b3-9710-8d4c-9a28d2e47d97",'sing_time'=>"20231128"));
+$kk=floatval($data)+1;
+echo json_encode($kk." ".$data);
 
 function getTimestamp($digits = false)
 {
