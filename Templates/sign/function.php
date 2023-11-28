@@ -1,21 +1,21 @@
 <?php
- function getSign_status($sing_time='')
+function getSign_status($sing_time = '')
 {
     if (!$sing_time) {
-       return false;
-    } 
-    $s_userid = $_SESSION['userid'];
-  
-    if (empty($s_userid)) {
-       
         return false;
-        
-    }   
-    if (intval($sing_time) <10) {
-        $sing_time=sprintf ( "%02d",intval($sing_time));
-    } 
-    $sing_time =date("Ym" . $sing_time . "");
-    $r=get_query_vals("fn_sign","*",array('userid' => $s_userid,'sing_time'=>$sing_time));
+    }
+    $s_userid = $_SESSION['userid'];
+
+    if (empty($s_userid)) {
+
+        return false;
+
+    }
+    if (intval($sing_time) < 10) {
+        $sing_time = sprintf("%02d", intval($sing_time));
+    }
+    $sing_time = date("Ym" . $sing_time . "");
+    $r = get_query_vals("fn_sign", "*", array('userid' => $s_userid, 'sing_time' => $sing_time));
     //return $sing_time;
     //get_query_vals('fn_sign', '*', array('userid' => $s_userid,'sing_time'=>$sing_time));//
     //$r =  select_query("fn_sign", '*', "`userid` = '{$s_userid}' and `sing_time` = '{$sing_time}' ");
@@ -28,39 +28,42 @@
 }
 
 /**
- * 
+ *
  */
-function get_weeks($time = '', $format='Ymd'){
+function get_weeks($time = '', $format = 'Ymd')
+{
     $s_userid = $_SESSION['userid'];
-   if (empty($s_userid)) {
+    if (empty($s_userid)) {
         return array();
     }
-  $time = $time != '' ? $time : time();
-  //组合数据
+    $time = $time != '' ? $time : time();
+    //组合数据
 
-  for ($i=1; $i<=7; $i++){
-    $date[$i] = date($format ,strtotime( '+' . $i-7 .' days', $time));
-  }
- // $lx_day = date('Ymd');
-  $day_ok =array();
+    for ($i = 1; $i <= 7; $i++) {
+        $date[$i] = date($format, strtotime('+' . $i - 7 . ' days', $time));
+    }
+    // $lx_day = date('Ymd');
+    $day_ok = array();
     arsort($date);
     unset($date[count($date)]);
-  foreach ($date as $key => $value) {
+    foreach ($date as $key => $value) {
 
-    // $r =  select_query("fn_sign", '*', "`userid` = '{$s_userid}' and `sing_time` = '{$date[$key]}' ");
-      $r=get_query_vals("fn_sign","*",array('userid' => $s_userid,'sing_time'=> $value));
-      if (empty($r)) {
-       
-      // $lx_day=$date[$key]; 
-       return $day_ok;
-       
-    }else{
-        $day_ok[$key]=$date[$key];
+        // $r =  select_query("fn_sign", '*', "`userid` = '{$s_userid}' and `sing_time` = '{$date[$key]}' ");
+        $r = get_query_vals("fn_sign", "*", array('userid' => $s_userid, 'sing_time' => $value));
+        if (empty($r)) {
+
+            // $lx_day=$date[$key];
+            return $day_ok;
+
+        } else {
+            $day_ok[$key] = $date[$key];
+        }
     }
-  } 
- return $day_ok;
+    return $day_ok;
 }
-function getSign($row,$userid) {
+
+function getSign($row, $userid)
+{
     $t = $row + 1;
     if ($t > date('d')) {
         $td = "<td style='background-color:lemonchiffon' valign='top'>
@@ -74,7 +77,7 @@ function getSign($row,$userid) {
         }
         $t2 = strtotime(date("Y-m-" . $day . ""));
         //$info = M("sign")->field("id")->where("addtime = " . $t2 . " AND status = 0 AND uid = " . session('userid') . "")->find();
-$info = get_query_val('fn_sign', 'id', "addtime = '{$t2}' AND status = 0 AND uid ='{$userid}'");
+        $info = get_query_val('fn_sign', 'id', "addtime = '{$t2}' AND status = 0 AND uid ='{$userid}'");
 
         if ($info) {
             $td = "<td style='background-color:navajowhite;navajowhite ;'>
@@ -99,40 +102,40 @@ $info = get_query_val('fn_sign', 'id', "addtime = '{$t2}' AND status = 0 AND uid
 }
 
 
-
-function getinfo($userid) {
+function getinfo($userid)
+{
     $time = array();
     $time[0] = date('Y-m-d') . " 00:00:00";
     $time[1] = date('Y-m-d') . " 23:59:59";
-    $sf = (int) get_query_val('fn_upmark', 'sum(`money`)', "roomid = '{$_SESSION['roomid']}' and userid = '{$userid}' and type = '上分' and status = '已处理' and (time between '{$time[0]}' and '{$time[1]}')");
-    $xf = (int) get_query_val('fn_upmark', 'sum(`money`)', "roomid = '{$_SESSION['roomid']}' and userid = '{$userid}' and type = '下分' and status = '已处理' and (time between '{$time[0]}' and '{$time[1]}')");
-    $allm = (int) get_query_val('fn_order', 'sum(`money`)', "roomid = '{$_SESSION['roomid']}' and userid = '{$userid}' and (`addtime` between '{$time[0]}' and '{$time[1]}')  and (status > 0 or status < 0)");
+    $sf = (int)get_query_val('fn_upmark', 'sum(`money`)', "roomid = '{$_SESSION['roomid']}' and userid = '{$userid}' and type = '上分' and status = '已处理' and (time between '{$time[0]}' and '{$time[1]}')");
+    $xf = (int)get_query_val('fn_upmark', 'sum(`money`)', "roomid = '{$_SESSION['roomid']}' and userid = '{$userid}' and type = '下分' and status = '已处理' and (time between '{$time[0]}' and '{$time[1]}')");
+    $allm = (int)get_query_val('fn_order', 'sum(`money`)', "roomid = '{$_SESSION['roomid']}' and userid = '{$userid}' and (`addtime` between '{$time[0]}' and '{$time[1]}')  and (status > 0 or status < 0)");
     $allz = get_query_val('fn_order', 'sum(`status`)', "roomid = '{$_SESSION['roomid']}' and (`addtime` between '{$time[0]}' and '{$time[1]}') and status > 0 and userid = '{$userid}'");
-    $sscm = (int) get_query_val('fn_sscorder', 'sum(`money`)', "roomid = '{$_SESSION['roomid']}' and userid = '{$userid}' and (`addtime` between '{$time[0]}' and '{$time[1]}')  and (status > 0 or status < 0)");
+    $sscm = (int)get_query_val('fn_sscorder', 'sum(`money`)', "roomid = '{$_SESSION['roomid']}' and userid = '{$userid}' and (`addtime` between '{$time[0]}' and '{$time[1]}')  and (status > 0 or status < 0)");
     $sscz = get_query_val('fn_sscorder', 'sum(`status`)', "roomid = '{$_SESSION['roomid']}' and (`addtime` between '{$time[0]}' and '{$time[1]}') and status > 0 and userid = '{$userid}'");
-    $pcm = (int) get_query_val('fn_pcorder', 'sum(`money`)', "roomid = '{$_SESSION['roomid']}' and userid = '{$userid}' and (`addtime` between '{$time[0]}' and '{$time[1]}')  and (status > 0 or status < 0)");
+    $pcm = (int)get_query_val('fn_pcorder', 'sum(`money`)', "roomid = '{$_SESSION['roomid']}' and userid = '{$userid}' and (`addtime` between '{$time[0]}' and '{$time[1]}')  and (status > 0 or status < 0)");
     $pcz = get_query_val('fn_pcorder', 'sum(`status`)', "roomid = '{$_SESSION['roomid']}' and (`addtime` between '{$time[0]}' and '{$time[1]}') and status > 0 and userid = '{$userid}'");
-    $mtm = (int) get_query_val('fn_mtorder', 'sum(`money`)', "roomid = '{$_SESSION['roomid']}' and userid = '{$userid}' and (`addtime` between '{$time[0]}' and '{$time[1]}')  and (status > 0 or status < 0)");
+    $mtm = (int)get_query_val('fn_mtorder', 'sum(`money`)', "roomid = '{$_SESSION['roomid']}' and userid = '{$userid}' and (`addtime` between '{$time[0]}' and '{$time[1]}')  and (status > 0 or status < 0)");
     $mtz = get_query_val('fn_mtorder', 'sum(`status`)', "roomid = '{$_SESSION['roomid']}' and (`addtime` between '{$time[0]}' and '{$time[1]}') and status > 0 and userid = '{$userid}'");
-    $jsscm = (int) get_query_val('fn_jsscorder', 'sum(`money`)', "roomid = '{$_SESSION['roomid']}' and userid = '{$userid}' and (`addtime` between '{$time[0]}' and '{$time[1]}')  and (status > 0 or status < 0)");
+    $jsscm = (int)get_query_val('fn_jsscorder', 'sum(`money`)', "roomid = '{$_SESSION['roomid']}' and userid = '{$userid}' and (`addtime` between '{$time[0]}' and '{$time[1]}')  and (status > 0 or status < 0)");
     $jsscz = get_query_val('fn_jsscorder', 'sum(`status`)', "roomid = '{$_SESSION['roomid']}' and (`addtime` between '{$time[0]}' and '{$time[1]}') and status > 0 and userid = '{$userid}'");
-    $jssscm = (int) get_query_val('fn_jssscorder', 'sum(`money`)', "roomid = '{$_SESSION['roomid']}' and userid = '{$userid}' and (`addtime` between '{$time[0]}' and '{$time[1]}')  and (status > 0 or status < 0)");
+    $jssscm = (int)get_query_val('fn_jssscorder', 'sum(`money`)', "roomid = '{$_SESSION['roomid']}' and userid = '{$userid}' and (`addtime` between '{$time[0]}' and '{$time[1]}')  and (status > 0 or status < 0)");
     $jssscz = get_query_val('fn_jssscorder', 'sum(`status`)', "roomid = '{$_SESSION['roomid']}' and (`addtime` between '{$time[0]}' and '{$time[1]}') and status > 0 and userid = '{$userid}'");
-     $bjlm = (int) get_query_val('fn_bjlorder', 'sum(`money`)', "roomid = '{$_SESSION['roomid']}' and userid = '{$userid}' and (`addtime` between '{$time[0]}' and '{$time[1]}')  and (status > 0 or status < 0)");
+    $bjlm = (int)get_query_val('fn_bjlorder', 'sum(`money`)', "roomid = '{$_SESSION['roomid']}' and userid = '{$userid}' and (`addtime` between '{$time[0]}' and '{$time[1]}')  and (status > 0 or status < 0)");
     $bjlz = get_query_val('fn_bjlorder', 'sum(`status`)', "roomid = '{$_SESSION['roomid']}' and (`addtime` between '{$time[0]}' and '{$time[1]}') and status > 0 and userid = '{$userid}'");
-    
+
     $bjlyk = $bjlz - $bjlm;
     $sscyk = $sscz - $sscm;
-    
-    
+
+
     $sscyk = $sscz - $sscm;
     $jssscyk = $jssscz - $jssscm;
     $jsscyk = $jsscz - $jsscm;
     $mtyk = $mtz - $mtm;
     $pcyk = $pcz - $pcm;
     $yk = $allz - $allm;
-    $yk += $pcyk + $mtyk + $sscyk + $jsscyk + $jssscyk+$bjlyk;
-    $allm += $pcm + $mtm + $sscm + $jsscm + $jssscm+ $bjlm;
+    $yk += $pcyk + $mtyk + $sscyk + $jsscyk + $jssscyk + $bjlyk;
+    $allm += $pcm + $mtm + $sscm + $jsscm + $jssscm + $bjlm;
     $yk = round($yk, 2);
     return array("yk" => $yk, 'liu' => $allm);
 }
