@@ -8,11 +8,11 @@ $load = 5;
 include_once ("sql.php");
 $console = "九都";
 $db['host'] = "127.0.0.1";
-$db['user'] = "root";
-$db['pass'] = "4318471pk";
+// $db['user'] = "root";
+// $db['pass'] = "4318471pk";
 
-//$db['user'] = "root";
-//$db['pass'] = "123qwe";
+$db['user'] = "root";
+$db['pass'] = "123qwe";
 
 $db['name'] = "v9ym";
 $dbconn = db_connect($db['host'], $db['user'], $db['pass'], $db['name']);
