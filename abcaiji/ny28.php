@@ -4,7 +4,7 @@ echo "<span style='color:red;'>纽约28</span><br>";
 date_default_timezone_set("Asia/Shanghai");
 error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
 include_once "./Public/config.php";
-include_once "./robot/CommonRule.php";
+//require "./robot/CommonRule.php";
 require "jiesuan.php";
 require "jiesuan2.php";
 $type = 19;
@@ -147,7 +147,7 @@ function fadeGenNY28($code)
     -->
 </style>
 <script>
-    var limit = 4
+    var limit = 3
     if (document.images) {
         var parselimit = limit
     }

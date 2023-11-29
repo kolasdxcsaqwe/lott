@@ -1,6 +1,5 @@
 <?php
-include_once dirname(dirname(__FILE__)) . '/Public/Http.php';
-include_once dirname(dirname(__FILE__)) . '/Public/config.php';
+
 
 function startBot($betGame, $roomId,$periodMin,$period)
 {
@@ -197,7 +196,7 @@ function singlePlan($plan, $betGame, $headimg, $name, $roomId, $userid)
     if($betContent!=null && strlen($betContent)>0)
     {
         $baseurl = "http://localhost:8123/Application/ajax_chat_robot.php?type=send";
-        $request = HTTP::curlPost($baseurl, array('content' => $betContent, 'userid' => $userid,
+        $request = vpost($baseurl, array('content' => $betContent, 'userid' => $userid,
             'gametype' => $betGame, 'headimg' => $headimg, 'username' => $name, 'roomid' => $roomId));
         echo $request . " <br>";
     }

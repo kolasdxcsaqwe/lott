@@ -1,1 +1,14 @@
-asdsad
+通过命令查看服务器上一共开了多少的 php-cgi 进程
+ps -fe |grep "php"|grep -v "grep"|wc -l
+
+查看已经有多少个php-cgi进程用来处理tcp请求
+
+netstat -anop |grep"php"|grep -v "grep"|wc -l
+
+php_admin_value[memory_limit] = 128M（我服务器上的配置文件在/etc/php5/fpm/pool.d/www.conf 这个文件是被包含在php-fpm.conf里的）
+后边的数字可以随便更改：32M,64M,128M,256M,512M，
+这个设置可根据你的服务器内存大小和你的需求来写，修改后要加载一下php-fpm服务
+
+pm = dynamic
+pm.max_children = X
+这两个需要看下
