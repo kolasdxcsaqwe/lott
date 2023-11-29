@@ -12,3 +12,5 @@ php_admin_value[memory_limit] = 128M（我服务器上的配置文件在/etc/php
 pm = dynamic
 pm.max_children = X
 这两个需要看下
+
+https://www.cnblogs.com/gazeon/p/5421906.html
