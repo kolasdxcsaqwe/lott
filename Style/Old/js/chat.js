@@ -291,6 +291,7 @@ function createWebSocket() {
         //心跳检测重置
         websocket.send('heartbeat');
 
+        $('.rightdiv').html("")
     }
 
     //接收到消息的回调方法

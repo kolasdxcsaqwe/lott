@@ -3,7 +3,7 @@ ps -fe |grep "php"|grep -v "grep"|wc -l
 
 查看已经有多少个php-cgi进程用来处理tcp请求
 
-netstat -anop |grep"php"|grep -v "grep"|wc -l
+netstat -anop |grep "php"|grep -v "grep"|wc -l
 
 php_admin_value[memory_limit] = 128M（我服务器上的配置文件在/etc/php5/fpm/pool.d/www.conf 这个文件是被包含在php-fpm.conf里的）
 后边的数字可以随便更改：32M,64M,128M,256M,512M，
