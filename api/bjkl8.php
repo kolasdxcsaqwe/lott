@@ -14,7 +14,7 @@ $number2 = substr($number2, -1);
 $number3 = substr($number3, -1);
 $hz = (int)$number1.','.(int)$number2.','.(int)$number3;
 
-$json = ['rows'=>1,'code'=>'bjkl8','remain'=>'6917hrs','data'=>[['expect'=>$term,'opencode'=>$hz,'opentime'=>$opentime,'opentimestamp'=>$time]]];
+$json = ['rows'=>1,'code'=>'xy28','remain'=>'6917hrs','data'=>[['expect'=>$term,'opencode'=>$hz,'opentime'=>$opentime,'opentimestamp'=>$time]]];
 $array = json_encode($json);
 header('Content-type:text/json'); 
 echo $array;

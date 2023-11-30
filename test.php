@@ -47,8 +47,21 @@ $roomid='10029';
 
 
 $data2=get_query_vals("fn_sign","*",array('userid' => "c9d1e357-30b3-9710-8d4c-9a28d2e47d97",'sing_time'=>"20231128"));
-
-echo json_encode($data2);
+$html=vpost("http://localhost:8653/sendChat",array(
+  "username"=> "播报员",
+  "imgType"=> "robot",
+  "chat_term"=> "",
+  "chat_status"=> "",
+  "chatid"=> "",
+  "headimg"=> "",
+  "content"=> json_encode("@过往清零,投注成功！请选择左侧菜单核对投注！"),
+  "chatType"=> "s3",
+  "userid"=> "system",
+  "game"=> "ny28",
+  "roomid"=> "10029",
+  "betTerm"=> ""
+));
+echo json_encode($html);
 
 function getTimestamp($digits = false)
 {

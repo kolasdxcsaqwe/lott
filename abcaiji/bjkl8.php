@@ -8,7 +8,7 @@ include_once "./Public/config.php";
 require "jiesuan.php";
 require "jiesuan2.php";
 $type = 4;
-$game = 'bjkl8';
+$game = 'xy28';
 
 $kaitime = get_query_val('fn_open', 'next_time', "`type`=$type order by `term` desc limit 1");
 
