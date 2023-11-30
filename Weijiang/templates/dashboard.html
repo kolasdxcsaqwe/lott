@@ -462,6 +462,8 @@ $sql = get_query_vals('fn_setting','*',array('roomid'=>$_SESSION['agent_room']))
                 //心跳检测重置
                 websocket.send('heartbeat');
 
+                $('#messages').html("");
+
             }
 
             //接收到消息的回调方法

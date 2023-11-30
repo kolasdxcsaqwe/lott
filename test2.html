@@ -10,8 +10,6 @@
 <script type="text/javascript">
 
 
-
-
     console.log(2>3?"asd":"vvv")
     var kl=new Array();
     kl.push("214324");
@@ -30,9 +28,14 @@
 
     function deasd()
     {
-        alert("sadsadsad")
+        $("#wqewq").prepend("<span>asdsad</span>")
     }
 
+    function sdsds()
+    {
+        console.log($("#wqewq").html())
+        $("#wqewq").html("")
+    }
 </script>
 
 
@@ -42,10 +45,13 @@
     <li>
         <span id="hiddenGamePlanType" style="display: none">sjws</span>
         <button onclick="deasd()">asdsadsad</button>
+        <button onclick="sdsds()">333</button>
         <span>[{"gameType":"\u968f\u673a\u4f4d\u6570","moneyType":"\u968f\u673a\u91d1\u989d1"}]</span>
 
     </li>
 </ul>
+<div id="wqewq">
 
+</div>
 </body>
 </html>
