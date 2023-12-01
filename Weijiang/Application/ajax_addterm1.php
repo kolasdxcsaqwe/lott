@@ -72,7 +72,7 @@ switch($type){
         $times = cqssctime($opentime);
         break;
     case '4':
-        $game = 'bjkl8';
+        $game = 'xy28';
          $times = 5*60;
         break;
     case '5':
@@ -110,7 +110,7 @@ if($topcode != $code){
   if($game == 'cqssc'){
    SSC_jiesuan($roomid);
  }
-  if($game == 'bjkl8'){
+  if($game == 'xy28'){
    PC_jiesuan($roomid);
  }
   if($game == 'cakeno'){

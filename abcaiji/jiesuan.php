@@ -11489,7 +11489,7 @@ function kaichat($game, $term)
             Broadcast("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br>第 $term 期已开启下注!", $con['roomid'], 'cqssc',$term);
             echo "mlaft喊话-" . $con['roomid'] . '..<br>';
         }
-    } elseif ($game == 'bjkl8') {
+    } elseif ($game == 'xy28') {
         $haoma = get_query_val('fn_open', 'code', "`type` = '4' order by `term` desc limit 1");
         $codes = explode(",", $haoma);
         $number1 = (int)$codes[0] + (int)$codes[1] + (int)$codes[2] + (int)$codes[3] + (int)$codes[4] + (int)$codes[5];
@@ -11515,7 +11515,7 @@ function kaichat($game, $term)
             if ($con['jsdiy'] == '1') continue;
             $kjqh = get_query_val('fn_open', 'term', "`type` = '4' order by `term` desc limit 1");
             Broadcast("第 $kjqh 期&nbsp;开&nbsp;奖&nbsp;号&nbsp;码<br><br>$haomachuan<br><br>第 $term 期已开启下注!", $con['roomid'], 'xy28',$term);
-            echo "bjkl8喊话-" . $con['roomid'] . '..<br>';
+            echo "xy28喊话-" . $con['roomid'] . '..<br>';
         }
     }elseif ($game == 'ny28') {
         $haoma = get_query_val('fn_open', 'code', "`type` = '19' order by `term` desc limit 1");

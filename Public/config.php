@@ -73,7 +73,7 @@ function vpost($url, $data = array())
     $tmpInfo = curl_exec($curl);
     // 执行操作
     if (curl_errno($curl)) {
-        echo 'Errno' . curl_error($curl);
+        echo 'Errno ' . curl_error($curl)." ".$url." ".json_encode($data);
         //捕抓异常
     }
     curl_close($curl);

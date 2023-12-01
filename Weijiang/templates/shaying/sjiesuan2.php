@@ -9901,7 +9901,7 @@ function kaizd($game,$term,$roomid) {
             Broadcast("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'cqssc');
             echo "cqssc喊话-" . $con['roomid'] . '..<br>';
         
-    } elseif ($game == 'bjkl8') {
+    } elseif ($game == 'xy28') {
         select_query('fn_chat', '*', "term='{$term}' and game = 'xy28' and status != '未结算' and roomid = '{$roomid}'");
         while ($con1 = db_fetch_array()) {
             $cons1[] = $con1;
@@ -9954,7 +9954,7 @@ function kaizd($game,$term,$roomid) {
        
             if ($con['jsdiy'] == '1') continue;
             Broadcast("☆☆第" . $term . "期中奖排名☆☆<br><br>" . $chat_1_1, $con['roomid'], 'xy28');
-            echo "bjkl8喊话-" . $con['roomid'] . '..<br>';
+            echo "xy28喊话-" . $con['roomid'] . '..<br>';
         
     } elseif ($game == 'jnd28') {
         select_query('fn_chat', '*', "term='{$term}' and game = 'jnd28' and status != '未结算' and roomid = '{$roomid}'");

@@ -41,7 +41,7 @@ foreach($jsondata as $i){
     case  "cakeno":$jump = true;
     case  "jsssc":$jump = true; 
     case  "jssc":$jump = true;       
-    case  "bjkl8":$jump = true;   
+    case  "xy28":$jump = true;
     case  "marksix":$jump = true;  
     case 'bjpk10':$jump = true;
     case 'jsmt':$jump = true;
