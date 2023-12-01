@@ -115,7 +115,7 @@ switch ($type) {
             }
         }elseif ($BetGame == 'ny28') {
             $BetTerm = get_query_val('fn_open', 'next_term', "type = 19 order by term desc limit 1");
-            $time = (int)get_query_val('fn_lottery19', 'fengtime', array('roomid' => $_SESSION['roomid']));
+            $time = (int)get_query_val('fn_lottery19', 'fengtime', array('roomid' => $postRoomid));
             $djs = strtotime(get_query_val('fn_open', 'next_time', 'type = 19 order by term desc limit 1')) - time();
             if ($djs < $time) {
                 $fengpan = true;
@@ -425,7 +425,7 @@ function runrobot($BetGame)
     } elseif ($BetGame == 'xy28') {
         if (get_query_val('fn_lottery4', 'gameopen', array('roomid' => $postRoomid)) == 'false') $BetGame = 'feng';
     }elseif ($BetGame == 'ny28') {
-        if (get_query_val('fn_lottery19', 'gameopen', array('roomid' => $_SESSION['roomid'])) == 'false') $BetGame = 'feng';
+        if (get_query_val('fn_lottery19', 'gameopen', array('roomid' => $postRoomid)) == 'false') $BetGame = 'feng';
     } elseif ($BetGame == 'jnd28') {
         if (get_query_val('fn_lottery5', 'gameopen', array('roomid' => $postRoomid)) == 'false') $BetGame = 'feng';
     } elseif ($BetGame == 'jsmt') {
