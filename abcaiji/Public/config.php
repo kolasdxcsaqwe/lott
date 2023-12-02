@@ -47,7 +47,7 @@ function vpost($url, $data = array()) {// 模拟提交数据函数
     // 自动设置Referer
     curl_setopt($curl, CURLOPT_POST, 1);
     // 发送一个常规的Post请求
-    @curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+    @curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
     // Post提交的数据包
     curl_setopt($curl, CURLOPT_TIMEOUT, 30);
     // 设置超时限制防止死循环

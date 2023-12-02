@@ -38,7 +38,7 @@ function PC_jiesuan($game)
 
         $lotteryData = get_query_vals('fn_lottery' . $openType, '*', "`roomid` = '$roomid' limit 1");
 
-        $zym_9 = (int)get_query_val('fn_pcorder', 'sum(`money`)', array('roomid' => $roomid, 'term' => $term, 'userid' => $user));
+        $zym_9 = (int)get_query_val('fn_pcorder', 'sum(`money`)', array('gamtype'=>$openType,'roomid' => $roomid, 'term' => $term, 'userid' => $user));
 
         $opencode = get_query_val('fn_open', 'code', "`term` = '$term' and `type` = '$openType'");
 

@@ -1,6 +1,6 @@
 var sendtime = 0;
 var id = 1;
-var nowTerm=""
+var nowTerm="0"
 
 var websocket = null;
 var url = "";
@@ -209,6 +209,7 @@ function addMessage(data) {
                 '</div>';
         }
     }
+
     $('.rightdiv').prepend(str);
 }
 
@@ -307,7 +308,9 @@ function createWebSocket() {
             }, 5000)
         }else
         {
+
             var jsonOBJ=JSON.parse(event.data);
+
             if(jsonOBJ!=null && jsonOBJ!=undefined)
             {
                 if(jsonOBJ.datas.betTerm!=null)
@@ -316,6 +319,7 @@ function createWebSocket() {
                     {
                         if(info.game=='ny28' || info.game=='xy28' || info.game=='jnd28')
                         {
+                            console.log(jsonOBJ.datas.betTerm+"----"+nowTerm)
                             if(jsonOBJ.datas.betTerm!==undefined && jsonOBJ.datas.betTerm!=='' && jsonOBJ.datas.betTerm!==null && parseInt(nowTerm) < parseInt(jsonOBJ.datas.betTerm))
                             {
                                 nowTerm=jsonOBJ.datas.betTerm;
@@ -323,7 +327,9 @@ function createWebSocket() {
                                 {
                                     if(window.frames[0].window.frames[0].window!=null)
                                     {
-                                        window.frames[0].window.frames[0].window.init()
+                                        setTimeout(function(){
+                                            window.frames[0].window.frames[0].window.init()
+                                        }, 500)
                                     }
                                 }
                             }
