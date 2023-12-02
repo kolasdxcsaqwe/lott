@@ -1,6 +1,5 @@
 <?
 $g = $_GET['game'] == '' ? 'pk10' : $_GET['game'];
-$roomid=$_SESSION['agent_room'];
 
 switch($g){
     case 'pk10': $game = '北京赛车'; break;
@@ -47,7 +46,7 @@ switch($g){
                 <div class="btn-group">
                     <button onclick="window.location.href='index.php?m=chat&c=room&game=pk10'" type="button" class="btn btn-danger btn-xs">北京赛车</button>
                     <button onclick="window.location.href='index.php?m=chat&c=room&game=xyft'" type="button" class="btn btn-danger btn-xs">幸运飞艇</button>
-					<button onclick="window.location.href='index.php?m=chat&c=room&game=cqssc'" type="button" class="btn btn-danger btn-xs">重庆时时彩</button>
+                    <button onclick="window.location.href='index.php?m=chat&c=room&game=cqssc'" type="button" class="btn btn-danger btn-xs">重庆时时彩</button>
                     <button onclick="window.location.href='index.php?m=chat&c=room&game=jssc'" type="button" class="btn btn-danger btn-xs">极速赛车</button>
                     <button onclick="window.location.href='index.php?m=chat&c=room&game=jssm'" type="button" class="btn btn-danger btn-xs">极速赛马</button>
                     <button onclick="window.location.href='index.php?m=chat&c=room&game=jsmt'" type="button" class="btn btn-danger btn-xs">极速摩托</button>
@@ -92,12 +91,12 @@ switch($g){
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer">
-                            <div class="input-group">
-                                <input type="text" id="sendmsg" name="message" placeholder="发送消息 ..." class="form-control">
-                                <span class="input-group-btn">
-                        <button onclick="sendmsg()" class="btn btn-success btn-flat">发送</button>    
+                        <div class="input-group">
+                            <input type="text" id="sendmsg" name="message" placeholder="发送消息 ..." class="form-control">
+                            <span class="input-group-btn">
+                        <button onclick="sendmsg()" class="btn btn-success btn-flat">发送</button>
                       </span>
-                            </div>
+                        </div>
                     </div>
                     <!-- /.box-footer-->
                 </div>
@@ -125,11 +124,11 @@ switch($g){
                     <div class="box-body">
                         <table class="table table-bordered table-striped" id="tableList">
                             <thead>
-                                <tr>
-                                    <th>昵称</th>
-                                    <th>余额</th>
-                                    <th>操作</th>
-                                </tr>
+                            <tr>
+                                <th>昵称</th>
+                                <th>余额</th>
+                                <th>操作</th>
+                            </tr>
                             </thead>
                             <tbody>
 
@@ -145,296 +144,165 @@ switch($g){
 <script src="plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
 <script>
-        var id = 0;
-        var game = '<? echo $g; ?>';
-        var first = true;
-        var time = 0;
-        var roomid='<? echo $roomid; ?>'
-        var userid="<? echo $roomid; ?>admin"
+    var id = 0;
+    var game = '<? echo $g; ?>';
+    var first = true;
+    var time = 0;
+    FirstGetContent();
+    getgame();
+    tablestart();
 
-        getgame();
-        tablestart();
-
-        $(document).ready(function () {
-            var myURL = parseURL(window.location.href);
-            console.log(myURL.host)
-            url = "ws://"+myURL.host+":8653/chat/"+roomid+"/" + game + "/" + userid;
-            connect(url,0)
+    function sendmsg(){
+        var content = $('#sendmsg').val();
+        $.ajax({
+            url: 'Application/ajax_chat.php?type=send&game=' + game,
+            type: 'post',
+            data: {content: content},
+            dataType: 'json',
+            success: function(data){
+                alert('发送成功');
+                $('#sendmsg').val('');
+            }
+        })
+    }
+    function FirstGetContent() {
+        $.ajax({
+            url: 'Application/ajax_chat.php?type=first&game=' + game,
+            type: 'get',
+            dataType: 'json',
+            success: function (data) {
+                addMessage(data);
+            },
+            error: function () { }
         });
+        setInterval(updateContent, 3000);
+    }
 
-        function sendmsg(){
-            var content = $('#sendmsg').val();
-            $.ajax({
-                url: 'Application/ajax_chat.php?type=send&game=' + game,
-                type: 'post',
-                data: {content: content},
-                dataType: 'json',
-                success: function(data){
-                    alert('发送成功');
-                    $('#sendmsg').val('');
-                }
-            })
-        }
-        function FirstGetContent() {
-            $.ajax({
-                url: 'Application/ajax_chat.php?type=first&game=' + game,
-                type: 'get',
-                dataType: 'json',
-                success: function (data) {
-                    addMessage(data);
-                },
-                error: function () { }
-            });
-            setInterval(updateContent, 3000);
-        }
+    function updateContent() {
+        $.ajax({
+            url: 'Application/ajax_chat.php?type=update&id=' + id + '&game=' + game,
+            type: 'get',
+            dataType: 'json',
+            success: function (data) {
+                addMessage(data);
+            },
+            error: function () { }
+        });
+    }
 
-        function updateContent() {
-            // $.ajax({
-            //     url: 'Application/ajax_chat.php?type=update&id=' + id + '&game=' + game,
-            //     type: 'get',
-            //     dataType: 'json',
-            //     success: function (data) {
-            //         addMessage(data);
-            //     },
-            //     error: function () { }
-            // });
+    function addMessage(data) {
+        if (data == null || data.length < 0) {
+            return;
         }
-
-        function addMessage(data) {
-            if (data == null || data.length < 0) {
-                return;
+        //S1代理  S2待定  S3机器人  S4全局公告
+        var str = "";
+        for (i = 0; i < data.length; i++) {
+            if (parseInt(data[i].id) > id) {
+                id = data[i].id;
             }
-            //S1代理  S2待定  S3机器人  S4全局公告
-            var str = "";
-            for (i = 0; i < data.length; i++) {
-                if (parseInt(data[i].id) > id) {
-                    id = data[i].id;
-                }
-                var type = data[i].type;
-                if (type.substr(0, 1) == 'U') {
-                    str = str + '<div class="direct-chat-msg">'
-                        + '<div class="direct-chat-info clearfix">'
-                        + '<span class="direct-chat-name pull-left">'  + data[i].nickname + '</span>'
-                        + '<span class="direct-chat-timestamp pull-right">' + data[i].addtime + '</span>'
-                        + '</div>'
-                        + '<img class="direct-chat-img" src="' + data[i].headimg + '" alt="message user image">'
-                        + '<div class="direct-chat-text">' + data[i].content + '</div></div>';
+            var type = data[i].type;
+            if (type.substr(0, 1) == 'U') {
+                str = str + '<div class="direct-chat-msg">'
+                    + '<div class="direct-chat-info clearfix">'
+                    + '<span class="direct-chat-name pull-left">'  + data[i].nickname + '</span>'
+                    + '<span class="direct-chat-timestamp pull-right">' + data[i].addtime + '</span>'
+                    + '</div>'
+                    + '<img class="direct-chat-img" src="' + data[i].headimg + '" alt="message user image">'
+                    + '<div class="direct-chat-text">' + data[i].content + '</div></div>';
 
 
-                } else if (type == 'S3') {
-                    var headimg = data[i].headimg == "" ? "/Style/images/robot.png" : data[i].headimg;
-                    str = str + '<div class="direct-chat-msg right">'
-                        + '<div class="direct-chat-info clearfix">'
-                        + '<span class="direct-chat-name pull-right">' + data[i].nickname + '</span>'
-                        + '<span class="direct-chat-timestamp pull-left">' + data[i].addtime + '</span>'
-                        + '</div>'
-                        + '<img class="direct-chat-img" src="' + headimg + '" alt="message user image">'
-                        + '<div class="direct-chat-text">' + data[i].content + '</div></div>'
-                } else if (type == 'S1') {
-                    var headimg = data[i].headimg == "" ? "/Style/images/Sys.png" : data[i].headimg;
-                    str = str + '<div class="direct-chat-msg right">'
-                        + '<div class="direct-chat-info clearfix">'
-                        + '<span class="direct-chat-name pull-right">'  + data[i].nickname + '</span>'
-                        + '<span class="direct-chat-timestamp pull-left">' + data[i].addtime + '</span>'
-                        + '</div>'
-                        + '<img class="direct-chat-img" src="' + headimg + '" alt="message user image">'
-                        + '<div class="direct-chat-text">' + data[i].content + '</div></div>'
-                }
+            } else if (type == 'S3') {
+                var headimg = data[i].headimg == "" ? "/Style/images/robot.png" : data[i].headimg;
+                str = str + '<div class="direct-chat-msg right">'
+                    + '<div class="direct-chat-info clearfix">'
+                    + '<span class="direct-chat-name pull-right">' + data[i].nickname + '</span>'
+                    + '<span class="direct-chat-timestamp pull-left">' + data[i].addtime + '</span>'
+                    + '</div>'
+                    + '<img class="direct-chat-img" src="' + headimg + '" alt="message user image">'
+                    + '<div class="direct-chat-text">' + data[i].content + '</div></div>'
+            } else if (type == 'S1') {
+                var headimg = data[i].headimg == "" ? "/Style/images/Sys.png" : data[i].headimg;
+                str = str + '<div class="direct-chat-msg right">'
+                    + '<div class="direct-chat-info clearfix">'
+                    + '<span class="direct-chat-name pull-right">'  + data[i].nickname + '</span>'
+                    + '<span class="direct-chat-timestamp pull-left">' + data[i].addtime + '</span>'
+                    + '</div>'
+                    + '<img class="direct-chat-img" src="' + headimg + '" alt="message user image">'
+                    + '<div class="direct-chat-text">' + data[i].content + '</div></div>'
             }
-            $('#messages').prepend(str);
         }
-        function getgame(){
-            $.ajax({
-                url: 'Application/ajax_getcode.php?g=' + game,
-                type: 'get',
-                dataType:'json',
-                success: function(data){
-                    $('#term').text(data.term + '期');
-                    $('#opencode').text(data.code);
-                    time = data.time;
-                    if(first){
-                        gotime();
-                        first = false;
-                    }
-                },
-                error: function() { }
-            });
-        }
-        function gotime(){
-            time = time - 1;
-            if(time < 0){
-                getgame();
-                $('#time').text('开奖中...');
-                setTimeout(function() {
+        $('#messages').prepend(str);
+    }
+    function getgame(){
+        $.ajax({
+            url: 'Application/ajax_getcode.php?g=' + game,
+            type: 'get',
+            dataType:'json',
+            success: function(data){
+                $('#term').text(data.term + '期');
+                $('#opencode').text(data.code);
+                time = data.time;
+                if(first){
                     gotime();
-                    tablestart();
-                }, 5000);
-                return;
-            }
-            
-            $('#time').text(time + '秒');
+                    first = false;
+                }
+            },
+            error: function() { }
+        });
+    }
+    function gotime(){
+        time = time - 1;
+        if(time < 0){
+            getgame();
+            $('#time').text('开奖中...');
             setTimeout(function() {
                 gotime();
-            }, 1000);
+                tablestart();
+            }, 5000);
+            return;
         }
-        
-        function tablestart(){
-            $('#tableList').DataTable({
-                "destroy": true,
-                "searching":false,
-                "scrollX": true,
-                "lengthChange": false,
-                "ajax":{
-                    "url": "Application/ajax_getonline.php",
-                    "dataSrc":function(json){
-                        if(json.data[0] == 'null'){
-                            return json;
-                        }
-                        for(var i=0;i<json.data.length; i++){
-                            json.data[i][2] = "<a href='javascript:ban(\"" + json.data[i][2] + "\")' class='btn btn-danger btn-xs'>禁言玩家</a>";
-                        }
-                        return json.data;
+
+        $('#time').text(time + '秒');
+        setTimeout(function() {
+            gotime();
+        }, 1000);
+    }
+
+    function tablestart(){
+        $('#tableList').DataTable({
+            "destroy": true,
+            "searching":false,
+            "scrollX": true,
+            "lengthChange": false,
+            "ajax":{
+                "url": "Application/ajax_getonline.php",
+                "dataSrc":function(json){
+                    if(json.data[0] == 'null'){
+                        return json;
                     }
-                }
-            });
-        }
-
-        function ban(id){
-            $.ajax({
-                url:'Application/ajax_banuser.php',
-                type: 'post',
-                data: {id: id},
-                dataType: 'json',
-                success: function( data ){
-                    if(data.success){
-                        alert('禁言成功..');
-                    }else{
-                        alert(data.msg);
+                    for(var i=0;i<json.data.length; i++){
+                        json.data[i][2] = "<a href='javascript:ban(\"" + json.data[i][2] + "\")' class='btn btn-danger btn-xs'>禁言玩家</a>";
                     }
-                },
-                error: function() { }
-            })
-        }
-
-
-        //重试连接socket
-        function connect(url,delay) {
-            if(lockReconnect) {
-                return;
-            };
-            lockReconnect = true;
-            //没连接上会一直重连，设置延迟避免请求过多
-            clearTimeout(delayRun)
-            setTimeout(function () {
-                createWebSocket(url);
-            },delay);
-        }
-
-        function createWebSocket() {
-            //判断当前浏览器是否支持WebSocket
-            if('WebSocket' in window){
-                websocket = new WebSocket(url);
-            }
-            else{
-                alert('当前浏览器不支持，请更换浏览器')
-            }
-
-            //连接发生错误的回调方法
-            websocket.onerror = function(){
-                // setMessageInnerHTML("error");
-                console.log(' onerror');
-            };
-
-            //连接成功建立的回调方法
-            websocket.onopen = function(){
-                //setMessageInnerHTML("open");
-                console.log(" Socket is On");
-                //心跳检测重置
-                websocket.send('heartbeat');
-                $('#messages').html("")
-            }
-
-            //接收到消息的回调方法
-            websocket.onmessage = function(event){
-                // 维持心跳
-                console.log("onmessage==>"+event.data)
-
-                if(event.data ==='heartbeat'){
-                    setTimeout(function(){
-                        //这里发送一个心跳，后端收到后，返回一个心跳消息，
-                        //onmessage拿到返回的心跳就说明连接正常
-                        websocket.send('heartbeat');
-                    }, 5000)
-                }else
-                {
-                    var jsonOBJ=JSON.parse(event.data);
-                    if(jsonOBJ!=null && jsonOBJ!=undefined)
-                    {
-                        if(jsonOBJ.datas.betTerm!=null)
-                        {
-                            if(info!=undefined && info!=null)
-                            {
-                                if(info.game=='ny28' || info.game=='xy28' || info.game=='jnd28')
-                                {
-                                    if(jsonOBJ.datas.betTerm!==undefined && jsonOBJ.datas.betTerm!=='' && jsonOBJ.datas.betTerm!==null && parseInt(nowTerm) < parseInt(jsonOBJ.datas.betTerm))
-                                    {
-                                        nowTerm=jsonOBJ.datas.betTerm;
-                                        if(window.frames.length>0 && window.frames[0].window.frames.length>0)
-                                        {
-                                            if(window.frames[0].window.frames[0].window!=null)
-                                            {
-                                                window.frames[0].window.frames[0].window.init()
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-
-                        }
-
-                        addMessage(jsonOBJ.datas.list);
-                    }
+                    return json.data;
                 }
             }
+        });
+    }
 
-            //连接关闭的回调方法
-            websocket.onclose = function(){
-                // websocket.setMessageInnerHTML("close");
-                console.log(" Socket closed");
-                lockReconnect = false;
-                connect(url,5000);
-            }
-        }
-
-
-        function parseURL(url) {
-            var a = document.createElement('a');
-            a.href = url;
-            return {
-                source: url,
-                protocol: a.protocol.replace(':', ''),
-                host: a.hostname,
-                port: a.port,
-                query: a.search,
-                params: (function () {
-                    var ret = {},
-                        seg = a.search.replace(/^\?/, '').split('&'),
-                        len = seg.length, i = 0, s;
-                    for (; i < len; i++) {
-                        if (!seg[i]) {
-                            continue;
-                        }
-                        s = seg[i].split('=');
-                        ret[s[0]] = s[1];
-                    }
-                    return ret;
-                })(),
-                file: (a.pathname.match(/\/([^\/?#]+)$/i) || [, ''])[1],
-                hash: a.hash.replace('#', ''),
-                path: a.pathname.replace(/^([^\/])/, '/$1'),
-                relative: (a.href.match(/tps?:\/\/[^\/]+(.+)/) || [, ''])[1],
-                segments: a.pathname.replace(/^\//, '').split('/')
-            };
-        }
-
+    function ban(id){
+        $.ajax({
+            url:'Application/ajax_banuser.php',
+            type: 'post',
+            data: {id: id},
+            dataType: 'json',
+            success: function( data ){
+                if(data.success){
+                    alert('禁言成功..');
+                }else{
+                    alert(data.msg);
+                }
+            },
+            error: function() { }
+        })
+    }
 </script>
