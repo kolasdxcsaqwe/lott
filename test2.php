@@ -24,7 +24,13 @@
 include_once("./Public/config.php");
 $nowTime= date('Y-m-d H:i:s', time());
 $time= date('Y-m-d H:i:s', time() - (60 * 60 * 24 * 30));
-echo $nowTime."    ".$time;
+echo $nowTime."    ".$time."<br>";
+
+$redis = new Redis();
+$redis->connect('127.0.0.1', 6379);
+echo "Connection to server successfully"."<br>";
+//查看服务是否运行
+echo "Server is running: " . $redis->ping();
 
 
 
