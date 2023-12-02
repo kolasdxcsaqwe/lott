@@ -9,9 +9,14 @@ php_admin_value[memory_limit] = 128M（我服务器上的配置文件在/etc/php
 后边的数字可以随便更改：32M,64M,128M,256M,512M，
 这个设置可根据你的服务器内存大小和你的需求来写，修改后要加载一下php-fpm服务
 
-pm = dynamic
-pm.max_children = X
-这两个需要看下
+php 5.3.3 以后的php-fpm 不再支持 php-fpm 以前具有的 /usr/local/php/sbin/php-fpm (start|stop|reload)等命令，所以不要再看这种老掉牙的命令了，需要使用信号控制：
+
+master进程可以理解以下信号
+
+INT, TERM 立刻终止
+QUIT 平滑终止
+USR1 重新打开日志文件
+USR2 平滑重载所有worker进程并重新载入配置和二进制模块
 
 开奖网
 https://kaijiang-api.com/home/login/index.html

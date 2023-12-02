@@ -109,6 +109,8 @@ function login($loginuser,$loginpass) {
         $_SESSION['username'] = $result['username'];
         $_SESSION['headimg'] = $result['headimg'];
         $_SESSION['roomid'] = $result['roomid'];
+
+
         $reurl="../qr.php?room=" . $result['roomid']."&agent=".$result['agent']."&userid=".$result['userid']."&username=".$result['username']."&headimg=".$result['headimg'];
         return $reurl;
     } else {
