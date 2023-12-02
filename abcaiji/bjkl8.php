@@ -76,9 +76,7 @@ if (empty($topcode) || $tInt1 < $tInt2) {
     echo "更新 $code 成功！<br>";
 
     //40秒随机
-//    startBot("xy28", "10029",15, 40);
-    $html= vpost("http://localhost:8653/robotBet", array("betPeriod" => 4, 'delay'=>0,'roomid'=>'10029','game'=>$game));
-    echo "请求机器人返回 ".$html;
+    startBot("xy28", "10029",15, 40);
 } else {
     echo "等待新加坡28刷新<br>";
 }

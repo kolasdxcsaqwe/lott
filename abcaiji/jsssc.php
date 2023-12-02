@@ -171,9 +171,7 @@ if (empty($topcode) || $tInt1 < $tInt2) {
     kaichat($game, $next_term);
     echo "更新 $code_str 成功！<br>";
     //40秒随机
-//    startBot($game, "10029", 5, 40);
-    $html= vpost("http://localhost:8653/robotBet", array("betPeriod" => 4, 'delay'=>0,'roomid'=>'10029','game'=>$game));
-    echo "请求机器人返回 ".$html;
+    startBot($game, "10029", 5, 40);
 } else {
     echo "等待 $code_str 刷新<br>";
 }

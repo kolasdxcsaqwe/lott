@@ -44,14 +44,12 @@ $sql = get_query_vals('fn_setting','*',array('roomid'=>$_SESSION['agent_room']))
                 $cons[] = $con;
               }
 foreach($cons as $k=>$v){
-                        $shuju =
-                        get_query_vals('fn_user','*',array('roomid'=>$_SESSION['agent_room'],'userid'=>$v['userid']));
+                        $shuju = get_query_vals('fn_user','*',array('roomid'=>$_SESSION['agent_room'],'userid'=>$v['userid']));
                         if($v['time'] != $time)continue;
                         ?>
                         <tr>
                             <td>
-                                <img src="<?php echo $shuju['headimg'];?>" width="35"
-                                     height="35"><?php echo $shuju['username'];?>
+                                <img src="<?php echo $shuju['headimg'];?>" width="35" height="35"><?php echo $shuju['username'];?>
                             </td>
                             <td>
                                 <? echo $v['userid']; ?>
@@ -120,6 +118,8 @@ foreach($cons as $k=>$v){
         <br>
 
 
+
+
     </section>
     <!-- /.content -->
     <script src="plugins/datatables/jquery.dataTables.min.js"></script>
@@ -139,8 +139,181 @@ foreach($cons as $k=>$v){
         });
         var id = 0;
         $(function () {
+            updateNew();
+            FirstGetContent();
         });
 
+        function updateNew() {
+            $.ajax({
+                url: 'Application/ajax_index.php',
+                type: 'get',
+                dataType: 'json',
+                success: function (data) {
+                    if (data == null || data.length < 1 || data == "") {
+                        alert('服务器错误..请尝试刷新或联系管理员!');
+                    } else {
+                        $('#zyk').text(data.zyk);
+                        $('#allsf').text(data.allsf);
+                        $('#allpeople').text(data.allpeople);
+                        $('#allprice').text(data.allprice);
+                    }
+                },
+                error: function (XMLResponse, textStatus, errorThrown) {
+                    console.log(textStatus);
+                    alert('服务器错误..请尝试刷新或联系管理员!');
+                }
+            });
+            setTimeout(function () { updateNew(); }, 10000)
+        }
 
+        function FirstGetContent() {
+            $.ajax({
+                url: 'Application/ajax_chat.php?type=first',
+                type: 'get',
+                dataType: 'json',
+                success: function (data) {
+                    addMessage(data);
+                },
+                error: function () { }
+            });
+            setInterval(updateContent, 3000);
+        }
+
+        function updateContent() {
+            $.ajax({
+                url: 'Application/ajax_chat.php?type=update&id=' + id,
+                type: 'get',
+                dataType: 'json',
+                success: function (data) {
+                    addMessage(data);
+                },
+                error: function () { }
+            });
+        }
+
+        function sendmessage() {
+            var msgtxt = $('#sendmsg').val();
+            if (msgtxt == '') {
+                alert('发送内容不得为空!');
+                return;
+            } else {
+                $.ajax({
+                    url: 'Application/ajax_chat.php?type=send',
+                    type: 'post',
+                    data: { content: msgtxt },
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data.success) {
+                            $('#sendmsg').val('');
+                            updateContent();
+                        } else {
+                            alert(data.msg);
+                        }
+                    },
+                    error: function () { }
+                });
+            }
+        }
+
+        function addMessage(data) {
+            if (data == null || data.length < 0) {
+                return;
+            }
+            //S1代理  S2待定  S3机器人  S4全局公告
+            var str = "";
+            for (i = 0; i < data.length; i++) {
+                if (parseInt(data[i].id) > id) {
+                    id = data[i].id;
+                }
+                var type = data[i].type;
+                var game = data[i].game;
+                switch (game) {
+                    case 'pk10': game = '北京赛车'; break;
+                    case 'xyft': game = '幸运飞艇'; break;
+                    case 'xy28': game = '新加坡28'; break;
+                    case 'cqssc': game = '重庆时时彩'; break;
+                    case 'jnd28': game = '加拿大28'; break;
+                    case 'jsmt': game = '极速摩托'; break;
+                    case 'jssc': game = '极速赛车'; break;
+                    case 'jsssc': game = '极速时时彩'; break;
+                    case 'jsk3': game = '江苏快三'; break;
+                }
+                if (type.substr(0, 1) == 'U') {
+                    str = str + '<div class="direct-chat-msg">'
+                        + '<div class="direct-chat-info clearfix">'
+                        + '<span class="direct-chat-name pull-left">' + game + '-' + data[i].nickname + '</span>'
+                        + '<span class="direct-chat-timestamp pull-right">' + data[i].addtime + '</span>'
+                        + '</div>'
+                        + '<img class="direct-chat-img" src="' + data[i].headimg + '" alt="message user image">'
+                        + '<div class="direct-chat-text">' + data[i].content + '</div></div>';
+
+
+                } else if (type == 'S3') {
+                    var headimg = data[i].headimg == "" ? "/Style/images/robot.png" : data[i].headimg;
+                    str = str + '<div class="direct-chat-msg right">'
+                        + '<div class="direct-chat-info clearfix">'
+                        + '<span class="direct-chat-name pull-right">' + game + '-' + data[i].nickname + '</span>'
+                        + '<span class="direct-chat-timestamp pull-left">' + data[i].addtime + '</span>'
+                        + '</div>'
+                        + '<img class="direct-chat-img" src="' + headimg + '" alt="message user image">'
+                        + '<div class="direct-chat-text">' + data[i].content + '</div></div>'
+                } else if (type == 'S1') {
+                    var headimg = data[i].headimg == "" ? "/Style/images/Sys.png" : data[i].headimg;
+                    str = str + '<div class="direct-chat-msg right">'
+                        + '<div class="direct-chat-info clearfix">'
+                        + '<span class="direct-chat-name pull-right">' + game + '-' + data[i].nickname + '</span>'
+                        + '<span class="direct-chat-timestamp pull-left">' + data[i].addtime + '</span>'
+                        + '</div>'
+                        + '<img class="direct-chat-img" src="' + headimg + '" alt="message user image">'
+                        + '<div class="direct-chat-text">' + data[i].content + '</div></div>'
+                }
+            }
+            $('#messages').prepend(str);
+        }
+
+        function startcha(){
+            var type = '<? echo $sql["flyorder_type"]; ?>';
+            var site = '<? echo $sql["flyorder_site"]; ?>';
+            var user = '<? echo $sql["flyorder_user"]; ?>';
+            var pass = '<? echo $sql["flyorder_pass"]; ?>';
+            var code = $('#flycode').val();
+
+            $('#loading').css('display','block');
+
+            $.ajax({
+                url: 'Application/ajax_flyorder.php?t=test',
+                data: {type: type,site: site,user: user,pass: pass, code: code},
+                dataType: 'json',
+                type: 'post',
+                success: function( data ){
+                    if(data.success){
+                        $('#testuser').val(user);
+                        $('#testmoney').val(data.money);
+                        $('#weijiemoney').val(data.weijie)
+                        $('#loading').css('display','none');
+                    }else{
+                        alert(data.msg);
+                        $('#loading').css('display','none');
+                    }
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) { }
+            });
+        }
+
+        function getcode(){
+            var type = '<? echo $sql["flyorder_type"]; ?>';
+            var site = '<? echo $sql["flyorder_site"]; ?>';
+
+            $.post('Application/ajax_flyorder.php?t=getcode',{type:type, site:site},function(data){
+                if(data.success){
+                    $('#vcodeimgspan').css('display','none');
+                    console.log(data.code);
+                    $('#vcodeimg').attr('src',data.code);
+                    $('#vcodeimg').css('display','');
+                }else{
+                    $('#vcodeimgspan').text('加载失败')
+                }
+            },'json');
+        }
     </script>
 </div>

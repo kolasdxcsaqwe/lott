@@ -11,7 +11,11 @@ function sql_write_log($data)
 function db_connect($host, $name, $pass, $dbname, $port = 3306)
 {
     $db = new mysqli($host, $name, $pass, $dbname, $port);
-    if ($db->connect_errno) errorc__("系统出现错误,请将错误编码告知管理员,并重试操作,错误编码:[" . sql_write_log(array('数据库链接出错', $db->connect_errno, $db->connect_error)) . "]");
+    if ($db->connect_errno)
+    {
+        $command=passthru('netstat -anop |grep "php"|grep -v "grep"|wc -l');
+        errorc__("系统出现错误,请将错误编码告知管理员,并重试操作,错误编码:[" . sql_write_log(array('1数据库链接出错 num->'.$command, $db->connect_errno, $db->connect_error)) . "]");
+    }
     $GLOBALS['D'] = $db;
     $GLOBALS['dbcontent'] = true;
     db_query("set time_zone = '+8:00';");
