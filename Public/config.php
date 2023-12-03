@@ -11,11 +11,11 @@ $load = 5;
 include_once("sql.php");
 $console = "v9ym";
 $db['host'] = "localhost";
-$db['user'] = "root";//用户名 线上
-$db['pass'] = "4318471pk";//密码 线上
-
 //$db['user'] = "root";//用户名 线上
-//$db['pass'] = "123qwe";//密码 线上
+//$db['pass'] = "4318471pk";//密码 线上
+
+$db['user'] = "root";//用户名 线上
+$db['pass'] = "123qwe";//密码 线上
 
 $db['name'] = "v9ym";//数据库名
 $isWeiXInBrowse = true;//开关 如果上公众号的话把这个打开
