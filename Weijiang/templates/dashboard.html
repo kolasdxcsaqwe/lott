@@ -435,7 +435,6 @@ $sql = get_query_vals('fn_setting','*',array('roomid'=>$_SESSION['agent_room']))
             };
             lockReconnect = true;
             //没连接上会一直重连，设置延迟避免请求过多
-            clearTimeout(delayRun)
             setTimeout(function () {
                 createWebSocket(url);
             },delay);

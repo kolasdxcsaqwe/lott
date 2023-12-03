@@ -4,7 +4,6 @@ var nowTerm="0"
 
 var websocket = null;
 var url = "";
-var delayRun;
 var lockReconnect = false;//避免重复连接
 
 
@@ -264,7 +263,6 @@ function connect(url,delay) {
     };
     lockReconnect = true;
     //没连接上会一直重连，设置延迟避免请求过多
-    clearTimeout(delayRun)
     setTimeout(function () {
         createWebSocket(url);
     },delay);
