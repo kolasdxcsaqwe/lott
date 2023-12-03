@@ -56,7 +56,7 @@ if($type == 'addplan'){
     }
 
     $plans = substr($plans, 0, strlen($plans)-1);
-    $himg="http://".$_SERVER['HTTP_HOST']."/Weijiang".$addheadimg;
+    $himg="/Weijiang".$addheadimg;
     $uuid=uuid();
     create($_SESSION['agent_room'], $uuid, $name, $name, "46f94c8de14fb36680850768ff1b7f2a", $himg, $_SERVER['HTTP_USER_AGENT']);
     insert_query("fn_robots", array("headimg" => $himg, 'name' => $name, 'plan' => $plans, 'game' => $game, 'roomid' => $_SESSION['agent_room'],'userid'=>$uuid,'rare'=>$rare));
