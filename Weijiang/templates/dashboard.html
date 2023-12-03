@@ -486,19 +486,9 @@ $sql = get_query_vals('fn_setting','*',array('roomid'=>$_SESSION['agent_room']))
                         {
                             if(info!=undefined && info!=null)
                             {
-                                if(info.game=='ny28' || info.game=='xy28' || info.game=='jnd28')
+                                if(jsonOBJ.datas.betTerm!==undefined && jsonOBJ.datas.betTerm!=='' && jsonOBJ.datas.betTerm!==null && parseInt(nowTerm) < parseInt(jsonOBJ.datas.betTerm))
                                 {
-                                    if(jsonOBJ.datas.betTerm!==undefined && jsonOBJ.datas.betTerm!=='' && jsonOBJ.datas.betTerm!==null && parseInt(nowTerm) < parseInt(jsonOBJ.datas.betTerm))
-                                    {
-                                        nowTerm=jsonOBJ.datas.betTerm;
-                                        if(window.frames.length>0 && window.frames[0].window.frames.length>0)
-                                        {
-                                            if(window.frames[0].window.frames[0].window!=null)
-                                            {
-                                                window.frames[0].window.frames[0].window.init()
-                                            }
-                                        }
-                                    }
+                                    nowTerm=jsonOBJ.datas.betTerm;
                                 }
                             }
 
