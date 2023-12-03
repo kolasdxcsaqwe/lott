@@ -200,6 +200,7 @@ switch($g){
 
     getgame();
     tablestart();
+
     $(document).ready(function () {
         var myURL = parseURL(window.location.href);
         console.log(myURL.host)
@@ -275,33 +276,12 @@ switch($g){
                 $('#term').text(data.term + '期');
                 $('#opencode').text(data.code);
                 time = data.time;
-                if (first) {
-                    gotime();
-                    first = false;
-                }
             },
             error: function () {
             }
         });
     }
 
-    function gotime() {
-        time = time - 1;
-        if (time < 0) {
-            getgame();
-            $('#time').text('开奖中...');
-            setTimeout(function () {
-                gotime();
-                tablestart();
-            }, 5000);
-            return;
-        }
-
-        $('#time').text(time + '秒');
-        setTimeout(function () {
-            gotime();
-        }, 1000);
-    }
 
     function tablestart() {
         $('#tableList').DataTable({
@@ -389,6 +369,7 @@ switch($g){
                     //这里发送一个心跳，后端收到后，返回一个心跳消息，
                     //onmessage拿到返回的心跳就说明连接正常
                     websocket.send('heartbeat');
+                    tablestart();
                 }, 5000)
             } else {
                 var jsonOBJ = JSON.parse(event.data);
@@ -396,6 +377,7 @@ switch($g){
                     if (jsonOBJ.datas.betTerm != null) {
                         if (jsonOBJ.datas.betTerm !== undefined && jsonOBJ.datas.betTerm !== '' && jsonOBJ.datas.betTerm !== null && parseInt(nowTerm) < parseInt(jsonOBJ.datas.betTerm)) {
                             nowTerm = jsonOBJ.datas.betTerm;
+                            getgame();
                         }
                     }
 
