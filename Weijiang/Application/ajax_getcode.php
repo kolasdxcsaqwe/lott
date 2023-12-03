@@ -21,6 +21,10 @@ switch ($_GET['g']) {
         $game = '5';
         $feng = get_query_val('fn_lottery5', 'fengtime', array('roomid' => $_SESSION['agent_room']));
         break;
+    case "ny28":
+        $game = '19';
+        $feng = get_query_val('fn_lottery19', 'fengtime', array('roomid' => $_SESSION['agent_room']));
+        break;
     case "jsmt":
         $game = '6';
         $feng = get_query_val('fn_lottery6', 'fengtime', array('roomid' => $_SESSION['agent_room']));
