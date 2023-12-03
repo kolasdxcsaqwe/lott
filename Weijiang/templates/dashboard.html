@@ -353,7 +353,7 @@ $roomId=$_SESSION['agent_room'];
                 if (type.substr(0, 1) == 'U') {
                     str = str + '<div class="direct-chat-msg">'
                         + '<div class="direct-chat-info clearfix">'
-                        + '<span class="direct-chat-name pull-left">' + game + '-' + data[i].nickname + '</span>'
+                        + '<span class="direct-chat-name pull-left">' + game + '-' + data[i].username + '</span>'
                         + '<span class="direct-chat-timestamp pull-right">' + data[i].addtime + '</span>'
                         + '</div>'
                         + '<img class="direct-chat-img" src="' + data[i].headimg + '" alt="message user image">'
@@ -364,7 +364,7 @@ $roomId=$_SESSION['agent_room'];
                     var headimg = data[i].headimg == "" ? "/Style/images/robot.png" : data[i].headimg;
                     str = str + '<div class="direct-chat-msg right">'
                         + '<div class="direct-chat-info clearfix">'
-                        + '<span class="direct-chat-name pull-right">' + game + '-' + data[i].nickname + '</span>'
+                        + '<span class="direct-chat-name pull-right">' + game + '-' + data[i].username + '</span>'
                         + '<span class="direct-chat-timestamp pull-left">' + data[i].addtime + '</span>'
                         + '</div>'
                         + '<img class="direct-chat-img" src="' + headimg + '" alt="message user image">'
@@ -373,7 +373,7 @@ $roomId=$_SESSION['agent_room'];
                     var headimg = data[i].headimg == "" ? "/Style/images/Sys.png" : data[i].headimg;
                     str = str + '<div class="direct-chat-msg right">'
                         + '<div class="direct-chat-info clearfix">'
-                        + '<span class="direct-chat-name pull-right">' + game + '-' + data[i].nickname + '</span>'
+                        + '<span class="direct-chat-name pull-right">' + game + '-' + data[i].username + '</span>'
                         + '<span class="direct-chat-timestamp pull-left">' + data[i].addtime + '</span>'
                         + '</div>'
                         + '<img class="direct-chat-img" src="' + headimg + '" alt="message user image">'
