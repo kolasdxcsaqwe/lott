@@ -1,6 +1,6 @@
 <?
 $g = $_GET['game'] == '' ? 'pk10' : $_GET['game'];
-
+$roomId=$_SESSION['agent_room'];
 switch($g){
     case 'pk10': $game = '北京赛车'; break;
     case 'xyft': $game = '幸运飞艇'; break;
@@ -148,8 +148,8 @@ switch($g){
     var game = '<? echo $g; ?>';
     var first = true;
     var time = 0;
-    var roomid='<? echo $roomid; ?>'
-    var userid="<? echo $roomid; ?>admin"
+    var roomid='<? echo $roomId; ?>'
+    var userid="<? echo $roomId; ?>admin"
     var lockReconnect = false;//避免重复连接
 
     getgame();
