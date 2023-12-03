@@ -1,6 +1,6 @@
 var sendtime = 0;
 var id = 1;
-var nowTerm="0"
+var nowTerm = "0"
 
 var websocket = null;
 var url = "";
@@ -22,8 +22,8 @@ $(function () {
     $(document).ready(function () {
         var myURL = parseURL(window.location.href);
         console.log(myURL.host)
-        url = "ws://"+myURL.host+":8653/chat/"+info.roomid+"/" + info.game + "/" + info.userid;
-        connect(url,0)
+        url = "ws://" + myURL.host + ":8653/chat/" + info.roomid + "/" + info.game + "/" + info.userid;
+        connect(url, 0)
     });
 
 });
@@ -123,7 +123,7 @@ function FirstGetContent() {
         type: 'get',
         dataType: 'json',
         success: function (data) {
-            nowTerm=data.betTerm
+            nowTerm = data.betTerm
             addMessage(data.list);
             WelcomMsg(welcome, welHeadimg);
 
@@ -164,9 +164,8 @@ function addMessage(data) {
         var type = data[i].type;
         if (type.substr(0, 1) == 'U') {  //白色
             var qihao = ""
-            if(data[i].betTerm!==undefined && data[i].betTerm!=='' && data[i].betTerm!==null)
-            {
-                qihao="<span style='color:red;font-size:25px;padding:4%;'>" + ' 期号：' + data[i].betTerm + '</span>'
+            if (data[i].betTerm !== undefined && data[i].betTerm !== '' && data[i].betTerm !== null) {
+                qihao = "<span style='color:red;font-size:25px;padding:4%;'>" + ' 期号：' + data[i].betTerm + '</span>'
             }
 
             str += '<div class="saidleft">' +
@@ -257,34 +256,34 @@ Date.prototype.format = function (format) {
 }
 
 //重试连接socket
-function connect(url,delay) {
-    if(lockReconnect) {
+function connect(url, delay) {
+    if (lockReconnect) {
         return;
-    };
+    }
+    ;
     lockReconnect = true;
     //没连接上会一直重连，设置延迟避免请求过多
     setTimeout(function () {
         createWebSocket(url);
-    },delay);
+    }, delay);
 }
 
 function createWebSocket() {
     //判断当前浏览器是否支持WebSocket
-    if('WebSocket' in window){
+    if ('WebSocket' in window) {
         websocket = new WebSocket(url);
-    }
-    else{
+    } else {
         alert('当前浏览器不支持，请更换浏览器')
     }
 
     //连接发生错误的回调方法
-    websocket.onerror = function(){
+    websocket.onerror = function () {
         // setMessageInnerHTML("error");
         console.log(' onerror');
     };
 
     //连接成功建立的回调方法
-    websocket.onopen = function(){
+    websocket.onopen = function () {
         //setMessageInnerHTML("open");
         console.log(" Socket is On");
         //心跳检测重置
@@ -294,46 +293,38 @@ function createWebSocket() {
     }
 
     //接收到消息的回调方法
-    websocket.onmessage = function(event){
+    websocket.onmessage = function (event) {
         // 维持心跳
-        console.log("onmessage==>"+event.data)
+        console.log("onmessage==>" + event.data)
 
-        if(event.data ==='heartbeat'){
-            setTimeout(function(){
+        if (event.data === 'heartbeat') {
+            setTimeout(function () {
                 //这里发送一个心跳，后端收到后，返回一个心跳消息，
                 //onmessage拿到返回的心跳就说明连接正常
                 websocket.send('heartbeat');
             }, 5000)
-        }else
-        {
+        } else {
 
-            var jsonOBJ=JSON.parse(event.data);
+            var jsonOBJ = JSON.parse(event.data);
 
-            if(jsonOBJ!=null && jsonOBJ!=undefined)
-            {
-                if(jsonOBJ.datas.betTerm!=null)
-                {
-                    if(info!=undefined && info!=null)
-                    {
+            if (jsonOBJ != null && jsonOBJ != undefined) {
+                if (jsonOBJ.datas.betTerm != null) {
+                    if (info != undefined && info != null) {
 
-                            console.log(jsonOBJ.datas.betTerm+"----"+nowTerm)
-                            if(jsonOBJ.datas.betTerm!==undefined && jsonOBJ.datas.betTerm!=='' && jsonOBJ.datas.betTerm!==null && parseInt(nowTerm) < parseInt(jsonOBJ.datas.betTerm))
-                            {
-                                nowTerm=jsonOBJ.datas.betTerm;
-                                if(info.game=='ny28' || info.game=='xy28' || info.game=='jnd28')
-                                {
-                                    if(window.frames.length>0 && window.frames[0].window.frames.length>0)
-                                    {
-                                        if(window.frames[0].window.frames[0].window!=null)
-                                        {
-                                            setTimeout(function(){
-                                                window.frames[0].window.frames[0].window.init()
-                                            }, 500)
-                                        }
+                        console.log(jsonOBJ.datas.betTerm + "----" + nowTerm)
+                        if (jsonOBJ.datas.betTerm !== undefined && jsonOBJ.datas.betTerm !== '' && jsonOBJ.datas.betTerm !== null && parseInt(nowTerm) < parseInt(jsonOBJ.datas.betTerm)) {
+                            nowTerm = jsonOBJ.datas.betTerm;
+                            if (info.game == 'ny28' || info.game == 'xy28' || info.game == 'jnd28') {
+                                if (window.frames.length > 0 && window.frames[0].window.frames.length > 0) {
+                                    if (window.frames[0].window.frames[0].window != null) {
+                                        setTimeout(function () {
+                                            window.frames[0].window.frames[0].window.init()
+                                        }, 500)
                                     }
                                 }
-
                             }
+
+                        }
 
                     }
 
@@ -345,11 +336,11 @@ function createWebSocket() {
     }
 
     //连接关闭的回调方法
-    websocket.onclose = function(){
+    websocket.onclose = function () {
         // websocket.setMessageInnerHTML("close");
         console.log(" Socket closed");
         lockReconnect = false;
-        connect(url,5000);
+        connect(url, 5000);
     }
 }
 
