@@ -263,6 +263,7 @@ $sql = get_query_vals('fn_setting','*',array('roomid'=>$_SESSION['agent_room']))
         var roomid='<? echo $roomid; ?>'
         var userid="<? echo $roomid; ?>admin"
         var game="all"
+        var lockReconnect = false;//避免重复连接
 
         $(function () {
             updateNew();

@@ -150,6 +150,7 @@ switch($g){
     var time = 0;
     var roomid='<? echo $roomid; ?>'
     var userid="<? echo $roomid; ?>admin"
+    var lockReconnect = false;//避免重复连接
 
     getgame();
     tablestart();

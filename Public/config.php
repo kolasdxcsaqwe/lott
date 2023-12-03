@@ -11,6 +11,7 @@ $load = 5;
 include_once("sql.php");
 $console = "v9ym";
 $db['host'] = "localhost";
+
 // $db['user'] = "root";//用户名 线上
 // $db['pass'] = "4318471pk";//密码 线上
 
