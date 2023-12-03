@@ -1,5 +1,6 @@
 <?
 $sql = get_query_vals('fn_setting','*',array('roomid'=>$_SESSION['agent_room']));
+$roomId=$_SESSION['agent_room'];
 ?>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -260,8 +261,8 @@ $sql = get_query_vals('fn_setting','*',array('roomid'=>$_SESSION['agent_room']))
     <!-- /.content -->
     <script>
         var id = 0;
-        var roomid='<? echo $roomid; ?>'
-        var userid="<? echo $roomid; ?>admin"
+        var roomid='<? echo $roomId; ?>'
+        var userid="<? echo $roomId; ?>admin"
         var game="all"
         var lockReconnect = false;//避免重复连接
 
