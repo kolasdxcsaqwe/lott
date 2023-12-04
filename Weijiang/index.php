@@ -282,6 +282,8 @@ if ($_GET['m'] == '') {
                                     href="index.php?m=g_setting&g=kuai3"><i class="fa fa-circle-o"></i>江苏快三</a></li>
                         <li class="<?php if ($_GET['g'] == "twk3") echo 'active'; ?>"><a
                                     href="index.php?m=g_setting&g=twk3"><i class="fa fa-circle-o"></i>台湾快三</a></li>
+                        <li class="<?php if ($_GET['g'] == "qxc") echo 'active'; ?>"><a
+                                    href="index.php?m=g_setting&g=qxc"><i class="fa fa-circle-o"></i>七星彩</a></li>
                     </ul>
                 </li>
                 <li class="<?php if ($_GET['m'] == "user") echo 'active'; ?>"><a href="index.php?m=user"><i
@@ -463,6 +465,8 @@ if ($_GET['m'] == '') {
             require 'templates/gamesetting/jslhc.html';
         } elseif ($_GET['m'] == 'g_setting' && $_GET['g'] == 'twk3') {
             require 'templates/gamesetting/twk3.html';
+        } elseif ($_GET['m'] == 'g_setting' && $_GET['g'] == 'qxc') {
+            require 'templates/gamesetting/qxc.html';
         } elseif ($_GET['m'] == 'g_setting' && $_GET['g'] == 'txffc') {
             require 'templates/gamesetting/txffc.html';
         } elseif ($_GET['m'] == 'user') {
