@@ -3,6 +3,7 @@ include_once("../Public/config.php");
 $type = $_GET['type'];
 switch($type){
 case 'first': $arr = array();
+    $_SESSION['roomid'] = str_replace(";", "", $_SESSION['roomid']);
     select_query("fn_custom", '*', "roomid = {$_SESSION['roomid']} and userid = '{$_SESSION['userid']}' order by id desc limit 0,50");
     while($x = db_fetch_array()){
         $arr[] = array('nickname' => $x['username'], 'headimg' => $x['headimg'], 'content' => $x['content'], 'addtime' => date('H:i:s', strtotime($x['addtime'])), 'type' => $x['type'], 'id' => $x['id']);
