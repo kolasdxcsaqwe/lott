@@ -26,3 +26,7 @@ echo "清理30天前的 fn_order 的数据:".(time()-$time)."秒<br>";
 $time=time();
 delete_query("fn_jslhcorder", 'addtime < ' . '\'' . date('Y-m-d H:i:s', time() - (60 * 60 * 24 * 30)) . '\'');
 echo "清理30天前的 fn_jslhcorder 的数据:".(time()-$time)."秒<br>";
+
+$time=time();
+delete_query("fn_marklog", 'addtime < ' . '\'' . date('Y-m-d H:i:s', time() - (60 * 60 * 24 * 30)) . '\'');
+echo "清理30天前的 fn_marklog 的数据:".(time()-$time)."秒<br>";
