@@ -1,12 +1,9 @@
 <?php
-//作者：QQ 1878336950 
+//作者：QQ 1878336950
 //搭建/接口api/其他棋牌彩票类平台/程序修正/彩票程序定制/一条龙服务
 switch ($_COOKIE['game']) {
-    case 'lhc':
-        $lot = 'fn_lottery13';
-        break;
-    case 'jslhc':
-        $lot = 'fn_lottery14';
+    case 'qxc':
+        $lot = 'fn_lottery20';
         break;
 }
 $roomid = $_SESSION['roomid'];
@@ -53,7 +50,6 @@ $azxy10open = $info17['gameopen'];
 $azxy5open = $info18['gameopen'];
 $ny28open = $info19['gameopen'];
 $qxcopen = $info20['gameopen'];
-
 function is_weixin()
 {
     if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {
@@ -589,13 +585,13 @@ function is_weixin()
         <ul>
             <!--li class="ulogo"><a href="/Templates/user/"><img src="<?php echo $_SESSION['headimg']; ?>" class="mlogo"></a></li-->
             <li class="ulogo"><a href="/qr.php?room=<?php echo $_SESSION['roomid']; ?>"><img
-                            src="/Templates/Old/images/dt.png" class="mlogo"/></a></li>
+                        src="/Templates/Old/images/dt.png" class="mlogo"/></a></li>
             <?php if ($key == 2) { ?>
                 <li class="cz" data-id="cz"><a href="/pay/index.php"><img src="/Templates/Old/images/cz.png"/></a></li>
             <?php } elseif ($key == 1) { ?>
                 <li class="cz" data-id="cz"><a
-                            href="/spay/index.php?roomid=<? echo $_SESSION['roomid']; ?>&g=<? echo $_COOKIE['game']; ?>&img=<? echo $_SESSION['headimg']; ?>&m=<? echo $_SESSION['username']; ?>&id=<? echo $_SESSION['userid']; ?>"><img
-                                src="/Templates/Old/images/cz.png"/></a></li>
+                        href="/spay/index.php?roomid=<? echo $_SESSION['roomid']; ?>&g=<? echo $_COOKIE['game']; ?>&img=<? echo $_SESSION['headimg']; ?>&m=<? echo $_SESSION['username']; ?>&id=<? echo $_SESSION['userid']; ?>"><img
+                            src="/Templates/Old/images/cz.png"/></a></li>
             <?php } elseif ($key == 3) { ?>
                 <li class="cz" data-id="cz"><a href="/dspay/index.php"><img src="/Templates/Old/images/cz.png"/></a>
                 </li>
@@ -692,7 +688,7 @@ function is_weixin()
                 </ul>
             </div>
             <div class="infuse" style="display: none;"><a href="javascript:;" class="clearnum">清空所选</a> <em
-                        id="bet_num">共<b>0</b>注</em> <a href="javascript:;" class="confirm-pour">确定下注</a></div>
+                    id="bet_num">共<b>0</b>注</em> <a href="javascript:;" class="confirm-pour">确定下注</a></div>
         </div>
         <div class="game-bd six">
             <!--生肖 START-->
@@ -1614,7 +1610,7 @@ function is_weixin()
     <div id="touzhu" class="">
         <div class="pour-info">
             <h4 class="game-tit game-tit-bg" style="font-size:45px;line-height:100px;">竞猜大小单双<a
-                        href="javascript:;" class="close">×</a></h4>
+                    href="javascript:;" class="close">×</a></h4>
             <div class="m-bd">
                 <h4>共<em class="bet_n">1</em>注，投注金额<em class="bet_total">0</em>元</h4>
                 <dl>
@@ -1833,17 +1829,6 @@ function is_weixin()
                     </a>
                 </li>
 
-                <li <?php if ($qxcopen == 'false') echo 'class="gray"'; ?>>
-                    <a <?php if ($qxcopen == 'false') {
-                        echo 'href="#" class="gray"';
-                    } else {
-                        echo "href='/qr.php?room={$_SESSION['roomid']}&g=qxc'";
-                    } ?>>
-                        <img src="/Style/Home/images/qxc-logo.png" title="七星彩">
-                        <font>七星彩</font>
-                    </a>
-                </li>
-
                 <li <?php if ($jnd28open == 'false') echo 'class="gray"'; ?>>
                     <a <?php if ($jnd28open == 'false') {
                         echo 'href="#" class="gray"';
@@ -2042,6 +2027,17 @@ function is_weixin()
                     </a>
                 </li>
 
+                <li <?php if ($qxcopen == 'false') echo 'class="gray"'; ?>>
+                    <a <?php if ($qxcopen == 'false') {
+                        echo 'href="#" class="gray"';
+                    } else {
+                        echo "href='/qr.php?room={$_SESSION['roomid']}&g=qxc'";
+                    } ?>>
+                        <img src="/Style/Home/images/qxc-logo.png" title="七星彩">
+                        <font>七星彩</font>
+                    </a>
+                </li>
+
                 <li <?php if ($jnd28open == 'false') echo 'style="display:none;"'; ?>>
                     <a <?php if ($jnd28open == 'false') {
                         echo 'href="#" class="gray"';
@@ -2118,7 +2114,7 @@ function is_weixin()
 				<h3 class="tit">快捷菜单：</h3>
 				<li>
 					<a href="/qr2.php?room=<?php echo $_SESSION['roomid']; ?>">
-						<i class="iconfont"></i> 
+						<i class="iconfont"></i>
                         <img src="/Templates/Old/images/yxdt.png" style="width:60%;"/>
 						<font>游戏大厅</font>
 					</a>

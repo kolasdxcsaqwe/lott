@@ -52,6 +52,12 @@ echo '<p>演示盘，无权限</p>';
                             </div>
                             <br/>
 
+                            <div class="input-group">
+                                <span class="input-group-addon">首尾定位</span>
+                                <input name="touweifix" type="number" class="form-control" step="0.001" placeholder="输入赔率..." value="">
+                            </div>
+                            <br/>
+
                         </div>
                         <div class="col-md-6">
                             <div class="input-group">
@@ -175,6 +181,7 @@ echo '<p>演示盘，无权限</p>';
                 $("input[name='endfourfix']").val(result.datas.endfourfix)
                 $("input[name='frontfourany']").val(result.datas.frontfourany)
                 $("input[name='endfourany']").val(result.datas.endfourany)
+                $("input[name='touweifix']").val(result.datas.touweifix)
 
                 $("input[name='fengtime']").val(result.datas.fengtime)
                 $("textarea[name='rules']").val(result.datas.rules)
@@ -228,7 +235,7 @@ echo '<p>演示盘，无权限</p>';
             success: function (result) {
                 console.log(result);//打印服务端返回的数据(调试用)
                 if (result.code === 0) {
-                    alert("保存成功,1小时后生效");
+                    alert("保存成功,10分钟后生效");
                 }
             },
             error : function() {

@@ -42,6 +42,7 @@ $info16 = get_query_vals('fn_lottery16', '*', array('roomid' => $_SESSION['roomi
 $info17 = get_query_vals('fn_lottery17', '*', array('roomid' => $_SESSION['roomid']));
 $info18 = get_query_vals('fn_lottery18', '*', array('roomid' => $_SESSION['roomid']));
 $info19 = get_query_vals('fn_lottery19', '*', array('roomid' => $_SESSION['roomid']));
+$info20 = get_query_vals('fn_lottery20', '*', array('roomid' => $_SESSION['roomid']));
 
 $pk10open = $info1['gameopen'];
 $xyftopen = $info2['gameopen'];
@@ -62,6 +63,7 @@ $txffcopen = $info16['gameopen'];
 $azxy10open = $info17['gameopen'];
 $azxy5open = $info18['gameopen'];
 $ny28open = $info19['gameopen'];
+$qxcopen = $info20['gameopen'];
 
 function is_weixin()
 {
@@ -1263,6 +1265,17 @@ function is_weixin()
                     } ?>>
                         <img src="/Style/Home/images/ny28-logo.png" title="纽约28">
                         <font>纽约28</font>
+                    </a>
+                </li>
+
+                <li <?php if ($qxcopen == 'false') echo 'class="gray"'; ?>>
+                    <a <?php if ($qxcopen == 'false') {
+                        echo 'href="#" class="gray"';
+                    } else {
+                        echo "href='/qr.php?room={$_SESSION['roomid']}&g=qxc'";
+                    } ?>>
+                        <img src="/Style/Home/images/qxc-logo.png" title="七星彩">
+                        <font>七星彩</font>
                     </a>
                 </li>
 

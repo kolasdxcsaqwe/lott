@@ -112,6 +112,14 @@ if ($_SESSION['userid'] != null) {
                                 </a>
                             </li>
 
+                            <li style=" width: 50%; ">
+                                <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=qxc">
+                                    <img src="/Style/Home/images/qxc-2023-12-5.jpg" title="七星彩"
+                                         style=" width: 95%; ">
+                                    <!--		<font>加拿大28</font>-->
+                                </a>
+                            </li>
+
 
                             <li style=" width: 50%; ">
                                 <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=jslhc">

@@ -77,6 +77,9 @@ switch ($game) {
     case "azxy5":
         require "lottery/ssc.php";
         break;
+    case "qxc":
+        require "lottery/qxc.php";
+        break;
 }
 function formatgame($game)
 {
@@ -119,6 +122,8 @@ function formatgame($game)
             return "澳洲幸运10";
         case "azxy5":
             return "河内5分彩";
+        case "qxc":
+            return "七星彩";
     }
 }
 
