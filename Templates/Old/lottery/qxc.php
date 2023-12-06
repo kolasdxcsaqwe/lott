@@ -69,8 +69,8 @@ function is_weixin()
     <title><?php echo $sitename ?></title>
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/weui.min.css"/>
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/style.css?t=sajiwq9iu3"/>
-    <link rel="Stylesheet" type="text/css" href="Style/Old/css/bootstrap.min.css"/>
-    <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/wx.css"/>
+    <link rel="Stylesheet" type="text/css" href="Style/Old/css/bootstrap.new.css"/>
+    <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/NewLottery.css"/>
     <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/layout.css"/>
     <link rel="Stylesheet" type="text/css" href="Style/Xs/static/css/iconfont.css"/>
     <script src="Style/Old/js/jquery.min.js"></script>
@@ -550,7 +550,7 @@ function is_weixin()
 <!-- New Templates Update -->
 <script type="text/javascript" src="/Style/Old/js/tools.js?t=47984jf"></script>
 <script type="text/javascript" src="/Style/Old/js/chat.js?t=kdf98"></script>
-<script type="text/javascript" src="/Style/Old/js/lhc.js"></script>
+<script type="text/javascript" src="/Style/Old/js/qxc.js"></script>
 <!-- ./New Templates Update -->
 
 <iframe onload="iFrameHeight2();" src="/Templates/Old/shipin.php" name="ifarms" width="980" height="680"
@@ -585,13 +585,13 @@ function is_weixin()
         <ul>
             <!--li class="ulogo"><a href="/Templates/user/"><img src="<?php echo $_SESSION['headimg']; ?>" class="mlogo"></a></li-->
             <li class="ulogo"><a href="/qr.php?room=<?php echo $_SESSION['roomid']; ?>"><img
-                        src="/Templates/Old/images/dt.png" class="mlogo"/></a></li>
+                            src="/Templates/Old/images/dt.png" class="mlogo"/></a></li>
             <?php if ($key == 2) { ?>
                 <li class="cz" data-id="cz"><a href="/pay/index.php"><img src="/Templates/Old/images/cz.png"/></a></li>
             <?php } elseif ($key == 1) { ?>
                 <li class="cz" data-id="cz"><a
-                        href="/spay/index.php?roomid=<? echo $_SESSION['roomid']; ?>&g=<? echo $_COOKIE['game']; ?>&img=<? echo $_SESSION['headimg']; ?>&m=<? echo $_SESSION['username']; ?>&id=<? echo $_SESSION['userid']; ?>"><img
-                            src="/Templates/Old/images/cz.png"/></a></li>
+                            href="/spay/index.php?roomid=<? echo $_SESSION['roomid']; ?>&g=<? echo $_COOKIE['game']; ?>&img=<? echo $_SESSION['headimg']; ?>&m=<? echo $_SESSION['username']; ?>&id=<? echo $_SESSION['userid']; ?>"><img
+                                src="/Templates/Old/images/cz.png"/></a></li>
             <?php } elseif ($key == 3) { ?>
                 <li class="cz" data-id="cz"><a href="/dspay/index.php"><img src="/Templates/Old/images/cz.png"/></a>
                 </li>
@@ -672,115 +672,59 @@ function is_weixin()
         <div class="game-hd">
             <div class="menu">
                 <ul>
-                    <li class="gameli"><a href="javascript:;" data-t="3" class="">数字</a></li>
-                    <li class="gameli"><a href="javascript:;" class="on" data-t="1">生肖</a></li>
-                    <li class="gameli"><a href="javascript:;" data-t="2" class="">双面</a></li>
-                    <!--li class="gameli"><a href="javascript:;" data-t="4" class="">一肖</a></li-->
-                    <!--li class="more-game">
-						<a href="javascript:;"><img src="/Style/images/game-arrow.png"></a>
-						<div class="sub-menu" style="display: none;">
-							<a href="javascript:;" data-t="5" class="">2连肖</a>
-							<a href="javascript:;" data-t="6" class="">3连肖</a>
-							<a href="javascript:;" data-t="7" class="">4连肖</a>
-							<a href="javascript:;" data-t="8" class="">5连肖</a>
-						</div>
-					</li-->
+                    <li class="gameli"><a href="javascript:;" data-t="3" class="on">任意3</a></li>
+                    <li class="gameli"><a href="javascript:;" class="" data-t="1">任意4</a></li>
+                    <li class="gameli"><a href="javascript:;" data-t="2" class="">头尾定位</a></li>
+                    <li class="more-game">
+                        <a href="javascript:;"><img src="/Style/images/game-arrow.png"></a>
+                        <div class="sub-menu" style="display: none;">
+                            <a href="javascript:;" data-t="5">前4定位</a>
+                            <a href="javascript:;" data-t="6">后4定位</a>
+                            <a href="javascript:;" data-t="7">前4不定位</a>
+                            <a href="javascript:;" data-t="6">后4不定位</a>
+                        </div>
+                    </li>
                 </ul>
             </div>
             <div class="infuse" style="display: none;"><a href="javascript:;" class="clearnum">清空所选</a> <em
-                    id="bet_num">共<b>0</b>注</em> <a href="javascript:;" class="confirm-pour">确定下注</a></div>
+                        id="bet_num">共<b>0</b>注</em> <a href="javascript:;" class="confirm-pour">确定下注</a></div>
         </div>
         <div class="game-bd six">
             <!--生肖 START-->
             <div class="gamenum game-type-1" style="">
-                <div class="rank-tit"><span class="change">十二生肖竞猜</span></div>
+                <div class="rank-tit"><span class="change">任意4</span></div>
                 <div class="btn-box btn-grounp">
-                    <a href="javascript:;" class="btn mini-btn" data-line="7">
-                        <div class="h5">特码</div>
-                    </a>
-                    <!--a href="javascript:;" class="btn mini-btn" data-line="8">
-                    <div class="h5">平码一肖</div>
-                    </a-->
                     <a href="javascript:;" class="btn mini-btn" data-line="1">
-                        <div class="h5">正码1</div>
+                        <div class="h5">0</div>
                     </a>
                     <a href="javascript:;" class="btn mini-btn" data-line="2">
-                        <div class="h5">正码2</div>
+                        <div class="h5">1</div>
                     </a>
                     <a href="javascript:;" class="btn mini-btn" data-line="3">
-                        <div class="h5">正码3</div>
+                        <div class="h5">2</div>
                     </a>
                     <a href="javascript:;" class="btn mini-btn" data-line="4">
-                        <div class="h5">正码4</div>
+                        <div class="h5">3</div>
                     </a>
                     <a href="javascript:;" class="btn mini-btn" data-line="5">
-                        <div class="h5">正码5</div>
+                        <div class="h5">4</div>
                     </a>
                     <a href="javascript:;" class="btn mini-btn" data-line="6">
-                        <div class="h5">正码6</div>
+                        <div class="h5">5</div>
+                    </a>
+                    <a href="javascript:;" class="btn mini-btn" data-line="7">
+                        <div class="h5">6</div>
+                    </a>
+                    <a href="javascript:;" class="btn mini-btn" data-line="8">
+                        <div class="h5">7</div>
+                    </a>
+                    <a href="javascript:;" class="btn mini-btn" data-line="9">
+                        <div class="h5">8</div>
+                    </a>
+                    <a href="javascript:;" class="btn mini-btn" data-line="10">
+                        <div class="h5">9</div>
                     </a>
                 </div>
-                <div class="btn-box btn-grounp"><a href="javascript:;" class="btn middle-btn" data-val="鼠">
-                        <div class="h5">
-                            <h5>鼠</h5>
-                            <p><em>× <?php echo $info['shengxiao']; ?></em></p>
-                        </div>
-                    </a> <a href="javascript:;" class="btn middle-btn" data-val="牛">
-                        <div class="h5">
-                            <h5>牛</h5>
-                            <p><em>× <?php echo $info['shengxiao']; ?></em></p>
-                        </div>
-                    </a> <a href="javascript:;" class="btn middle-btn" data-val="虎">
-                        <div class="h5">
-                            <h5>虎</h5>
-                            <p><em>× <?php echo $info['shengxiao']; ?></em></p>
-                        </div>
-                    </a> <a href="javascript:;" class="btn middle-btn" data-val="兔">
-                        <div class="h5">
-                            <h5>兔</h5>
-                            <p><em>× <?php echo $info['shengxiao']; ?></em></p>
-                        </div>
-                    </a> <a href="javascript:;" class="btn middle-btn" data-val="龙">
-                        <div class="h5">
-                            <h5>龙</h5>
-                            <p><em>× <?php echo $info['shengxiao']; ?></em></p>
-                        </div>
-                    </a> <a href="javascript:;" class="btn middle-btn" data-val="蛇">
-                        <div class="h5">
-                            <h5>蛇</h5>
-                            <p><em>× <?php echo $info['shengxiao']; ?></em></p>
-                        </div>
-                    </a> <a href="javascript:;" class="btn middle-btn" data-val="马">
-                        <div class="h5">
-                            <h5>马</h5>
-                            <p><em>× <?php echo $info['shengxiao']; ?></em></p>
-                        </div>
-                    </a> <a href="javascript:;" class="btn middle-btn" data-val="羊">
-                        <div class="h5">
-                            <h5>羊</h5>
-                            <p><em>× <?php echo $info['shengxiao']; ?></em></p>
-                        </div>
-                    </a> <a href="javascript:;" class="btn middle-btn" data-val="猴">
-                        <div class="h5">
-                            <h5>猴</h5>
-                            <p><em>× <?php echo $info['shengxiao']; ?></em></p>
-                        </div>
-                    </a> <a href="javascript:;" class="btn middle-btn" data-val="鸡">
-                        <div class="h5">
-                            <h5>鸡</h5>
-                            <p><em>× <?php echo $info['shengxiao']; ?></em></p>
-                        </div>
-                    </a> <a href="javascript:;" class="btn middle-btn" data-val="狗">
-                        <div class="h5">
-                            <h5>狗</h5>
-                            <p><em>× <?php echo $info['shengxiao']; ?></em></p><!-- 本命年生肖，采用生肖年赔率-->
-                        </div>
-                    </a> <a href="javascript:;" class="btn middle-btn" data-val="猪">
-                        <div class="h5">
-                            <h5>猪</h5>
-                            <p><em>× <?php echo $info['shengxiaonian']; ?></em></p>
-                        </div>
-                    </a></div>
             </div>
             <!--生肖 END-->
             <div class="gamenum game-type-2" style="">
@@ -1610,7 +1554,7 @@ function is_weixin()
     <div id="touzhu" class="">
         <div class="pour-info">
             <h4 class="game-tit game-tit-bg" style="font-size:45px;line-height:100px;">竞猜大小单双<a
-                    href="javascript:;" class="close">×</a></h4>
+                        href="javascript:;" class="close">×</a></h4>
             <div class="m-bd">
                 <h4>共<em class="bet_n">1</em>注，投注金额<em class="bet_total">0</em>元</h4>
                 <dl>
