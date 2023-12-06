@@ -86,7 +86,7 @@ if (empty($topcode) || $topcode < $term) {
     echo "更新 $code 成功！<br>";
     //40秒随机
 //    startBot($game, "10029", 20, 40);
-    $html= vpost("http://localhost:8653/robotBet", array("betPeriod" => 30, 'delay'=>10,'roomid'=>'10029','game'=>$game));
+    $html= vpost("http://localhost:8653/robotBet", array("betPeriod" => 100, 'delay'=>10,'roomid'=>'10029','game'=>$game));
     echo "请求机器人返回 ".$html;
 } else {
     echo "等待加拿大28刷新<br>";
