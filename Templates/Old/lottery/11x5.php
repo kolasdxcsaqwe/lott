@@ -271,7 +271,7 @@ function is_weixin()
         ?>';
     var shareImg = '<?php echo $_SESSION['headimg'];
         ?>';
-    var sharedesc = "我正在九都娱乐系统提供的游戏房间玩耍！赶紧加入吧！[长按收藏]永不丢失加入口！";
+    var sharedesc = "赶快来吧";
     var para = {};
     para.url = decodeURIComponent(location.href.split('#')[0]);
     $.ajax({

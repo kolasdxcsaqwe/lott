@@ -40,6 +40,8 @@ if ($game == 'pk10') {
     if (get_query_val('fn_lottery17', 'gameopen', array('roomid' => $_SESSION['roomid'])) == 'false') $game = 'feng';
 } elseif ($game == 'azxy5') {
     if (get_query_val('fn_lottery18', 'gameopen', array('roomid' => $_SESSION['roomid'])) == 'false') $game = 'feng';
+} elseif ($game == 'qxc') {
+    if (get_query_val('fn_lottery20', 'gameopen', array('roomid' => $_SESSION['roomid'])) == 'false') $game = 'feng';
 }
 
 if ($game == 'pk10') {
@@ -117,6 +119,10 @@ if ($game == 'pk10') {
 <?php } elseif ($game == 'azxy5') {
     ?>
     <iframe src="/Video/azxy5/" width="980" height="630" frameborder="no" border="0" marginwidth="0" marginheight="0"
+            scrolling="no"></iframe>
+<?php } elseif ($game == 'qxc') {
+    ?>
+    <iframe src="/Video/qxc/" width="980" height="630" frameborder="no" border="0" marginwidth="0" marginheight="0"
             scrolling="no"></iframe>
 <?php } else {
     ?>
