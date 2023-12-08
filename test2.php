@@ -26,20 +26,23 @@ $nowTime= date('Y-m-d H:i:s', time());
 $time= date('Y-m-d H:i:s', time() - (60 * 60 * 24 * 30));
 echo $nowTime."    ".$time."<br>";
 
-$redis = new Redis();
-$redis->connect('127.0.0.1', 6379);
-echo "Connection to server successfully"."<br>";
-//查看服务是否运行
-echo "Server is running: " . $redis->ping()."<br>";
+//$redis = new Redis();
+//$redis->connect('127.0.0.1', 6379);
+//echo "Connection to server successfully"."<br>";
+////查看服务是否运行
+//echo "Server is running: " . $redis->ping()."<br>";
+//
+//if(empty($_SESSION["CUSERID"]))
+//{
+//    $_SESSION["CUSERID"]="sadsadsad";
+//}
+//else
+//{
+//    echo json_encode($_SESSION);
+//}
 
-if(empty($_SESSION["CUSERID"]))
-{
-    $_SESSION["CUSERID"]="sadsadsad";
-}
-else
-{
-    echo json_encode($_SESSION);
-}
+$info1 = get_query_vals('fn_lottery20', '*', array('roomid' => 10029));
+echo json_encode($info1);
 
 
 

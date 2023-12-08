@@ -11,7 +11,6 @@ $returnData = array();
 $code=0;
 $msg="success";
 
-
 if(is_null($loginName) || is_null($password) || is_null($agent) || is_null($roomId) || is_null($types))
 {
     $code=-1;
@@ -21,6 +20,7 @@ if(is_null($loginName) || is_null($password) || is_null($agent) || is_null($room
     exit();
 }
 
+$reUrl="";
 if($types==0)
 {
     if(strlen($loginName)<6 || strlen($loginName)>20)
@@ -35,7 +35,15 @@ if($types==0)
         $code=-7;
     }
 
-
+    $json= vpost(constant("javaServiceUrl")."login",array('loginName'=>$loginName,'password'=>$password,'roomId'=>$roomId,'agent'=>$agent));
+    $jsonObj= json_decode($json);
+    $datas=$jsonObj->datas;
+    $msg=$jsonObj->msg;
+    $code=$jsonObj->code;
+    if($datas!=null)
+    {
+        $reUrl="../qr.php?room=" . $datas->roomid."&agent=".$datas->agent."&userid=".$datas->userid."&username=".$datas->username."&headimg=".$datas->headimg;
+    }
 }
 else if($types==1)
 {
@@ -59,35 +67,22 @@ else if($types==1)
 
     if($code==0)
     {
-        $result=get_query_vals("fn_user","*",array('loginuser' => $loginName));
-        if(!is_null($result))
+        $json= vpost(constant("javaServiceUrl")."register",array('loginName'=>$loginName,'password'=>$password,'roomId'=>$roomId,'agent'=>$agent));
+        $jsonObj= json_decode($json);
+        $datas=$jsonObj->datas;
+        $msg=$jsonObj->msg;
+        $code=$jsonObj->code;
+        if($datas!=null)
         {
-            $msg="该用户名已经被注册，请更换用户名";
-            $code=-39;
-        }
-        else {
-            create($roomId, uuid(), $loginName, $loginName, $password, "/upload/0.png", $agent);
+            $reUrl="../qr.php?room=" . $datas->roomid."&agent=".$datas->agent."&userid=".$datas->userid."&username=".$datas->username."&headimg=".$datas->headimg;
         }
     }
-
 }
 
-$returnData=array('code'=>$code,'msg'=>$msg);
-
-if($code==0)
-{
-    $reurl=login($loginName,$password);
-    if(strlen($reurl)>0)
-    {
-        $returnData=array('code'=>$code,'msg'=>$msg,'reurl'=>$reurl);
-    }
-    else
-    {
-        $returnData=array('code'=>'-10','msg'=>'登录名或者密码不正确');
-    }
-}
+$returnData=array('code'=>$code,'msg'=>$msg,'reurl'=>$reUrl);
 
 echo json_encode($returnData);
+
 
 function create($roomid,$userid, $username,$loginuser, $loginpass,$headimg, $agent = "null",$level=1) {
     if ($agent == "") {
