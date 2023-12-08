@@ -253,7 +253,7 @@ if ($_SESSION['userid'] != null) {
     <div class="mod-orient-layer__content">
         <i class="icon mod-orient-layer__icon-orient"></i>
 
-        <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+        <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览,如未显示出页面，请刷新浏览器</div>
     </div>
 </div>
 <script type="text/javascript">
@@ -324,7 +324,7 @@ if ($_SESSION['userid'] != null) {
     function init() {
         orientNotice();
         window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function () {
-            setTimeout(orientNotice, 200);
+            setTimeout(orientNotice, 700);
         })
     }
 
