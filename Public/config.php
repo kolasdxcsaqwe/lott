@@ -24,6 +24,7 @@ $isWeiXInBrowse = true;//开关 如果上公众号的话把这个打开
 $dbconn = db_connect($db['host'], $db['user'], $db['pass'], $db['name']);
 $uploadurl = "http://cdn.ononn.com";
 define("UPLOADPIC", "http://cdn.ononn.com");
+define("javaServiceUrl", "http://localhost:8653/");
 include_once("db.class.php");
 $wx['ID'] = 'wx07a1f8b12290ba3b';
 $wx['key'] = '85311c0d23e490367bd44882f1e1ad6e'; //这里是公众号 不用管  我们没有公众号
@@ -271,17 +272,18 @@ function isWeixin()
 //}
 
 function robotBroadcast($Content, $chat_term='', $chat_status='', $roomid, $game,$chatType="S3",$userid,$betTerm=''){
-    vpost("http://localhost:8653/sendChat", array("username" => "播报员", "imgType" => 'robot', 'chat_term'=>$chat_term,
+    vpost(constant("javaServiceUrl")."sendChat", array("username" => "播报员", "imgType" => 'robot', 'chat_term'=>$chat_term,
         'chat_status'=>$chat_status,'content' => $Content, 'chatType' => $chatType, 'userid' => $userid, 'game' => $game, 'roomid' => $roomid,'betTerm'=>$betTerm));
 }
 
 function adminBroadcast($Content, $chat_term='', $chat_status='', $roomid, $game,$chatType="S1",$userid){
-    vpost("http://localhost:8653/sendChat", array("username" => "管理员", "imgType" => 'admin', 'chat_term'=>$chat_term,
+    vpost(constant("javaServiceUrl")."sendChat", array("username" => "管理员", "imgType" => 'admin', 'chat_term'=>$chat_term,
         'chat_status'=>$chat_status,'content' => $Content, 'chatType' => $chatType, 'userid' => $userid, 'game' => $game, 'roomid' => $roomid));
 }
 
 function roomBroadcast($headimg,$userName,$Content, $chat_term='', $chat_status='', $roomid, $game,$chatType="S3",$userid,$chatid=''){
-    vpost("http://localhost:8653/sendChat", array("username" => $userName, "headimg" => $headimg, 'chat_term'=>$chat_term,
+    global $javaServiceUrl;
+    vpost(constant("javaServiceUrl")."sendChat", array("username" => $userName, "headimg" => $headimg, 'chat_term'=>$chat_term,
         'chat_status'=>$chat_status,'content' => $Content, 'chatType' => $chatType, 'userid' => $userid, 'game' => $game, 'roomid' => $roomid,'chatid'=>$chatid));
 }
 

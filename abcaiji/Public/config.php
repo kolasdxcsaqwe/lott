@@ -15,6 +15,7 @@ $db['user'] = "root";
 $db['pass'] = "123qwe";
 
 $db['name'] = "v9ym";
+$javaServiceUrl="localhost:8653/";
 $dbconn = db_connect($db['host'], $db['user'], $db['pass'], $db['name']);
 include_once ("db.class.php");
 $wx['ID'] = 'wxee7dd51e40475df6';
