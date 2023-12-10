@@ -24,7 +24,7 @@ $welcome = substr($welcome, 0, strlen($welcome) - 1);
 			dataType:'json',
 			success:function(data){
 				if(data.success){
-					$('#userinfo1').html('剩余点数：'+data.price+'点');
+					$('#userinfo1').html('剩余额数：'+data.price+'点');
 					$('#userinfo2').html('线上人数：'+data.online+'人');
 				}else{
 					alert('登录过期,请重新登录！');
@@ -61,7 +61,7 @@ $welcome = substr($welcome, 0, strlen($welcome) - 1);
 				<div class="keybord_div" id="keybord_div"><em>1</em><em>2</em><em>3</em><em>4</em><em>5</em><em>大</em><em>小</em><em>单</em><em>双</em><em>6</em><em>7</em><em>8</em><em>9</em><em>0</em><em>/</em><em>龙</em><em>虎</em><em>和</em><em>-</em><em>.</em><em>查</em><em>回</em><em class="c2">发送</em><em class="c">清</em><em class="c">←</em><em class="close">×</em></div>
 			</td>
 			<td Style="float: right;padding-right: 0px;">
-				<span id="userinfo1" class="userinfo1">剩余点数：0点</span>
+				<span id="userinfo1" class="userinfo1">剩余额数：0点</span>
 				<br>
 				<span id="userinfo2" class="userinfo2">线上人数：0人</span>
 			</td>

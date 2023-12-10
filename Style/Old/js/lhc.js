@@ -54,6 +54,7 @@ $(function () {
         t.find('a.on[data-val]').each(function (i, o) {
             bval.push($(this).data('val'));
         });
+
         bet_n = 0;
 		var cheng = chu = '';
 		//计算注数 bet_n注数
@@ -159,7 +160,7 @@ $(function () {
         var bl = $("b.balance").text() * 1, msg1, msg2, msg = [],
             bet_money = $("input.bet_money").val() * 1;
         if (bet_money == 0) { zy.tips("请输入下注金额"); return; }
-        if (bet_money * bet_n > bl) { zy.tips("您的余点不足"); return; }
+        if (bet_money * bet_n > bl) { zy.tips("您的余额不足"); return; }
         switch (bet) {
 			case 1:
 				msg1 = '';

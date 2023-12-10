@@ -84,7 +84,7 @@ $(function () {
         var bl = $("b.balance").text() * 1, msg1, msg2, msg = [],
             bet_money = $("input.bet_money").val() * 1;
         if (bet_money == 0) { zy.tips("请输入下注金额"); return; }
-        if (bet_money * bet_n > bl) { zy.tips("您的余点不足"); return; }
+        if (bet_money * bet_n > bl) { zy.tips("您的余额不足"); return; }
         //				console.log(bval);
         // console.log(bet);
         switch (bet) {

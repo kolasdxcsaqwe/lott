@@ -18,12 +18,49 @@
     kl.push("阿斯顿");
 
     setInterval(setData,1000)
+    random(3)
+    testCount();
 
     function setData()
     {
         for (let i = 0; i < 1000; i++) {
             window.sessionStorage.setItem("sadsad","asdasd")
         }
+    }
+    function random(count)
+    {
+        var nums=[0,1,2,3,4,5,6,7,8,9]
+        var result=[]
+        for (let i = 0; i < count; i++) {
+            let pos=Math.floor(Math.random()*nums.length)
+            result.push(nums[pos])
+            nums.splice(pos,1)
+        }
+        return result
+    }
+
+    function testCount()
+    {
+        var xuan=10;
+        var xuyao=6
+
+        var n=1
+        var nm=1
+        var m=1
+
+        for (let i = 0; i < xuan; i++) {
+            n=n*(i+1);
+            if(xuan-xuyao-i>0)
+            {
+                nm=nm*(xuan-xuyao-i)
+            }
+            if(xuyao-i>0)
+            {
+                m=m*(xuyao-i)
+            }
+        }
+        console.log(n+" "+nm+" "+m )
+        console.log(n/nm/m)
     }
 
     function deasd()

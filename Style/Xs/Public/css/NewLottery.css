@@ -543,26 +543,48 @@ a{cursor: pointer; text-decoration: none;}
 }
 .game-hd .menu ul li .sub-menu a{height: 90px;line-height: 90px; border-bottom: 1px solid #aaafb0;}
 .game-hd .menu ul li .sub-menu a.on{ background: #efcf0d;}
-.game-hd .infuse{text-align:center;padding: 15px 0; overflow: hidden;position: fixed; left: 0; bottom: 0;
+.game-hd .infuse{text-align:left;padding: 15px 0; overflow: hidden;position: fixed; left: 0; bottom: 0;
     background: -webkit-gradient(linear, 0 0, 0 bottom, from(#4f3d2c), to(rgba(31, 17, 8, 1)));
     width: 100%;display: none; z-index:999;}
 h4#game-gtype{padding: 20px 10px; display: block; text-align: center;}
 .game-hd .infuse h4{font-size: 36px; margin-bottom: 26px; font-weight: normal;}
-.game-hd .infuse a{width: 300px;height: 90px;line-height: 90px; color: #fff;border-radius: 10px;-webkit-border-radius: 10px; display: inline-block; padding: 0 20px; font-size: 32px; background: #F13131;}
-.game-hd .infuse em{letter-spacing: 5px; color: #fff; font-style: normal; font-weight: bold; font-size: 32px;margin: 0 2%; width: 170px; display: inline-block; }
+.game-hd .infuse a{padding:0 30px;line-height: 90px; color: #fff;border-radius: 10px;-webkit-border-radius: 10px; display: inline-block; font-size: 32px; background: #F13131;}
+.game-hd .infuse em{letter-spacing: 5px; color: #fff; font-style: normal; font-weight: bold; font-size: 32px;  display: block;margin-left: 15px;margin-bottom: 10px }
 .game-hd .infuse em b{font-size: 45px;}
-.game-hd .infuse a.clearnum,.game-hd .infuse a.confirm-pour{background: #999;}
-.game-hd .infuse a.clearnum.on{background: #F13131;}
+.game-hd .infuse a.clearnum,.game-hd .infuse a.confirm-pour{background: #999;margin-left: 10px;}
+.game-hd .infuse a.clearnum.on{background: #31670b;color: #FFFFFF;margin-left: 15px}
+.game-hd .infuse a.addOrder{background: #999;}
+.game-hd .infuse .right{float: right;margin-right: 15px;}
+.game-hd .infuse .orderInformation {margin: 10px 0;}
+.game-hd .infuse .orderInformation span{color: white;font-size: 32px;margin-left: 15px}
+.game-hd .infuse .orderInformation input{text-align:center; padding:5px 0;font-size: 28px;width:30%;margin-left: 15px}
+.game-hd .infuse .orderInformation div{display: inline-block;float: right;margin-right: 15px}
+.game-hd .infuse .orderInformation div span{font-size: 32px;}
+.game-hd .infuse .orderInformation div span b{font-size: 40px;color:#efcf0d; }
+.orderContent{background-color:#fff;display:block; margin: 150px auto; border-radius:15px;width: 90%;position: relative;
+    height: 80%; -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    box-shadow: 0 5px 15px rgba(0,0,0,.5)}
+.orderContent .closeDialog{width:100%;padding: 20px 20px;display: inline-block;position: absolute;z-index: 1;transform: translate(0%, 15%)}
+.orderContent .btn{border-radius: 10px;border: #cccccc;border-width: 1px}
+.orderContent .timeBalance{margin-top: 120px;position: absolute;width: 100%}
+.orderContent .timeBalance span{font-size: 35px;margin-left: 15px}
+.orderContent .timeBalance .bal{float: right;display: inline-block;margin-right: 15px}
+.orderContent .timeBalance span b{font-size: 45px;color:#f75164 }
+
+
+
+
+
 
 .game-hd .infuse a.on{background:#f24256;
     background:-moz-linear-gradient(top, #f75164, rgba(230, 27, 50, 1));
     background:-webkit-gradient(linear, 0 0, 0 bottom, from(#f75164), to(rgba(230, 27, 50, 1)));
     background:-o-linear-gradient(top, #f75164, rgba(230, 27, 50, 1));}
 
-.game-bd{padding-top: 20px;padding-bottom: 100px; overflow: hidden;}
-.rank-tit{ text-align: center; margin-bottom: 10px;}
-.rank-tit span{float: none; display: inline-block;font-size: 44px;}
-.rank-tit span.change{color:#ea283d;font-weight: bold;
+.game-bd{padding-top: 20px;padding-bottom: 200px; overflow: hidden;}
+.rank-tit{ text-align: left; margin-bottom: 40px;margin-left: 10px;display: block}
+.rank-tit span{}
+.rank-tit span.change{float: none;padding: 15px 0px;text-align: center; display: inline-block;font-size: 44px;color:#ea283d;font-weight: bold;
     background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#141313), to(#ea283d));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;}
@@ -576,6 +598,15 @@ h4#game-gtype{padding: 20px 10px; display: block; text-align: center;}
     background:-moz-linear-gradient(top, #e65234, #cc2d17);
     background:-webkit-gradient(linear, 0 0, 0 bottom, from(#e65234), to(#cc2d17));
     background:-o-linear-gradient(top, #e65234, #cc2d17);}
+.randomChoose{margin-top:40px;margin-bottom: 40px;margin-right: 50px;text-align: right}
+.randomChoose span{border-radius: 10px;display: inline-block;float: right;
+    color: white;font-size: 30px;padding: 15px 35px;
+    text-align: right;}
+
+.rank-tit div{display: inline-block;float: right;margin-top: 20px;}
+.rank-tit .orderEdit{background: #f75164;border-radius: 10px;color: white;font-size: 30px;padding: 15px 35px;margin-right: 20px;}
+.rank-tit .choose{background: #e65234;border-radius: 10px;margin-right: 20px;color: white;font-size: 30px;padding: 15px 35px;}
+
 .mini-btn{width: 19%;border-radius: 10px;-webkit-border-radius: 10px;margin: .5% 0;}
 .mini-btn .h5{border-radius: 10px;-webkit-border-radius: 10px;font-size: 42px;}
 .mini-btn .h5 h5{font-size: 42px;}
@@ -590,13 +621,13 @@ h4#game-gtype{padding: 20px 10px; display: block; text-align: center;}
 #touzhu{width: 100%;height: 100%;background: rgba(0,0,0,.5); position: fixed; z-index: -10;opacity: 0; left: 0; top: 0;}
 .pour-info{width: 100%; background: #fff; overflow: hidden; position: fixed;z-index: 99;left: 0; bottom: 0;transition: all .3s ease-in-out;
     position:fixed;
-    bottom:60px;
+    bottom:190px;
     transform: translateY(100%);
     -webkit-transition: all .3s ease-in-out;
     -webkit-transform: translateY(100%);}
 #touzhu.on{z-index: 99;opacity: 1;}
 #touzhu.on .pour-info{    transform: translateY(0px); -webkit-transform: translateY(0px);}
-.game-tit a.close{width: 80px;height: 80px;line-height: 74px; font-size: 60px;border: 0; text-align: center; background: #FF4444; color: #fff; display: block; float: right; border-radius: 40px;-webkit-border-radius: 40px;padding: 0; margin: 20px 0 0;}
+.game-tit a.close{width: 80px;height: 80px;line-height: 74px; font-size: 60px;border: 0; text-align: center; background: #FF4444; color: #fff; display: block; float: right; border-radius: 40px;-webkit-border-radius: 40px;padding: 0; margin: 10px 0 0;}
 .pour-info .m-bd{padding: 40px 20px; overflow: hidden;}
 .pour-info .m-bd h4{color: #333; font-size: 36px; font-weight: normal;text-align: center;}
 .pour-info .m-bd h4 em{color: #FF4444; font-size: 42px;margin: 0 10px; font-style: normal;}

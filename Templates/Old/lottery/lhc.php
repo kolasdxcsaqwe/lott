@@ -652,7 +652,7 @@ function is_weixin()
             <ul class="uinfo">
                 <li class="uname">昵称:<?php echo $_SESSION['username']; ?></li>
                 <!--li class="id">ID:<b class="id"><?php echo get_query_val('fn_user', 'id', array('userid' => $_SESSION['userid'], 'roomid' => $_SESSION['roomid'])); ?></b></li-->
-                <li class="money">余点: <b class="balance">0</b></li>
+                <li class="money">余额: <b class="balance">0</b></li>
                 <li class="oline">在线: <b class="online">0</b>人</li>
             </ul>
         </div>

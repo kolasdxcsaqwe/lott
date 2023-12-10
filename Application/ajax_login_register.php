@@ -35,15 +35,16 @@ if($types==0)
         $code=-7;
     }
 
-    $json= vpost(constant("javaServiceUrl")."login",array('loginName'=>$loginName,'password'=>$password,'roomId'=>$roomId,'agent'=>$agent));
-    $jsonObj= json_decode($json);
-    $datas=$jsonObj->datas;
-    $msg=$jsonObj->msg;
-    $code=$jsonObj->code;
-    if($datas!=null)
-    {
-        $reUrl="../qr.php?room=" . $datas->roomid."&agent=".$datas->agent."&userid=".$datas->userid."&username=".$datas->username."&headimg=".$datas->headimg;
-    }
+//    $json= vpost(constant("javaServiceUrl")."login",array('loginName'=>$loginName,'password'=>$password,'roomId'=>$roomId,'agent'=>$agent));
+//    $jsonObj= json_decode($json);
+//    $datas=$jsonObj->datas;
+//    $msg=$jsonObj->msg;
+//    $code=$jsonObj->code;
+//    if($datas!=null)
+//    {
+//        $reUrl="../qr.php?room=" . $datas->roomid."&agent=".$datas->agent."&userid=".$datas->userid."&username=".$datas->username."&headimg=".$datas->headimg;
+//    }
+        $reUrl=login($loginName,$password);
 }
 else if($types==1)
 {

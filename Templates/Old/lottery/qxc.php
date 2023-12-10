@@ -70,7 +70,7 @@ function is_weixin()
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/weui.min.css"/>
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/style.css?t=sajiwq9iu3"/>
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/bootstrap.new.css"/>
-    <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/NewLottery.css?t=8"/>
+    <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/NewLottery.css?t=xcw2"/>
     <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/layout.css"/>
     <link rel="Stylesheet" type="text/css" href="Style/Xs/static/css/iconfont.css"/>
     <script src="Style/Old/js/jquery.min.js"></script>
@@ -550,7 +550,7 @@ function is_weixin()
 <!-- New Templates Update -->
 <script type="text/javascript" src="/Style/Old/js/tools.js?t=47984jf"></script>
 <script type="text/javascript" src="/Style/Old/js/chat.js?t=kdf98"></script>
-<script type="text/javascript" src="/Style/Old/js/qxc.js"></script>
+<script type="text/javascript" src="/Style/Old/js/qxc.js?t=66"></script>
 <!-- ./New Templates Update -->
 
 <iframe onload="iFrameHeight2();" src="/Templates/Old/shipin.php" name="ifarms" width="980" height="680"
@@ -579,7 +579,30 @@ function is_weixin()
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<div id="frameRIGHTH">
+<div class="modal fade" id="orderDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+     >
+        <div class="orderContent">
+
+            <div style="display: block;text-align:center;width:100%;height:100px;position:absolute; background-color: #f43530;border-top-left-radius: 10px;border-top-right-radius: 10px">
+                <div style="text-align: center;position: relative">
+                    <span style="color: white;font-size: 38px;display: block;transform: translate(-0%, 35%)">注单编辑</span>
+                </div>
+            </div>
+            <div class="closeDialog">
+                <img  src="/Templates/Old/images/close.png" alt="" style="float: right;"/>
+            </div>
+
+            <div class="timeBalance">
+                <span>下注截止: <b>00:09:59</b></span>
+                <span class="bal">余额:<b>999</b></span>
+            </div>
+
+
+
+        </div>
+</div><!-- /.modal -->
+
+<div id="frameRIGHTH">+
     <?php $key = (int)get_query_val('fn_setting', 'payfs', array('roomid' => $_SESSION['roomid'])); ?>
     <div class="leftdiv">
         <ul>
@@ -648,7 +671,7 @@ function is_weixin()
             <ul class="uinfo">
                 <li class="uname">昵称:<?php echo $_SESSION['username']; ?></li>
                 <!--li class="id">ID:<b class="id"><?php echo get_query_val('fn_user', 'id', array('userid' => $_SESSION['userid'], 'roomid' => $_SESSION['roomid'])); ?></b></li-->
-                <li class="money">余点: <b class="balance">0</b></li>
+                <li class="money">余额: <b class="balance">0</b></li>
                 <li class="oline">在线: <b class="online">0</b>人</li>
             </ul>
         </div>
@@ -672,26 +695,44 @@ function is_weixin()
         <div class="game-hd">
             <div class="menu">
                 <ul>
-                    <li class="gameli"><a href="javascript:;" data-t="1" class="on">任意3</a></li>
-                    <li class="gameli"><a href="javascript:;" class="" data-t="2">任意4</a></li>
-                    <li class="gameli"><a href="javascript:;" data-t="3" class="">头尾定位</a></li>
+                    <li class="gameli"><a href="javascript:;" data-t="1" class="on">任选3</a></li>
+                    <li class="gameli"><a href="javascript:;" class="" data-t="2">任选4</a></li>
+                    <li class="gameli"><a href="javascript:;" data-t="3" class="">任选2</a></li>
                     <li class="more-game">
                         <a href="javascript:;"><img src="/Style/images/game-arrow.png"></a>
                         <div class="sub-menu" style="display: none;">
+                            <a href="javascript:;" data-t="4">头尾定位</a>
                             <a href="javascript:;" data-t="5">前4定位</a>
                             <a href="javascript:;" data-t="6">后4定位</a>
-                            <a href="javascript:;" data-t="7">前4不定位</a>
-                            <a href="javascript:;" data-t="6">后4不定位</a>
                         </div>
                     </li>
                 </ul>
             </div>
-            <div class="infuse" style="display: none;"><a href="javascript:;" class="clearnum">清空所选</a> <em
-                        id="bet_num">共<b>0</b>注</em> <a href="javascript:;" class="confirm-pour">确定下注</a></div>
+            <div class="infuse" style="display: none;">
+                <div class="orderInformation">
+                    <label style="display: inline-block">
+                        <span >单注金额</span>
+                        <input id="orderPrice"  type="number" placeholder="2" max="1000000" value="2">
+                    </label>
+                    <div >
+                        <span>奖金<b>82.96</b></span>
+                        <span>赔率<b>41.18</b></span>
+                    </div>
+                </div>
+
+                <em id="bet_num">共<b>0</b>注</em>
+                <a href="javascript:;" class="clearnum">清空所选</a>
+                <div class="right">
+                    <a href="javascript:;" class="addOrder">加入注单</a>
+                    <a href="javascript:;" class="confirm-pour">立即下注</a>
+                </div>
+            </div>
         </div>
         <div class="game-bd six">
 
-            <div class="gamenum" style=""> <div class='rank-tit'><span class='lotteryType'></span></div> </div>
+            <div class="gamenum" style="">
+                <div class='rank-tit'><span class='lotteryType'></span></div>
+            </div>
 
             <!--任意3 START-->
             <div class="gamenum game-type-1" style=""></div>
