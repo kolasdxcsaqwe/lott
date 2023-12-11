@@ -70,7 +70,7 @@ function is_weixin()
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/weui.min.css"/>
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/style.css?t=sajiwq9iu3"/>
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/bootstrap.new.css"/>
-    <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/NewLottery.css?t=xcw2"/>
+    <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/NewLottery.css?t=xc2w2"/>
     <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/layout.css"/>
     <link rel="Stylesheet" type="text/css" href="Style/Xs/static/css/iconfont.css"/>
     <script src="Style/Old/js/jquery.min.js"></script>
@@ -550,7 +550,7 @@ function is_weixin()
 <!-- New Templates Update -->
 <script type="text/javascript" src="/Style/Old/js/tools.js?t=47984jf"></script>
 <script type="text/javascript" src="/Style/Old/js/chat.js?t=kdf98"></script>
-<script type="text/javascript" src="/Style/Old/js/qxc.js?t=66"></script>
+<script type="text/javascript" src="/Style/Old/js/qxc.js?t=663"></script>
 <!-- ./New Templates Update -->
 
 <iframe onload="iFrameHeight2();" src="/Templates/Old/shipin.php" name="ifarms" width="980" height="680"
@@ -589,20 +589,62 @@ function is_weixin()
                 </div>
             </div>
             <div class="closeDialog">
-                <img  src="/Templates/Old/images/close.png" alt="" style="float: right;"/>
+                <img  id="closeOrderDialog" src="/Templates/Old/images/close.png" alt="" style="float: right;padding: 10px 10px"/>
             </div>
 
-            <div class="timeBalance">
-                <span>下注截止: <b>00:09:59</b></span>
-                <span class="bal">余额:<b>999</b></span>
+            <div class="botView">
+                <div class="timeBalance">
+                    <span>下注截止: <b>00:09:59</b></span>
+                    <span class="bal">余额:<b>999</b></span>
+                </div>
+
+                <div class="chooseNums">
+                    <span>+ 自选号码</span>
+                    <span>+ 机选一注</span>
+                    <span>+ 机选五注</span>
+                </div>
+
+                <div class="syncBal">
+                    <label for="syncAllBal">
+                       统一金额
+                    </label>
+                    <input id="syncAllBal" type="number">
+                </div>
+
+                <img src="/Templates/Old/images/order_top.png" alt="" width="88%"
+                     style="margin-left: 6%; margin-bottom: -23px"/>
+
+                <div class="orderList">
+                    <div class="orderListItem">
+                        <img src="/Templates/Old/images/icon_qingchu.png" alt="">
+                        <div class="orderListContent">
+                            <p class="itemContent">123456789|123456789|123456789|</p>
+                            <span class="gameItemDetail">4定玩法 1000注</span>
+                        </div>
+                        <input class="singleOrderPrice" type="number">
+                    </div>
+                    <img src="/Templates/Old/images/order_bottom.png" alt="" width="84%"
+                         style="margin-left: 2%; margin-top: -23px"/>
+                </div>
+
+                <div class="dialogBot">
+                    <div class="centerContent">
+                        <span class="totalMoneySpan">共1020元</span>
+                        <div>
+                            <span class="totalOrderSpan">共100注</span>
+                        </div>
+                    </div>
+                    <span id="confirmOrder">确定下单</span>
+                </div>
+
+
+
             </div>
-
-
 
         </div>
 </div><!-- /.modal -->
 
-<div id="frameRIGHTH">+
+<div id="frameRIGHTH">
     <?php $key = (int)get_query_val('fn_setting', 'payfs', array('roomid' => $_SESSION['roomid'])); ?>
     <div class="leftdiv">
         <ul>

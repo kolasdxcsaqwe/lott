@@ -261,7 +261,7 @@ a{cursor: pointer; text-decoration: none;}
 }
 
 #sendkf{
-    background-color: #5399e2; color:#fff;padding: 1.5% 2.8%; color:000;border:1px solid #ccc; border-radius: 0.5rem; margin-top: 1.4%;margin-left: 2%;}
+    background-color: #5399e2; color:#fff;padding: 1.5% 2.8%; color:#000;border:1px solid #ccc; border-radius: 0.5rem; margin-top: 1.4%;margin-left: 2%;}
 
 .usermoney{
     margin-left: 2%;
@@ -561,15 +561,48 @@ h4#game-gtype{padding: 20px 10px; display: block; text-align: center;}
 .game-hd .infuse .orderInformation div{display: inline-block;float: right;margin-right: 15px}
 .game-hd .infuse .orderInformation div span{font-size: 32px;}
 .game-hd .infuse .orderInformation div span b{font-size: 40px;color:#efcf0d; }
-.orderContent{background-color:#fff;display:block; margin: 150px auto; border-radius:15px;width: 90%;position: relative;
-    height: 80%; -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
+.orderContent{background-color:#efefef;display:block; margin: 10% auto; border-radius:15px;width: 90%;position: relative;
+    height: 85%; -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
     box-shadow: 0 5px 15px rgba(0,0,0,.5)}
-.orderContent .closeDialog{width:100%;padding: 20px 20px;display: inline-block;position: absolute;z-index: 1;transform: translate(0%, 15%)}
+.orderContent .closeDialog{width:100%;padding: 20px 20px;display: inline-block;position: absolute;z-index: 1;
+    transform: translate(0%, 5%)}
 .orderContent .btn{border-radius: 10px;border: #cccccc;border-width: 1px}
-.orderContent .timeBalance{margin-top: 120px;position: absolute;width: 100%}
-.orderContent .timeBalance span{font-size: 35px;margin-left: 15px}
+.orderContent .timeBalance{width: 100%}
+.orderContent .timeBalance span{font-size: 30px;margin-left: 15px}
 .orderContent .timeBalance .bal{float: right;display: inline-block;margin-right: 15px}
-.orderContent .timeBalance span b{font-size: 45px;color:#f75164 }
+.orderContent .timeBalance span b{font-size: 40px;color:#f75164}
+.orderContent .chooseNums{width: 100%;margin-top: 40px;}
+.orderContent .chooseNums span{width: 25%;margin-left:6%;padding: 15px 2%;font-size: 35px;display: inline-block;
+    border-radius: 15px;border-width: 2px;background-color: #fff;border-style: solid; border-color: #2b2b2b}
+.botView{width: 100%;position: absolute;margin-top: 120px;height: 100%}
+.syncBal{display: block;margin-top: 15px;margin-left: 6%}
+.syncBal label{font-size: 35px;text-align: center;vertical-align: middle}
+.syncBal input{padding: 10px 10px;vertical-align: middle;text-align: center;margin-left: 20px}
+.orderList{margin-left: 6%;margin-right: 6%;width: 100%;height: 60%;overflow-y: auto}
+.orderListItem{width: 84%;margin-left:2%;margin-right: 2%; background-color: white;margin-top: 2px}
+.orderListItem img{vertical-align: middle;padding:1% 1%; margin-left: 4%;display: inline-block;top: 23%;position: relative;}
+.orderListContent{padding:15px 0; vertical-align:middle; display: inline-block;margin-left: 2%;top:11%;position: relative;width: 55%}
+.itemContent{font-size: 35px;color:#f75164;
+    overflow:hidden; /*超出的部分隐藏起来。*/
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: break-spaces;
+   }
+.gameItemDetail{font-size: 30px;}
+.singleOrderPrice{display: inline-block;font-size: 35px;width: 24%;border-color:black; text-align: center;padding: 5px 0}
+.dialogBot{height: 12%;position: relative;width: 100%}
+.dialogBot #confirmOrder{padding: 35px 60px;background-color: #ce890e;border-radius:10px;font-size: 35px;
+    color: white;display: inline-block;float: right;margin-right: 4%;margin-top: 5%}
+.centerContent{text-align: left;margin-left: 4%;display: inline-block;height: 100%;padding: 6% 0;}
+.totalMoneySpan{color:#f75164;font-size: 45px; }
+.totalOrderSpan{font-size: 35px}
+
+
+
+
+
+
+
 
 
 

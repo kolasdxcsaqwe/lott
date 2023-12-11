@@ -218,6 +218,20 @@ $(function () {
             show_bet();
         });
 
+        $(".orderEdit").click(function (){
+            $('#orderDialog').modal('show');
+            $("#closeOrderDialog").click(function (e){
+                $('#orderDialog').modal('hide');
+            })
+            $("#syncAllBal").on("input",function (){
+                $(this).val($(this).val().replace(/^(0+)|[^\d]+/g,''));
+                if($(this).val()>10000000)
+                {
+                    $(this).val(10000000)
+                }
+            })
+        })
+
         $(".rank-tit .choose").click(function (){
             $(".game-bd a.btn").removeClass("on");
             switch (d.t)
@@ -261,9 +275,7 @@ $(function () {
 
     $(".game-hd .menu .on").click()
 
-    $(".orderEdit").click(function (){
-        $('#orderDialog').modal('show');
-    })
+
 
     //清空
     $(".clearnum").click(function () {
