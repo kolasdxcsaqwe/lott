@@ -177,7 +177,7 @@ function check_login()
         if (isWeixin()) {
             header('Location: wx_login.php');
         } else {
-            header('Location: http://baidu.com');
+            require "LoginAndRegister/index.html";
         }
     }
 }
