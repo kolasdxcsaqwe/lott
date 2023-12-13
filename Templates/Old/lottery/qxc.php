@@ -469,6 +469,16 @@ function is_weixin()
         'headimg': "<?php echo $_SESSION['headimg'] ?>",
         'userid': "<?php echo $_SESSION['userid'] ?>",
         'roomid': "<?php echo $_SESSION['roomid'] ?>",
+        'minbet': "<?php echo $info20['minbet'] ?>",
+        'maxbet': "<?php echo $info20['maxbet'] ?>",
+        'anytwo': "<?php echo $info20['anytwo'] ?>",
+        'anythree': "<?php echo $info20['anythree'] ?>",
+        'fourfix': "<?php echo $info20['fourfix'] ?>",
+        'threefix': "<?php echo $info20['threefix'] ?>",
+        'twofix': "<?php echo $info20['twofix'] ?>",
+        'onefix': "<?php echo $info20['onefix'] ?>",
+        'touweifix': "<?php echo $info20['touweifix'] ?>",
+        'dxds': "<?php echo $info20['dxds'] ?>",
         'game': "<?php echo $_COOKIE['game'];
             ?>"
     };
@@ -738,14 +748,16 @@ function is_weixin()
             <div class="menu">
                 <ul>
                     <li class="gameli"><a href="javascript:;" data-t="1" class="on">任选3</a></li>
-                    <li class="gameli"><a href="javascript:;" class="" data-t="2">任选4</a></li>
-                    <li class="gameli"><a href="javascript:;" data-t="3" class="">任选2</a></li>
+                    <li class="gameli"><a href="javascript:;" class="" data-t="2">任选2</a></li>
+                    <li class="gameli"><a href="javascript:;" data-t="3" class="">大小单双</a></li>
                     <li class="more-game">
-                        <a href="javascript:;"><img src="/Style/images/game-arrow.png"></a>
+                        <a href="javascript:;" class="triangle"><img src="/Style/images/game-arrow.png"></a>
                         <div class="sub-menu" style="display: none;">
-                            <a href="javascript:;" data-t="4">头尾定位</a>
-                            <a href="javascript:;" data-t="5">前4定位</a>
-                            <a href="javascript:;" data-t="6">后4定位</a>
+                            <a href="javascript:;" data-t="4">前4定位</a>
+                            <a href="javascript:;" data-t="5">前3定位</a>
+                            <a href="javascript:;" data-t="6">前2定位</a>
+                            <a href="javascript:;" data-t="7">1字定位</a>
+                            <a href="javascript:;" data-t="8">头尾定位</a>
                         </div>
                     </li>
                 </ul>
@@ -756,9 +768,9 @@ function is_weixin()
                         <span >单注金额</span>
                         <input id="orderPrice"  type="number" placeholder="2" max="1000000" value="2">
                     </label>
-                    <div >
-                        <span>奖金<b>82.96</b></span>
-                        <span>赔率<b>41.18</b></span>
+                    <div>
+                        <span id="availableWin">奖金:&nbsp;<b></b></span>
+                        <span id="payRare">赔率:&nbsp;<b></b></span>
                     </div>
                 </div>
 
@@ -776,26 +788,29 @@ function is_weixin()
                 <div class='rank-tit'><span class='lotteryType'></span></div>
             </div>
 
-            <!--任意3 START-->
+            <!--任选3 START-->
             <div class="gamenum game-type-1" style=""></div>
 
-            <!--任意4 START-->
+            <!--任选2 START-->
             <div class="gamenum game-type-2" style=""></div>
 
-            <!--头尾 START-->
+            <!--大小单双 START-->
             <div class="gamenum game-type-3" style=""></div>
 
             <!--前4定位 START-->
             <div class="gamenum game-type-4" style=""></div>
 
-            <!--后4定位 START-->
+            <!--前3定位 START-->
             <div class="gamenum game-type-5" style=""></div>
 
-            <!--前4不定位 START-->
+            <!--前2定位 START-->
             <div class="gamenum game-type-6" style=""></div>
 
-            <!--后4不定位 START-->
+            <!--1字定位 START-->
             <div class="gamenum game-type-7" style=""></div>
+
+            <!--头尾 START-->
+            <div class="gamenum game-type-8" style=""></div>
 
         </div>
     </div>

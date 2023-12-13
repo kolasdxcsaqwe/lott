@@ -558,7 +558,7 @@ h4#game-gtype{padding: 20px 10px; display: block; text-align: center;}
 .game-hd .infuse .orderInformation {margin: 10px 0;}
 .game-hd .infuse .orderInformation span{color: white;font-size: 32px;margin-left: 15px}
 .game-hd .infuse .orderInformation input{text-align:center; padding:5px 0;font-size: 28px;width:30%;margin-left: 15px}
-.game-hd .infuse .orderInformation div{display: inline-block;float: right;margin-right: 15px}
+.game-hd .infuse .orderInformation div{display: inline-block;float: right;margin-right: 15px;width: 60%;text-align: right;position: relative}
 .game-hd .infuse .orderInformation div span{font-size: 32px;}
 .game-hd .infuse .orderInformation div span b{font-size: 40px;color:#efcf0d; }
 .orderContent{background-color:#efefef;display:block; margin: 10% auto; border-radius:15px;width: 90%;position: relative;

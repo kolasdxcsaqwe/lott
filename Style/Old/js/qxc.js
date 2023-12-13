@@ -1,16 +1,52 @@
 $(function () {
+    let maxBet=info.maxbet;
+    let minBet=info.minbet;
+
     var a, b, c, d, bet = 1, bet_n = 0, bline, bval;
-    var secTitles=[[""],[""],[""],["头","尾"],["第1位","第2位","第3位","第4位"],["第4位","第5位","第6位","第7位"]
-        ];
+    var secTitles=[[""],[""],["万位","千位","十位","个位"],["万位","千位","十位","个位"],
+        ["万位","千位","十位"],["万位","千位"],["万位","千位","十位","个位"],["万位","个位"]];
 
     $("#orderPrice").on("input",function (){
         $(this).val($(this).val().replace(/^(0+)|[^\d]+/g,''));
-        if($(this).val()>10000000)
+        if($(this).val()>parseInt(maxBet))
         {
-            $(this).val(10000000)
+            $(this).val(maxBet)
         }
+
+        var pVal=$("#orderPrice").val();
+        if(pVal.length<1)
+        {
+            pVal=$("#orderPrice").attr("placeholder");
+        }
+        var winAmount=getRare()*100*parseInt(pVal)/100;
+        $("#availableWin b").html(winAmount+"")
+
         show_bet();
     })
+
+    function getRare()
+    {
+        switch (bet)
+        {
+            case 1:
+                return parseFloat(info.anythree);
+            case 2:
+                return parseFloat(info.anytwo);
+            case 3:
+                return parseFloat(info.dxds);
+            case 4:
+                return parseFloat(info.fourfix);
+            case 5:
+                return parseFloat(info.threefix);
+            case 6:
+                return parseFloat(info.twofix);
+            case 7:
+                return parseFloat(info.onefix);
+            case 8:
+                return parseFloat(info.touweifix);
+        }
+        return parseFloat("0");
+    }
 
     var show_bet = function () {
         var t = $(".game-type-" + bet);
@@ -21,7 +57,7 @@ $(function () {
 
         var isAva=true
         $(".game-type-" + bet+" .btn-box ").each(function (){
-            if($(this).find(" a.on ").length<1)
+            if($(this).find(" a.on ").length<1 && bet!==3 && bet!==7)
             {
                 //只要有一行没选中就不算
                 isAva=false
@@ -38,14 +74,16 @@ $(function () {
                 bet_n=countOrder1(bline.length,3)
                 break;
             case 2:
-                bet_n=countOrder1(bline.length,4)
+                bet_n=countOrder1(bline.length,2)
                 break;
             case 3:
-                bet_n=countOrder1(bline.length,2)
+            case 7:
+                bet_n=countOrder3()
                 break
             case 4:
             case 5:
             case 6:
+            case 8:
                 bet_n=countOrder2()
                 break;
         }
@@ -80,10 +118,11 @@ $(function () {
                 isAvailable=count>2;
                 break;
             case 2:
-                isAvailable=count>3;
+                isAvailable=count>1;
                 break;
             case 3:
-                isAvailable=count>1;
+            case 7:
+                isAvailable=count>0;
                 break;
             default:
                 isAvailable=count>0;
@@ -97,6 +136,7 @@ $(function () {
         if (isAvailable) {
             $(".infuse").show();
             $(".clearnum").addClass('on');
+            $("#payRare b").html(getRare())
         } else {
             $(".clearnum").removeClass('on');
             $(".infuse").hide();
@@ -150,10 +190,34 @@ $(function () {
         return count
     }
 
+    function countOrder3()
+    {
+        var count=0;
+        var isAva=true;
+        $(".game-type-" + bet+" .btn-box ").each(function (){
+            count=count+$(this).find(" a.on ").length
+            // console.log("line--->"+$(this).data('line')+" : "+$(this).find(" a.on ").length)
+        })
+        return count
+    }
+
     //随机数组
-    function randomNums(count)
+    function randomNums10(count)
     {
         var nums=[0,1,2,3,4,5,6,7,8,9]
+        var result=[]
+        for (let i = 0; i < count; i++) {
+            let pos=Math.floor(Math.random()*nums.length)
+            result.push(nums[pos])
+            nums.splice(pos,1)
+        }
+        return result
+    }
+
+    //随机数组
+    function randomNums4(count)
+    {
+        var nums=[0,1,2,3]
         var result=[]
         for (let i = 0; i < count; i++) {
             let pos=Math.floor(Math.random()*nums.length)
@@ -168,7 +232,6 @@ $(function () {
         if ($(this).hasClass("more-game")) {
             $(this).toggleClass("on");
             $(this).hasClass("on") ? $(".sub-menu").show() : $(".sub-menu").hide();
-            ;
         } else {
             $(this).siblings().removeClass('on');
             $(".sub-menu").hide();
@@ -177,14 +240,24 @@ $(function () {
 
     //切换下注方式
     $(".game-hd .menu").find("a").click(function () {
+        if($(this).hasClass("triangle"))
+        {
+            return;
+        }
         setBtnIsAvailable(false)
         var a = $(this), d = a.data();
         if (!d.t) return;
         bet = d.t;
+
+        $("#orderPrice").val(minBet)
+        $("#availableWin b").html(getRare()*minBet)
+        $("#orderPrice").attr("placeholder",minBet);
+
         $(".game-hd .menu").find("a").removeClass("on");
         a.addClass("on")
         $("#game-gtype,.game-tit").html(a.text())
-        $(".sub-menu").hide(), $('.gamenum').hide()
+        $(".sub-menu").hide()
+        $('.gamenum').hide()
 
         $('.gamenum .rank-tit .lotteryType').html(a.text())
         $('.game-type-' + d.t).html("")
@@ -200,9 +273,21 @@ $(function () {
 
             var string="<div class='btn-box btn-grounp' data-line='%line'>"
             string=string.replace("%line",j);
-            for (let k = 0; k < 10; k++) {
+
+            var itemAmount=bet===3?4:10;
+            var items7=['大','小','单','双']
+            for (let k = 0; k < itemAmount; k++) {
                 var item="<a href='javascript:;' class='btn mini-btn' data-line='%line'><div class='h5'>%num</div></a>"
-                item=item.replace("%num",k);
+                if(bet===3)
+                {
+                    //大小单双
+                    item=item.replace("%num",items7[k]);
+                }
+                else
+                {
+                    item=item.replace("%num",k);
+                }
+
                 item=item.replace("%line",k+1);
                 string=string+item
             }
@@ -225,9 +310,9 @@ $(function () {
             })
             $("#syncAllBal").on("input",function (){
                 $(this).val($(this).val().replace(/^(0+)|[^\d]+/g,''));
-                if($(this).val()>10000000)
+                if($(this).val()>maxBet)
                 {
-                    $(this).val(10000000)
+                    $(this).val(maxBet)
                 }
             })
         })
@@ -237,35 +322,49 @@ $(function () {
             switch (d.t)
             {
                 case 1:
-                    var nums=randomNums(3)
+                    var nums=randomNums10(3)
                     for (let i = 0; i < nums.length; i++) {
                         $('.game-type-' + d.t+" a.btn:eq("+nums[i]+")").click();
                     }
                     break
                 case 2:
-                    var nums=randomNums(4)
+                    var nums=randomNums10(2)
                     for (let i = 0; i < nums.length; i++) {
                         $('.game-type-' + d.t+" a.btn:eq("+nums[i]+")").click();
                     }
                     break
                 case 3:
-                    var nums=randomNums(2)
-                    for (let i = 0; i < nums.length; i++) {
-                        $('.game-type-' + d.t+" a.btn:eq("+nums[i]+")").click();
-                    }
+                    var v=randomNums4(1)
+                    var index=randomNums4(1)
+                    $('.game-type-' + d.t+" .btn-box:eq("+v[0]+")").find(" a.btn:eq("+index[0]+")").click();
                     break
                 case 4:
-                    for (let k = 0; k < 2; k++) {
-                        var nums=randomNums(1)
+                    for (let k = 0; k < 4; k++) {
+                        var nums=randomNums10(1)
                         $('.game-type-' + d.t+" .btn-box:eq("+k+")").find(" a.btn:eq("+nums[0]+")").click();
                     }
-                    break;
+                    break
                 case 5:
-                case 6:
-                case 7:
-                    for (let k = 0; k < 4; k++) {
-                        var nums=randomNums(1)
+                    for (let k = 0; k < 3; k++) {
+                        var nums=randomNums10(1)
                         $('.game-type-' + d.t+" .btn-box:eq("+k+")").find(" a.btn:eq("+nums[0]+")").click();
+                    }
+                    break
+                case 6:
+                    for (let k = 0; k < 2; k++) {
+                        var nums=randomNums10(1)
+                        $('.game-type-' + d.t+" .btn-box:eq("+k+")").find(" a.btn:eq("+nums[0]+")").click();
+                    }
+                    break
+                case 7:
+                    var v=randomNums4(1)[0]
+                    var index=randomNums10(1)[0]
+                    $('.game-type-' + d.t+" .btn-box:eq("+v+")").find(" a.btn:eq("+index+")").click();
+                    break
+                case 8:
+                    for (let k = 0; k < 2; k++) {
+                        var index=randomNums10(1)[0]
+                        $('.game-type-' + d.t+" .btn-box:eq("+k+")").find(" a.btn:eq("+index+")").click();
                     }
                     break
             }

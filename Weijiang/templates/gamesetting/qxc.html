@@ -20,12 +20,7 @@
                 <h3 class="box-title">赔率设置</h3>
 
                 <div class="box-tools pull-right">
-                    <? if( $_SESSION['agent_user'] =='guest1'){
-echo '<p>演示盘，无权限</p>';
-                    }else{?>
                     <button type="button" onclick="commit('form1')" class="btn btn-sm btn-warning">保存</button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                    <?}?>
                 </div>
             </div>
             <div class="box-body">
@@ -47,14 +42,14 @@ echo '<p>演示盘，无权限</p>';
                             <br/>
 
                             <div class="input-group">
-                                <span class="input-group-addon">任选4</span>
-                                <input name="anyfour" type="number" class="form-control" step="0.001" placeholder="输入赔率..." value="">
+                                <span class="input-group-addon">头尾</span>
+                                <input name="touweifix" type="number" class="form-control" step="0.001" placeholder="输入赔率..." value="">
                             </div>
                             <br/>
 
                             <div class="input-group">
-                                <span class="input-group-addon">首尾定位</span>
-                                <input name="touweifix" type="number" class="form-control" step="0.001" placeholder="输入赔率..." value="">
+                                <span class="input-group-addon">任选2</span>
+                                <input name="anytwo" type="number" class="form-control" step="0.001" placeholder="输入赔率..." value="">
                             </div>
                             <br/>
 
@@ -62,32 +57,64 @@ echo '<p>演示盘，无权限</p>';
                         <div class="col-md-6">
                             <div class="input-group">
                                 <span class="input-group-addon">前4定位</span>
-                                <input name="frontfourfix" type="number" class="form-control" step="0.001" placeholder="输入赔率..." value="">
+                                <input name="fourfix" type="number" class="form-control" step="0.001" placeholder="输入赔率..." value="">
                             </div>
 
                             <br/>
                             <div class="input-group">
-                                <span class="input-group-addon">后4定位</span>
-                                <input name="endfourfix" type="number" class="form-control" step="0.001" placeholder="输入赔率..." value="">
+                                <span class="input-group-addon">前3定位</span>
+                                <input name="threefix" type="number" class="form-control" step="0.001" placeholder="输入赔率..." value="">
                             </div>
                             <br/>
 
                             <div class="input-group">
-                                <span class="input-group-addon">前4任意</span>
-                                <input name="frontfourany" type="number" class="form-control" step="0.001" placeholder="输入赔率..." value="">
+                                <span class="input-group-addon">前2定位</span>
+                                <input name="twofix" type="number" class="form-control" step="0.001" placeholder="输入赔率..." value="">
                             </div>
                             <br/>
 
                             <div class="input-group">
-                                <span class="input-group-addon">后4任意</span>
-                                <input name="endfourany" type="number" class="form-control" step="0.001" placeholder="输入赔率..." value="">
+                                <span class="input-group-addon">前4任选1</span>
+                                <input name="onefix" type="number" class="form-control" step="0.001" placeholder="输入赔率..." value="">
                             </div>
                             <br/>
 
                         </div>
                     </form>
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="box box-success">
+                    <div class="box-header">
+                        <h3 class="box-title">下注限制</h3>
 
+                        <div class="box-tools pull-right">
+                            <button type="button" onclick="commit('form28')" class="btn btn-sm btn-success">保存</button>
+                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <div class="row">
+                            <form id="form28" action="Application/gamesetting/ajax_savetwk3.php?form=form2" method="post">
+                                <input name="roomid" hidden="hidden" value="<? echo $_SESSION['agent_room']; ?>">
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">最小下注</span>
+                                        <input name="minbet" type="number" class="form-control" placeholder="输入最高下注..." value="<? echo get_query_val('fn_lottery15','dx_max',array('roomid'=>$_SESSION['agent_room'])); ?>">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">最大下注</span>
+                                        <input name="maxbet" type="number" class="form-control" placeholder="输入最高下注..." value="<? echo get_query_val('fn_lottery15','dx_max',array('roomid'=>$_SESSION['agent_room'])); ?>">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -174,14 +201,16 @@ echo '<p>演示盘，无权限</p>';
         success: function (result) {
             console.log(result);//打印服务端返回的数据(调试用)
             if (result.code === 0) {
-                $("input[name='dxds']").val(result.datas.da)
+                $("input[name='dxds']").val(result.datas.dxds)
                 $("input[name='anythree']").val(result.datas.anythree)
-                $("input[name='anyfour']").val(result.datas.anyfour)
-                $("input[name='frontfourfix']").val(result.datas.frontfourfix)
-                $("input[name='endfourfix']").val(result.datas.endfourfix)
-                $("input[name='frontfourany']").val(result.datas.frontfourany)
-                $("input[name='endfourany']").val(result.datas.endfourany)
+                $("input[name='anytwo']").val(result.datas.anytwo)
+                $("input[name='fourfix']").val(result.datas.fourfix)
+                $("input[name='threefix']").val(result.datas.threefix)
+                $("input[name='twofix']").val(result.datas.twofix)
+                $("input[name='onefix']").val(result.datas.onefix)
                 $("input[name='touweifix']").val(result.datas.touweifix)
+                $("input[name='minbet']").val(result.datas.minbet)
+                $("input[name='maxbet']").val(result.datas.maxbet)
 
                 $("input[name='fengtime']").val(result.datas.fengtime)
                 $("textarea[name='rules']").val(result.datas.rules)
