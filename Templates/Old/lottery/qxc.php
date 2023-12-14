@@ -70,7 +70,7 @@ function is_weixin()
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/weui.min.css"/>
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/style.css?t=sajiwq9iu3"/>
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/bootstrap.new.css"/>
-    <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/NewLottery.css?t=xc2w2"/>
+    <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/NewLottery.css?t=sad"/>
     <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/layout.css"/>
     <link rel="Stylesheet" type="text/css" href="Style/Xs/static/css/iconfont.css"/>
     <script src="Style/Old/js/jquery.min.js"></script>
@@ -95,11 +95,9 @@ function is_weixin()
             position: fixed;
             bottom: 0;
             z-index: 995;
-            text-align: center;
+            text-align: right;
             border: 1px solid #9d9d9d;
             padding: 10px 10px;
-            text-align: center;
-            width: 100%;
             -webkit-border-radius: 3px;
             -moz-border-radius: 3px;
             border-radius: 3px;
@@ -558,9 +556,9 @@ function is_weixin()
 
 </script>
 <!-- New Templates Update -->
-<script type="text/javascript" src="/Style/Old/js/tools.js?t=47984jf"></script>
-<script type="text/javascript" src="/Style/Old/js/chat.js?t=kdf98"></script>
-<script type="text/javascript" src="/Style/Old/js/qxc.js?t=663"></script>
+<script type="text/javascript" src="/Style/Old/js/NewTools.js?t=47984jf"></script>
+<script type="text/javascript" src="/Style/Old/js/NewChat.js?t=kdf98"></script>
+<script type="text/javascript" src="/Style/Old/js/qxc.js?t=xs"></script>
 <!-- ./New Templates Update -->
 
 <iframe onload="iFrameHeight2();" src="/Templates/Old/shipin.php" name="ifarms" width="980" height="680"
@@ -590,69 +588,124 @@ function is_weixin()
 </div><!-- /.modal -->
 
 <div class="modal fade" id="orderDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
-     >
-        <div class="orderContent">
-
-            <div style="display: block;text-align:center;width:100%;height:100px;position:absolute; background-color: #f43530;border-top-left-radius: 10px;border-top-right-radius: 10px">
-                <div style="text-align: center;position: relative">
-                    <span style="color: white;font-size: 38px;display: block;transform: translate(-0%, 35%)">注单编辑</span>
-                </div>
+>
+    <div class="orderContent">
+        <div style="display: block;text-align:center;width:100%;height:100px;position:absolute; background-color: #f43530;border-top-left-radius: 10px;border-top-right-radius: 10px">
+            <div style="text-align: center;position: relative">
+                <span style="color: white;font-size: 38px;display: block;transform: translate(-0%, 35%)">注单编辑</span>
             </div>
-            <div class="closeDialog">
-                <img  id="closeOrderDialog" src="/Templates/Old/images/close.png" alt="" style="float: right;padding: 10px 10px"/>
+        </div>
+        <div class="closeDialog">
+            <img id="closeOrderDialog" src="/Templates/Old/images/close.png" alt=""
+                 style="float: right;padding: 10px 10px"/>
+        </div>
+
+        <div class="botView">
+            <div class="timeBalance">
+                <span>下注截止: <b>00:09:59</b></span>
+                <span class="bal">余额:<b>999</b></span>
             </div>
 
-            <div class="botView">
-                <div class="timeBalance">
-                    <span>下注截止: <b>00:09:59</b></span>
-                    <span class="bal">余额:<b>999</b></span>
-                </div>
+            <div class="chooseNums">
+                <span>+ 自选号码</span>
+                <span>+ 机选一注</span>
+                <span>+ 机选五注</span>
+            </div>
 
-                <div class="chooseNums">
-                    <span>+ 自选号码</span>
-                    <span>+ 机选一注</span>
-                    <span>+ 机选五注</span>
-                </div>
+            <div class="syncBal">
+                <label for="syncAllBal">
+                    统一金额
+                </label>
+                <input id="syncAllBal" type="number">
+            </div>
 
-                <div class="syncBal">
-                    <label for="syncAllBal">
-                       统一金额
-                    </label>
-                    <input id="syncAllBal" type="number">
-                </div>
+            <img src="/Templates/Old/images/order_top.png" alt="" width="88%"
+                 style="margin-left: 6%; margin-bottom: -23px"/>
 
-                <img src="/Templates/Old/images/order_top.png" alt="" width="88%"
-                     style="margin-left: 6%; margin-bottom: -23px"/>
-
-                <div class="orderList">
-                    <div class="orderListItem">
-                        <img src="/Templates/Old/images/icon_qingchu.png" alt="">
-                        <div class="orderListContent">
-                            <p class="itemContent">123456789|123456789|123456789|</p>
-                            <span class="gameItemDetail">4定玩法 1000注</span>
-                        </div>
-                        <input class="singleOrderPrice" type="number">
+            <div class="orderList">
+                <div class="orderListItem">
+                    <img src="/Templates/Old/images/icon_qingchu.png" alt="">
+                    <div class="orderListContent">
+                        <p class="itemContent">123456789|123456789|123456789|</p>
+                        <span class="gameItemDetail">4定玩法 1000注</span>
                     </div>
-                    <img src="/Templates/Old/images/order_bottom.png" alt="" width="84%"
-                         style="margin-left: 2%; margin-top: -23px"/>
+                    <input class="singleOrderPrice" type="number">
                 </div>
-
-                <div class="dialogBot">
-                    <div class="centerContent">
-                        <span class="totalMoneySpan">共1020元</span>
-                        <div>
-                            <span class="totalOrderSpan">共100注</span>
-                        </div>
-                    </div>
-                    <span id="confirmOrder">确定下单</span>
-                </div>
-
-
-
+                <img src="/Templates/Old/images/order_bottom.png" alt="" width="84%"
+                     style="margin-left: 2%; margin-top: -23px"/>
             </div>
+
+            <div class="dialogBot">
+                <div class="centerContent">
+                    <span class="totalMoneySpan">共1020元</span>
+                    <div>
+                        <span class="totalOrderSpan">共100注</span>
+                    </div>
+                </div>
+                <span id="confirmOrder">确定下单</span>
+            </div>
+
 
         </div>
-</div><!-- /.modal -->
+
+    </div>
+</div>
+
+<div class="modal fade" id="betDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+>
+    <div class="betDialogContent">
+        <div class="menu">
+            <ul>
+                <li class="gameli"><a href="javascript:;" data-t="1" class="on">任选3</a></li>
+                <li class="gameli"><a href="javascript:;" class="" data-t="2">任选2</a></li>
+                <li class="gameli"><a href="javascript:;" data-t="3" class="">大小单双</a></li>
+                <li class="more-game">
+                    <a href="javascript:;" class="triangle"><img src="/Style/images/game-arrow.png"></a>
+                    <div class="sub-menu" style="display: none;">
+                        <a href="javascript:;" data-t="4">前4定位</a>
+                        <a href="javascript:;" data-t="5">前3定位</a>
+                        <a href="javascript:;" data-t="6">前2定位</a>
+                        <a href="javascript:;" data-t="7">1字定位</a>
+                        <a href="javascript:;" data-t="8">头尾定位</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="game-bd six">
+            <div class="gamenum" style="">
+                <div class='rank-tit'><span class='lotteryType'></span></div>
+            </div>
+
+            <!--任选3 START-->
+            <div class="gamenum game-type-1" style=""></div>
+
+            <!--任选2 START-->
+            <div class="gamenum game-type-2" style=""></div>
+
+            <!--大小单双 START-->
+            <div class="gamenum game-type-3" style=""></div>
+
+            <!--前4定位 START-->
+            <div class="gamenum game-type-4" style=""></div>
+
+            <!--前3定位 START-->
+            <div class="gamenum game-type-5" style=""></div>
+
+            <!--前2定位 START-->
+            <div class="gamenum game-type-6" style=""></div>
+
+            <!--1字定位 START-->
+            <div class="gamenum game-type-7" style=""></div>
+
+            <!--头尾 START-->
+            <div class="gamenum game-type-8" style=""></div>
+
+        </div>
+    </div>
+
+
+</div>
 
 <div id="frameRIGHTH">
     <?php $key = (int)get_query_val('fn_setting', 'payfs', array('roomid' => $_SESSION['roomid'])); ?>
@@ -731,42 +784,26 @@ function is_weixin()
         <div class="touzu rbox">
             <div class="user_messages">
                 <div class="top">
-                    <input placeholder="特码/内容/金额" type="text" id="Message"
-                           style="color:red;font-weight:bold;width:60%" <? if (get_query_val('fn_setting', 'setting_ischat', array('roomid' => $_SESSION['roomid'])) == 'open') echo 'disabled="disabled"'; ?>>
-                    <div id="toop">
-
+                    <input placeholder="" type="text" id="Message"
+                           style="color:red;font-weight:bold;width:48%;">
+                    <div style="text-align: right;height: 100%;display: inline-block;width: 50%">
                         <span class="txtbet">快捷下注</span>
+                        <span class="botOrderEdit">注单编辑</span>
                     </div>
-                    <span class="sendemaill">发 送</span>
+
                 </div>
 
             </div>
         </div>
     </div>
-    <div class="game-box" style="display: none;">
+
+    <div class="game-box" ">
         <div class="game-hd">
-            <div class="menu">
-                <ul>
-                    <li class="gameli"><a href="javascript:;" data-t="1" class="on">任选3</a></li>
-                    <li class="gameli"><a href="javascript:;" class="" data-t="2">任选2</a></li>
-                    <li class="gameli"><a href="javascript:;" data-t="3" class="">大小单双</a></li>
-                    <li class="more-game">
-                        <a href="javascript:;" class="triangle"><img src="/Style/images/game-arrow.png"></a>
-                        <div class="sub-menu" style="display: none;">
-                            <a href="javascript:;" data-t="4">前4定位</a>
-                            <a href="javascript:;" data-t="5">前3定位</a>
-                            <a href="javascript:;" data-t="6">前2定位</a>
-                            <a href="javascript:;" data-t="7">1字定位</a>
-                            <a href="javascript:;" data-t="8">头尾定位</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="infuse" style="display: none;">
+            <div class="infuse">
                 <div class="orderInformation">
                     <label style="display: inline-block">
-                        <span >单注金额</span>
-                        <input id="orderPrice"  type="number" placeholder="2" max="1000000" value="2">
+                        <span>单注金额</span>
+                        <input id="orderPrice" type="number" placeholder="2" max="1000000" value="2">
                     </label>
                     <div>
                         <span id="availableWin">奖金:&nbsp;<b></b></span>
@@ -782,37 +819,7 @@ function is_weixin()
                 </div>
             </div>
         </div>
-        <div class="game-bd six">
 
-            <div class="gamenum" style="">
-                <div class='rank-tit'><span class='lotteryType'></span></div>
-            </div>
-
-            <!--任选3 START-->
-            <div class="gamenum game-type-1" style=""></div>
-
-            <!--任选2 START-->
-            <div class="gamenum game-type-2" style=""></div>
-
-            <!--大小单双 START-->
-            <div class="gamenum game-type-3" style=""></div>
-
-            <!--前4定位 START-->
-            <div class="gamenum game-type-4" style=""></div>
-
-            <!--前3定位 START-->
-            <div class="gamenum game-type-5" style=""></div>
-
-            <!--前2定位 START-->
-            <div class="gamenum game-type-6" style=""></div>
-
-            <!--1字定位 START-->
-            <div class="gamenum game-type-7" style=""></div>
-
-            <!--头尾 START-->
-            <div class="gamenum game-type-8" style=""></div>
-
-        </div>
     </div>
     <div id="touzhu" class="">
         <div class="pour-info">

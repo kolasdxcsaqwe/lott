@@ -1,10 +1,14 @@
 $(function () {
     let maxBet=info.maxbet;
     let minBet=info.minbet;
+    var userInputMoney=minBet
+    var hrefData=parseURL(window.location.href)
+    var baseUrl=hrefData.protocol+"://"+hrefData.host+":8653";
 
     var a, b, c, d, bet = 1, bet_n = 0, bline, bval;
     var secTitles=[[""],[""],["万位","千位","十位","个位"],["万位","千位","十位","个位"],
         ["万位","千位","十位"],["万位","千位"],["万位","千位","十位","个位"],["万位","个位"]];
+    var gameCodes=['ry3','ry2','dxds','d4','d3','d2','d1','tw']
 
     $("#orderPrice").on("input",function (){
         $(this).val($(this).val().replace(/^(0+)|[^\d]+/g,''));
@@ -20,9 +24,11 @@ $(function () {
         }
         var winAmount=getRare()*100*parseInt(pVal)/100;
         $("#availableWin b").html(winAmount+"")
-
+        userInputMoney=pVal
         show_bet();
     })
+
+
 
     function getRare()
     {
@@ -51,8 +57,8 @@ $(function () {
     var show_bet = function () {
         var t = $(".game-type-" + bet);
         bline = []
-        t.find('a.on[data-line]').each(function (i, o) {
-            bline.push($(this).data('line'));
+        t.find('a.on[data-pos]').each(function (i, o) {
+            bline.push($(this).data('pos'));
         });
 
         var isAva=true
@@ -228,7 +234,7 @@ $(function () {
     }
 
     //显示更多下注
-    $(".game-hd .menu").find("li").click(function () {
+    $(".betDialogContent .menu").find("li").click(function () {
         if ($(this).hasClass("more-game")) {
             $(this).toggleClass("on");
             $(this).hasClass("on") ? $(".sub-menu").show() : $(".sub-menu").hide();
@@ -239,7 +245,7 @@ $(function () {
     })
 
     //切换下注方式
-    $(".game-hd .menu").find("a").click(function () {
+    $(".betDialogContent .menu").find("a").click(function () {
         if($(this).hasClass("triangle"))
         {
             return;
@@ -249,11 +255,11 @@ $(function () {
         if (!d.t) return;
         bet = d.t;
 
-        $("#orderPrice").val(minBet)
-        $("#availableWin b").html(getRare()*minBet)
+        $("#orderPrice").val(userInputMoney)
+        $("#availableWin b").html(getRare()*userInputMoney)
         $("#orderPrice").attr("placeholder",minBet);
 
-        $(".game-hd .menu").find("a").removeClass("on");
+        $(".betDialogContent .menu").find("a").removeClass("on");
         a.addClass("on")
         $("#game-gtype,.game-tit").html(a.text())
         $(".sub-menu").hide()
@@ -266,18 +272,20 @@ $(function () {
             "</span><div><span class='orderEdit'>注单编辑</span><span class='choose'>机选</span></div></div>")
         // $('.game-type-' + d.t).append("<div class='randomChoose'><span class='order'>注单编辑</span> <span class='choose'>机选</span></div>")
 
+        var string="<div class='gameScroll'>"
         for (let j = 0; j < secTitles[d.t-1].length; j++) {
+
+
             var title="<span class='secTitle' >%title</span>"
             title=title.replace("%title",secTitles[d.t-1][j])
-            $('.game-type-' + d.t).append(title)
 
-            var string="<div class='btn-box btn-grounp' data-line='%line'>"
+            string=string+title+"<div class='btn-box btn-grounp' data-line='%line'>"
             string=string.replace("%line",j);
 
             var itemAmount=bet===3?4:10;
             var items7=['大','小','单','双']
             for (let k = 0; k < itemAmount; k++) {
-                var item="<a href='javascript:;' class='btn mini-btn' data-line='%line'><div class='h5'>%num</div></a>"
+                var item="<a href='javascript:;' class='btn mini-btn' data-pos='%pos'><div class='h5'>%num</div></a>"
                 if(bet===3)
                 {
                     //大小单双
@@ -288,12 +296,13 @@ $(function () {
                     item=item.replace("%num",k);
                 }
 
-                item=item.replace("%line",k+1);
+                item=item.replace("%pos",k);
                 string=string+item
             }
             string=string+"</div>"
-            $('.game-type-' + d.t).append(string)
         }
+        string=string+"</div>"
+        $('.game-type-' + d.t).append(string)
         $('.game-type-' + d.t).show()
 
         window.scrollTo(0, document.body.scrollHeight);
@@ -304,6 +313,20 @@ $(function () {
         });
 
         $(".orderEdit").click(function (){
+            $('#orderDialog').modal('show');
+            $("#closeOrderDialog").click(function (e){
+                $('#orderDialog').modal('hide');
+            })
+            $("#syncAllBal").on("input",function (){
+                $(this).val($(this).val().replace(/^(0+)|[^\d]+/g,''));
+                if($(this).val()>maxBet)
+                {
+                    $(this).val(maxBet)
+                }
+            })
+        })
+
+        $(".botOrderEdit").click(function (){
             $('#orderDialog').modal('show');
             $("#closeOrderDialog").click(function (e){
                 $('#orderDialog').modal('hide');
@@ -372,7 +395,7 @@ $(function () {
 
     });
 
-    $(".game-hd .menu .on").click()
+    $(".betDialogContent .menu .on").click()
 
 
 
@@ -394,6 +417,35 @@ $(function () {
         show_bet();
     });
 
+    function parseURL(url) {
+        var a = document.createElement('a');
+        a.href = url;
+        return {
+            source: url,
+            protocol: a.protocol.replace(':', ''),
+            host: a.hostname,
+            port: a.port,
+            query: a.search,
+            params: (function () {
+                var ret = {},
+                    seg = a.search.replace(/^\?/, '').split('&'),
+                    len = seg.length, i = 0, s;
+                for (; i < len; i++) {
+                    if (!seg[i]) {
+                        continue;
+                    }
+                    s = seg[i].split('=');
+                    ret[s[0]] = s[1];
+                }
+                return ret;
+            })(),
+            file: (a.pathname.match(/\/([^\/?#]+)$/i) || [, ''])[1],
+            hash: a.hash.replace('#', ''),
+            path: a.pathname.replace(/^([^\/])/, '/$1'),
+            relative: (a.href.match(/tps?:\/\/[^\/]+(.+)/) || [, ''])[1],
+            segments: a.pathname.replace(/^\//, '').split('/')
+        };
+    }
 
     //确认下注 bl余额 bet_money金额
     $("a.confirm").click(function () {
@@ -480,10 +532,52 @@ $(function () {
 
     $(".confirm-pour").click(function () {
         if (!$(this).hasClass("on")) return;
-        $("#touzhu").addClass("on"), location.href = "#confirm"
+        // $("#touzhu").addClass("on"), location.href = "#confirm"
+        betNow()
     });
 
     $(".pour-info").find("a.close,a.cancel").click(function () {
         $("#touzhu").removeClass("on"), location.href = "#main"
     });
+
+    function betNow()
+    {
+        var betCodes=[]
+        $(".game-type-" + bet+" .btn-box ").each(function (){
+            var code=""
+            $(this).find("a.on[data-pos]").each(function (index,val){
+                code=code+$(this).data('pos')
+            });
+
+            betCodes.push({pos:$(this).data().line,code:code})
+            // console.log("line--->"+$(this).data('line')+" : "+$(this).find(" a.on ").length)
+        })
+
+        var arr=[]
+        arr.push({gamName:gameCodes[bet-1],
+            orderPrice:$("#orderPrice").val(),
+            codes:betCodes});
+
+        var postData={userId:info.userid,roomId:info.roomid,betArray:JSON.stringify(arr)}
+        $.ajax({
+            //几个参数需要注意一下
+            type: "POST",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            url: baseUrl+"/QXCSendChat" ,//url
+            data: postData,
+            crossDomain:true,
+            success: function (result) {
+                console.log(result);
+                if (result.code === 0) {
+                    zy.tips('投注已发送!');
+                }
+                else {
+                    zy.tips(result.msg);
+                }
+            },
+            error : function() {
+                zy.tips('下注失败，服务器异常！!');
+            }
+        });
+    }
 })
