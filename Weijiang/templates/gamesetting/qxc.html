@@ -47,8 +47,8 @@ echo '<p>演示盘，无权限</p>';
                             <br/>
 
                             <div class="input-group">
-                                <span class="input-group-addon">任选4</span>
-                                <input name="anyfour" type="number" class="form-control" step="0.001" placeholder="输入赔率..." value="">
+                                <span class="input-group-addon">任选2</span>
+                                <input name="anytwo" type="number" class="form-control" step="0.001" placeholder="输入赔率..." value="">
                             </div>
                             <br/>
 
@@ -61,26 +61,26 @@ echo '<p>演示盘，无权限</p>';
                         </div>
                         <div class="col-md-6">
                             <div class="input-group">
-                                <span class="input-group-addon">前4定位</span>
-                                <input name="frontfourfix" type="number" class="form-control" step="0.001" placeholder="输入赔率..." value="">
+                                <span class="input-group-addon">4定玩法</span>
+                                <input name="fourfix" type="number" class="form-control" step="0.001" placeholder="输入赔率..." value="">
                             </div>
 
                             <br/>
                             <div class="input-group">
-                                <span class="input-group-addon">后4定位</span>
-                                <input name="endfourfix" type="number" class="form-control" step="0.001" placeholder="输入赔率..." value="">
+                                <span class="input-group-addon">3定玩法</span>
+                                <input name="threefix" type="number" class="form-control" step="0.001" placeholder="输入赔率..." value="">
                             </div>
                             <br/>
 
                             <div class="input-group">
-                                <span class="input-group-addon">前4任意</span>
-                                <input name="frontfourany" type="number" class="form-control" step="0.001" placeholder="输入赔率..." value="">
+                                <span class="input-group-addon">2定玩法</span>
+                                <input name="twofix" type="number" class="form-control" step="0.001" placeholder="输入赔率..." value="">
                             </div>
                             <br/>
 
                             <div class="input-group">
-                                <span class="input-group-addon">后4任意</span>
-                                <input name="endfourany" type="number" class="form-control" step="0.001" placeholder="输入赔率..." value="">
+                                <span class="input-group-addon">1定玩法</span>
+                                <input name="onefix" type="number" class="form-control" step="0.001" placeholder="输入赔率..." value="">
                             </div>
                             <br/>
 
@@ -176,11 +176,11 @@ echo '<p>演示盘，无权限</p>';
             if (result.code === 0) {
                 $("input[name='dxds']").val(result.datas.da)
                 $("input[name='anythree']").val(result.datas.anythree)
-                $("input[name='anyfour']").val(result.datas.anyfour)
-                $("input[name='frontfourfix']").val(result.datas.frontfourfix)
-                $("input[name='endfourfix']").val(result.datas.endfourfix)
-                $("input[name='frontfourany']").val(result.datas.frontfourany)
-                $("input[name='endfourany']").val(result.datas.endfourany)
+                $("input[name='anytwo']").val(result.datas.anytwo)
+                $("input[name='fourfix']").val(result.datas.fourfix)
+                $("input[name='threefix']").val(result.datas.threefix)
+                $("input[name='twofix']").val(result.datas.twofix)
+                $("input[name='onefix']").val(result.datas.onefix)
                 $("input[name='touweifix']").val(result.datas.touweifix)
 
                 $("input[name='fengtime']").val(result.datas.fengtime)
