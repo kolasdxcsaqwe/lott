@@ -1034,10 +1034,10 @@ a {
 .zytips div {
     display: inline-block;
     margin: 0 1rem;
-    padding: 1.5rem 2rem;
+    padding: 3rem 3rem;
     text-align: center;
     color: #fff;
-    font-size: 30px;
+    font-size: 40px;
     text-shadow: 1px 1px 1px #000;
     border-radius: 2rem;
     line-height: 1.5rem;
@@ -1064,7 +1064,8 @@ a {
 }
 
 .betDialogContent{
-    padding-top: 5%;
+    padding-top: 2%;
+    max-height: 75%;
     background-color: #efefef;
     display: block;
     margin: 10% auto;
@@ -1267,8 +1268,8 @@ h4#game-gtype {
 }
 
 .gameScroll{
-    height: 70%;
-    overflow-y: auto;
+    direction: ltr;
+    overflow: auto;
 }
 
 .orderContent {
@@ -1341,7 +1342,7 @@ h4#game-gtype {
     width: 100%;
     position: absolute;
     margin-top: 120px;
-    height: 100%
+    height: 92%
 }
 
 .syncBal {
@@ -1367,7 +1368,7 @@ h4#game-gtype {
     margin-left: 6%;
     margin-right: 6%;
     width: 100%;
-    height: 60%;
+    height: 65%;
     overflow-y: auto
 }
 
@@ -1465,7 +1466,7 @@ h4#game-gtype {
 
 .game-bd {
     padding-top: 20px;
-    padding-bottom: 200px;
+    padding-bottom: 30px;
     overflow: hidden;
 }
 

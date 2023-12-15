@@ -70,7 +70,7 @@ function is_weixin()
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/weui.min.css"/>
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/style.css?t=sajiwq9iu3"/>
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/bootstrap.new.css"/>
-    <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/NewLottery.css?t=sad"/>
+    <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/NewLottery.css?t=21s"/>
     <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/layout.css"/>
     <link rel="Stylesheet" type="text/css" href="Style/Xs/static/css/iconfont.css"/>
     <script src="Style/Old/js/jquery.min.js"></script>
@@ -556,9 +556,9 @@ function is_weixin()
 
 </script>
 <!-- New Templates Update -->
-<script type="text/javascript" src="/Style/Old/js/NewTools.js?t=47984jf"></script>
+<script type="text/javascript" src="/Style/Old/js/NewTools.js?t=sd"></script>
 <script type="text/javascript" src="/Style/Old/js/NewChat.js?t=kdf98"></script>
-<script type="text/javascript" src="/Style/Old/js/qxc.js?t=xs"></script>
+<script type="text/javascript" src="/Style/Old/js/qxc.js?t=x222s"></script>
 <!-- ./New Templates Update -->
 
 <iframe onload="iFrameHeight2();" src="/Templates/Old/shipin.php" name="ifarms" width="980" height="680"
@@ -566,7 +566,7 @@ function is_weixin()
 
 <!-- 信息框 -->
 
-<div class="modal fade" id="msgdialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+<div class="modal fade" id="msgdialog"  role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
      align="left">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -587,10 +587,11 @@ function is_weixin()
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<div class="modal fade" id="orderDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+<div class="modal" style="z-index: 1055" id="orderDialog"  role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
 >
     <div class="orderContent">
-        <div style="display: block;text-align:center;width:100%;height:100px;position:absolute; background-color: #f43530;border-top-left-radius: 10px;border-top-right-radius: 10px">
+        <div style="display: block;text-align:center;width:100%;height:7%;position:absolute; background-color: #f43530;
+        border-top-left-radius: 10px;border-top-right-radius: 10px">
             <div style="text-align: center;position: relative">
                 <span style="color: white;font-size: 38px;display: block;transform: translate(-0%, 35%)">注单编辑</span>
             </div>
@@ -602,7 +603,7 @@ function is_weixin()
 
         <div class="botView">
             <div class="timeBalance">
-                <span>下注截止: <b>00:09:59</b></span>
+                <span class="betLimit">下注截止: <b>00:09:59</b></span>
                 <span class="bal">余额:<b>999</b></span>
             </div>
 
@@ -631,6 +632,7 @@ function is_weixin()
                     </div>
                     <input class="singleOrderPrice" type="number">
                 </div>
+
                 <img src="/Templates/Old/images/order_bottom.png" alt="" width="84%"
                      style="margin-left: 2%; margin-top: -23px"/>
             </div>
@@ -651,7 +653,7 @@ function is_weixin()
     </div>
 </div>
 
-<div class="modal fade" id="betDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+<div class="modal" id="betDialog"  role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
 >
     <div class="betDialogContent">
         <div class="menu">
@@ -803,7 +805,7 @@ function is_weixin()
                 <div class="orderInformation">
                     <label style="display: inline-block">
                         <span>单注金额</span>
-                        <input id="orderPrice" type="number" placeholder="2" max="1000000" value="2">
+                        <input id="orderPrice" type="number"  max="1000000" >
                     </label>
                     <div>
                         <span id="availableWin">奖金:&nbsp;<b></b></span>

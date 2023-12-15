@@ -51,6 +51,7 @@ $(function () {
     })
 
     $('.txtbet').click(function () {
+        $('#betDialog').modal('hide');
         $('#betDialog').modal('show');
     });
 
