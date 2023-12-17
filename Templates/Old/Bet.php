@@ -1,6 +1,22 @@
 <?php
 include_once(dirname(dirname(dirname(preg_replace('@\(.*\(.*$@', '', __FILE__)))) . "/Public/config.php");
 $game = $_COOKIE['game'];
+
+function formatJsonContent($str)
+{
+    $json=json_decode($str);
+    $titles=array('万位','千位','十位','个位');
+    $result="";
+    $arrayCodes=$json->codes;
+    if(sizeof($arrayCodes)==1)
+    {
+        return $arrayCodes[0]->code;
+    }
+    for ($i = 0; $i < sizeof($arrayCodes) ; $i++) {
+        $result=$result.$titles[$arrayCodes[$i]->pos].":".$arrayCodes[$i]->code."<br>";
+    }
+    return $result;
+}
 ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -43,14 +59,14 @@ $game = $_COOKIE['game'];
                 </thead>
                 <tbody>
                 <?php
-                select_query('fn_qxcorder', '*', "`userid` = '{$_SESSION['userid']}' and `status` = 0 and `roomid` = '{$_SESSION['roomid']}' and `gamename` = '{$game}'");
+                select_query('fn_qxcorder', '*', "`userid` = '{$_SESSION['userid']}' and status = 0 and roomid = '{$_SESSION['roomid']}' and `gamename` = '{$game}'");
                 while ($con = db_fetch_array()) {
                     $cons[] = $con;
                     ?>
                     <tr>
                         <td><?php echo $con['term'];
                             ?></td>
-                        <td><?php echo $con['content'];
+                        <td><?php echo formatJsonContent($con['content']);
                             ?></td>
                         <td><?php echo $con['money'];
                             ?></td>
@@ -1051,9 +1067,79 @@ $game = $_COOKIE['game'];
             今日投注
         </div>
         <div class="panel-body">
+
             <table data-sort-name="Code" data-sort-order="desc" data-pagination="true" data-page-size="15"
                    data-page-list="[15, 30, 50, 100, All]" data-search="true" data-toggle="table"
                    class="table table-striped table-bordered " style="text-align:center;">
+
+                <?php if ($game == 'qxc'){
+                ?>
+                <thead>
+                <tr>
+                    <th data-field="Code">期号</th>
+                    <th>内容</th>
+                    <th>金额</th>
+                    <th>投注时间</th>
+                    <th>结果</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+                select_query('fn_qxcorder', '*', "`roomid` = '{$_SESSION['roomid']}' and `gamename` = '{$game}' and `userid` = '{$_SESSION['userid']}' and `status` > 0 and `addtime` like '" . date('Y-m-d') . "%'");
+                $all_m = 0;
+                $all_z = 0;
+                while ($con = db_fetch_array()) {
+                    $cons[] = $con;
+                    if ($con['status'] != '已退还' && $con['status'] != '已撤单') {
+                        $all_m += (int)$con['money'];
+                        if ((int)$con['status'] > 0) $all_z += (int)$con['status'];
+                    }
+                    ?>
+                    <tr>
+                        <td><?php echo $con['term'];
+                            ?></td>
+                        <td><?php echo formatJsonContent($con['content']);
+                            ?></td>
+                        <td><?php echo $con['money'];
+                            ?></td>
+                        <td><?php echo $con['addtime'];
+                            ?></td>
+                        <td class="<?php if ($con['status'] == 1) echo 'win';
+                        if ($con['status'] == 2) echo 'lose';
+                        if ($con['status'] == 9) echo 'che';
+                        ?>"><?php if ($con['status'] == 1) echo '已中奖';
+                            if ($con['status'] == 2) echo '未中奖';
+                            if ($con['status'] == 9) echo '撤单';
+                            ?></td>
+                    </tr>
+                <?php }
+                if (count($cons) == 0) {
+                    echo '<tr><td colspan="6">没有未结算订单</td></tr>';
+                }
+                ?>
+                </tbody>
+            </table>
+
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th>今日流水</th>
+                    <th>今日盈亏(玩家)</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><?php echo $all_m;
+                        ?></td>
+                    <td><?php $a = '-' . $all_m;
+                        echo (int)$a + $all_z;
+                        ?></td>
+                </tr>
+                </tbody>
+            </table>
+            <?php }?>
+
+
                 <?php if ($game == 'xy28' || $game == 'jnd28' || $game == 'ny28'){
                 ?>
                 <thead>
@@ -1103,7 +1189,6 @@ $game = $_COOKIE['game'];
                 ?>
                 </tbody>
             </table>
-
 
             <table class="table table-striped table-bordered">
                 <thead>

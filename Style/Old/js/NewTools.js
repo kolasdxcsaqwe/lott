@@ -11,8 +11,6 @@ $(function () {
     $(".keybord").on('touchstart', function () {
         $(this).toggleClass("gray");
         $(".keybord_div").toggle();
-        var box = $('.game-box');
-        box.css('display', 'none');
         $('.txtbet').removeClass('on');
         $("#Message").attr("readonly", !$(this).hasClass('gray'));
     });
@@ -96,7 +94,6 @@ $(function () {
                 $(".rightdiv").hide();
                 $('#iframe').attr('src', '/Templates/Old/wpay/index.php');
                 $('#iframe').show();
-                $('.game-box').css('display', 'none');
                 $('.txtbet').removeClass('on');
                 break;
             case "skefu":
@@ -108,7 +105,6 @@ $(function () {
                 window.location.href="/onlineservice.html?"+d.reurl
 
                 $('#iframe').show();
-                $('.game-box').css('display', 'none');
                 $('.txtbet').removeClass('on');
                 break;
             case "guess":
@@ -117,7 +113,6 @@ $(function () {
                 $(".kefu").hide();
                 $('#iframe').hide();
                 $('#iframe').attr('src', '');
-                $('.game-box').css('display', 'none');
                 $('.txtbet').removeClass('on');
                 break;
             case 'logs':
@@ -126,7 +121,6 @@ $(function () {
                 $(".kefu").hide();
                 $(".touzu").hide();
                 $(".rightdiv").hide();
-                $('.game-box').css('display', 'none');
                 $('.txtbet').removeClass('on');
                 break;
             case "mnzb":
@@ -140,7 +134,6 @@ $(function () {
                 $(".rightdiv").hide();
                 $('#iframe').attr('src', '/Templates/Old/tixian.php');
                 $('#iframe').show();
-                $('.game-box').css('display', 'none');
                 $('.txtbet').removeClass('on');
                 break;
             case 'appdown':
@@ -149,7 +142,6 @@ $(function () {
                 $(".rightdiv").hide();
                 $('#iframe').attr('src', '/Templates/Old/appdown.php');
                 $('#iframe').show();
-                $('.game-box').css('display', 'none');
                 $('.txtbet').removeClass('on');
                 break;
             case 'guize':
@@ -158,7 +150,6 @@ $(function () {
                 $(".kefu").hide();
                 $(".touzu").hide();
                 $(".rightdiv").hide();
-                $('.game-box').css('display', 'none');
                 $('.txtbet').removeClass('on');
                 break;
             case 'caiwu':

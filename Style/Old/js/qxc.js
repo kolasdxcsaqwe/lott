@@ -328,7 +328,6 @@ $(function () {
 
         $(".betDialogContent .menu").find("a").removeClass("on");
         a.addClass("on")
-        $("#game-gtype,.game-tit").html(a.text())
         $(".sub-menu").hide()
         $('.gamenum').hide()
 
@@ -378,7 +377,7 @@ $(function () {
         $('.game-type-' + d.t).append(string)
         $('.game-type-' + d.t).show()
 
-        window.scrollTo(0, document.body.scrollHeight);
+        // window.scrollTo(0, document.body.scrollHeight);
         //下注选择
         $(".game-bd a.btn").click(function () {
             $(this).toggleClass('on');
@@ -513,7 +512,7 @@ $(function () {
 
     function makeRandomOrder(amount)
     {
-        //[{"money":3,"orders":1,"gamName":"ry3","unitPrice":"3","codes":[{"pos":0,"code":"579"}]}]
+        //[{"money":3,"orders":1,"gameName":"ry3","unitPrice":"3","codes":[{"pos":0,"code":"579"}]}]
         for (let i = 0; i < amount; i++) {
             var codes=[]
             var completeCodes=[]
@@ -566,7 +565,7 @@ $(function () {
 
             var data={money:parseInt(minBet),
                 gameNameCn:gameTitles[bet-1],
-                gamName:gameCodes[bet-1],
+                gameName:gameCodes[bet-1],
                 unitPrice:minBet,
                 orders:1,
                 codes:codes,
@@ -733,7 +732,7 @@ $(function () {
             money:money,
             orders:bet_n,
             gameNameCn:gameTitles[bet-1],
-            gamName: gameCodes[bet - 1],
+            gameName: gameCodes[bet - 1],
             unitPrice: $("#orderPrice").val(),
             codes: betCodes,
             completeCodes:completeCodes
@@ -792,7 +791,7 @@ $(function () {
         itemStr=itemStr.replace("%inclass",orderData[0].orders>1?"singleOrderPriceNoEdit":"singleOrderPrice")
 
         var showContent=codes
-        if(orderData[0].gamName==='dxds')
+        if(orderData[0].gameName==='dxds')
         {
             showContent=codes.replaceAll("0","大")
                 .replaceAll("1","小")

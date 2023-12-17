@@ -560,7 +560,7 @@ function is_weixin()
 
 </script>
 <!-- New Templates Update -->
-<script type="text/javascript" src="/Style/Old/js/NewTools.js?t=sd"></script>
+<script type="text/javascript" src="/Style/Old/js/NewTools.js?t=s2d"></script>
 <script type="text/javascript" src="/Style/Old/js/NewChat.js?t=233"></script>
 <script type="text/javascript" src="/Style/Old/js/qxc.js?t=2w"></script>
 <!-- ./New Templates Update -->
