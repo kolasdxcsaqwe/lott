@@ -70,7 +70,7 @@ function is_weixin()
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/weui.min.css"/>
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/style.css?t=sajiwq9iu3"/>
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/bootstrap.new.css"/>
-    <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/NewLottery.css?t=21s"/>
+    <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/NewLottery.css?t=2223"/>
     <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/layout.css"/>
     <link rel="Stylesheet" type="text/css" href="Style/Xs/static/css/iconfont.css"/>
     <script src="Style/Old/js/jquery.min.js"></script>
@@ -106,7 +106,7 @@ function is_weixin()
             box-shadow: #666 0px 0px 2px;
             background: #f4f4f4;
         }
-
+        .pk_0,
         .pk_1,
         .pk_2,
         .pk_3,
@@ -173,6 +173,10 @@ function is_weixin()
             -webkit-text-shadow: #000 1px 0 0, #000 0 1px 0, #000 -1px 0 0, #000 0 -1px 0;
             -moz-text-shadow: #000 1px 0 0, #000 0 1px 0, #000 -1px 0 0, #000 0 -1px 0;
             *filter: Glow(color=#000, strength=1);
+        }
+
+        .pk_0 {
+            background: #FF0000;
         }
 
         .pk_1 {
@@ -557,8 +561,8 @@ function is_weixin()
 </script>
 <!-- New Templates Update -->
 <script type="text/javascript" src="/Style/Old/js/NewTools.js?t=sd"></script>
-<script type="text/javascript" src="/Style/Old/js/NewChat.js?t=kdf98"></script>
-<script type="text/javascript" src="/Style/Old/js/qxc.js?t=x222s"></script>
+<script type="text/javascript" src="/Style/Old/js/NewChat.js?t=233"></script>
+<script type="text/javascript" src="/Style/Old/js/qxc.js?t=2w"></script>
 <!-- ./New Templates Update -->
 
 <iframe onload="iFrameHeight2();" src="/Templates/Old/shipin.php" name="ifarms" width="980" height="680"
@@ -603,14 +607,14 @@ function is_weixin()
 
         <div class="botView">
             <div class="timeBalance">
-                <span class="betLimit">下注截止: <b>00:09:59</b></span>
-                <span class="bal">余额:<b>999</b></span>
+                <span class="betLimit">下注截止:&nbsp;&nbsp;<b></b></span>
+                <span class="bal">余额:&nbsp;&nbsp;<b></b></span>
             </div>
 
             <div class="chooseNums">
-                <span>+ 自选号码</span>
-                <span>+ 机选一注</span>
-                <span>+ 机选五注</span>
+                <span id="delAllOrders">删除全部</span>
+                <span id="random1order">+ 机选一注</span>
+                <span id="random5order">+ 机选五注</span>
             </div>
 
             <div class="syncBal">
@@ -624,14 +628,14 @@ function is_weixin()
                  style="margin-left: 6%; margin-bottom: -23px"/>
 
             <div class="orderList">
-                <div class="orderListItem">
-                    <img src="/Templates/Old/images/icon_qingchu.png" alt="">
-                    <div class="orderListContent">
-                        <p class="itemContent">123456789|123456789|123456789|</p>
-                        <span class="gameItemDetail">4定玩法 1000注</span>
-                    </div>
-                    <input class="singleOrderPrice" type="number">
-                </div>
+<!--                <div class='orderListItem'>-->
+<!--                    <img  src='/Templates/Old/images/icon_qingchu.png' alt=''>-->
+<!--                    <div class='orderListContent'>-->
+<!--                        <p class='itemContent'>123456789|123456789|123456789|</p>-->
+<!--                        <span class='gameItemDetail'>4定玩法 1000注</span>-->
+<!--                    </div>-->
+<!--                    <input class='singleOrderPrice' type='number'>-->
+<!--                </div>-->
 
                 <img src="/Templates/Old/images/order_bottom.png" alt="" width="84%"
                      style="margin-left: 2%; margin-top: -23px"/>
@@ -639,9 +643,9 @@ function is_weixin()
 
             <div class="dialogBot">
                 <div class="centerContent">
-                    <span class="totalMoneySpan">共1020元</span>
+                    <span class="totalMoneySpan">共0元</span>
                     <div>
-                        <span class="totalOrderSpan">共100注</span>
+                        <span class="totalOrderSpan">共0注</span>
                     </div>
                 </div>
                 <span id="confirmOrder">确定下单</span>
@@ -790,7 +794,7 @@ function is_weixin()
                            style="color:red;font-weight:bold;width:48%;">
                     <div style="text-align: right;height: 100%;display: inline-block;width: 50%">
                         <span class="txtbet">快捷下注</span>
-                        <span class="botOrderEdit">注单编辑</span>
+                        <span class="botOrderEdit">注单编辑 (0)</span>
                     </div>
 
                 </div>
@@ -805,7 +809,7 @@ function is_weixin()
                 <div class="orderInformation">
                     <label style="display: inline-block">
                         <span>单注金额</span>
-                        <input id="orderPrice" type="number"  max="1000000" >
+                        <input id="orderPrice" type="number"  max="1000000"/>
                     </label>
                     <div>
                         <span id="availableWin">奖金:&nbsp;<b></b></span>

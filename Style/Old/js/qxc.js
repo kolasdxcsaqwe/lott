@@ -7,6 +7,10 @@ $(function () {
     var orderListDialogRemainTime=0
     var isStopCountDown=false
     var nowTerm=""
+    var orderCacheArray=new Map()//注单列表数据
+    var autoIncrease=0;//pos 计数
+    var timeoutId=0
+
     var dialogCountDown=function (){
         orderListDialogRemainTime--
         if(orderListDialogRemainTime<1)
@@ -19,14 +23,16 @@ $(function () {
         }
         if(!isStopCountDown && orderListDialogRemainTime>0)
         {
-            setTimeout(function (){dialogCountDown()},1000)
+            clearTimeout(timeoutId)
+            timeoutId=setTimeout(function (){dialogCountDown()},1000)
         }
     }
 
     var a, b, c, d, bet = 1, bet_n = 0, bline, bval;
     var secTitles = [[""], [""], ["万位", "千位", "十位", "个位"], ["万位", "千位", "十位", "个位"],
-        ["万位", "千位", "十位"], ["万位", "千位"], ["万位", "千位", "十位", "个位"], ["万位", "个位"]];
+        ["万位", "千位", "十位"], ["万位", "千位"], ["万位", "千位", "十位", "个位"], ["万位", "x", "x", "个位"]];
     var gameCodes = ['ry3', 'ry2', 'dxds', 'd4', 'd3', 'd2', 'd1', 'tw']
+    var gameTitles = ['任选3', '任选3', '大小单双', '前4定位', '前3定位', '前2定位', '1字定位', '头尾定位']
 
     $('#betDialog').on("hide.bs.modal", function () {
         clearSelectButtons();
@@ -36,10 +42,14 @@ $(function () {
 
     $('#orderDialog').on("show.bs.modal", function () {
         fetchCountDownAndMoney()
+        $(".timeBalance .betLimit").unbind('click')
+        $(".timeBalance .betLimit").click(function (e) {
+            fetchCountDownAndMoney()
+        })
     })
     $('#orderDialog').on("hide.bs.modal",function (){
         isStopCountDown=true
-        clearTimeout(dialogCountDown)
+        clearTimeout(timeoutId)
     })
 
     $("#orderPrice").on("input", function () {
@@ -95,7 +105,7 @@ $(function () {
 
         var isAva = true
         $(".game-type-" + bet + " .btn-box ").each(function () {
-            if ($(this).find(" a.on ").length < 1 && bet !== 3 && bet !== 7) {
+            if ($(this).css("display")!=="none" && $(this).find(" a.on ").length < 1 && bet !== 3 && bet !== 7) {
                 //只要有一行没选中就不算
                 isAva = false
             }
@@ -216,7 +226,10 @@ $(function () {
         var count = 1;
         var isAva = true;
         $(".game-type-" + bet + " .btn-box ").each(function () {
-            count = count * $(this).find(" a.on ").length
+            if($(this).css("display")!=="none")
+            {
+                count = count * $(this).find(" a.on ").length
+            }
             // console.log("line--->"+$(this).data('line')+" : "+$(this).find(" a.on ").length)
         })
         return count
@@ -240,6 +253,38 @@ $(function () {
             let pos = Math.floor(Math.random() * nums.length)
             result.push(nums[pos])
             nums.splice(pos, 1)
+        }
+        return result
+    }
+
+    //随机数组 返回连接字符串
+    function randomNums10Str(count,notRepeat) {
+        var nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+        var result = ""
+        for (let i = 0; i < count; i++) {
+            let pos = Math.floor(Math.random() * nums.length)
+            result=result+nums[pos]
+            if(notRepeat)
+            {
+                nums.splice(pos, 1)
+            }
+
+        }
+        return result
+    }
+
+    //随机数组 返回连接字符串
+    function randomNums4Str(count,notRepeat) {
+        var nums = [0, 1, 2, 3]
+        var result = ""
+        for (let i = 0; i < count; i++) {
+            let pos = Math.floor(Math.random() * nums.length)
+            result=result+nums[pos]
+            if(notRepeat)
+            {
+                nums.splice(pos, 1)
+            }
+
         }
         return result
     }
@@ -291,7 +336,7 @@ $(function () {
         $('.game-type-' + d.t).html("")
 
         $('.game-type-' + d.t).append("<div class='rank-tit'><span class='change'>" + a.text() +
-            "</span><div><span class='orderEdit'>注单编辑</span><span class='choose'>机选</span></div></div>")
+            "</span><div><span class='orderEdit'>注单编辑 ("+orderCacheArray.size+")</span><span class='choose'>机选</span></div></div>")
         // $('.game-type-' + d.t).append("<div class='randomChoose'><span class='order'>注单编辑</span> <span class='choose'>机选</span></div>")
 
         var string = "<div class='gameScroll'>"
@@ -299,9 +344,18 @@ $(function () {
 
 
             var title = "<span class='secTitle' >%title</span>"
+            if(secTitles[d.t - 1][j]==="x")
+            {
+                title= "<span class='secTitle' style='display: none'>%title</span>"
+            }
             title = title.replace("%title", secTitles[d.t - 1][j])
 
-            string = string + title + "<div class='btn-box btn-grounp' data-line='%line'>"
+            var itemDiv="<div class='btn-box btn-grounp' data-line='%line'>"
+            if(secTitles[d.t - 1][j]==="x")
+            {
+                itemDiv= "<div class='btn-box btn-grounp'  style='display: none' data-line='%line'>"
+            }
+            string = string + title + itemDiv
             string = string.replace("%line", j);
 
             var itemAmount = bet === 3 ? 4 : 10;
@@ -332,30 +386,70 @@ $(function () {
         });
         $(".gameScroll").css("maxHeight", document.documentElement.clientHeight * 0.53)
 
-        $(".orderEdit").click(function () {
+        function onCLickEditOrder()
+        {
+
             $('#orderDialog').modal('show');
+            $("#closeOrderDialog").unbind('click')
             $("#closeOrderDialog").click(function (e) {
                 $('#orderDialog').modal('hide');
             })
+
+            $("#syncAllBal").unbind('on')
             $("#syncAllBal").on("input", function () {
                 $(this).val($(this).val().replace(/^(0+)|[^\d]+/g, ''));
-                if ($(this).val() > maxBet) {
+                if (parseInt($(this).val()) > parseInt(maxBet)) {
                     $(this).val(maxBet)
                 }
+
+                let bal=$(this).val()
+                $(".orderList .singleOrderPrice").each(function (){
+                    $(this).val(bal)
+                    let key =$(this).data('pos')
+                    var data=orderCacheArray.get(key)
+                    if(data!=null)
+                    {
+                        data.unitPrice=parseInt($(this).val())
+                        data.money=parseInt($(this).val())
+                        orderCacheArray.set(key,data)
+                    }
+                    calOrderDialogOrder()
+                })
             })
+
+            $("#delAllOrders").unbind('click')
+            $("#delAllOrders").click(function (){
+                orderCacheArray.clear()
+                $(".orderEdit").text("注单编辑 ("+orderCacheArray.size+")")
+                $(".botOrderEdit").text("注单编辑 ("+orderCacheArray.size+")")
+                $(".orderList").html("")
+                calOrderDialogOrder();
+            })
+
+            $("#random5order").unbind('click')
+            $("#random5order").click(function (){
+                makeRandomOrder(5)
+            })
+
+            $("#random1order").unbind('click')
+            $("#random1order").click(function (){
+                makeRandomOrder(1)
+            })
+
+            $("#confirmOrder").unbind('click')
+            $("#confirmOrder").click(function (){
+                commitOrders()
+            })
+
+            calOrderDialogOrder();
+        }
+
+        $(".orderEdit").click(function () {
+            onCLickEditOrder()
         })
 
         $(".botOrderEdit").click(function () {
-            $('#orderDialog').modal('show');
-            $("#closeOrderDialog").click(function (e) {
-                $('#orderDialog').modal('hide');
-            })
-            $("#syncAllBal").on("input", function () {
-                $(this).val($(this).val().replace(/^(0+)|[^\d]+/g, ''));
-                if ($(this).val() > maxBet) {
-                    $(this).val(maxBet)
-                }
-            })
+            onCLickEditOrder()
         })
 
         $(".rank-tit .choose").click(function () {
@@ -402,9 +496,13 @@ $(function () {
                     $('.game-type-' + d.t + " .btn-box:eq(" + v + ")").find(" a.btn:eq(" + index + ")").click();
                     break
                 case 8:
-                    for (let k = 0; k < 2; k++) {
-                        var index = randomNums10(1)[0]
-                        $('.game-type-' + d.t + " .btn-box:eq(" + k + ")").find(" a.btn:eq(" + index + ")").click();
+                    for (let k = 0; k < secTitles[7].length; k++) {
+                        let title=secTitles[7][k]
+                        if(title!=="x")
+                        {
+                            var index = randomNums10(1)[0]
+                            $('.game-type-' + d.t + " .btn-box:eq(" + k + ")").find(" a.btn:eq(" + index + ")").click();
+                        }
                     }
                     break
             }
@@ -412,8 +510,76 @@ $(function () {
 
     });
 
-    $(".betDialogContent .menu .on").click()
 
+    function makeRandomOrder(amount)
+    {
+        //[{"money":3,"orders":1,"gamName":"ry3","unitPrice":"3","codes":[{"pos":0,"code":"579"}]}]
+        for (let i = 0; i < amount; i++) {
+            var codes=[]
+            var completeCodes=[]
+            switch (bet) {
+                case 1:
+                    codes.push({pos:0,code:randomNums10Str(3,true)})
+                    completeCodes.push({pos:0,code:randomNums10Str(3,true)})
+                    break
+                case 2:
+                    codes.push({pos:0,code:randomNums10Str(2,true)})
+                    completeCodes.push({pos:0,code:randomNums10Str(2,true)})
+                    break
+                case 3:
+                    codes.push({pos:randomNums4Str(1,true),code:randomNums4Str(1,true)})
+                    completeCodes.push({pos:randomNums4Str(1,true),code:randomNums4Str(1,true)})
+                    break
+                case 4:
+                    for (let k = 0; k < 4; k++) {
+                        codes.push({pos:k,code:randomNums10Str(1)})
+                        completeCodes.push({pos:k,code:randomNums10Str(1)})
+                    }
+                    break
+                case 5:
+                    for (let k = 0; k < 3; k++) {
+                        codes.push({pos:k,code:randomNums10Str(1)})
+                        completeCodes.push({pos:k,code:randomNums10Str(1)})
+                    }
+                    break
+                case 6:
+                    for (let k = 0; k < 2; k++) {
+                        codes.push({pos:k,code:randomNums10Str(1)})
+                        completeCodes.push({pos:k,code:randomNums10Str(1)})
+                    }
+                    break
+                case 7:
+                    codes.push({pos:randomNums4Str(1,true),code:randomNums10Str(1,true)})
+                    completeCodes.push({pos:randomNums4Str(1,true),code:randomNums10Str(1,true)})
+                    break
+                case 8:
+                    for (let k = 0; k < secTitles[7].length; k++) {
+                        let title=secTitles[7][k]
+                        if(title!=="x")
+                        {
+                            codes.push({pos:k,code:randomNums10Str(1)})
+                            completeCodes.push({pos:k,code:randomNums10Str(1)})
+                        }
+                    }
+                    break
+            }
+
+            var data={money:parseInt(minBet),
+                gameNameCn:gameTitles[bet-1],
+                gamName:gameCodes[bet-1],
+                unitPrice:minBet,
+                orders:1,
+                codes:codes,
+                completeCodes:completeCodes}
+            var arrTemp=[]
+            arrTemp.push(data)
+            addNewOrder(arrTemp)
+        }
+
+        calOrderDialogOrder();
+    }
+
+    $(".betDialogContent .menu .on").click()
 
     //清空
     $(".clearnum").click(function () {
@@ -432,6 +598,21 @@ $(function () {
         a.val(n + m);
         show_bet();
     });
+
+    function calOrderDialogOrder()
+    {
+        var values=orderCacheArray.values()
+        var totalMoney=0
+        var totalOrders=0
+        for (let i = 0; i < orderCacheArray.size; i++) {
+            let item=values.next().value
+            totalMoney=totalMoney+item.money
+            totalOrders=totalOrders+item.orders
+        }
+
+        $(".totalMoneySpan").text("共"+totalMoney+"元")
+        $(".totalOrderSpan").text("共"+totalOrders+"注")
+    }
 
     function parseURL(url) {
         var a = document.createElement('a');
@@ -463,93 +644,18 @@ $(function () {
         };
     }
 
-    //确认下注 bl余额 bet_money金额
-    $("a.confirm").click(function () {
-        var bl = $("b.balance").text() * 1, msg1, msg2, msg = [],
-            bet_money = $("input.bet_money").val() * 1;
-        if (bet_money == 0) {
-            zy.tips("请输入下注金额");
-            return;
-        }
-        if (bet_money * bet_n > bl) {
-            zy.tips("您的余额不足");
-            return;
-        }
-        switch (bet) {
-            case 1:
-                msg1 = '';
-                $.each(bline, function (i, v) {
-                    if (v != 8) {
-                        msg1 = msg1 + String(v);
-                    } else {
-                        msg.push(bval.join("") + "/" + bet_money);
-                    }
-                });
-                msg.push(msg1 + "/" + bval.join("") + "/" + bet_money);
-                console.log(msg);
-                break;
-            case 2:
-                msg1 = bline.join("");
-                $.each(bval, function (i, v) {
-                    msg[i] = msg1 + "/" + v + "/" + bet_money;
-                });
-                break;
-            case 3:
-                msg1 = bline.join("");
-                msg2 = bval.join(".");
-                msg[0] = msg1 + "/" + msg2 + "/" + bet_money;
-                break;
-            case 5:
-                msg2 = bval.join("");
-                $.each(bline, function (i, v) {
-                    msg[i] = v + "肖/" + msg2 + "/" + bet_money
-                });
-                break;
-            case 6:
-                msg2 = bval.join("");
-                $.each(bline, function (i, v) {
-                    msg[i] = v + "肖/" + msg2 + "/" + bet_money
-                });
-                break;
-            case 7:
-                msg2 = bval.join("");
-                $.each(bline, function (i, v) {
-                    msg[i] = v + "肖/" + msg2 + "/" + bet_money
-                });
-                break;
-            case 8:
-                msg2 = bval.join("");
-                $.each(bline, function (i, v) {
-                    msg[i] = v + "肖/" + msg2 + "/" + bet_money
-                });
-                break;
-            case 4:
-                msg2 = bval.join(".");
-                $.each(bline, function (i, v) {
-                    msg[i] = v + "中/" + msg2 + "/" + bet_money
-                });
-                break;
-            default:
-                msg1 = bline.join("");
-                $.each(bval, function (i, v) {
-                    msg[i] = msg1 + "/" + v + "/" + bet_money
-                });
-                break;
-        }
-        if (msg.count < 1) return;
-        $.each(msg, function (i, m) {
-            //console.log(m);
-            send_msg(m);
-        });
-        $("#touzhu").removeClass("on");
-        $(".clearnum").click();
-        zy.tips('投注已发送!');
-    });
-
     $(".confirm-pour").click(function () {
         if (!$(this).hasClass("on")) return;
         // $("#touzhu").addClass("on"), location.href = "#confirm"
         betNow()
+    });
+
+    $(".addOrder").click(function () {
+        if (!$(this).hasClass("on")) return;
+        // $("#touzhu").addClass("on"), location.href = "#confirm"
+        addNewOrder(makeOrderData())
+        clearSelectButtons()
+        show_bet()
     });
 
     $(".pour-info").find("a.close,a.cancel").click(function () {
@@ -598,28 +704,149 @@ $(function () {
         return h + ":" + m + ":" + s;
     }
 
-
-
-    function betNow() {
+    function makeOrderData()
+    {
         var betCodes = []
+        var completeCodes=[]
         $(".game-type-" + bet + " .btn-box ").each(function () {
             var code = ""
             $(this).find("a.on[data-pos]").each(function (index, val) {
                 code = code + $(this).data('pos')
             });
 
-            betCodes.push({pos: $(this).data().line, code: code})
+            if(code.length>0)
+            {
+                betCodes.push({pos: $(this).data().line, code: code})
+            }
+            completeCodes.push({pos: $(this).data().line, code: code})
             // console.log("line--->"+$(this).data('line')+" : "+$(this).find(" a.on ").length)
         })
 
+        var pVal = $("#orderPrice").val();
+        if (pVal.length < 1) {
+            pVal = $("#orderPrice").attr("placeholder");
+        }
+        var money=parseInt(pVal) * bet_n
+
         var arr = []
         arr.push({
+            money:money,
+            orders:bet_n,
+            gameNameCn:gameTitles[bet-1],
             gamName: gameCodes[bet - 1],
-            orderPrice: $("#orderPrice").val(),
-            codes: betCodes
+            unitPrice: $("#orderPrice").val(),
+            codes: betCodes,
+            completeCodes:completeCodes
         });
 
-        var postData = {userId: info.userid, roomId: info.roomid, betArray: JSON.stringify(arr)}
+        return arr
+    }
+
+    function deleteOrder(pos)
+    {
+        orderCacheArray.delete(pos)
+        $(".orderEdit").text("注单编辑 ("+orderCacheArray.size+")")
+        $(".botOrderEdit").text("注单编辑 ("+orderCacheArray.size+")")
+        $(".orderList .orderListItem img").each(function (){
+            if($(this).data("pos")===pos)
+            {
+                $(this).parent().remove()
+            }
+        })
+        calOrderDialogOrder();
+    }
+
+    function addNewOrder(orderData)
+    {
+
+        var itemStr=" <div class='orderListItem'>" +
+            "                    <img data-pos='%pos' src='/Templates/Old/images/icon_qingchu.png' alt=''>" +
+            "                    <div class='orderListContent'>" +
+            "                        <p class='itemContent'>%itemContent</p>" +
+            "                        <span class='gameItemDetail'>%gameItemDetail</span></div>" +
+            "                    <input class='%inclass' %isMul data-pos='%pos' type='number' value='%unitPrice'/>" +
+            "                </div>"
+
+        var codes=""
+        let list=orderData[0].completeCodes
+        let titleSuffix=["万位：", "千位：", "十位：", "个位："]
+        for (let i = 0; i < list.length; i++) {
+            if(list.length>1)
+            {
+                if(list[i].code.length>0)
+                {
+                    codes=codes+titleSuffix[list[i].pos]+list[i].code+"|"
+                }
+            }
+            else
+            {
+                codes=codes+list[i].code+"|"
+            }
+
+        }
+        codes=codes.substring(0, codes.length-1)
+
+        var gameDetail=orderData[0].gameNameCn+" "+orderData[0].orders+"注 "+orderData[0].money+"元"
+        itemStr=itemStr.replaceAll("%pos",""+autoIncrease)
+        itemStr=itemStr.replace("%isMul",orderData[0].orders>1?"readonly":"")
+        itemStr=itemStr.replace("%inclass",orderData[0].orders>1?"singleOrderPriceNoEdit":"singleOrderPrice")
+
+        var showContent=codes
+        if(orderData[0].gamName==='dxds')
+        {
+            showContent=codes.replaceAll("0","大")
+                .replaceAll("1","小")
+                .replaceAll("2","单")
+                .replaceAll("3","双")
+        }
+
+        itemStr=itemStr.replace('%itemContent',showContent)
+        itemStr=itemStr.replace('%gameItemDetail',gameDetail)
+        itemStr=itemStr.replace('%unitPrice',orderData[0].unitPrice)
+        $(".orderList").prepend(itemStr)
+
+        $(".orderList img").click(function (){
+            deleteOrder($(this).data('pos'))
+        })
+        $(".orderList .singleOrderPrice").on("input",function (){
+            $(this).val($(this).val().replace(/^(0+)|[^\d]+/g, ''));
+            if ($(this).val() > parseInt(maxBet)) {
+                $(this).val(maxBet)
+            }
+
+            let key =$(this).data('pos')
+            var data=orderCacheArray.get(key)
+            if(data!=null)
+            {
+
+                data.unitPrice=parseInt($(this).val())
+                data.money=parseInt($(this).val())
+                let detail=orderData[0].gameNameCn+" "+orderData[0].orders+"注 "+data.money+"元"
+                $(this).parent().find(".gameItemDetail").text(detail)
+                orderCacheArray.set(key,data)
+            }
+            calOrderDialogOrder()
+        })
+
+
+        orderCacheArray.set(autoIncrease,orderData[0])
+        autoIncrease++
+        $(".orderEdit").text("注单编辑 ("+orderCacheArray.size+")")
+        $(".botOrderEdit").text("注单编辑 ("+orderCacheArray.size+")")
+    }
+
+    function betNow() {
+
+        var array=makeOrderData()
+        if(array.length<1)
+        {
+            zy.tips('下注格式错误,请重新选择号码');
+            return
+        }
+        delete array[0].completeCodes
+
+        $("#loadingDiv").show()
+        var postData = {userId: info.userid, roomId: info.roomid, betArray: JSON.stringify(array)}
         $.ajax({
             type: "POST",
             dataType: "json",
@@ -632,11 +859,14 @@ $(function () {
                     show_bet()
                     zy.tips('投注已发送!');
                 } else {
-                    zy.tips(result.msg);
+                    zy.tips(result.msg,4);
                 }
             },
             error: function () {
                 zy.tips('下注失败，服务器异常！!');
+            },
+            complete: function (a, b) {
+                $("#loadingDiv").hide()
             }
         });
     }
@@ -658,7 +888,8 @@ $(function () {
                     $(".timeBalance .betLimit b").data()
                     $(".timeBalance .bal b").html(result.datas.money)
                     isStopCountDown=false
-                    setTimeout(dialogCountDown,1000)
+                    clearTimeout(timeoutId)
+                    timeoutId=setTimeout(dialogCountDown,1000)
                 } else {
                     zy.tips(result.msg);
                 }
@@ -668,4 +899,48 @@ $(function () {
             }
         });
     }
+
+    function commitOrders() {
+
+        if(orderCacheArray.size<1)
+        {
+            zy.tips('请先下注')
+            return
+        }
+        $("#loadingDiv").show()
+        let array=[]
+        var values=orderCacheArray.values()
+        for (let i = 0; i < orderCacheArray.size; i++) {
+            var val=values.next().value
+            delete val.completeCodes
+            array.push(val)
+        }
+        var postData = {userId: info.userid, roomId: info.roomid, betArray: JSON.stringify(array)}
+
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: baseUrl + "/QXCSendChat",//url
+            data: postData,
+            crossDomain: true,
+            success: function (result) {
+                if (result.code === 0) {
+                    $("#delAllOrders").click()
+                    clearSelectButtons();
+                    show_bet()
+                    zy.tips('投注已发送!');
+                    fetchCountDownAndMoney();
+                } else {
+                    zy.tips(result.msg);
+                }
+            },
+            error: function () {
+                zy.tips('下注失败，服务器异常！!');
+            },
+            complete: function (a, b) {
+                $("#loadingDiv").hide()
+            }
+        });
+    }
+
 })

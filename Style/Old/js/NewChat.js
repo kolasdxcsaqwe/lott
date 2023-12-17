@@ -131,24 +131,6 @@ function getUserInfo() {
     });
 }
 
-function FirstGetContent() {
-    $.ajax({
-        url: '/Application/ajax_chat.php?type=first',
-        type: 'get',
-        dataType: 'json',
-        success: function (data) {
-            nowTerm = data.betTerm
-            addMessage(data.list);
-            WelcomMsg(welcome, welHeadimg);
-
-            setInterval(updateContent, 2000);
-        },
-        error: function () {
-        }
-    });
-    $('#messageLoading').remove();
-
-}
 
 function updateContent() {
     // $.ajax({
@@ -328,6 +310,11 @@ function createWebSocket() {
                         console.log(jsonOBJ.datas.betTerm + "----" + nowTerm)
                         if (jsonOBJ.datas.betTerm !== undefined && jsonOBJ.datas.betTerm !== '' && jsonOBJ.datas.betTerm !== null && parseInt(nowTerm) < parseInt(jsonOBJ.datas.betTerm)) {
                             nowTerm = jsonOBJ.datas.betTerm;
+                            if($("#orderDialog")!=undefined && $("#orderDialog")!=null && $("#orderDialog").css("display")!=="none")
+                            {
+                                $(".timeBalance .betLimit").click()
+                            }
+
                             if (info.game == 'ny28' || info.game == 'xy28' || info.game == 'jnd28') {
                                 if (window.frames.length > 0 && window.frames[0].window.frames.length > 0) {
                                     if (window.frames[0].window.frames[0].window != null) {
