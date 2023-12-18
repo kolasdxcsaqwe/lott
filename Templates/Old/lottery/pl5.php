@@ -2,8 +2,8 @@
 //作者：QQ 1878336950
 //搭建/接口api/其他棋牌彩票类平台/程序修正/彩票程序定制/一条龙服务
 switch ($_COOKIE['game']) {
-    case 'qxc':
-        $lot = 'fn_lottery20';
+    case 'pl5':
+        $lot = 'fn_lottery22';
         break;
 }
 $roomid = $_SESSION['roomid'];
@@ -29,6 +29,7 @@ $info17 = get_query_vals('fn_lottery17', '*', array('roomid' => $_SESSION['roomi
 $info18 = get_query_vals('fn_lottery18', '*', array('roomid' => $_SESSION['roomid']));
 $info19 = get_query_vals('fn_lottery19', '*', array('roomid' => $_SESSION['roomid']));
 $info20 = get_query_vals('fn_lottery20', '*', array('roomid' => $_SESSION['roomid']));
+$info22 = get_query_vals('fn_lottery20', '*', array('roomid' => $_SESSION['roomid']));
 
 $pk10open = $info1['gameopen'];
 $xyftopen = $info2['gameopen'];
@@ -50,6 +51,7 @@ $azxy10open = $info17['gameopen'];
 $azxy5open = $info18['gameopen'];
 $ny28open = $info19['gameopen'];
 $qxcopen = $info20['gameopen'];
+$pl5open = $info22['gameopen'];
 function is_weixin()
 {
     if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {
@@ -471,16 +473,16 @@ function is_weixin()
         'headimg': "<?php echo $_SESSION['headimg'] ?>",
         'userid': "<?php echo $_SESSION['userid'] ?>",
         'roomid': "<?php echo $_SESSION['roomid'] ?>",
-        'minbet': "<?php echo $info20['minbet'] ?>",
-        'maxbet': "<?php echo $info20['maxbet'] ?>",
-        'anytwo': "<?php echo $info20['anytwo'] ?>",
-        'anythree': "<?php echo $info20['anythree'] ?>",
-        'fourfix': "<?php echo $info20['fourfix'] ?>",
-        'threefix': "<?php echo $info20['threefix'] ?>",
-        'twofix': "<?php echo $info20['twofix'] ?>",
-        'onefix': "<?php echo $info20['onefix'] ?>",
-        'touweifix': "<?php echo $info20['touweifix'] ?>",
-        'dxds': "<?php echo $info20['dxds'] ?>",
+        'minbet': "<?php echo $info['minbet'] ?>",
+        'maxbet': "<?php echo $info['maxbet'] ?>",
+        'anytwo': "<?php echo $info['anytwo'] ?>",
+        'anythree': "<?php echo $info['anythree'] ?>",
+        'fourfix': "<?php echo $info['fourfix'] ?>",
+        'threefix': "<?php echo $info['threefix'] ?>",
+        'twofix': "<?php echo $info['twofix'] ?>",
+        'onefix': "<?php echo $info['onefix'] ?>",
+        'touweifix': "<?php echo $info['touweifix'] ?>",
+        'dxds': "<?php echo $info['dxds'] ?>",
         'game': "<?php echo $_COOKIE['game'];
             ?>"
     };
@@ -562,7 +564,7 @@ function is_weixin()
 <!-- New Templates Update -->
 <script type="text/javascript" src="/Style/Old/js/NewTools.js?t=s2d"></script>
 <script type="text/javascript" src="/Style/Old/js/NewChat.js?t=233"></script>
-<script type="text/javascript" src="/Style/Old/js/qxc.js?t=22w"></script>
+<script type="text/javascript" src="/Style/Old/js/qxc.js?t=223w"></script>
 <!-- ./New Templates Update -->
 
 <iframe onload="iFrameHeight2();" src="/Templates/Old/shipin.php" name="ifarms" width="980" height="680"
@@ -628,14 +630,14 @@ function is_weixin()
                  style="margin-left: 6%; margin-bottom: -23px"/>
 
             <div class="orderList">
-<!--                <div class='orderListItem'>-->
-<!--                    <img  src='/Templates/Old/images/icon_qingchu.png' alt=''>-->
-<!--                    <div class='orderListContent'>-->
-<!--                        <p class='itemContent'>123456789|123456789|123456789|</p>-->
-<!--                        <span class='gameItemDetail'>4定玩法 1000注</span>-->
-<!--                    </div>-->
-<!--                    <input class='singleOrderPrice' type='number'>-->
-<!--                </div>-->
+                <!--                <div class='orderListItem'>-->
+                <!--                    <img  src='/Templates/Old/images/icon_qingchu.png' alt=''>-->
+                <!--                    <div class='orderListContent'>-->
+                <!--                        <p class='itemContent'>123456789|123456789|123456789|</p>-->
+                <!--                        <span class='gameItemDetail'>4定玩法 1000注</span>-->
+                <!--                    </div>-->
+                <!--                    <input class='singleOrderPrice' type='number'>-->
+                <!--                </div>-->
 
                 <img src="/Templates/Old/images/order_bottom.png" alt="" width="84%"
                      style="margin-left: 2%; margin-top: -23px"/>
@@ -719,13 +721,13 @@ function is_weixin()
         <ul>
             <!--li class="ulogo"><a href="/Templates/user/"><img src="<?php echo $_SESSION['headimg']; ?>" class="mlogo"></a></li-->
             <li class="ulogo"><a href="/qr.php?room=<?php echo $_SESSION['roomid']; ?>"><img
-                            src="/Templates/Old/images/dt.png" class="mlogo"/></a></li>
+                        src="/Templates/Old/images/dt.png" class="mlogo"/></a></li>
             <?php if ($key == 2) { ?>
                 <li class="cz" data-id="cz"><a href="/pay/index.php"><img src="/Templates/Old/images/cz.png"/></a></li>
             <?php } elseif ($key == 1) { ?>
                 <li class="cz" data-id="cz"><a
-                            href="/spay/index.php?roomid=<? echo $_SESSION['roomid']; ?>&g=<? echo $_COOKIE['game']; ?>&img=<? echo $_SESSION['headimg']; ?>&m=<? echo $_SESSION['username']; ?>&id=<? echo $_SESSION['userid']; ?>"><img
-                                src="/Templates/Old/images/cz.png"/></a></li>
+                        href="/spay/index.php?roomid=<? echo $_SESSION['roomid']; ?>&g=<? echo $_COOKIE['game']; ?>&img=<? echo $_SESSION['headimg']; ?>&m=<? echo $_SESSION['username']; ?>&id=<? echo $_SESSION['userid']; ?>"><img
+                            src="/Templates/Old/images/cz.png"/></a></li>
             <?php } elseif ($key == 3) { ?>
                 <li class="cz" data-id="cz"><a href="/dspay/index.php"><img src="/Templates/Old/images/cz.png"/></a>
                 </li>
@@ -804,105 +806,105 @@ function is_weixin()
     </div>
 
     <div class="game-box" ">
-        <div class="game-hd">
-            <div class="infuse">
-                <div class="orderInformation">
-                    <label style="display: inline-block">
-                        <span>单注金额</span>
-                        <input id="orderPrice" type="number"  max="1000000"/>
-                    </label>
-                    <div>
-                        <span id="availableWin">奖金:&nbsp;<b></b></span>
-                        <span id="payRare">赔率:&nbsp;<b></b></span>
-                    </div>
-                </div>
-
-                <em id="bet_num">共<b>0</b>注</em>
-                <a href="javascript:;" class="clearnum">清空所选</a>
-                <div class="right">
-                    <a href="javascript:;" class="addOrder">加入注单</a>
-                    <a href="javascript:;" class="confirm-pour">立即下注</a>
+    <div class="game-hd">
+        <div class="infuse">
+            <div class="orderInformation">
+                <label style="display: inline-block">
+                    <span>单注金额</span>
+                    <input id="orderPrice" type="number"  max="1000000"/>
+                </label>
+                <div>
+                    <span id="availableWin">奖金:&nbsp;<b></b></span>
+                    <span id="payRare">赔率:&nbsp;<b></b></span>
                 </div>
             </div>
-        </div>
 
-    </div>
-    <div id="touzhu" class="">
-        <div class="pour-info">
-            <h4 class="game-tit game-tit-bg" style="font-size:45px;line-height:100px;">竞猜大小单双<a
-                        href="javascript:;" class="close">×</a></h4>
-            <div class="m-bd">
-                <h4>共<em class="bet_n">1</em>注，投注金额<em class="bet_total">0</em>元</h4>
-                <dl>
-                    <dt>
-                        <span>下注金额：</span>
-                        <input type="number" class="text text-right bet_money" placeholder="下注金额">
-                        <a href="javascript:;" class="money_clear">清零</a>
-                    </dt>
-                    <dd>
-                        <i class="m5" data-money="5"></i>
-                        <i class="m10" data-money="10"></i>
-                        <i class="m50" data-money="50"></i>
-                        <i class="m100" data-money="100"></i>
-                        <i class="m500" data-money="500"></i>
-                        <i class="m1000" data-money="1000"></i>
-                        <i class="m5000" data-money="5000"></i>
-                    </dd>
-                </dl>
-                <div class="sub-btn">
-                    <a href="javascript:;" class="cancel">取消下注</a>
-                    <a href="javascript:;" class="confirm">确定下注</a>
-                </div>
+            <em id="bet_num">共<b>0</b>注</em>
+            <a href="javascript:;" class="clearnum">清空所选</a>
+            <div class="right">
+                <a href="javascript:;" class="addOrder">加入注单</a>
+                <a href="javascript:;" class="confirm-pour">立即下注</a>
             </div>
         </div>
     </div>
 
-    <div class="rightdiv">
-        <!--div class="saidright">
-            <img src="/Public/images/gm.jpg">
-            <div class="tousaidl">
-                <span class="tousaid2">13:21:50</span>&nbsp;&nbsp;
-                <span class="tousaid1">系统GM</span>
-            </div>
-            <div class="ts">
-                <b style="border-color:transparent  transparent transparent #FFBBBB;"></b>
-                <span class="neirongsaidl" style="background-color: #FFBBBB;">北京赛车<br>期号:632246<br>已封盘，请耐心等待开奖！</span>
-            </div>
-        </div>
-        <div class="saidright">
-            <img src="/Public/images/gm.jpg">
-            <div class="tousaidl">
-                <span class="tousaid2">13:21:50</span>&nbsp;&nbsp;
-                <span class="tousaid1">系统GM</span>
-            </div>
-            <div class="ts">
-                <b style="border-color:transparent  transparent transparent #98E165;"></b>
-                <span class="neirongsaidl" style="background-color:#98E165;max-width: 100%">北京赛车<br>期号:632246<br>已封盘，请耐心等待开奖！</span>
-            </div>
-        </div>
-        <div class="saidright">
-            <img src="/Public/images/gm.jpg">
-            <div class="tousaidl">
-                <span class="tousaid2">13:21:50</span>&nbsp;&nbsp;
-                <span class="tousaid1">系统GM</span>
-            </div>
-            <div class="ts">
-                <b style=""></b>
-                <span class="neirongsaidl" style="">北京赛车<br>期号:632246<br>已封盘，请耐心等待开奖！</span>
+</div>
+<div id="touzhu" class="">
+    <div class="pour-info">
+        <h4 class="game-tit game-tit-bg" style="font-size:45px;line-height:100px;">竞猜大小单双<a
+                href="javascript:;" class="close">×</a></h4>
+        <div class="m-bd">
+            <h4>共<em class="bet_n">1</em>注，投注金额<em class="bet_total">0</em>元</h4>
+            <dl>
+                <dt>
+                    <span>下注金额：</span>
+                    <input type="number" class="text text-right bet_money" placeholder="下注金额">
+                    <a href="javascript:;" class="money_clear">清零</a>
+                </dt>
+                <dd>
+                    <i class="m5" data-money="5"></i>
+                    <i class="m10" data-money="10"></i>
+                    <i class="m50" data-money="50"></i>
+                    <i class="m100" data-money="100"></i>
+                    <i class="m500" data-money="500"></i>
+                    <i class="m1000" data-money="1000"></i>
+                    <i class="m5000" data-money="5000"></i>
+                </dd>
+            </dl>
+            <div class="sub-btn">
+                <a href="javascript:;" class="cancel">取消下注</a>
+                <a href="javascript:;" class="confirm">确定下注</a>
             </div>
         </div>
-        <div class="saidleft">
-            <img src="/Public/images/gm.jpg">
-            <div class="tousaid">
-                <span class="tousaid2">13:21:50</span>&nbsp;&nbsp;
-                <span class="tousaid1">系统GM</span>
-            </div>
-            <div class="tsf">
-                <b></b>
-                <span class="neirongsaid" style="">北京赛车<br>期号:632246<br>已封盘，请耐心等待开奖！</span>
-            </div>
-        </div-->
     </div>
+</div>
+
+<div class="rightdiv">
+    <!--div class="saidright">
+        <img src="/Public/images/gm.jpg">
+        <div class="tousaidl">
+            <span class="tousaid2">13:21:50</span>&nbsp;&nbsp;
+            <span class="tousaid1">系统GM</span>
+        </div>
+        <div class="ts">
+            <b style="border-color:transparent  transparent transparent #FFBBBB;"></b>
+            <span class="neirongsaidl" style="background-color: #FFBBBB;">北京赛车<br>期号:632246<br>已封盘，请耐心等待开奖！</span>
+        </div>
+    </div>
+    <div class="saidright">
+        <img src="/Public/images/gm.jpg">
+        <div class="tousaidl">
+            <span class="tousaid2">13:21:50</span>&nbsp;&nbsp;
+            <span class="tousaid1">系统GM</span>
+        </div>
+        <div class="ts">
+            <b style="border-color:transparent  transparent transparent #98E165;"></b>
+            <span class="neirongsaidl" style="background-color:#98E165;max-width: 100%">北京赛车<br>期号:632246<br>已封盘，请耐心等待开奖！</span>
+        </div>
+    </div>
+    <div class="saidright">
+        <img src="/Public/images/gm.jpg">
+        <div class="tousaidl">
+            <span class="tousaid2">13:21:50</span>&nbsp;&nbsp;
+            <span class="tousaid1">系统GM</span>
+        </div>
+        <div class="ts">
+            <b style=""></b>
+            <span class="neirongsaidl" style="">北京赛车<br>期号:632246<br>已封盘，请耐心等待开奖！</span>
+        </div>
+    </div>
+    <div class="saidleft">
+        <img src="/Public/images/gm.jpg">
+        <div class="tousaid">
+            <span class="tousaid2">13:21:50</span>&nbsp;&nbsp;
+            <span class="tousaid1">系统GM</span>
+        </div>
+        <div class="tsf">
+            <b></b>
+            <span class="neirongsaid" style="">北京赛车<br>期号:632246<br>已封盘，请耐心等待开奖！</span>
+        </div>
+    </div-->
+</div>
 </div>
 <!--div class="kefu rbox" style="display:none">
     <div class="user_messages">
@@ -1255,6 +1257,16 @@ function is_weixin()
                     } ?>>
                         <img src="/Style/Home/images/qxc-logo.png" title="七星彩">
                         <font>七星彩</font>
+                    </a>
+                </li>
+
+                <li <?php if ($pl5open == 'false') echo 'class="gray"'; ?>>
+                    <a <?php if ($pl5open == 'false') {
+                        echo 'href="#" class="gray"';
+                    } else {
+                        echo "href='/qr.php?room={$_SESSION['roomid']}&g=pl5'";
+                    } ?>>
+                        <img src="/Style/Home/images/pl5-logo.png" title="排列5">
                     </a>
                 </li>
 

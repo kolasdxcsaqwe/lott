@@ -120,6 +120,14 @@ if ($_SESSION['userid'] != null) {
                                 </a>
                             </li>
 
+                            <li style=" width: 50%; ">
+                                <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=pl5">
+                                    <img src="/Style/Home/images/pl5-2023-12-18.png" title="排列5"
+                                         style=" width: 95%; ">
+                                    <!--		<font>加拿大28</font>-->
+                                </a>
+                            </li>
+
 
                             <li style=" width: 50%; ">
                                 <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=jslhc">

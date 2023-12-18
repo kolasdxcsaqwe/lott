@@ -853,7 +853,7 @@ $(function () {
         $.ajax({
             type: "POST",
             dataType: "json",
-            url: baseUrl + "/newChatsJava",//url
+            url: baseUrl + "/qxc/newChatsJava",//url
             data: postData,
             crossDomain: true,
             success: function (result) {
@@ -880,7 +880,7 @@ $(function () {
         $.ajax({
             type: "POST",
             dataType: "json",
-            url: baseUrl + "/fetchUserWithCountDown",
+            url: baseUrl + "/qxc/fetchUserWithCountDown",
             data: postData,
             crossDomain: true,
             success: function (result) {
@@ -923,7 +923,7 @@ $(function () {
         $.ajax({
             type: "POST",
             dataType: "json",
-            url: baseUrl + "/newChatsJava",//url
+            url: baseUrl + "/qxc/newChatsJava",//url
             data: postData,
             crossDomain: true,
             success: function (result) {
