@@ -263,13 +263,14 @@ $(function () {
         var result = ""
         for (let i = 0; i < count; i++) {
             let pos = Math.floor(Math.random() * nums.length)
-            result=result+nums[pos]
+            result=result+nums[pos]+","
             if(notRepeat)
             {
                 nums.splice(pos, 1)
             }
 
         }
+        result=result.substring(0, result.length-1)
         return result
     }
 
@@ -279,13 +280,14 @@ $(function () {
         var result = ""
         for (let i = 0; i < count; i++) {
             let pos = Math.floor(Math.random() * nums.length)
-            result=result+nums[pos]
+            result=result+nums[pos]+","
             if(notRepeat)
             {
                 nums.splice(pos, 1)
             }
 
         }
+        result=result.substring(0, result.length-1)
         return result
     }
 
@@ -710,11 +712,13 @@ $(function () {
         $(".game-type-" + bet + " .btn-box ").each(function () {
             var code = ""
             $(this).find("a.on[data-pos]").each(function (index, val) {
-                code = code + $(this).data('pos')
+                code = code + $(this).data('pos')+","
             });
+
 
             if(code.length>0)
             {
+                code=code.substring(0, code.length-1)
                 betCodes.push({pos: $(this).data().line, code: code})
             }
             completeCodes.push({pos: $(this).data().line, code: code})
