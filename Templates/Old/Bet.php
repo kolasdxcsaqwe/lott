@@ -24,6 +24,7 @@ function formatJsonContent($str)
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="/Style/Old/css/bootstrap.min.css"/>
     <script src="/Style/Old/js/jquery.min.js"></script>
+    <script src="/Style/Old/js/utils.js"></script>
     <script src="/Style/Old/lib/table/bootstrap-table.js"></script>
     <script src="/Style/Old/lib/table/locale/bootstrap-table-zh-CN.js"></script>
     <link rel="stylesheet" href="/Style/Old/lib/table/bootstrap-table.css"/>
@@ -83,13 +84,14 @@ function formatJsonContent($str)
                 <script>
                     function delBet(id) {
                         $.ajax({
-                            url: '/Application/ajax_delPCbet.php',
+                            url: getJavaBaseUrl()+'/cancelOrder',
                             type: 'post',
                             data: {id: id},
                             dataType: 'json',
                             success: function (data) {
                                 if (data.success) {
                                     alert('撤单成功！');
+                                    window.location.reload();
                                 } else {
                                     alert(data.msg);
                                 }
@@ -145,6 +147,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
+                                    window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -198,6 +201,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
+                                    window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -247,6 +251,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
+                                    window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -297,6 +302,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
+                                    window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -353,6 +359,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
+                                    window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -408,6 +415,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
+                                    window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -463,6 +471,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
+                                    window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -518,6 +527,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
+                                    window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -573,6 +583,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
+                                    window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -628,6 +639,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
+                                    window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -683,6 +695,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
+                                    window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -738,6 +751,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
+                                    window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -797,6 +811,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
+                                    window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -856,6 +871,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
+                                    window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -915,6 +931,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
+                                    window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -974,6 +991,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
+                                    window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -1033,6 +1051,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
+                                    window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }

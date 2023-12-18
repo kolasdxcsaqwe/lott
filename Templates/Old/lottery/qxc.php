@@ -671,7 +671,7 @@ function is_weixin()
                         <a href="javascript:;" data-t="4">前4定位</a>
                         <a href="javascript:;" data-t="5">前3定位</a>
                         <a href="javascript:;" data-t="6">前2定位</a>
-                        <a href="javascript:;" data-t="7">1字定位</a>
+                        <a href="javascript:;" data-t="7">定位胆</a>
                         <a href="javascript:;" data-t="8">头尾定位</a>
                     </div>
                 </li>
@@ -701,7 +701,7 @@ function is_weixin()
             <!--前2定位 START-->
             <div class="gamenum game-type-6" style=""></div>
 
-            <!--1字定位 START-->
+            <!--定位胆 START-->
             <div class="gamenum game-type-7" style=""></div>
 
             <!--头尾 START-->

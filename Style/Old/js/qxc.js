@@ -32,7 +32,7 @@ $(function () {
     var secTitles = [[""], [""], ["万位", "千位", "十位", "个位"], ["万位", "千位", "十位", "个位"],
         ["万位", "千位", "十位"], ["万位", "千位"], ["万位", "千位", "十位", "个位"], ["万位", "x", "x", "个位"]];
     var gameCodes = ['ry3', 'ry2', 'dxds', 'd4', 'd3', 'd2', 'd1', 'tw']
-    var gameTitles = ['任选3', '任选3', '大小单双', '前4定位', '前3定位', '前2定位', '1字定位', '头尾定位']
+    var gameTitles = ['任选3', '任选3', '大小单双', '前4定位', '前3定位', '前2定位', '定位胆', '头尾定位']
 
     $('#betDialog').on("hide.bs.modal", function () {
         clearSelectButtons();
@@ -849,7 +849,7 @@ $(function () {
         $.ajax({
             type: "POST",
             dataType: "json",
-            url: baseUrl + "/QXCSendChat",//url
+            url: baseUrl + "/newChatsJava",//url
             data: postData,
             crossDomain: true,
             success: function (result) {
@@ -919,7 +919,7 @@ $(function () {
         $.ajax({
             type: "POST",
             dataType: "json",
-            url: baseUrl + "/QXCSendChat",//url
+            url: baseUrl + "/newChatsJava",//url
             data: postData,
             crossDomain: true,
             success: function (result) {
