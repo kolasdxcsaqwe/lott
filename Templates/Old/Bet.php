@@ -84,7 +84,7 @@ function formatJsonContent($str)
                 <script>
                     function delBet(id) {
                         $.ajax({
-                            url: getJavaBaseUrl()+'/cancelOrder',
+                            url: getJavaBaseUrl()+'/qxc/cancelOrder',
                             type: 'post',
                             data: {id: id},
                             dataType: 'json',

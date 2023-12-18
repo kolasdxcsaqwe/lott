@@ -196,7 +196,7 @@ echo '<p>演示盘，无权限</p>';
         //几个参数需要注意一下
         type: "POST",//方法类型
         dataType: "json",//预期服务器返回的数据类型
-        url: host+"/qxcLotterySetting" ,//url
+        url: host+"/qxc/LotterySetting" ,//url
         crossDomain:true,
         success: function (result) {
             console.log(result);//打印服务端返回的数据(调试用)
@@ -258,7 +258,7 @@ echo '<p>演示盘，无权限</p>';
             //几个参数需要注意一下
             type: "POST",//方法类型
             dataType: "json",//预期服务器返回的数据类型
-            url: host+"/qxcLotterySettingEdit" ,//url
+            url: host+"/qxc/LotterySettingEdit" ,//url
             data: $("#"+formId).serialize(),
             crossDomain:true,
             success: function (result) {
