@@ -20,8 +20,8 @@ if ($_SESSION['userid'] != null) {
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <title><?php echo $sitename ?></title>
-    <link rel="stylesheet" type="text/css" href="/default/css/sytle.css?v=201905111940"/>
-    <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/layout.css"/>
+    <link rel="stylesheet" type="text/css" href="/default/css/sytle.css?v=a2ssdd"/>
+    <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/layout.css?t=asd"/>
     <script type="text/javascript" src="/default/js/jquery-1.8.2.min.js"></script>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript">
@@ -90,7 +90,7 @@ if ($_SESSION['userid'] != null) {
 
                             <li style=" width: 50%; ">
                                 <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=pk10">
-                                    <img src="/Style/Home/images/pk10-logo-new.png" title="北京赛车"
+                                    <img src="/Style/Home/images/pk10-logo-new.jpg" title="北京赛车"
                                          style=" width: 95%; ">
                                     <!--<font>北京赛车</font>-->
                                 </a>
@@ -98,7 +98,7 @@ if ($_SESSION['userid'] != null) {
 
                             <li style=" width: 50%; ">
                                 <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=xy28">
-                                    <img src="/Style/Home/images/xjp28_23_10_19.jpg" title="新加坡28"
+                                    <img src="/Style/Home/images/xjp28_23.jpg" title="新加坡28"
                                          style=" width: 95%; ">
                                     <!--		<font>加拿大28</font>-->
                                 </a>
@@ -106,7 +106,7 @@ if ($_SESSION['userid'] != null) {
 
                             <li style=" width: 50%; ">
                                 <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=ny28">
-                                    <img src="/Style/Home/images/ny28-11-1.jpg" title="纽约28"
+                                    <img src="/Style/Home/images/ny28-11.jpg" title="纽约28"
                                          style=" width: 95%; ">
                                     <!--		<font>加拿大28</font>-->
                                 </a>
@@ -114,7 +114,7 @@ if ($_SESSION['userid'] != null) {
 
                             <li style=" width: 50%; ">
                                 <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=qxc">
-                                    <img src="/Style/Home/images/qxc-2023-12-5.jpg" title="七星彩"
+                                    <img src="/Style/Home/images/qxc-2023-12.jpg" title="七星彩"
                                          style=" width: 95%; ">
                                     <!--		<font>加拿大28</font>-->
                                 </a>
@@ -122,46 +122,47 @@ if ($_SESSION['userid'] != null) {
 
                             <li style=" width: 50%; ">
                                 <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=pl5">
-                                    <img src="/Style/Home/images/pl5-2023-12-18.png" title="排列5"
+                                    <img src="/Style/Home/images/pl5-2023-12-18.jpg" title="排列5"
                                          style=" width: 95%; ">
                                     <!--		<font>加拿大28</font>-->
                                 </a>
                             </li>
 
+                            <li style=" width: 50%; ">
+                                <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=jsssc">
+                                    <img src="/Style/Home/images/jsssc-logo-new.jpg" title="极速时时彩"
+                                         style=" width: 95%; ">
+
+                                </a>
+                            </li>
 
                             <li style=" width: 50%; ">
                                 <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=jslhc">
-                                    <img src="/Style/Home/images/jslhc-logo-new.png" title="极速六合彩"
+                                    <img src="/Style/Home/images/jslhc-logo_new.jpg" title="极速六合彩"
                                          style=" width: 95%; ">
                                     <!--<font>极速六合彩</font>-->
                                 </a>
                             </li>
 
-                            <li style=" width: 50%; ">
-                                <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=jsssc">
-                                    <img src="/Style/Home/images/jsssc-logo-new.png" title="极速时时彩"
-                                         style=" width: 95%; ">
 
-                                </a>
-                            </li>
 
                             <li style=" width: 50%; ">
                                 <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=twk3">
-                                    <img src="/Style/Home/images/twk3.png" title="台湾快三" style=" width: 95%; ">
+                                    <img src="/Style/Home/images/twk3.jpg" title="台湾快三" style=" width: 95%; ">
 
                                 </a>
                             </li>
 
                             <li style=" width: 50%; ">
                                 <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=jnd28">
-                                    <img src="/Style/Home/images/jnd28.png" title="加拿大28" style=" width: 95%; ">
+                                    <img src="/Style/Home/images/jnd28.jpg" title="加拿大28" style=" width: 95%; ">
 
                                 </a>
                             </li>
 
                             <li style=" width: 50%; ">
                                 <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=lhc">
-                                    <img src="/Style/Home/images/lhc-logo-new.png" title="六合彩" style=" width: 95%; ">
+                                    <img src="/Style/Home/images/lhc-logo-new.jpg" title="六合彩" style=" width: 95%; ">
 
                                 </a>
                             </li>

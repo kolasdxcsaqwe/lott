@@ -22,7 +22,6 @@ $(function () {
         jsssc:'/Style/Home/images/jsssc-logo.png',
         pk10:'/Style/Home/images/pk10-logo.png'}
 
-
     makeTabs();
     function makeTabs()
     {

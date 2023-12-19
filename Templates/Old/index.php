@@ -80,6 +80,12 @@ switch ($game) {
     case "qxc":
         require "lottery/qxc.php";
         break;
+    case "pl5":
+        require "lottery/pl5.php";
+        break;
+    case "fc3d":
+        require "lottery/fc3d.php";
+        break;
 }
 function formatgame($game)
 {
