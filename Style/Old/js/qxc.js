@@ -10,7 +10,7 @@ $(function () {
     var orderCacheArray=new Map()//注单列表数据
     var autoIncrease=0;//pos 计数
     var timeoutId=0
-    var tabsCode=["xy28","ny28","jnd28","qxc","pl5","lhc","twk3","jslhc","jsssc","pk10"]
+    var tabsCode=["xy28","ny28","jnd28","qxc","pl5","lhc","twk3","jslhc","jsssc","pk10","fc3d"]
     var logoPath={xy28:'/Style/Home/images/xy28-logo.png',
         ny28:'/Style/Home/images/ny28-logo.png',
         jnd28:'/Style/Home/images/jnd28-logo.png',
@@ -20,7 +20,9 @@ $(function () {
         twk3:'/Style/Home/images/twk3-logo.png',
         jslhc:'/Style/Home/images/jslhc-logo.png',
         jsssc:'/Style/Home/images/jsssc-logo.png',
-        pk10:'/Style/Home/images/pk10-logo.png'}
+        fc3d:'/Style/Home/images/fc3d-logo.png',
+        pk10:'/Style/Home/images/pk10-logo.png'
+    }
 
 
     makeTabs();

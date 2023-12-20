@@ -12,7 +12,7 @@ if ($game == 'pk10') {
     if (get_query_val('fn_lottery4', 'gameopen', array('roomid' => $_SESSION['roomid'])) == 'false') $game = 'feng';
 } elseif ($game == 'ny28') {
     if (get_query_val('fn_lottery19', 'gameopen', array('roomid' => $_SESSION['roomid'])) == 'false') $game = 'feng';
-}elseif ($game == 'jnd28') {
+} elseif ($game == 'jnd28') {
     if (get_query_val('fn_lottery5', 'gameopen', array('roomid' => $_SESSION['roomid'])) == 'false') $game = 'feng';
 } elseif ($game == 'jsmt') {
     if (get_query_val('fn_lottery6', 'gameopen', array('roomid' => $_SESSION['roomid'])) == 'false') $game = 'feng';
@@ -42,6 +42,10 @@ if ($game == 'pk10') {
     if (get_query_val('fn_lottery18', 'gameopen', array('roomid' => $_SESSION['roomid'])) == 'false') $game = 'feng';
 } elseif ($game == 'qxc') {
     if (get_query_val('fn_lottery20', 'gameopen', array('roomid' => $_SESSION['roomid'])) == 'false') $game = 'feng';
+} elseif ($game == 'pl5') {
+    if (get_query_val('fn_lottery22', 'gameopen', array('roomid' => $_SESSION['roomid'])) == 'false') $game = 'feng';
+} elseif ($game == 'fc3d') {
+    if (get_query_val('fn_lottery21', 'gameopen', array('roomid' => $_SESSION['roomid'])) == 'false') $game = 'feng';
 }
 
 if ($game == 'pk10') {
@@ -124,8 +128,15 @@ if ($game == 'pk10') {
     ?>
     <iframe src="/Video/qxc/" width="980" height="630" frameborder="no" border="0" marginwidth="0" marginheight="0"
             scrolling="no"></iframe>
-<?php } else {
+<?php } elseif ($game == 'pl5') {
     ?>
+    <iframe src="/Video/qxc/" width="980" height="630" frameborder="no" border="0" marginwidth="0" marginheight="0"
+            scrolling="no"></iframe>
+<?php } elseif ($game == 'dc3d') {
+    ?>
+    <iframe src="/Video/qxc/" width="980" height="630" frameborder="no" border="0" marginwidth="0" marginheight="0"
+            scrolling="no"></iframe>
+<?php } else { ?>
     <html>
     <img src="/Style/images/fengpan.png">
     </html>

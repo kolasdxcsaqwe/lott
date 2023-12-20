@@ -716,7 +716,7 @@ function is_weixin()
             <ul class="lottery">
                 <?php if ($sql['display_game'] != 'false') { ?>
                     <li class="home" data-id="lottery">
-                        <span style="color:#e3ff75;"> <i class="iconfont"></i><?php echo formatgame($game); ?></span>
+                        <span style="color:#e3ff75;"> <i class="iconfont">排列5</i><?php echo formatgame($game); ?></span>
                     </li>
                 <?php } ?>
                 <? if ($sql['zhibo'] == 'open') { ?>

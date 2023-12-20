@@ -284,6 +284,10 @@ if ($_GET['m'] == '') {
                                     href="index.php?m=g_setting&g=twk3"><i class="fa fa-circle-o"></i>台湾快三</a></li>
                         <li class="<?php if ($_GET['g'] == "qxc") echo 'active'; ?>"><a
                                     href="index.php?m=g_setting&g=qxc"><i class="fa fa-circle-o"></i>七星彩</a></li>
+                        <li class="<?php if ($_GET['g'] == "fc3d") echo 'active'; ?>"><a
+                                    href="index.php?m=g_setting&g=fc3d"><i class="fa fa-circle-o"></i>福彩3D</a></li>
+                        <li class="<?php if ($_GET['g'] == "pl5") echo 'active'; ?>"><a
+                                    href="index.php?m=g_setting&g=pl5"><i class="fa fa-circle-o"></i>排列5</a></li>
                     </ul>
                 </li>
                 <li class="<?php if ($_GET['m'] == "user") echo 'active'; ?>"><a href="index.php?m=user"><i
@@ -467,6 +471,10 @@ if ($_GET['m'] == '') {
             require 'templates/gamesetting/twk3.html';
         } elseif ($_GET['m'] == 'g_setting' && $_GET['g'] == 'qxc') {
             require 'templates/gamesetting/qxc.html';
+        }elseif ($_GET['m'] == 'g_setting' && $_GET['g'] == 'pl5') {
+            require 'templates/gamesetting/pl5.html';
+        }elseif ($_GET['m'] == 'g_setting' && $_GET['g'] == 'fc3d') {
+            require 'templates/gamesetting/fc3d.html';
         } elseif ($_GET['m'] == 'g_setting' && $_GET['g'] == 'txffc') {
             require 'templates/gamesetting/txffc.html';
         } elseif ($_GET['m'] == 'user') {
