@@ -208,6 +208,7 @@ var in_array = function (sVal, aVal) {
 var zy = zy || {};
 zy.tips = function (msg, time) {
     var zytips = $(".zytips");
+    zytips.css("display","block")
     if (zytips.length == 0) {
         zytips = $('<div class="zytips"></div>').appendTo("body");
     }

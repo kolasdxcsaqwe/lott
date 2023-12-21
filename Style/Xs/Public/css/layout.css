@@ -259,7 +259,7 @@ outline:none;
 }
 
 #ss_menu{ display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; display: ; z-index: 999; }
-#ss_menu .ss_nav{ width: 80%; position: relative;}
+#ss_menu .ss_nav{ width: 80%; position: relative;margin: 50% 10%}
 #ss_menu .ss_nav .close{ position: absolute;
 	 border-radius: 50%;
 	 font-size: 60px;

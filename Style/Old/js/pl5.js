@@ -11,12 +11,12 @@ $(function () {
     var autoIncrease = 0;//pos 计数
     var timeoutId = 0
     var a, b, c, d, bet = 1, bet_n = 0, bline, bval;
-    var douNiuTitles=["无牛","牛一","牛二","牛三","牛四","牛五","牛六","牛七","牛八","牛九","牛牛"]
+    var douNiuTitles = ["无牛", "牛一", "牛二", "牛三", "牛四", "牛五", "牛六", "牛七", "牛八", "牛九", "牛牛"]
 
-    var secTitles = [[""], [""], ["万位","千位", "百位", "十位", "个位"], ["niu"],
-        ["万位","千位","千位", "百位", "十位"], ["千位", "百位", "十位"], ["万位","千位",], ["万位","千位", "百位", "十位", "个位"]];
-    var gameCodes = ['ry3', 'ry2', 'dxds', 'dn','d5', 'd3', 'd2', 'd1']
-    var gameTitles = ['任选3', '任选2', '大小单双', '斗牛','前5定位', '前3定位', '前2定位', '定位胆']
+    var secTitles = [[""], [""], ["万位", "千位", "百位", "十位", "个位"], ["niu"],
+        ["万位", "千位", "千位", "百位", "十位"], ["千位", "百位", "十位"], ["万位", "千位",], ["万位", "千位", "百位", "十位", "个位"]];
+    var gameCodes = ['ry3', 'ry2', 'dxds', 'dn', 'd5', 'd3', 'd2', 'd1']
+    var gameTitles = ['任选3', '任选2', '大小单双', '斗牛', '前5定位', '前3定位', '前2定位', '定位胆']
 
     var tabsCode = ["xy28", "ny28", "jnd28", "qxc", "pl5", "lhc", "twk3", "jslhc", "jsssc", "pk10", "fc3d"]
     var logoPath = {
@@ -43,11 +43,11 @@ $(function () {
             data: {game: "xy28,ny28,jnd28,qxc,pl5,lhc,twk3,jslhc,jsssc,pk10,fc3d"},
             crossDomain: true,
             success: function (result) {
+                $(".zytips").css("display", "none")
                 if (result.code === 0) {
                     for (let i = 0; i < tabsCode.length; i++) {
                         let obj = result.datas[tabsCode[i]]
                         if (obj !== undefined && obj.status > 0) {
-
                             addTab(tabsCode[i], obj.title, logoPath[tabsCode[i]])
                         }
                     }
@@ -140,7 +140,13 @@ $(function () {
             case 3:
                 return parseFloat(info.dxds);
             case 4:
-                return parseFloat(info.);
+                var rate = 0.0
+                var t = $(".game-type-" + bet);
+                t.find('a.on[data-pos]').each(function (i, o) {
+                    var pos = $(this).data('pos')
+                    rate = pos > 0 ? info.youniu : info.wuniu
+                });
+                return rate;
             case 5:
                 return parseFloat(info.fivefix);
             case 6:
@@ -302,8 +308,11 @@ $(function () {
     }
 
     //随机数组
-    function randomNums10(count) {
-        var nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    function randomNums(numAmount, count) {
+        var nums = [];
+        for (let i = 0; i < numAmount; i++) {
+            nums.push(i)
+        }
         var result = []
         for (let i = 0; i < count; i++) {
             let pos = Math.floor(Math.random() * nums.length)
@@ -313,9 +322,13 @@ $(function () {
         return result
     }
 
+
     //随机数组 返回连接字符串
-    function randomNums10Str(count, notRepeat) {
-        var nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    function randomNumsStr(numAmount, count, notRepeat) {
+        var nums = [];
+        for (let i = 0; i < numAmount; i++) {
+            nums.push(i)
+        }
         var result = ""
         for (let i = 0; i < count; i++) {
             let pos = Math.floor(Math.random() * nums.length)
@@ -326,34 +339,6 @@ $(function () {
 
         }
         result = result.substring(0, result.length - 1)
-        return result
-    }
-
-    //随机数组 返回连接字符串
-    function randomNums4Str(count, notRepeat) {
-        var nums = [0, 1, 2, 3]
-        var result = ""
-        for (let i = 0; i < count; i++) {
-            let pos = Math.floor(Math.random() * nums.length)
-            result = result + nums[pos] + ","
-            if (notRepeat) {
-                nums.splice(pos, 1)
-            }
-
-        }
-        result = result.substring(0, result.length - 1)
-        return result
-    }
-
-    //随机数组
-    function randomNums4(count) {
-        var nums = [0, 1, 2, 3]
-        var result = []
-        for (let i = 0; i < count; i++) {
-            let pos = Math.floor(Math.random() * nums.length)
-            result.push(nums[pos])
-            nums.splice(pos, 1)
-        }
         return result
     }
 
@@ -399,25 +384,35 @@ $(function () {
 
 
             var title = "<span class='secTitle' >%title</span>"
-            if (secTitles[d.t - 1][j] === "x") {
+            if (secTitles[d.t - 1][j] === "niu") {
                 title = "<span class='secTitle' style='display: none'>%title</span>"
             }
             title = title.replace("%title", secTitles[d.t - 1][j])
 
             var itemDiv = "<div class='btn-box btn-grounp' data-line='%line'>"
-            if (secTitles[d.t - 1][j] === "x") {
-                itemDiv = "<div class='btn-box btn-grounp'  style='display: none' data-line='%line'>"
-            }
+
             string = string + title + itemDiv
             string = string.replace("%line", j);
 
-            var itemAmount = bet === 3 ? 4 : 10;
+            var itemAmount = 10;
+            switch (bet) {
+                case 3:
+                    //大小单双
+                    itemAmount = 4;
+                    break
+                case 4:
+                    //斗牛
+                    itemAmount = 11;
+                    break
+            }
             var items7 = ['大', '小', '单', '双']
             for (let k = 0; k < itemAmount; k++) {
                 var item = "<a href='javascript:;' class='btn mini-btn' data-pos='%pos'><div class='h5'>%num</div></a>"
                 if (bet === 3) {
                     //大小单双
                     item = item.replace("%num", items7[k]);
+                } else if (bet === 4) {
+                    item = item.replace("%num", douNiuTitles[k]);
                 } else {
                     item = item.replace("%num", k);
                 }
@@ -507,53 +502,48 @@ $(function () {
             clearSelectButtons()
             switch (d.t) {
                 case 1:
-                    var nums = randomNums10(3)
+                    var nums = randomNums(10, 3)
                     for (let i = 0; i < nums.length; i++) {
                         $('.game-type-' + d.t + " a.btn:eq(" + nums[i] + ")").click();
                     }
                     break
                 case 2:
-                    var nums = randomNums10(2)
+                    var nums = randomNums(10, 2)
                     for (let i = 0; i < nums.length; i++) {
                         $('.game-type-' + d.t + " a.btn:eq(" + nums[i] + ")").click();
                     }
                     break
                 case 3:
-                    var v = randomNums4(1)
-                    var index = randomNums4(1)
+                    var v = randomNums(5, 1)
+                    var index = randomNums(4, 1)
                     $('.game-type-' + d.t + " .btn-box:eq(" + v[0] + ")").find(" a.btn:eq(" + index[0] + ")").click();
                     break
                 case 4:
-                    for (let k = 0; k < 4; k++) {
-                        var nums = randomNums10(1)
-                        $('.game-type-' + d.t + " .btn-box:eq(" + k + ")").find(" a.btn:eq(" + nums[0] + ")").click();
-                    }
+                    var nums = randomNums(11, 1)
+                    $('.game-type-' + d.t + " .btn-box:eq(" + 0 + ")").find(" a.btn:eq(" + nums[0] + ")").click();
                     break
                 case 5:
-                    for (let k = 0; k < 3; k++) {
-                        var nums = randomNums10(1)
+                    for (let k = 0; k < 5; k++) {
+                        var nums = randomNums(10, 1)
                         $('.game-type-' + d.t + " .btn-box:eq(" + k + ")").find(" a.btn:eq(" + nums[0] + ")").click();
                     }
                     break
                 case 6:
-                    for (let k = 0; k < 2; k++) {
-                        var nums = randomNums10(1)
+                    for (let k = 0; k < 3; k++) {
+                        var nums = randomNums(10, 1)
                         $('.game-type-' + d.t + " .btn-box:eq(" + k + ")").find(" a.btn:eq(" + nums[0] + ")").click();
                     }
                     break
                 case 7:
-                    var v = randomNums4(1)[0]
-                    var index = randomNums10(1)[0]
-                    $('.game-type-' + d.t + " .btn-box:eq(" + v + ")").find(" a.btn:eq(" + index + ")").click();
+                    for (let k = 0; k < 2; k++) {
+                        var nums = randomNums(10, 1)
+                        $('.game-type-' + d.t + " .btn-box:eq(" + k + ")").find(" a.btn:eq(" + nums[0] + ")").click();
+                    }
                     break
                 case 8:
-                    for (let k = 0; k < secTitles[7].length; k++) {
-                        let title = secTitles[7][k]
-                        if (title !== "x") {
-                            var index = randomNums10(1)[0]
-                            $('.game-type-' + d.t + " .btn-box:eq(" + k + ")").find(" a.btn:eq(" + index + ")").click();
-                        }
-                    }
+                    var pos = randomNums(5, 1)
+                    var num = randomNums(10, 1)
+                    $('.game-type-' + d.t + " .btn-box:eq(" + pos + ")").find(" a.btn:eq(" + num + ")").click();
                     break
             }
         })
@@ -568,47 +558,44 @@ $(function () {
             var completeCodes = []
             switch (bet) {
                 case 1:
-                    codes.push({pos: 0, code: randomNums10Str(3, true)})
-                    completeCodes.push({pos: 0, code: randomNums10Str(3, true)})
+                    codes.push({pos: 0, code: randomNumsStr(10,3, true)})
+                    completeCodes.push({pos: 0, code: randomNumsStr(10,3, true)})
                     break
                 case 2:
-                    codes.push({pos: 0, code: randomNums10Str(2, true)})
-                    completeCodes.push({pos: 0, code: randomNums10Str(2, true)})
+                    codes.push({pos: 0, code: randomNumsStr(10,2, true)})
+                    completeCodes.push({pos: 0, code: randomNumsStr(10,2, true)})
                     break
                 case 3:
-                    codes.push({pos: randomNums4Str(1, true), code: randomNums4Str(1, true)})
-                    completeCodes.push({pos: randomNums4Str(1, true), code: randomNums4Str(1, true)})
+                    codes.push({pos: randomNumsStr(5,1, true), code: randomNumsStr(4,1, true)})
+                    completeCodes.push({pos: randomNumsStr(5,1, true), code: randomNumsStr(4,1, true)})
                     break
                 case 4:
-                    for (let k = 0; k < 4; k++) {
-                        codes.push({pos: k, code: randomNums10Str(1)})
-                        completeCodes.push({pos: k, code: randomNums10Str(1)})
-                    }
+                    codes.push({pos: 0, code: randomNumsStr(11,1, true)})
+                    completeCodes.push({pos: 0, code: randomNumsStr(11,1, true)})
                     break
                 case 5:
-                    for (let k = 0; k < 3; k++) {
-                        codes.push({pos: k, code: randomNums10Str(1)})
-                        completeCodes.push({pos: k, code: randomNums10Str(1)})
+                    for (let k = 0; k < 5; k++) {
+                        codes.push({pos: k, code: randomNumsStr(10,1)})
+                        completeCodes.push({pos: k, code: randomNumsStr(10,1)})
                     }
                     break
                 case 6:
-                    for (let k = 0; k < 2; k++) {
-                        codes.push({pos: k, code: randomNums10Str(1)})
-                        completeCodes.push({pos: k, code: randomNums10Str(1)})
+                    for (let k = 0; k < 3; k++) {
+                        codes.push({pos: k, code: randomNumsStr(10,1)})
+                        completeCodes.push({pos: k, code: randomNumsStr(10,1)})
                     }
                     break
                 case 7:
-                    codes.push({pos: randomNums4Str(1, true), code: randomNums10Str(1, true)})
-                    completeCodes.push({pos: randomNums4Str(1, true), code: randomNums10Str(1, true)})
+                    for (let k = 0; k < 2; k++) {
+                        codes.push({pos: k, code: randomNumsStr(10,1)})
+                        completeCodes.push({pos: k, code: randomNumsStr(10,1)})
+                    }
                     break
                 case 8:
-                    for (let k = 0; k < secTitles[7].length; k++) {
-                        let title = secTitles[7][k]
-                        if (title !== "x") {
-                            codes.push({pos: k, code: randomNums10Str(1)})
-                            completeCodes.push({pos: k, code: randomNums10Str(1)})
-                        }
-                    }
+                    var pos= randomNumsStr(5,1, true)
+                    var code=randomNumsStr(10,1, true)
+                    codes.push({pos: pos, code: code})
+                    completeCodes.push({pos: pos, code: code})
                     break
             }
 
@@ -812,7 +799,7 @@ $(function () {
 
         var codes = ""
         let list = orderData[0].completeCodes
-        let titleSuffix = ["万位","千位", "百位", "十位", "个位"]
+        let titleSuffix = ["万位", "千位", "百位", "十位", "个位"]
         for (let i = 0; i < list.length; i++) {
             if (list.length > 1) {
                 if (list[i].code.length > 0) {

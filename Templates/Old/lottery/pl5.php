@@ -31,7 +31,7 @@ function is_weixin()
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/style.css?t=sajiwq9iu3"/>
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/bootstrap.new.css"/>
     <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/NewLottery.css?t=2223"/>
-    <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/layout.css"/>
+    <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/layout.css?t=34"/>
     <link rel="Stylesheet" type="text/css" href="Style/Xs/static/css/iconfont.css"/>
     <script src="Style/Old/js/jquery.min.js"></script>
     <script type="text/javascript">
@@ -521,9 +521,9 @@ function is_weixin()
 
 </script>
 <!-- New Templates Update -->
-<script type="text/javascript" src="/Style/Old/js/NewTools.js?t=s2d"></script>
-<script type="text/javascript" src="/Style/Old/js/NewChat.js?t=233"></script>
-<script type="text/javascript" src="/Style/Old/js/pl5.js?t=223w"></script>
+<script type="text/javascript" src="/Style/Old/js/NewTools.js?t=1s2d"></script>
+<script type="text/javascript" src="/Style/Old/js/NewChat.js?t=2333"></script>
+<script type="text/javascript" src="/Style/Old/js/pl5.js?t=2232w"></script>
 <!-- ./New Templates Update -->
 
 <iframe onload="iFrameHeight2();" src="/Templates/Old/shipin.php" name="ifarms" width="980" height="680"
@@ -634,7 +634,6 @@ function is_weixin()
                         <a href="javascript:;" data-t="6">前3定位</a>
                         <a href="javascript:;" data-t="7">前2定位</a>
                         <a href="javascript:;" data-t="8">定位胆</a>
-                        <a href="javascript:;" data-t="9">头尾定位</a>
                     </div>
                 </li>
             </ul>
