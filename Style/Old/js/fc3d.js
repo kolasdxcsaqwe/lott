@@ -4,51 +4,50 @@ $(function () {
     var userInputMoney = minBet
     var hrefData = parseURL(window.location.href)
     var baseUrl = hrefData.protocol + "://" + hrefData.host + ":8653";
-    var orderListDialogRemainTime = 0
-    var isStopCountDown = false
-    var nowTerm = ""
-    var orderCacheArray = new Map()//注单列表数据
-    var autoIncrease = 0;//pos 计数
-    var timeoutId = 0
+    var orderListDialogRemainTime=0
+    var isStopCountDown=false
+    var nowTerm=""
+    var orderCacheArray=new Map()//注单列表数据
+    var autoIncrease=0;//pos 计数
+    var timeoutId=0
     var a, b, c, d, bet = 1, bet_n = 0, bline, bval;
-    var douNiuTitles=["无牛","牛一","牛二","牛三","牛四","牛五","牛六","牛七","牛八","牛九","牛牛"]
+    var secTitles = [[""], [""], ["千位", "百位", "十位", "个位"], ["千位", "百位", "十位", "个位"],
+        ["千位", "百位", "十位"], ["千位", "百位"], ["千位", "百位", "十位", "个位"], ["千位", "x", "x", "个位"]];
 
-    var secTitles = [[""], [""], ["万位","千位", "百位", "十位", "个位"], ["niu"],
-        ["万位","千位","千位", "百位", "十位"], ["千位", "百位", "十位"], ["万位","千位",], ["万位","千位", "百位", "十位", "个位"]];
-    var gameCodes = ['ry3', 'ry2', 'dxds', 'dn','d5', 'd3', 'd2', 'd1']
-    var gameTitles = ['任选3', '任选2', '大小单双', '斗牛','前5定位', '前3定位', '前2定位', '定位胆']
+    var gameCodes = ['rx2', 'rx1', 'dxds', 'd3', 'd3z3', 'd3z6', 'd3z3sum', 'd3z6sum', 'd2f', 'd2b','d1']
+    var gameTitles = ['任选2', '任选1', '大小单双', '3星直选', '3星组三', '3星组六', '3星组三和值', '3星组六和值', '2星前二直选', '2星后二直选','定位胆']
 
-    var tabsCode = ["xy28", "ny28", "jnd28", "qxc", "pl5", "lhc", "twk3", "jslhc", "jsssc", "pk10", "fc3d"]
-    var logoPath = {
-        xy28: '/Style/Home/images/xy28-logo.png',
-        ny28: '/Style/Home/images/ny28-logo.png',
-        jnd28: '/Style/Home/images/jnd28-logo.png',
-        qxc: '/Style/Home/images/qxc-logo.png',
-        pl5: '/Style/Home/images/pl5-logo.png',
-        lhc: '/Style/Home/images/lhc-logo.png',
-        twk3: '/Style/Home/images/twk3-logo.png',
-        jslhc: '/Style/Home/images/jslhc-logo.png',
-        jsssc: '/Style/Home/images/jsssc-logo.png',
-        fc3d: '/Style/Home/images/fc3d-logo.png',
-        pk10: '/Style/Home/images/pk10-logo.png'
+    var tabsCode=["xy28","ny28","jnd28","qxc","pl5","lhc","twk3","jslhc","jsssc","pk10","fc3d"]
+    var logoPath={xy28:'/Style/Home/images/xy28-logo.png',
+        ny28:'/Style/Home/images/ny28-logo.png',
+        jnd28:'/Style/Home/images/jnd28-logo.png',
+        qxc:'/Style/Home/images/qxc-logo.png',
+        pl5:'/Style/Home/images/pl5-logo.png',
+        lhc:'/Style/Home/images/lhc-logo.png',
+        twk3:'/Style/Home/images/twk3-logo.png',
+        jslhc:'/Style/Home/images/jslhc-logo.png',
+        jsssc:'/Style/Home/images/jsssc-logo.png',
+        fc3d:'/Style/Home/images/fc3d-logo.png',
+        pk10:'/Style/Home/images/pk10-logo.png'
     }
 
     makeTabs();
-
-    function makeTabs() {
+    function makeTabs()
+    {
         $.ajax({
             type: "POST",
             dataType: "json",
             url: baseUrl + "/getALlLotteryStatus",//url
-            data: {game: "xy28,ny28,jnd28,qxc,pl5,lhc,twk3,jslhc,jsssc,pk10,fc3d"},
+            data: {game:"xy28,ny28,jnd28,qxc,pl5,lhc,twk3,jslhc,jsssc,pk10,fc3d"},
             crossDomain: true,
             success: function (result) {
                 if (result.code === 0) {
-                    for (let i = 0; i < tabsCode.length; i++) {
-                        let obj = result.datas[tabsCode[i]]
-                        if (obj !== undefined && obj.status > 0) {
+                    for (let i = 0; i <tabsCode.length ; i++) {
+                        let obj=result.datas[tabsCode[i]]
+                        if(obj!==undefined && obj.status>0)
+                        {
 
-                            addTab(tabsCode[i], obj.title, logoPath[tabsCode[i]])
+                            addTab(tabsCode[i],obj.title,logoPath[tabsCode[i]])
                         }
                     }
 
@@ -64,32 +63,34 @@ $(function () {
         });
     }
 
-    function addTab(gameName, title, logo) {
-        var item = "<li> <a href='/qr.php?room=%roomId&amp;g=%gameName'>" +
+    function addTab(gameName,title,logo)
+    {
+        var item="<li> <a href='/qr.php?room=%roomId&amp;g=%gameName'>" +
             "<img src='%logo' title='%title'> " +
             "<font>%title</font></a> </li>"
-        item = item.replace("%gameName", gameName)
-        item = item.replaceAll("%title", title)
-        item = item.replace("%logo", logo)
-        item = item.replace("%roomId", info.roomid)
+        item=item.replace("%gameName",gameName)
+        item=item.replaceAll("%title",title)
+        item=item.replace("%logo",logo)
+        item=item.replace("%roomId",info.roomid)
         $("#ss_menu ul").append(item)
     }
 
-    var dialogCountDown = function () {
+    var dialogCountDown=function (){
         orderListDialogRemainTime--
-        if (orderListDialogRemainTime < 1) {
+        if(orderListDialogRemainTime<1)
+        {
             $(".timeBalance .betLimit b").html("00:00:00")
-        } else {
+        }
+        else
+        {
             $(".timeBalance .betLimit b").html(formatCountDown(orderListDialogRemainTime))
         }
-        if (!isStopCountDown && orderListDialogRemainTime > 0) {
+        if(!isStopCountDown && orderListDialogRemainTime>0)
+        {
             clearTimeout(timeoutId)
-            timeoutId = setTimeout(function () {
-                dialogCountDown()
-            }, 1000)
+            timeoutId=setTimeout(function (){dialogCountDown()},1000)
         }
     }
-
 
     $('#betDialog').on("hide.bs.modal", function () {
         clearSelectButtons();
@@ -104,8 +105,8 @@ $(function () {
             fetchCountDownAndMoney()
         })
     })
-    $('#orderDialog').on("hide.bs.modal", function () {
-        isStopCountDown = true
+    $('#orderDialog').on("hide.bs.modal",function (){
+        isStopCountDown=true
         clearTimeout(timeoutId)
     })
 
@@ -140,15 +141,15 @@ $(function () {
             case 3:
                 return parseFloat(info.dxds);
             case 4:
-                return parseFloat(info.);
+                return parseFloat(info.fourfix);
             case 5:
-                return parseFloat(info.fivefix);
-            case 6:
                 return parseFloat(info.threefix);
-            case 7:
+            case 6:
                 return parseFloat(info.twofix);
-            case 8:
+            case 7:
                 return parseFloat(info.onefix);
+            case 8:
+                return parseFloat(info.touweifix);
         }
         return parseFloat("0");
     }
@@ -162,7 +163,7 @@ $(function () {
 
         var isAva = true
         $(".game-type-" + bet + " .btn-box ").each(function () {
-            if ($(this).css("display") !== "none" && $(this).find(" a.on ").length < 1 && bet !== 3 && bet !== 7) {
+            if ($(this).css("display")!=="none" && $(this).find(" a.on ").length < 1 && bet !== 3 && bet !== 7) {
                 //只要有一行没选中就不算
                 isAva = false
             }
@@ -283,7 +284,8 @@ $(function () {
         var count = 1;
         var isAva = true;
         $(".game-type-" + bet + " .btn-box ").each(function () {
-            if ($(this).css("display") !== "none") {
+            if($(this).css("display")!=="none")
+            {
                 count = count * $(this).find(" a.on ").length
             }
             // console.log("line--->"+$(this).data('line')+" : "+$(this).find(" a.on ").length)
@@ -314,34 +316,36 @@ $(function () {
     }
 
     //随机数组 返回连接字符串
-    function randomNums10Str(count, notRepeat) {
+    function randomNums10Str(count,notRepeat) {
         var nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
         var result = ""
         for (let i = 0; i < count; i++) {
             let pos = Math.floor(Math.random() * nums.length)
-            result = result + nums[pos] + ","
-            if (notRepeat) {
+            result=result+nums[pos]+","
+            if(notRepeat)
+            {
                 nums.splice(pos, 1)
             }
 
         }
-        result = result.substring(0, result.length - 1)
+        result=result.substring(0, result.length-1)
         return result
     }
 
     //随机数组 返回连接字符串
-    function randomNums4Str(count, notRepeat) {
+    function randomNums4Str(count,notRepeat) {
         var nums = [0, 1, 2, 3]
         var result = ""
         for (let i = 0; i < count; i++) {
             let pos = Math.floor(Math.random() * nums.length)
-            result = result + nums[pos] + ","
-            if (notRepeat) {
+            result=result+nums[pos]+","
+            if(notRepeat)
+            {
                 nums.splice(pos, 1)
             }
 
         }
-        result = result.substring(0, result.length - 1)
+        result=result.substring(0, result.length-1)
         return result
     }
 
@@ -391,7 +395,7 @@ $(function () {
         $('.game-type-' + d.t).html("")
 
         $('.game-type-' + d.t).append("<div class='rank-tit'><span class='change'>" + a.text() +
-            "</span><div><span class='orderEdit'>注单编辑 (" + orderCacheArray.size + ")</span><span class='choose'>机选</span></div></div>")
+            "</span><div><span class='orderEdit'>注单编辑 ("+orderCacheArray.size+")</span><span class='choose'>机选</span></div></div>")
         // $('.game-type-' + d.t).append("<div class='randomChoose'><span class='order'>注单编辑</span> <span class='choose'>机选</span></div>")
 
         var string = "<div class='gameScroll'>"
@@ -399,14 +403,16 @@ $(function () {
 
 
             var title = "<span class='secTitle' >%title</span>"
-            if (secTitles[d.t - 1][j] === "x") {
-                title = "<span class='secTitle' style='display: none'>%title</span>"
+            if(secTitles[d.t - 1][j]==="x")
+            {
+                title= "<span class='secTitle' style='display: none'>%title</span>"
             }
             title = title.replace("%title", secTitles[d.t - 1][j])
 
-            var itemDiv = "<div class='btn-box btn-grounp' data-line='%line'>"
-            if (secTitles[d.t - 1][j] === "x") {
-                itemDiv = "<div class='btn-box btn-grounp'  style='display: none' data-line='%line'>"
+            var itemDiv="<div class='btn-box btn-grounp' data-line='%line'>"
+            if(secTitles[d.t - 1][j]==="x")
+            {
+                itemDiv= "<div class='btn-box btn-grounp'  style='display: none' data-line='%line'>"
             }
             string = string + title + itemDiv
             string = string.replace("%line", j);
@@ -439,7 +445,8 @@ $(function () {
         });
         $(".gameScroll").css("maxHeight", document.documentElement.clientHeight * 0.53)
 
-        function onCLickEditOrder() {
+        function onCLickEditOrder()
+        {
 
             $('#orderDialog').modal('show');
             $("#closeOrderDialog").unbind('click')
@@ -454,41 +461,42 @@ $(function () {
                     $(this).val(maxBet)
                 }
 
-                let bal = $(this).val()
-                $(".orderList .singleOrderPrice").each(function () {
+                let bal=$(this).val()
+                $(".orderList .singleOrderPrice").each(function (){
                     $(this).val(bal)
-                    let key = $(this).data('pos')
-                    var data = orderCacheArray.get(key)
-                    if (data != null) {
-                        data.unitPrice = parseInt($(this).val())
-                        data.money = parseInt($(this).val())
-                        orderCacheArray.set(key, data)
+                    let key =$(this).data('pos')
+                    var data=orderCacheArray.get(key)
+                    if(data!=null)
+                    {
+                        data.unitPrice=parseInt($(this).val())
+                        data.money=parseInt($(this).val())
+                        orderCacheArray.set(key,data)
                     }
                     calOrderDialogOrder()
                 })
             })
 
             $("#delAllOrders").unbind('click')
-            $("#delAllOrders").click(function () {
+            $("#delAllOrders").click(function (){
                 orderCacheArray.clear()
-                $(".orderEdit").text("注单编辑 (" + orderCacheArray.size + ")")
-                $(".botOrderEdit").text("注单编辑 (" + orderCacheArray.size + ")")
+                $(".orderEdit").text("注单编辑 ("+orderCacheArray.size+")")
+                $(".botOrderEdit").text("注单编辑 ("+orderCacheArray.size+")")
                 $(".orderList").html("")
                 calOrderDialogOrder();
             })
 
             $("#random5order").unbind('click')
-            $("#random5order").click(function () {
+            $("#random5order").click(function (){
                 makeRandomOrder(5)
             })
 
             $("#random1order").unbind('click')
-            $("#random1order").click(function () {
+            $("#random1order").click(function (){
                 makeRandomOrder(1)
             })
 
             $("#confirmOrder").unbind('click')
-            $("#confirmOrder").click(function () {
+            $("#confirmOrder").click(function (){
                 commitOrders()
             })
 
@@ -548,8 +556,9 @@ $(function () {
                     break
                 case 8:
                     for (let k = 0; k < secTitles[7].length; k++) {
-                        let title = secTitles[7][k]
-                        if (title !== "x") {
+                        let title=secTitles[7][k]
+                        if(title!=="x")
+                        {
                             var index = randomNums10(1)[0]
                             $('.game-type-' + d.t + " .btn-box:eq(" + k + ")").find(" a.btn:eq(" + index + ")").click();
                         }
@@ -561,67 +570,67 @@ $(function () {
     });
 
 
-    function makeRandomOrder(amount) {
+    function makeRandomOrder(amount)
+    {
         //[{"money":3,"orders":1,"gameName":"ry3","unitPrice":"3","codes":[{"pos":0,"code":"579"}]}]
         for (let i = 0; i < amount; i++) {
-            var codes = []
-            var completeCodes = []
+            var codes=[]
+            var completeCodes=[]
             switch (bet) {
                 case 1:
-                    codes.push({pos: 0, code: randomNums10Str(3, true)})
-                    completeCodes.push({pos: 0, code: randomNums10Str(3, true)})
+                    codes.push({pos:0,code:randomNums10Str(3,true)})
+                    completeCodes.push({pos:0,code:randomNums10Str(3,true)})
                     break
                 case 2:
-                    codes.push({pos: 0, code: randomNums10Str(2, true)})
-                    completeCodes.push({pos: 0, code: randomNums10Str(2, true)})
+                    codes.push({pos:0,code:randomNums10Str(2,true)})
+                    completeCodes.push({pos:0,code:randomNums10Str(2,true)})
                     break
                 case 3:
-                    codes.push({pos: randomNums4Str(1, true), code: randomNums4Str(1, true)})
-                    completeCodes.push({pos: randomNums4Str(1, true), code: randomNums4Str(1, true)})
+                    codes.push({pos:randomNums4Str(1,true),code:randomNums4Str(1,true)})
+                    completeCodes.push({pos:randomNums4Str(1,true),code:randomNums4Str(1,true)})
                     break
                 case 4:
                     for (let k = 0; k < 4; k++) {
-                        codes.push({pos: k, code: randomNums10Str(1)})
-                        completeCodes.push({pos: k, code: randomNums10Str(1)})
+                        codes.push({pos:k,code:randomNums10Str(1)})
+                        completeCodes.push({pos:k,code:randomNums10Str(1)})
                     }
                     break
                 case 5:
                     for (let k = 0; k < 3; k++) {
-                        codes.push({pos: k, code: randomNums10Str(1)})
-                        completeCodes.push({pos: k, code: randomNums10Str(1)})
+                        codes.push({pos:k,code:randomNums10Str(1)})
+                        completeCodes.push({pos:k,code:randomNums10Str(1)})
                     }
                     break
                 case 6:
                     for (let k = 0; k < 2; k++) {
-                        codes.push({pos: k, code: randomNums10Str(1)})
-                        completeCodes.push({pos: k, code: randomNums10Str(1)})
+                        codes.push({pos:k,code:randomNums10Str(1)})
+                        completeCodes.push({pos:k,code:randomNums10Str(1)})
                     }
                     break
                 case 7:
-                    codes.push({pos: randomNums4Str(1, true), code: randomNums10Str(1, true)})
-                    completeCodes.push({pos: randomNums4Str(1, true), code: randomNums10Str(1, true)})
+                    codes.push({pos:randomNums4Str(1,true),code:randomNums10Str(1,true)})
+                    completeCodes.push({pos:randomNums4Str(1,true),code:randomNums10Str(1,true)})
                     break
                 case 8:
                     for (let k = 0; k < secTitles[7].length; k++) {
-                        let title = secTitles[7][k]
-                        if (title !== "x") {
-                            codes.push({pos: k, code: randomNums10Str(1)})
-                            completeCodes.push({pos: k, code: randomNums10Str(1)})
+                        let title=secTitles[7][k]
+                        if(title!=="x")
+                        {
+                            codes.push({pos:k,code:randomNums10Str(1)})
+                            completeCodes.push({pos:k,code:randomNums10Str(1)})
                         }
                     }
                     break
             }
 
-            var data = {
-                money: parseInt(minBet),
-                gameNameCn: gameTitles[bet - 1],
-                gameName: gameCodes[bet - 1],
-                unitPrice: minBet,
-                orders: 1,
-                codes: codes,
-                completeCodes: completeCodes
-            }
-            var arrTemp = []
+            var data={money:parseInt(minBet),
+                gameNameCn:gameTitles[bet-1],
+                gameName:gameCodes[bet-1],
+                unitPrice:minBet,
+                orders:1,
+                codes:codes,
+                completeCodes:completeCodes}
+            var arrTemp=[]
             arrTemp.push(data)
             addNewOrder(arrTemp)
         }
@@ -649,18 +658,19 @@ $(function () {
         show_bet();
     });
 
-    function calOrderDialogOrder() {
-        var values = orderCacheArray.values()
-        var totalMoney = 0
-        var totalOrders = 0
+    function calOrderDialogOrder()
+    {
+        var values=orderCacheArray.values()
+        var totalMoney=0
+        var totalOrders=0
         for (let i = 0; i < orderCacheArray.size; i++) {
-            let item = values.next().value
-            totalMoney = totalMoney + item.money
-            totalOrders = totalOrders + item.orders
+            let item=values.next().value
+            totalMoney=totalMoney+item.money
+            totalOrders=totalOrders+item.orders
         }
 
-        $(".totalMoneySpan").text("共" + totalMoney + "元")
-        $(".totalOrderSpan").text("共" + totalOrders + "注")
+        $(".totalMoneySpan").text("共"+totalMoney+"元")
+        $(".totalOrderSpan").text("共"+totalOrders+"注")
     }
 
     function parseURL(url) {
@@ -738,30 +748,35 @@ $(function () {
         var h = Math.floor(time / 3600);
         var m = Math.floor((time / 60 % 60));
         var s = Math.floor((time % 60));
-        if (h < 10) {
-            h = "0" + h
+        if(h<10)
+        {
+            h="0"+h
         }
-        if (m < 10) {
-            m = "0" + m
+        if(m<10)
+        {
+            m="0"+m
         }
-        if (s < 10) {
-            s = "0" + s
+        if(s<10)
+        {
+            s="0"+s
         }
         return h + ":" + m + ":" + s;
     }
 
-    function makeOrderData() {
+    function makeOrderData()
+    {
         var betCodes = []
-        var completeCodes = []
+        var completeCodes=[]
         $(".game-type-" + bet + " .btn-box ").each(function () {
             var code = ""
             $(this).find("a.on[data-pos]").each(function (index, val) {
-                code = code + $(this).data('pos') + ","
+                code = code + $(this).data('pos')+","
             });
 
 
-            if (code.length > 0) {
-                code = code.substring(0, code.length - 1)
+            if(code.length>0)
+            {
+                code=code.substring(0, code.length-1)
                 betCodes.push({pos: $(this).data().line, code: code})
             }
             completeCodes.push({pos: $(this).data().line, code: code})
@@ -772,37 +787,40 @@ $(function () {
         if (pVal.length < 1) {
             pVal = $("#orderPrice").attr("placeholder");
         }
-        var money = parseInt(pVal) * bet_n
+        var money=parseInt(pVal) * bet_n
 
         var arr = []
         arr.push({
-            money: money,
-            orders: bet_n,
-            gameNameCn: gameTitles[bet - 1],
+            money:money,
+            orders:bet_n,
+            gameNameCn:gameTitles[bet-1],
             gameName: gameCodes[bet - 1],
             unitPrice: $("#orderPrice").val(),
             codes: betCodes,
-            completeCodes: completeCodes
+            completeCodes:completeCodes
         });
 
         return arr
     }
 
-    function deleteOrder(pos) {
+    function deleteOrder(pos)
+    {
         orderCacheArray.delete(pos)
-        $(".orderEdit").text("注单编辑 (" + orderCacheArray.size + ")")
-        $(".botOrderEdit").text("注单编辑 (" + orderCacheArray.size + ")")
-        $(".orderList .orderListItem img").each(function () {
-            if ($(this).data("pos") === pos) {
+        $(".orderEdit").text("注单编辑 ("+orderCacheArray.size+")")
+        $(".botOrderEdit").text("注单编辑 ("+orderCacheArray.size+")")
+        $(".orderList .orderListItem img").each(function (){
+            if($(this).data("pos")===pos)
+            {
                 $(this).parent().remove()
             }
         })
         calOrderDialogOrder();
     }
 
-    function addNewOrder(orderData) {
+    function addNewOrder(orderData)
+    {
 
-        var itemStr = " <div class='orderListItem'>" +
+        var itemStr=" <div class='orderListItem'>" +
             "                    <img data-pos='%pos' src='/Templates/Old/images/icon_qingchu.png' alt=''>" +
             "                    <div class='orderListContent'>" +
             "                        <p class='itemContent'>%itemContent</p>" +
@@ -810,79 +828,86 @@ $(function () {
             "                    <input class='%inclass' %isMul data-pos='%pos' type='number' value='%unitPrice'/>" +
             "                </div>"
 
-        var codes = ""
-        let list = orderData[0].completeCodes
-        let titleSuffix = ["万位","千位", "百位", "十位", "个位"]
+        var codes=""
+        let list=orderData[0].completeCodes
+        let titleSuffix=["百位：", "十位：", "个位："]
         for (let i = 0; i < list.length; i++) {
-            if (list.length > 1) {
-                if (list[i].code.length > 0) {
-                    codes = codes + titleSuffix[list[i].pos] + list[i].code + "|"
+            if(list.length>1)
+            {
+                if(list[i].code.length>0)
+                {
+                    codes=codes+titleSuffix[list[i].pos]+list[i].code+"|"
                 }
-            } else {
-                codes = codes + list[i].code + "|"
+            }
+            else
+            {
+                codes=codes+list[i].code+"|"
             }
 
         }
-        codes = codes.substring(0, codes.length - 1)
+        codes=codes.substring(0, codes.length-1)
 
-        var gameDetail = orderData[0].gameNameCn + " " + orderData[0].orders + "注 " + orderData[0].money + "元"
-        itemStr = itemStr.replaceAll("%pos", "" + autoIncrease)
-        itemStr = itemStr.replace("%isMul", orderData[0].orders > 1 ? "readonly" : "")
-        itemStr = itemStr.replace("%inclass", orderData[0].orders > 1 ? "singleOrderPriceNoEdit" : "singleOrderPrice")
+        var gameDetail=orderData[0].gameNameCn+" "+orderData[0].orders+"注 "+orderData[0].money+"元"
+        itemStr=itemStr.replaceAll("%pos",""+autoIncrease)
+        itemStr=itemStr.replace("%isMul",orderData[0].orders>1?"readonly":"")
+        itemStr=itemStr.replace("%inclass",orderData[0].orders>1?"singleOrderPriceNoEdit":"singleOrderPrice")
 
-        var showContent = codes
-        if (orderData[0].gameName === 'dxds') {
-            showContent = codes.replaceAll("0", "大")
-                .replaceAll("1", "小")
-                .replaceAll("2", "单")
-                .replaceAll("3", "双")
+        var showContent=codes
+        if(orderData[0].gameName==='dxds')
+        {
+            showContent=codes.replaceAll("0","大")
+                .replaceAll("1","小")
+                .replaceAll("2","单")
+                .replaceAll("3","双")
         }
 
-        itemStr = itemStr.replace('%itemContent', showContent)
-        itemStr = itemStr.replace('%gameItemDetail', gameDetail)
-        itemStr = itemStr.replace('%unitPrice', orderData[0].unitPrice)
+        itemStr=itemStr.replace('%itemContent',showContent)
+        itemStr=itemStr.replace('%gameItemDetail',gameDetail)
+        itemStr=itemStr.replace('%unitPrice',orderData[0].unitPrice)
         $(".orderList").prepend(itemStr)
 
-        $(".orderList img").click(function () {
+        $(".orderList img").click(function (){
             deleteOrder($(this).data('pos'))
         })
-        $(".orderList .singleOrderPrice").on("input", function () {
+        $(".orderList .singleOrderPrice").on("input",function (){
             $(this).val($(this).val().replace(/^(0+)|[^\d]+/g, ''));
             if ($(this).val() > parseInt(maxBet)) {
                 $(this).val(maxBet)
             }
 
-            let key = $(this).data('pos')
-            var data = orderCacheArray.get(key)
-            if (data != null) {
+            let key =$(this).data('pos')
+            var data=orderCacheArray.get(key)
+            if(data!=null)
+            {
 
-                data.unitPrice = parseInt($(this).val())
-                data.money = parseInt($(this).val())
-                let detail = orderData[0].gameNameCn + " " + orderData[0].orders + "注 " + data.money + "元"
+                data.unitPrice=parseInt($(this).val())
+                data.money=parseInt($(this).val())
+                let detail=orderData[0].gameNameCn+" "+orderData[0].orders+"注 "+data.money+"元"
                 $(this).parent().find(".gameItemDetail").text(detail)
-                orderCacheArray.set(key, data)
+                orderCacheArray.set(key,data)
             }
             calOrderDialogOrder()
         })
 
 
-        orderCacheArray.set(autoIncrease, orderData[0])
+        orderCacheArray.set(autoIncrease,orderData[0])
         autoIncrease++
-        $(".orderEdit").text("注单编辑 (" + orderCacheArray.size + ")")
-        $(".botOrderEdit").text("注单编辑 (" + orderCacheArray.size + ")")
+        $(".orderEdit").text("注单编辑 ("+orderCacheArray.size+")")
+        $(".botOrderEdit").text("注单编辑 ("+orderCacheArray.size+")")
     }
 
     function betNow() {
 
-        var array = makeOrderData()
-        if (array.length < 1) {
+        var array=makeOrderData()
+        if(array.length<1)
+        {
             zy.tips('下注格式错误,请重新选择号码');
             return
         }
         delete array[0].completeCodes
 
         $("#loadingDiv").show()
-        var postData = {game: info.game, userId: info.userid, roomId: info.roomid, betArray: JSON.stringify(array)}
+        var postData = {game:info.game,userId: info.userid, roomId: info.roomid, betArray: JSON.stringify(array)}
         $.ajax({
             type: "POST",
             dataType: "json",
@@ -895,7 +920,7 @@ $(function () {
                     show_bet()
                     zy.tips('投注已发送!');
                 } else {
-                    zy.tips(result.msg, 4);
+                    zy.tips(result.msg,4);
                 }
             },
             error: function () {
@@ -918,14 +943,14 @@ $(function () {
             crossDomain: true,
             success: function (result) {
                 if (result.code === 0) {
-                    orderListDialogRemainTime = result.datas.remainTime
-                    nowTerm = result.datas.term
+                    orderListDialogRemainTime=result.datas.remainTime
+                    nowTerm=result.datas.term
                     $(".timeBalance .betLimit b").html(formatCountDown(orderListDialogRemainTime))
                     $(".timeBalance .betLimit b").data()
                     $(".timeBalance .bal b").html(result.datas.money)
-                    isStopCountDown = false
+                    isStopCountDown=false
                     clearTimeout(timeoutId)
-                    timeoutId = setTimeout(dialogCountDown, 1000)
+                    timeoutId=setTimeout(dialogCountDown,1000)
                 } else {
                     zy.tips(result.msg);
                 }
@@ -938,19 +963,20 @@ $(function () {
 
     function commitOrders() {
 
-        if (orderCacheArray.size < 1) {
+        if(orderCacheArray.size<1)
+        {
             zy.tips('请先下注')
             return
         }
         $("#loadingDiv").show()
-        let array = []
-        var values = orderCacheArray.values()
+        let array=[]
+        var values=orderCacheArray.values()
         for (let i = 0; i < orderCacheArray.size; i++) {
-            var val = values.next().value
+            var val=values.next().value
             delete val.completeCodes
             array.push(val)
         }
-        var postData = {game: info.game, userId: info.userid, roomId: info.roomid, betArray: JSON.stringify(array)}
+        var postData = {game:info.game,userId: info.userid, roomId: info.roomid, betArray: JSON.stringify(array)}
 
         $.ajax({
             type: "POST",

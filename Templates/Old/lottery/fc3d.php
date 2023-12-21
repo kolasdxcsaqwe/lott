@@ -2,8 +2,8 @@
 //作者：QQ 1878336950
 //搭建/接口api/其他棋牌彩票类平台/程序修正/彩票程序定制/一条龙服务
 switch ($_COOKIE['game']) {
-    case 'pl5':
-        $lot = 'fn_lottery22';
+    case 'fc3d':
+        $lot = 'fn_lottery21';
         break;
 }
 $roomid = $_SESSION['roomid'];
@@ -431,17 +431,16 @@ function is_weixin()
         'headimg': "<?php echo $_SESSION['headimg'] ?>",
         'userid': "<?php echo $_SESSION['userid'] ?>",
         'roomid': "<?php echo $_SESSION['roomid'] ?>",
-        'minbet': "<?php echo $info['minbet'] ?>",
-        'maxbet': "<?php echo $info['maxbet'] ?>",
-        'anytwo': "<?php echo $info['anytwo'] ?>",
-        'anythree': "<?php echo $info['anythree'] ?>",
-        'fivefix': "<?php echo $info['fivefix'] ?>",
-        'threefix': "<?php echo $info['threefix'] ?>",
-        'twofix': "<?php echo $info['twofix'] ?>",
-        'onefix': "<?php echo $info['onefix'] ?>",
-        'wuniu': "<?php echo $info['wuniu'] ?>",
-        'youniu': "<?php echo $info['youniu'] ?>",
-        'dxds': "<?php echo $info['dxds'] ?>",
+        'minbet': "<?php echo $info20['minbet'] ?>",
+        'maxbet': "<?php echo $info20['maxbet'] ?>",
+        'anytwo': "<?php echo $info20['anytwo'] ?>",
+        'anythree': "<?php echo $info20['anythree'] ?>",
+        'fourfix': "<?php echo $info20['fourfix'] ?>",
+        'threefix': "<?php echo $info20['threefix'] ?>",
+        'twofix': "<?php echo $info20['twofix'] ?>",
+        'onefix': "<?php echo $info20['onefix'] ?>",
+        'touweifix': "<?php echo $info20['touweifix'] ?>",
+        'dxds': "<?php echo $info20['dxds'] ?>",
         'game': "<?php echo $_COOKIE['game'];
             ?>"
     };
@@ -523,7 +522,7 @@ function is_weixin()
 <!-- New Templates Update -->
 <script type="text/javascript" src="/Style/Old/js/NewTools.js?t=s2d"></script>
 <script type="text/javascript" src="/Style/Old/js/NewChat.js?t=233"></script>
-<script type="text/javascript" src="/Style/Old/js/pl5.js?t=223w"></script>
+<script type="text/javascript" src="/Style/Old/js/fc3d.js?t=222w"></script>
 <!-- ./New Templates Update -->
 
 <iframe onload="iFrameHeight2();" src="/Templates/Old/shipin.php" name="ifarms" width="980" height="680"
@@ -626,15 +625,17 @@ function is_weixin()
                 <li class="gameli"><a href="javascript:;" data-t="1" class="on">任选3</a></li>
                 <li class="gameli"><a href="javascript:;" class="" data-t="2">任选2</a></li>
                 <li class="gameli"><a href="javascript:;" data-t="3" class="">大小单双</a></li>
-                <li class="gameli"><a href="javascript:;" data-t="4" class="">斗牛</a></li>
                 <li class="more-game">
                     <a href="javascript:;" class="triangle"><img src="/Style/images/game-arrow.png"></a>
                     <div class="sub-menu" style="display: none;">
-                        <a href="javascript:;" data-t="5">前5定位</a>
-                        <a href="javascript:;" data-t="6">前3定位</a>
-                        <a href="javascript:;" data-t="7">前2定位</a>
-                        <a href="javascript:;" data-t="8">定位胆</a>
-                        <a href="javascript:;" data-t="9">头尾定位</a>
+                        <a href="javascript:;" data-t="4">3星直选</a>
+                        <a href="javascript:;" data-t="5">3星组三</a>
+                        <a href="javascript:;" data-t="6">3星组六</a>
+                        <a href="javascript:;" data-t="7">3星组三和值</a>
+                        <a href="javascript:;" data-t="8">3星组六和值</a>
+                        <a href="javascript:;" data-t="9">2星前二直选</a>
+                        <a href="javascript:;" data-t="10">2星后二直选</a>
+                        <a href="javascript:;" data-t="11">定位胆</a>
                     </div>
                 </li>
             </ul>
@@ -668,9 +669,6 @@ function is_weixin()
 
             <!--头尾 START-->
             <div class="gamenum game-type-8" style=""></div>
-
-            <!--头尾 START-->
-            <div class="gamenum game-type-9" style=""></div>
 
         </div>
     </div>
@@ -721,7 +719,7 @@ function is_weixin()
             <ul class="lottery">
                 <?php if ($sql['display_game'] != 'false') { ?>
                     <li class="home" data-id="lottery">
-                        <span style="color:#e3ff75;"> <i class="iconfont">排列5</i><?php echo formatgame($game); ?></span>
+                        <span style="color:#e3ff75;"> <i class="iconfont">福彩3D</i><?php echo formatgame($game); ?></span>
                     </li>
                 <?php } ?>
                 <? if ($sql['zhibo'] == 'open') { ?>
@@ -777,7 +775,7 @@ function is_weixin()
                     <input id="orderPrice" type="number"  max="1000000"/>
                 </label>
                 <div>
-                    <span id="availableWin">最高奖金:&nbsp;<b></b></span>
+                    <span id="availableWin">奖金:&nbsp;<b></b></span>
                     <span id="payRare">赔率:&nbsp;<b></b></span>
                 </div>
             </div>
@@ -823,12 +821,74 @@ function is_weixin()
 </div>
 
 <div class="rightdiv">
+    <!--div class="saidright">
+        <img src="/Public/images/gm.jpg">
+        <div class="tousaidl">
+            <span class="tousaid2">13:21:50</span>&nbsp;&nbsp;
+            <span class="tousaid1">系统GM</span>
+        </div>
+        <div class="ts">
+            <b style="border-color:transparent  transparent transparent #FFBBBB;"></b>
+            <span class="neirongsaidl" style="background-color: #FFBBBB;">北京赛车<br>期号:632246<br>已封盘，请耐心等待开奖！</span>
+        </div>
+    </div>
+    <div class="saidright">
+        <img src="/Public/images/gm.jpg">
+        <div class="tousaidl">
+            <span class="tousaid2">13:21:50</span>&nbsp;&nbsp;
+            <span class="tousaid1">系统GM</span>
+        </div>
+        <div class="ts">
+            <b style="border-color:transparent  transparent transparent #98E165;"></b>
+            <span class="neirongsaidl" style="background-color:#98E165;max-width: 100%">北京赛车<br>期号:632246<br>已封盘，请耐心等待开奖！</span>
+        </div>
+    </div>
+    <div class="saidright">
+        <img src="/Public/images/gm.jpg">
+        <div class="tousaidl">
+            <span class="tousaid2">13:21:50</span>&nbsp;&nbsp;
+            <span class="tousaid1">系统GM</span>
+        </div>
+        <div class="ts">
+            <b style=""></b>
+            <span class="neirongsaidl" style="">北京赛车<br>期号:632246<br>已封盘，请耐心等待开奖！</span>
+        </div>
+    </div>
+    <div class="saidleft">
+        <img src="/Public/images/gm.jpg">
+        <div class="tousaid">
+            <span class="tousaid2">13:21:50</span>&nbsp;&nbsp;
+            <span class="tousaid1">系统GM</span>
+        </div>
+        <div class="tsf">
+            <b></b>
+            <span class="neirongsaid" style="">北京赛车<br>期号:632246<br>已封盘，请耐心等待开奖！</span>
+        </div>
+    </div-->
 </div>
+</div>
+<!--div class="kefu rbox" style="display:none">
+    <div class="user_messages">
+        <input type="text" id="kfs"><span id="sendkf">发 送</span>
+    </div>
+    <div class="kfcs">
+        <div class="saidright">
+            <img src="/Public/images/kefu2.jpg">
+            <div class="tousaidl">
+                <span class="tousaid2">16:22:17</span>&nbsp;&nbsp;<span class="tousaid1">客服</span>
+            </div>
+            <div class="ts">
+                <b></b>
+                <span class="neirongsaidl">有任何问题请留言，我们将尽快为您解答。</span>
+            </div>
+        </div>
+    </div>
+</div-->
 <div id="ss_menu" style="">
     <div class="ss_nav">
-            <ul class="lottery">
+        <ul class="lottery">
 
-            </ul>
+        </ul>
     </div>
 </div>
 

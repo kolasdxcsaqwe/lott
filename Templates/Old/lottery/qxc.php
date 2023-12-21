@@ -9,47 +9,7 @@ switch ($_COOKIE['game']) {
 $roomid = $_SESSION['roomid'];
 $gameid = $_COOKIE['game'];
 $info = get_query_vals($lot, '*', array('roomid' => $_SESSION['roomid']));
-$info1 = get_query_vals('fn_lottery1', '*', array('roomid' => $_SESSION['roomid']));
-$info2 = get_query_vals('fn_lottery2', '*', array('roomid' => $_SESSION['roomid']));
-$info3 = get_query_vals('fn_lottery3', '*', array('roomid' => $_SESSION['roomid']));
-$info4 = get_query_vals('fn_lottery4', '*', array('roomid' => $_SESSION['roomid']));
-$info5 = get_query_vals('fn_lottery5', '*', array('roomid' => $_SESSION['roomid']));
-$info6 = get_query_vals('fn_lottery6', '*', array('roomid' => $_SESSION['roomid']));
-$info7 = get_query_vals('fn_lottery7', '*', array('roomid' => $_SESSION['roomid']));
-$info8 = get_query_vals('fn_lottery8', '*', array('roomid' => $_SESSION['roomid']));
-$info9 = get_query_vals('fn_lottery9', '*', array('roomid' => $_SESSION['roomid']));
-$info10 = get_query_vals('fn_lottery10', '*', array('roomid' => $_SESSION['roomid']));
-$info11 = get_query_vals('fn_lottery11', '*', array('roomid' => $_SESSION['roomid']));
-$info12 = get_query_vals('fn_lottery12', '*', array('roomid' => $_SESSION['roomid']));
-$info13 = get_query_vals('fn_lottery13', '*', array('roomid' => $_SESSION['roomid']));
-$info14 = get_query_vals('fn_lottery14', '*', array('roomid' => $_SESSION['roomid']));
-$info15 = get_query_vals('fn_lottery15', '*', array('roomid' => $_SESSION['roomid']));
-$info16 = get_query_vals('fn_lottery16', '*', array('roomid' => $_SESSION['roomid']));
-$info17 = get_query_vals('fn_lottery17', '*', array('roomid' => $_SESSION['roomid']));
-$info18 = get_query_vals('fn_lottery18', '*', array('roomid' => $_SESSION['roomid']));
-$info19 = get_query_vals('fn_lottery19', '*', array('roomid' => $_SESSION['roomid']));
-$info20 = get_query_vals('fn_lottery20', '*', array('roomid' => $_SESSION['roomid']));
 
-$pk10open = $info1['gameopen'];
-$xyftopen = $info2['gameopen'];
-$cqsscopen = $info3['gameopen'];
-$xy28open = $info4['gameopen'];
-$jnd28open = $info5['gameopen'];
-$jsmtopen = $info6['gameopen'];
-$jsscopen = $info7['gameopen'];
-$jssscopen = $info8['gameopen'];
-$kuai3open = $info9['gameopen'];
-$bjlopen = $info10['gameopen'];
-$gdxopen = $info11['gameopen'];
-$jssmopen = $info12['gameopen'];
-$lhcopen = $info13['gameopen'];
-$jslhcopen = $info14['gameopen'];
-$twk3open = $info15['gameopen'];
-$txffcopen = $info16['gameopen'];
-$azxy10open = $info17['gameopen'];
-$azxy5open = $info18['gameopen'];
-$ny28open = $info19['gameopen'];
-$qxcopen = $info20['gameopen'];
 function is_weixin()
 {
     if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {

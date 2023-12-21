@@ -11,6 +11,12 @@ $(function () {
     var autoIncrease=0;//pos 计数
     var timeoutId=0
     var tabsCode=["xy28","ny28","jnd28","qxc","pl5","lhc","twk3","jslhc","jsssc","pk10","fc3d"]
+    var a, b, c, d, bet = 1, bet_n = 0, bline, bval;
+    var secTitles = [[""], [""], ["千位", "百位", "十位", "个位"], ["千位", "百位", "十位", "个位"],
+        ["千位", "百位", "十位"], ["千位", "百位"], ["千位", "百位", "十位", "个位"], ["千位", "x", "x", "个位"]];
+    var gameCodes = ['ry3', 'ry2', 'dxds', 'd4', 'd3', 'd2', 'd1', 'tw']
+    var gameTitles = ['任选3', '任选2', '大小单双', '前4定位', '前3定位', '前2定位', '定位胆', '头尾定位']
+
     var logoPath={xy28:'/Style/Home/images/xy28-logo.png',
         ny28:'/Style/Home/images/ny28-logo.png',
         jnd28:'/Style/Home/images/jnd28-logo.png',
@@ -32,7 +38,7 @@ $(function () {
             type: "POST",
             dataType: "json",
             url: baseUrl + "/getALlLotteryStatus",//url
-            data: {game:"xy28,ny28,jnd28,qxc,pl5,lhc,twk3,jslhc,jsssc,pk10"},
+            data: {game:"xy28,ny28,jnd28,qxc,pl5,lhc,twk3,jslhc,jsssc,pk10,fc3d"},
             crossDomain: true,
             success: function (result) {
                 if (result.code === 0) {
@@ -85,12 +91,6 @@ $(function () {
             timeoutId=setTimeout(function (){dialogCountDown()},1000)
         }
     }
-
-    var a, b, c, d, bet = 1, bet_n = 0, bline, bval;
-    var secTitles = [[""], [""], ["万位", "千位", "十位", "个位"], ["万位", "千位", "十位", "个位"],
-        ["万位", "千位", "十位"], ["万位", "千位"], ["万位", "千位", "十位", "个位"], ["万位", "x", "x", "个位"]];
-    var gameCodes = ['ry3', 'ry2', 'dxds', 'd4', 'd3', 'd2', 'd1', 'tw']
-    var gameTitles = ['任选3', '任选3', '大小单双', '前4定位', '前3定位', '前2定位', '定位胆', '头尾定位']
 
     $('#betDialog').on("hide.bs.modal", function () {
         clearSelectButtons();
@@ -830,7 +830,7 @@ $(function () {
 
         var codes=""
         let list=orderData[0].completeCodes
-        let titleSuffix=["万位：", "千位：", "十位：", "个位："]
+        let titleSuffix=["千位：", "百位：", "十位：", "个位："]
         for (let i = 0; i < list.length; i++) {
             if(list.length>1)
             {
