@@ -523,7 +523,7 @@ function is_weixin()
 <!-- New Templates Update -->
 <script type="text/javascript" src="/Style/Old/js/NewTools.js?t=1s2d"></script>
 <script type="text/javascript" src="/Style/Old/js/NewChat.js?t=2333"></script>
-<script type="text/javascript" src="/Style/Old/js/pl5.js?t=2232w"></script>
+<script type="text/javascript" src="/Style/Old/js/pl5.js?t=sdd"></script>
 <!-- ./New Templates Update -->
 
 <iframe onload="iFrameHeight2();" src="/Templates/Old/shipin.php" name="ifarms" width="980" height="680"
@@ -720,7 +720,7 @@ function is_weixin()
             <ul class="lottery">
                 <?php if ($sql['display_game'] != 'false') { ?>
                     <li class="home" data-id="lottery">
-                        <span style="color:#e3ff75;"> <i class="iconfont">排列5</i><?php echo formatgame($game); ?></span>
+                        <span style="color:#e3ff75;"> <i class="iconfont"></i><?php echo formatgame($game); ?></span>
                     </li>
                 <?php } ?>
                 <? if ($sql['zhibo'] == 'open') { ?>

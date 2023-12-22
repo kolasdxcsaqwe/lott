@@ -35,6 +35,14 @@ $(function () {
 
     makeTabs();
 
+    // for (var i = 1; i <= 9; i++) {
+    //     if (!in_array(i, tz_types)) {
+    //         a = $('.menu').find("a[data-t='" + i + "']");
+    //         a.parent().is("li") ? a.parent().remove() : a.remove();
+    //         $('.game-type-' + i).remove();
+    //     }
+    // }
+
     function makeTabs() {
         $.ajax({
             type: "POST",
@@ -168,7 +176,8 @@ $(function () {
 
         var isAva = true
         $(".game-type-" + bet + " .btn-box ").each(function () {
-            if ($(this).css("display") !== "none" && $(this).find(" a.on ").length < 1 && bet !== 3 && bet !== 7) {
+            if ($(this).css("display") !== "none" && $(this).find(" a.on ").length < 1
+                && bet !== 3 && bet !== 4 && bet !== 8) {
                 //只要有一行没选中就不算
                 isAva = false
             }
@@ -187,13 +196,13 @@ $(function () {
                 bet_n = countOrder1(bline.length, 2)
                 break;
             case 3:
-            case 7:
+            case 8:
+            case 4:
                 bet_n = countOrder3()
                 break
-            case 4:
             case 5:
             case 6:
-            case 8:
+            case 7:
                 bet_n = countOrder2()
                 break;
         }
@@ -231,7 +240,8 @@ $(function () {
                 isAvailable = count > 1;
                 break;
             case 3:
-            case 7:
+            case 4:
+            case 8:
                 isAvailable = count > 0;
                 break;
             default:
@@ -257,14 +267,6 @@ $(function () {
         } else {
             $(".addOrder").removeClass('on');
             $(".confirm-pour").removeClass('on');
-        }
-    }
-
-    for (var i = 1; i <= 9; i++) {
-        if (!in_array(i, tz_types)) {
-            a = $('.menu').find("a[data-t='" + i + "']");
-            a.parent().is("li") ? a.parent().remove() : a.remove();
-            $('.game-type-' + i).remove();
         }
     }
 

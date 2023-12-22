@@ -433,13 +433,16 @@ function is_weixin()
         'roomid': "<?php echo $_SESSION['roomid'] ?>",
         'minbet': "<?php echo $info20['minbet'] ?>",
         'maxbet': "<?php echo $info20['maxbet'] ?>",
-        'anytwo': "<?php echo $info20['anytwo'] ?>",
-        'anythree': "<?php echo $info20['anythree'] ?>",
-        'fourfix': "<?php echo $info20['fourfix'] ?>",
         'threefix': "<?php echo $info20['threefix'] ?>",
-        'twofix': "<?php echo $info20['twofix'] ?>",
+        'combinethree': "<?php echo $info20['combinethree'] ?>",
+        'combinesix': "<?php echo $info20['combinesix'] ?>",
+        'combinethreesum': "<?php echo $info20['combinethreesum'] ?>",
+        'combinesixsum': "<?php echo $info20['combinesixsum'] ?>",
+        'fronttwofix': "<?php echo $info20['fronttwofix'] ?>",
         'onefix': "<?php echo $info20['onefix'] ?>",
-        'touweifix': "<?php echo $info20['touweifix'] ?>",
+        'backtwofix': "<?php echo $info20['backtwofix'] ?>",
+        'anyone': "<?php echo $info20['anyone'] ?>",
+        'anytwo': "<?php echo $info20['anytwo'] ?>",
         'dxds': "<?php echo $info20['dxds'] ?>",
         'game': "<?php echo $_COOKIE['game'];
             ?>"
@@ -522,7 +525,7 @@ function is_weixin()
 <!-- New Templates Update -->
 <script type="text/javascript" src="/Style/Old/js/NewTools.js?t=s2d"></script>
 <script type="text/javascript" src="/Style/Old/js/NewChat.js?t=233"></script>
-<script type="text/javascript" src="/Style/Old/js/fc3d.js?t=222w"></script>
+<script type="text/javascript" src="/Style/Old/js/fc3d.js?t=34"></script>
 <!-- ./New Templates Update -->
 
 <iframe onload="iFrameHeight2();" src="/Templates/Old/shipin.php" name="ifarms" width="980" height="680"
@@ -622,8 +625,8 @@ function is_weixin()
     <div class="betDialogContent">
         <div class="menu">
             <ul>
-                <li class="gameli"><a href="javascript:;" data-t="1" class="on">任选3</a></li>
-                <li class="gameli"><a href="javascript:;" class="" data-t="2">任选2</a></li>
+                <li class="gameli"><a href="javascript:;" data-t="1" class="on">任选二</a></li>
+                <li class="gameli"><a href="javascript:;" class="" data-t="2">任选一</a></li>
                 <li class="gameli"><a href="javascript:;" data-t="3" class="">大小单双</a></li>
                 <li class="more-game">
                     <a href="javascript:;" class="triangle"><img src="/Style/images/game-arrow.png"></a>
@@ -667,8 +670,13 @@ function is_weixin()
             <!--定位胆 START-->
             <div class="gamenum game-type-7" style=""></div>
 
-            <!--头尾 START-->
             <div class="gamenum game-type-8" style=""></div>
+
+            <div class="gamenum game-type-9" style=""></div>
+
+            <div class="gamenum game-type-10" style=""></div>
+
+            <div class="gamenum game-type-11" style=""></div>
 
         </div>
     </div>
@@ -719,7 +727,7 @@ function is_weixin()
             <ul class="lottery">
                 <?php if ($sql['display_game'] != 'false') { ?>
                     <li class="home" data-id="lottery">
-                        <span style="color:#e3ff75;"> <i class="iconfont">福彩3D</i><?php echo formatgame($game); ?></span>
+                        <span style="color:#e3ff75;"> <i class="iconfont"></i><?php echo formatgame($game); ?></span>
                     </li>
                 <?php } ?>
                 <? if ($sql['zhibo'] == 'open') { ?>

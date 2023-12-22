@@ -130,6 +130,10 @@ function formatgame($game)
             return "河内5分彩";
         case "qxc":
             return "七星彩";
+        case "fc3d":
+            return "福彩3d";
+        case "pl5":
+            return "排列5";
     }
 }
 
