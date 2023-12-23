@@ -245,28 +245,35 @@ $jinbi = get_query_vals('fn_sign_set','*',array('id'=>2));
         </div>
         <script src="js/jquery.js" type="text/javascript"></script>
         <script type="text/javascript">
+            var isRequesting=false
             function getUrl(strs) {
                 var url = "__APP__/" + strs;
                 return url;
             }
-            function signDay(obj,day_) { 
-                $.post('signday.php', {sing_time:day_}, function(data) {
-                    data = JSON.parse(data);
-                    if(data['res'] == -1){
-                        alert("请登录！");return false;
-                    } 
+            function signDay(obj,day_) {
+                isRequesting=true
+                if(!isRequesting)
+                {
+                    $.post('signday.php', {sing_time:day_}, function(data) {
+                        isRequesting=false
+                        data = JSON.parse(data);
+                        if(data['res'] == -1){
+                            alert("请登录！");return false;
+                        }
 
-                    console.log(data);
-                    var num = obj.find("span").text();
-                    var td = "<td style='background-color: greenyellow;'>" + num + "已签到"+day_+"</td>";
-                    obj.before(td);
-                    obj.remove();
-                    
-                    if (data['res'] > 0) {
-                        alert(data['msg']);
-                    }
+                        console.log(data);
+                        var num = obj.find("span").text();
+                        var td = "<td style='background-color: greenyellow;'>" + num + "已签到"+day_+"</td>";
+                        obj.before(td);
+                        obj.remove();
 
-                })
+                        if (data['res'] > 0) {
+                            alert(data['msg']);
+                        }
+
+                    })
+                }
+
             }
         </script>
 
