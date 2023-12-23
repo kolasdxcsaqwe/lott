@@ -251,9 +251,9 @@ $jinbi = get_query_vals('fn_sign_set','*',array('id'=>2));
                 return url;
             }
             function signDay(obj,day_) {
-                isRequesting=true
                 if(!isRequesting)
                 {
+                    isRequesting=true
                     $.post('signday.php', {sing_time:day_}, function(data) {
                         isRequesting=false
                         data = JSON.parse(data);
