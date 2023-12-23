@@ -281,7 +281,7 @@ if ($_SESSION['userid'] != null) {
             success: function (data) {
                 if (data.success) {
                     $('#balance').html("游戏点数：" + data.price);
-                    $('#online').html("在线人数：" + data.online);
+                    // $('#online').html("在线人数：" + data.online);
                 } else {
                     alert('登录过期,请重新登录！');
                     //window.location.href="http://" + location.host + "/?room=" + info['roomid'];

@@ -35,6 +35,8 @@ if(empty($_SESSION['singset']))
     $info_singset = get_query_vals("fn_sign_set","*"," id =1 ");
     $_SESSION['singset'] = $info_singset;
 }
+$redis = new Redis();
+$redis->connect('127.0.0.1', 6379);
 
 
 function room_isOK($roomid)
@@ -178,7 +180,7 @@ function check_login()
         if (isWeixin()) {
             header('Location: wx_login.php');
         } else {
-            header('Location: http://baidu.com');
+            require "LoginAndRegister/index.html";
         }
     }
 }

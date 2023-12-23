@@ -35,7 +35,6 @@ $info16 = get_query_vals('fn_lottery16', '*', array('roomid' => $_SESSION['roomi
 $info17 = get_query_vals('fn_lottery17', '*', array('roomid' => $_SESSION['roomid']));
 $info18 = get_query_vals('fn_lottery18', '*', array('roomid' => $_SESSION['roomid']));
 $info19 = get_query_vals('fn_lottery19', '*', array('roomid' => $_SESSION['roomid']));
-$info20 = get_query_vals('fn_lottery20', '*', array('roomid' => $_SESSION['roomid']));
 
 $pk10open = $info1['gameopen'];
 $xyftopen = $info2['gameopen'];
@@ -56,9 +55,6 @@ $txffcopen = $info16['gameopen'];
 $azxy10open = $info17['gameopen'];
 $azxy5open = $info18['gameopen'];
 $ny28open = $info19['gameopen'];
-$qxcopen = $info20['gameopen'];
-
-
 function is_weixin()
 {
     if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {
@@ -308,7 +304,7 @@ function is_weixin()
         ?>';
     var shareImg = '<?php echo $_SESSION['headimg'];
         ?>';
-    var sharedesc = "赶快来吧";
+    var sharedesc = "我正在九都娱乐系统提供的游戏房间玩耍！赶紧加入吧！[长按收藏]永不丢失加入口！";
     var para = {};
     para.url = decodeURIComponent(location.href.split('#')[0]);
     $.ajax({
@@ -468,8 +464,8 @@ function is_weixin()
         <ul class="uinfo">
             <li class="uname">昵称:<?php echo $_SESSION['username']; ?></li>
             <!--li class="id">ID:<b class="id"><?php echo get_query_val('fn_user', 'id', array('userid' => $_SESSION['userid'], 'roomid' => $_SESSION['roomid'])); ?></b></li-->
-            <li class="money">余额: <b class="balance">0</b></li>
-            <li class="oline">在线: <b class="online">0</b>人</li>
+            <li class="money">余点: <b class="balance">0</b></li>
+<!--            <li class="oline">在线: <b class="online">0</b>人</li>-->
         </ul>
     </div>
     <div class="touzu rbox">
@@ -1043,17 +1039,6 @@ function is_weixin()
                     } ?>>
                         <img src="/Style/Home/images/ny28-logo.png" title="纽约28">
                         <font>纽约28</font>
-                    </a>
-                </li>
-
-                <li <?php if ($qxcopen == 'false') echo 'class="gray"'; ?>>
-                    <a <?php if ($qxcopen == 'false') {
-                        echo 'href="#" class="gray"';
-                    } else {
-                        echo "href='/qr.php?room={$_SESSION['roomid']}&g=qxc'";
-                    } ?>>
-                        <img src="/Style/Home/images/qxc-logo.png" title="七星彩">
-                        <font>七星彩</font>
                     </a>
                 </li>
 

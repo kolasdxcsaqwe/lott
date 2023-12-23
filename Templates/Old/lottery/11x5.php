@@ -271,7 +271,7 @@ function is_weixin()
         ?>';
     var shareImg = '<?php echo $_SESSION['headimg'];
         ?>';
-    var sharedesc = "赶快来吧";
+    var sharedesc = "我正在九都娱乐系统提供的游戏房间玩耍！赶紧加入吧！[长按收藏]永不丢失加入口！";
     var para = {};
     para.url = decodeURIComponent(location.href.split('#')[0]);
     $.ajax({
@@ -433,8 +433,8 @@ function is_weixin()
         <ul class="uinfo">
             <li class="uname">昵称:<?php echo $_SESSION['username']; ?></li>
             <!--li class="id">ID:<b class="id"><?php echo get_query_val('fn_user', 'id', array('userid' => $_SESSION['userid'], 'roomid' => $_SESSION['roomid'])); ?></b></li-->
-            <li class="money">余额: <b class="balance">0</b></li>
-            <li class="oline">在线: <b class="online">0</b>人</li>
+            <li class="money">余点: <b class="balance">0</b></li>
+<!--            <li class="oline">在线: <b class="online">0</b>人</li>-->
         </ul>
     </div>
     <!--
