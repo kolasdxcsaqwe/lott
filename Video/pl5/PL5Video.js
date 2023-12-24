@@ -39,7 +39,7 @@ function parseURL(url) {
     };
 }
 
-function init() {
+function initPL5() {
 
     clearTimeout(timeOutId)
     var info = window.parent.parent.info
