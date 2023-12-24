@@ -77,12 +77,21 @@ function vpost($url, $data = array())
     // 执行操作
     if (curl_errno($curl)) {
         echo 'Errno ' . curl_error($curl)." ".$url." ".json_encode($data);
+        writeLog('Errno ' . curl_error($curl)." ".$url." ".json_encode($data));
         //捕抓异常
     }
     curl_close($curl);
     // 关闭CURL会话
     return $tmpInfo;
     // 返回数据
+}
+
+function writeLog($data)
+{
+    $t = date("YmdHis") . 'VPOST__';
+    $data = print_r($data, 1) . "\r\n------------------------------\r\n\r\n";
+    file_put_contents(dirname(dirname(preg_replace('@\(.*\(.*$@', '', __FILE__))) . "/sql_error/" . $t . '.log', $data, FILE_APPEND);
+    return $t;
 }
 
 function wx_gettoken($Appid, $Appkey, $code)
