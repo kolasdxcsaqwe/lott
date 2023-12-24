@@ -59,7 +59,7 @@ if ($_SESSION['userid'] != null) {
                         src="<?php echo $_SESSION['headimg']; ?>"></span><span><?php echo $_SESSION['username']; ?></span>
         </div>
         <div id="balance" class="infobox">游戏点数：</div>
-        <div id="online" class="infobox">在线人数：</div>
+        <div id="online" class="infobox"></div>
 
         <div class="banner">
             <!--<img src="/default/images/banner2.jpg"></div>   -->
