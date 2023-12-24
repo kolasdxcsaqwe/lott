@@ -39,7 +39,7 @@ function parseURL(url) {
     };
 }
 
-function initQXC() {
+function init() {
 
     clearTimeout(timeOutId)
     var info = window.parent.parent.info
