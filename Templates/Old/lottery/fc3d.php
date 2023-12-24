@@ -8,7 +8,7 @@ switch ($_COOKIE['game']) {
 }
 $roomid = $_SESSION['roomid'];
 $gameid = $_COOKIE['game'];
-$info = get_query_vals($lot, '*', array('roomid' => $_SESSION['roomid']));
+$info = get_query_vals($lot, '*', array('roomid' => $roomid));
 
 function is_weixin()
 {
@@ -431,19 +431,19 @@ function is_weixin()
         'headimg': "<?php echo $_SESSION['headimg'] ?>",
         'userid': "<?php echo $_SESSION['userid'] ?>",
         'roomid': "<?php echo $_SESSION['roomid'] ?>",
-        'minbet': "<?php echo $info20['minbet'] ?>",
-        'maxbet': "<?php echo $info20['maxbet'] ?>",
-        'threefix': "<?php echo $info20['threefix'] ?>",
-        'combinethree': "<?php echo $info20['combinethree'] ?>",
-        'combinesix': "<?php echo $info20['combinesix'] ?>",
-        'combinethreesum': "<?php echo $info20['combinethreesum'] ?>",
-        'combinesixsum': "<?php echo $info20['combinesixsum'] ?>",
-        'fronttwofix': "<?php echo $info20['fronttwofix'] ?>",
-        'onefix': "<?php echo $info20['onefix'] ?>",
-        'backtwofix': "<?php echo $info20['backtwofix'] ?>",
-        'anyone': "<?php echo $info20['anyone'] ?>",
-        'anytwo': "<?php echo $info20['anytwo'] ?>",
-        'dxds': "<?php echo $info20['dxds'] ?>",
+        'minbet': "<?php echo $info['minbet'] ?>",
+        'maxbet': "<?php echo $info['maxbet'] ?>",
+        'threefix': "<?php echo $info['threefix'] ?>",
+        'combinethree': "<?php echo $info['combinethree'] ?>",
+        'combinesix': "<?php echo $info['combinesix'] ?>",
+        'combinethreesum': "<?php echo $info['combinethreesum'] ?>",
+        'combinesixsum': "<?php echo $info['combinesixsum'] ?>",
+        'fronttwofix': "<?php echo $info['fronttwofix'] ?>",
+        'onefix': "<?php echo $info['onefix'] ?>",
+        'backtwofix': "<?php echo $info['backtwofix'] ?>",
+        'anyone': "<?php echo $info['anyone'] ?>",
+        'anytwo': "<?php echo $info['anytwo'] ?>",
+        'dxds': "<?php echo $info['dxds'] ?>",
         'game': "<?php echo $_COOKIE['game'];
             ?>"
     };
@@ -523,9 +523,9 @@ function is_weixin()
 
 </script>
 <!-- New Templates Update -->
-<script type="text/javascript" src="/Style/Old/js/NewTools.js?t=s2d"></script>
-<script type="text/javascript" src="/Style/Old/js/NewChat.js?t=233"></script>
-<script type="text/javascript" src="/Style/Old/js/fc3d.js?t=34"></script>
+<script type="text/javascript" src="/Style/Old/js/NewTools.js?t=dsfd"></script>
+<script type="text/javascript" src="/Style/Old/js/NewChat.js?t=dsf"></script>
+<script type="text/javascript" src="/Style/Old/js/fc3d.js?t=dsf"></script>
 <!-- ./New Templates Update -->
 
 <iframe onload="iFrameHeight2();" src="/Templates/Old/shipin.php" name="ifarms" width="980" height="680"

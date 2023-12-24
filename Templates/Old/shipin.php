@@ -130,11 +130,11 @@ if ($game == 'pk10') {
             scrolling="no"></iframe>
 <?php } elseif ($game == 'pl5') {
     ?>
-    <iframe src="/Video/qxc/" width="980" height="630" frameborder="no" border="0" marginwidth="0" marginheight="0"
+    <iframe src="/Video/pl5/" width="980" height="630" frameborder="no" border="0" marginwidth="0" marginheight="0"
             scrolling="no"></iframe>
-<?php } elseif ($game == 'dc3d') {
+<?php } elseif ($game == 'fc3d') {
     ?>
-    <iframe src="/Video/qxc/" width="980" height="630" frameborder="no" border="0" marginwidth="0" marginheight="0"
+    <iframe src="/Video/fc3d/" width="980" height="630" frameborder="no" border="0" marginwidth="0" marginheight="0"
             scrolling="no"></iframe>
 <?php } else { ?>
     <html>

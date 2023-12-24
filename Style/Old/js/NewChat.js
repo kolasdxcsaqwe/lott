@@ -315,13 +315,11 @@ function createWebSocket() {
                                 $(".timeBalance .betLimit").click()
                             }
 
-                            if (info.game == 'ny28' || info.game == 'xy28' || info.game == 'jnd28') {
-                                if (window.frames.length > 0 && window.frames[0].window.frames.length > 0) {
-                                    if (window.frames[0].window.frames[0].window != null) {
-                                        setTimeout(function () {
-                                            window.frames[0].window.frames[0].window.init()
-                                        }, 500)
-                                    }
+                            if (window.frames.length > 0 && window.frames[0].window.frames.length > 0) {
+                                if (window.frames[0].window.frames[0].window != null) {
+                                    setTimeout(function () {
+                                        window.frames[0].window.frames[0].window.update()
+                                    }, 500)
                                 }
                             }
 

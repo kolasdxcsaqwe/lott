@@ -557,47 +557,61 @@ $(function () {
         //[{"money":3,"orders":1,"gameName":"ry3","unitPrice":"3","codes":[{"pos":0,"code":"579"}]}]
         for (let i = 0; i < amount; i++) {
             var codes = []
+            var sCode = ''
+            var pos = ''
             var completeCodes = []
             switch (bet) {
                 case 1:
-                    codes.push({pos: 0, code: randomNumsStr(10,3, true)})
-                    completeCodes.push({pos: 0, code: randomNumsStr(10,3, true)})
+                    sCode = randomNumsStr(10, 3, true)
+                    for (let j = 0; j < sCode.length; j++) {
+                        codes.push({pos:0,code:sCode[j]})
+                        completeCodes.push({pos:0,code:sCode[j]})
+                    }
                     break
                 case 2:
-                    codes.push({pos: 0, code: randomNumsStr(10,2, true)})
-                    completeCodes.push({pos: 0, code: randomNumsStr(10,2, true)})
+                    sCode = randomNumsStr(10, 2, true)
+                    for (let j = 0; j < sCode.length; j++) {
+                        codes.push({pos:0,code:sCode[j]})
+                        completeCodes.push({pos:0,code:sCode[j]})
+                    }
                     break
                 case 3:
-                    codes.push({pos: randomNumsStr(5,1, true), code: randomNumsStr(4,1, true)})
-                    completeCodes.push({pos: randomNumsStr(5,1, true), code: randomNumsStr(4,1, true)})
+                    pos = randomNumsStr(5, 1, true)
+                    sCode = randomNumsStr(4, 1, true)
+                    codes.push({pos: pos[0], code: sCode[0]})
+                    completeCodes.push({pos: pos[0], code: sCode[0]})
                     break
                 case 4:
-                    codes.push({pos: 0, code: randomNumsStr(11,1, true)})
-                    completeCodes.push({pos: 0, code: randomNumsStr(11,1, true)})
+                    sCode = randomNumsStr(11, 1, true)
+                    codes.push({pos: 0, code: sCode[0]})
+                    completeCodes.push({pos: 0, code: sCode[0]})
                     break
                 case 5:
                     for (let k = 0; k < 5; k++) {
-                        codes.push({pos: k, code: randomNumsStr(10,1)})
-                        completeCodes.push({pos: k, code: randomNumsStr(10,1)})
+                        var temp = randomNumsStr(10, 1)
+                        codes.push({pos: k, code: temp[0]})
+                        completeCodes.push({pos: k, code: temp[0]})
                     }
                     break
                 case 6:
                     for (let k = 0; k < 3; k++) {
-                        codes.push({pos: k, code: randomNumsStr(10,1)})
-                        completeCodes.push({pos: k, code: randomNumsStr(10,1)})
+                        var temp = randomNumsStr(10, 1)
+                        codes.push({pos: k, code: temp[0]})
+                        completeCodes.push({pos: k, code: temp[0]})
                     }
                     break
                 case 7:
                     for (let k = 0; k < 2; k++) {
-                        codes.push({pos: k, code: randomNumsStr(10,1)})
-                        completeCodes.push({pos: k, code: randomNumsStr(10,1)})
+                        var temp = randomNumsStr(10, 1)
+                        codes.push({pos: k, code: temp[0]})
+                        completeCodes.push({pos: k, code: temp[0]})
                     }
                     break
                 case 8:
-                    var pos= randomNumsStr(5,1, true)
-                    var code=randomNumsStr(10,1, true)
-                    codes.push({pos: pos, code: code})
-                    completeCodes.push({pos: pos, code: code})
+                    pos = randomNumsStr(5, 1, true)
+                    sCode = randomNumsStr(10, 1, true)
+                    codes.push({pos: pos[0], code: sCode[0]})
+                    completeCodes.push({pos: pos[0], code: sCode[0]})
                     break
             }
 

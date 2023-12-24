@@ -41,6 +41,7 @@ $(function () {
             data: {game:"xy28,ny28,jnd28,qxc,pl5,lhc,twk3,jslhc,jsssc,pk10,fc3d"},
             crossDomain: true,
             success: function (result) {
+                $(".zytips").css("display", "none")
                 if (result.code === 0) {
                     for (let i = 0; i <tabsCode.length ; i++) {
                         let obj=result.datas[tabsCode[i]]

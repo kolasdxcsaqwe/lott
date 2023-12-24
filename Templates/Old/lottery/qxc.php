@@ -431,16 +431,16 @@ function is_weixin()
         'headimg': "<?php echo $_SESSION['headimg'] ?>",
         'userid': "<?php echo $_SESSION['userid'] ?>",
         'roomid': "<?php echo $_SESSION['roomid'] ?>",
-        'minbet': "<?php echo $info20['minbet'] ?>",
-        'maxbet': "<?php echo $info20['maxbet'] ?>",
-        'anytwo': "<?php echo $info20['anytwo'] ?>",
-        'anythree': "<?php echo $info20['anythree'] ?>",
-        'fourfix': "<?php echo $info20['fourfix'] ?>",
-        'threefix': "<?php echo $info20['threefix'] ?>",
-        'twofix': "<?php echo $info20['twofix'] ?>",
-        'onefix': "<?php echo $info20['onefix'] ?>",
-        'touweifix': "<?php echo $info20['touweifix'] ?>",
-        'dxds': "<?php echo $info20['dxds'] ?>",
+        'minbet': "<?php echo $info['minbet'] ?>",
+        'maxbet': "<?php echo $info['maxbet'] ?>",
+        'anytwo': "<?php echo $info['anytwo'] ?>",
+        'anythree': "<?php echo $info['anythree'] ?>",
+        'fourfix': "<?php echo $info['fourfix'] ?>",
+        'threefix': "<?php echo $info['threefix'] ?>",
+        'twofix': "<?php echo $info['twofix'] ?>",
+        'onefix': "<?php echo $info['onefix'] ?>",
+        'touweifix': "<?php echo $info['touweifix'] ?>",
+        'dxds': "<?php echo $info['dxds'] ?>",
         'game': "<?php echo $_COOKIE['game'];
             ?>"
     };
@@ -520,9 +520,9 @@ function is_weixin()
 
 </script>
 <!-- New Templates Update -->
-<script type="text/javascript" src="/Style/Old/js/NewTools.js?t=s2d"></script>
-<script type="text/javascript" src="/Style/Old/js/NewChat.js?t=233"></script>
-<script type="text/javascript" src="/Style/Old/js/qxc.js?t=222w"></script>
+<script type="text/javascript" src="/Style/Old/js/NewTools.js?t=asd"></script>
+<script type="text/javascript" src="/Style/Old/js/NewChat.js?t=sda"></script>
+<script type="text/javascript" src="/Style/Old/js/qxc.js?t=2s3"></script>
 <!-- ./New Templates Update -->
 
 <iframe onload="iFrameHeight2();" src="/Templates/Old/shipin.php" name="ifarms" width="980" height="680"
