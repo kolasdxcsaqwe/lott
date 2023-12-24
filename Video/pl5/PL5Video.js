@@ -1,5 +1,5 @@
 $(function () {
-    initQXC();
+    initPL5();
 
 })
 

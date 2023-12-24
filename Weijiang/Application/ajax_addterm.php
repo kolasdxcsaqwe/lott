@@ -62,6 +62,30 @@ if($type == '4'){
     }
 }
 
+if($type == '20'){
+    if($changdu != 4)
+    {
+        echo json_encode(array('status'=>false,'msg' => '预设号码有误，注意格式！'));
+        exit;
+    }
+}
+
+if($type == '21'){
+    if($changdu != 3)
+    {
+        echo json_encode(array('status'=>false,'msg' => '预设号码有误，注意格式！'));
+        exit;
+    }
+}
+
+if($type == '22'){
+    if($changdu != 5)
+    {
+        echo json_encode(array('status'=>false,'msg' => '预设号码有误，注意格式！'));
+        exit;
+    }
+}
+
 if($type == '19'){
     if($changdu != 3)
     {
