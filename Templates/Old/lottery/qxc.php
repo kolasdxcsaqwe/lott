@@ -30,8 +30,8 @@ function is_weixin()
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/weui.min.css"/>
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/style.css?t=sajiwq9iu3"/>
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/bootstrap.new.css"/>
-    <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/NewLottery.css?t=2223"/>
-    <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/layout.css"/>
+    <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/NewLottery.css?t=22223"/>
+    <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/layout.css?t=34"/>
     <link rel="Stylesheet" type="text/css" href="Style/Xs/static/css/iconfont.css"/>
     <script src="Style/Old/js/jquery.min.js"></script>
     <script type="text/javascript">
@@ -882,7 +882,7 @@ function is_weixin()
     </div>
 </div-->
 <div id="ss_menu" style="">
-    <div class="ss_nav">
+    <div class="ss_nav tabs">
         <ul class="lottery">
 
         </ul>

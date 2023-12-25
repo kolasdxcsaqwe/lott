@@ -21,7 +21,7 @@ if ($_SESSION['userid'] != null) {
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <title><?php echo $sitename ?></title>
     <link rel="stylesheet" type="text/css" href="/default/css/sytle.css?v=a2ssdd"/>
-    <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/layout.css?t=asd"/>
+    <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/layout.css?t=3"/>
     <script type="text/javascript" src="/default/js/jquery-1.8.2.min.js"></script>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript">

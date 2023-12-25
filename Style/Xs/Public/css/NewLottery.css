@@ -529,8 +529,8 @@ a {
 
 .tsf {
     float: left;
-    min-width: 40%;
-    max-width: 70%;
+    min-width: 70%;
+    max-width: 80%;
     width: auto;
 }
 
