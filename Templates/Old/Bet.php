@@ -5,50 +5,45 @@ $game = $_COOKIE['game'];
 
 function getGameNameCN($str)
 {
-    $json=json_decode($str);
+    $json = json_decode($str);
     return $json->gameNameCn;
 }
 
 function formatTime($str)
 {
-    $time=strtotime($str);
-    $front=date("Y-m-d", $time);
-    $end=date("H:i:s", $time);
-   return $front."<br>".$end;
+    $time = strtotime($str);
+    $front = date("Y-m-d", $time);
+    $end = date("H:i:s", $time);
+    return $front . "<br>" . $end;
 }
 
 function formatJsonContent($str)
 {
-    $json=json_decode($str);
-    $titles=array('万位','千位','十位','个位');
-    $dxdsTitles=array('大','小','单','双');
-    $result="";
-    $arrayCodes=$json->codes;
-    if(sizeof($arrayCodes)==1)
-    {
+    $json = json_decode($str);
+    $titles = array('万位', '千位', '十位', '个位');
+    $dxdsTitles = array('大', '小', '单', '双');
+    $result = "";
+    $arrayCodes = $json->codes;
+    if (sizeof($arrayCodes) == 1) {
         return $arrayCodes[0]->code;
     }
 
-    $gameName=$json->gameName;
+    $gameName = $json->gameName;
 
-    for ($i = 0; $i < sizeof($arrayCodes) ; $i++) {
-        $code=$arrayCodes[$i]->code;
-        $title=$titles[$arrayCodes[$i]->pos];
-        if($code!=null && strlen($code)>0)
-        {
-            $result=$result.$title.":";
-            $codeArray=explode(',',$code);
+    for ($i = 0; $i < sizeof($arrayCodes); $i++) {
+        $code = $arrayCodes[$i]->code;
+        $title = $titles[$arrayCodes[$i]->pos];
+        if ($code != null && strlen($code) > 0) {
+            $result = $result . $title . ":";
+            $codeArray = explode(',', $code);
 
             for ($j = 0; $j < count($codeArray); $j++) {
-                if($gameName!=null && $gameName=='dxds')
-                {
-                    $result=$result.$dxdsTitles[$codeArray[$j]];
+                if ($gameName != null && $gameName == 'dxds') {
+                    $result = $result . $dxdsTitles[$codeArray[$j]];
+                } else {
+                    $result = $result . $codeArray[$j] . "<br>";
                 }
-                else
-                {
-                    $result=$result.$codeArray[$j]."<br>";
-                }
-                $result=$result."<br>";
+                $result = $result . "<br>";
             }
         }
 
@@ -56,6 +51,7 @@ function formatJsonContent($str)
     }
     return $result;
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -85,9 +81,8 @@ function formatJsonContent($str)
         <div class="panel-body">
             <table class="table table-striped table-bordered " style="text-align:center;">
 
-
                 <?php
-                if ($game == 'pl5') {
+                if ($game == 'qxc' || $game == 'pl5' || $game == 'fc3d') {
                     ?>
                     <thead>
                     <tr>
@@ -101,7 +96,19 @@ function formatJsonContent($str)
                     </thead>
                     <tbody>
                     <?php
-                    select_query('fn_pl5order', '*', "`userid` = '{$_SESSION['userid']}' and status = 0 and roomid = '{$_SESSION['roomid']}' and `gamename` = '{$game}'");
+                    $table = "";
+                    switch ($game) {
+                        case  'qxc':
+                            $table = 'fn_qxcorder';
+                            break;
+                        case  'pl5':
+                            $table = 'fn_pl5order';
+                            break;
+                        case  'fc3d':
+                            $table = 'fn_fc3dorder';
+                            break;
+                    }
+                    select_query($table, '*', "`userid` = '{$_SESSION['userid']}' and status = 0 and roomid = '{$_SESSION['roomid']}' and `gamename` = '{$game}'");
                     while ($con = db_fetch_array()) {
                         $cons[] = $con;
                         ?>
@@ -127,7 +134,7 @@ function formatJsonContent($str)
                     <script>
                         function delBet(id) {
                             $.ajax({
-                                url: getJavaBaseUrl()+'/qxc/cancelOrder',
+                                url: getJavaBaseUrl() + '/qxc/cancelOrder',
                                 type: 'post',
                                 data: {id: id},
                                 dataType: 'json',
@@ -143,127 +150,7 @@ function formatJsonContent($str)
                         }
                     </script>
                     </tbody>
-                <?php }?>
-
-
-                <?php
-                if ($game == 'pl5') {
-                    ?>
-                    <thead>
-                    <tr>
-                        <th>期号</th>
-                        <th>内容</th>
-                        <th>金额</th>
-                        <th>投注方式</th>
-                        <th>投注时间</th>
-                        <th>操作</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php
-                    select_query('fn_pl5order', '*', "`userid` = '{$_SESSION['userid']}' and status = 0 and roomid = '{$_SESSION['roomid']}' and `gamename` = '{$game}'");
-                    while ($con = db_fetch_array()) {
-                        $cons[] = $con;
-                        ?>
-                        <tr>
-                            <td><?php echo $con['term'];
-                                ?></td>
-                            <td><?php echo formatJsonContent($con['content']);
-                                ?></td>
-                            <td><?php echo $con['money'];
-                                ?></td>
-                            <td><?php echo getGameNameCN($con['content']);
-                                ?></td>
-                            <td><?php echo formatTime($con['addtime']);
-                                ?></td>
-                            <td><a href="javascript:delBet(<?php echo $con['id'];
-                                ?>);" class="btn btn-danger">撤单</a></td>
-                        </tr>
-                    <?php }
-                    if (count($cons) == 0) {
-                        echo '<tr><td colspan="6">没有未结算订单</td></tr>';
-                    }
-                    ?>
-                    <script>
-                        function delBet(id) {
-                            $.ajax({
-                                url: getJavaBaseUrl()+'/pl5/cancelOrder',
-                                type: 'post',
-                                data: {id: id},
-                                dataType: 'json',
-                                success: function (data) {
-                                    if (data.success) {
-                                        alert('撤单成功！');
-                                        window.location.reload();
-                                    } else {
-                                        alert(data.msg);
-                                    }
-                                }
-                            });
-                        }
-                    </script>
-                    </tbody>
-                <?php }?>
-
-
-                <?php
-                if ($game == 'qxc') {
-                ?>
-                <thead>
-                <tr>
-                    <th>期号</th>
-                    <th>内容</th>
-                    <th>金额</th>
-                    <th>投注方式</th>
-                    <th>投注时间</th>
-                    <th>操作</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php
-                select_query('fn_qxcorder', '*', "`userid` = '{$_SESSION['userid']}' and status = 0 and roomid = '{$_SESSION['roomid']}' and `gamename` = '{$game}'");
-                while ($con = db_fetch_array()) {
-                    $cons[] = $con;
-                    ?>
-                    <tr>
-                        <td><?php echo $con['term'];
-                            ?></td>
-                        <td><?php echo formatJsonContent($con['content']);
-                            ?></td>
-                        <td><?php echo $con['money'];
-                            ?></td>
-                        <td><?php echo getGameNameCN($con['content']);
-                            ?></td>
-                        <td><?php echo formatTime($con['addtime']);
-                            ?></td>
-                        <td><a href="javascript:delBet(<?php echo $con['id'];
-                            ?>);" class="btn btn-danger">撤单</a></td>
-                    </tr>
-                <?php }
-                if (count($cons) == 0) {
-                    echo '<tr><td colspan="6">没有未结算订单</td></tr>';
-                }
-                ?>
-                <script>
-                    function delBet(id) {
-                        $.ajax({
-                            url: getJavaBaseUrl()+'/qxc/cancelOrder',
-                            type: 'post',
-                            data: {id: id},
-                            dataType: 'json',
-                            success: function (data) {
-                                if (data.success) {
-                                    alert('撤单成功！');
-                                    window.location.reload();
-                                } else {
-                                    alert(data.msg);
-                                }
-                            }
-                        });
-                    }
-                </script>
-                </tbody>
-                <?php }?>
+                <?php } ?>
 
 
 
@@ -315,7 +202,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
-                                    window.location.reload();
+                                        window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -369,7 +256,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
-                                    window.location.reload();
+                                        window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -419,7 +306,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
-                                    window.location.reload();
+                                        window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -470,7 +357,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
-                                    window.location.reload();
+                                        window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -527,7 +414,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
-                                    window.location.reload();
+                                        window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -583,7 +470,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
-                                    window.location.reload();
+                                        window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -639,7 +526,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
-                                    window.location.reload();
+                                        window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -695,7 +582,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
-                                    window.location.reload();
+                                        window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -751,7 +638,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
-                                    window.location.reload();
+                                        window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -807,7 +694,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
-                                    window.location.reload();
+                                        window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -863,7 +750,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
-                                    window.location.reload();
+                                        window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -919,7 +806,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
-                                    window.location.reload();
+                                        window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -979,7 +866,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
-                                    window.location.reload();
+                                        window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -1039,7 +926,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
-                                    window.location.reload();
+                                        window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -1099,7 +986,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
-                                    window.location.reload();
+                                        window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -1159,7 +1046,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
-                                    window.location.reload();
+                                        window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -1219,7 +1106,7 @@ function formatJsonContent($str)
                                 success: function (data) {
                                     if (data.success) {
                                         alert('撤单成功！');
-                                    window.location.reload();
+                                        window.location.reload();
                                     } else {
                                         alert(data.msg);
                                     }
@@ -1259,7 +1146,8 @@ function formatJsonContent($str)
                    data-page-list="[15, 30, 50, 100, All]" data-search="true" data-toggle="table"
                    class="table table-striped table-bordered " style="text-align:center;">
 
-                <?php if ($game == 'qxc'){
+                <!--七星彩 排列5 福彩3d-->
+                <?php if ($game == 'qxc' || $game == 'pl5' || $game == 'fc3d') {
                 ?>
                 <thead>
                 <tr>
@@ -1273,7 +1161,19 @@ function formatJsonContent($str)
                 </thead>
                 <tbody>
                 <?php
-                select_query('fn_qxcorder', '*', "`roomid` = '{$_SESSION['roomid']}' and `gamename` = '{$game}' and `userid` = '{$_SESSION['userid']}' and `status` > 0 and `addtime` like '" . date('Y-m-d') . "%'");
+                $table = "";
+                switch ($game) {
+                    case  'qxc':
+                        $table = 'fn_qxcorder';
+                        break;
+                    case  'pl5':
+                        $table = 'fn_pl5order';
+                        break;
+                    case  'fc3d':
+                        $table = 'fn_fc3dorder';
+                        break;
+                }
+                select_query($table, '*', "`roomid` = '{$_SESSION['roomid']}' and `gamename` = '{$game}' and `userid` = '{$_SESSION['userid']}' and `status` > 0 and `addtime` like '" . date('Y-m-d') . "%'");
                 $all_m = 0;
                 $all_z = 0;
                 while ($con = db_fetch_array()) {
@@ -1327,10 +1227,11 @@ function formatJsonContent($str)
                 </tr>
                 </tbody>
             </table>
-            <?php }?>
+            <?php } ?>
 
 
-                <?php if ($game == 'xy28' || $game == 'jnd28' || $game == 'ny28'){
+            <!--xy28  jnd28 ny28-->
+            <?php if ($game == 'xy28' || $game == 'jnd28' || $game == 'ny28') {
                 ?>
                 <thead>
                 <tr>
@@ -1378,25 +1279,25 @@ function formatJsonContent($str)
                 }
                 ?>
                 </tbody>
-            </table>
+                </table>
 
-            <table class="table table-striped table-bordered">
-                <thead>
-                <tr>
-                    <th>今日流水</th>
-                    <th>今日盈亏(玩家)</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td><?php echo $all_m;
-                        ?></td>
-                    <td><?php $a = '-' . $all_m;
-                        echo (int)$a + $all_z;
-                        ?></td>
-                </tr>
-                </tbody>
-            </table>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                        <th>今日流水</th>
+                        <th>今日盈亏(玩家)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><?php echo $all_m;
+                            ?></td>
+                        <td><?php $a = '-' . $all_m;
+                            echo (int)$a + $all_z;
+                            ?></td>
+                    </tr>
+                    </tbody>
+                </table>
             <?php } elseif ($game == 'lhc') { ?>
                 <thead>
                 <tr>
@@ -1464,7 +1365,7 @@ function formatJsonContent($str)
                     </tbody>
                 </table>
 
-            <?
+                <?
             } elseif ($game == 'jslhc') { ?>
                 <thead>
                 <tr>
@@ -1533,7 +1434,7 @@ function formatJsonContent($str)
                     </tr>
                     </tbody>
                 </table>
-            <?
+                <?
             } elseif ($game == 'jssc') {
                 ?>
                 <thead>

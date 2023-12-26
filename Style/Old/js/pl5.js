@@ -18,71 +18,6 @@ $(function () {
     var gameCodes = ['ry3', 'ry2', 'dxds', 'dn', 'd5', 'd3', 'd2', 'd1']
     var gameTitles = ['任选3', '任选2', '大小单双', '斗牛', '前5定位', '前3定位', '前2定位', '定位胆']
 
-    var tabsCode = ["xy28", "ny28", "jnd28", "qxc", "pl5", "lhc", "twk3", "jslhc", "jsssc", "pk10", "fc3d"]
-    var logoPath = {
-        xy28: '/Style/Home/images/xy28-logo.png',
-        ny28: '/Style/Home/images/ny28-logo.png',
-        jnd28: '/Style/Home/images/jnd28-logo.png',
-        qxc: '/Style/Home/images/qxc-logo.png',
-        pl5: '/Style/Home/images/pl5-logo.png',
-        lhc: '/Style/Home/images/lhc-logo.png',
-        twk3: '/Style/Home/images/twk3-logo.png',
-        jslhc: '/Style/Home/images/jslhc-logo.png',
-        jsssc: '/Style/Home/images/jsssc-logo.png',
-        fc3d: '/Style/Home/images/fc3d-logo.png',
-        pk10: '/Style/Home/images/pk10-logo.png'
-    }
-
-    makeTabs();
-
-    // for (var i = 1; i <= 9; i++) {
-    //     if (!in_array(i, tz_types)) {
-    //         a = $('.menu').find("a[data-t='" + i + "']");
-    //         a.parent().is("li") ? a.parent().remove() : a.remove();
-    //         $('.game-type-' + i).remove();
-    //     }
-    // }
-
-    function makeTabs() {
-        $.ajax({
-            type: "POST",
-            dataType: "json",
-            url: baseUrl + "/getALlLotteryStatus",//url
-            data: {game: "xy28,ny28,jnd28,qxc,pl5,lhc,twk3,jslhc,jsssc,pk10,fc3d"},
-            crossDomain: true,
-            success: function (result) {
-                $(".zytips").css("display", "none")
-                if (result.code === 0) {
-                    for (let i = 0; i < tabsCode.length; i++) {
-                        let obj = result.datas[tabsCode[i]]
-                        if (obj !== undefined && obj.status > 0) {
-                            addTab(tabsCode[i], obj.title, logoPath[tabsCode[i]])
-                        }
-                    }
-
-                } else {
-                    zy.tips(result.msg);
-                }
-            },
-            error: function () {
-            },
-            complete: function (a, b) {
-                $("#loadingDiv").hide()
-            }
-        });
-    }
-
-    function addTab(gameName, title, logo) {
-        var item = "<li> <a href='/qr.php?room=%roomId&amp;g=%gameName'>" +
-            "<img src='%logo' title='%title'> " +
-            "<font>%title</font></a> </li>"
-        item = item.replace("%gameName", gameName)
-        item = item.replaceAll("%title", title)
-        item = item.replace("%logo", logo)
-        item = item.replace("%roomId", info.roomid)
-        $("#ss_menu ul").append(item)
-    }
-
     var dialogCountDown = function () {
         orderListDialogRemainTime--
         if (orderListDialogRemainTime < 1) {
@@ -106,6 +41,7 @@ $(function () {
     })
 
     $('#orderDialog').on("show.bs.modal", function () {
+        $("#orderDialogTitle").text("玩法 : "+gameTitles[bet-1])
         fetchCountDownAndMoney()
         $(".timeBalance .betLimit").unbind('click')
         $(".timeBalance .betLimit").click(function (e) {
@@ -207,7 +143,7 @@ $(function () {
                 break;
         }
 
-        isAva = isAva && setOrderCount(bline.length, bet)
+        isAva = isAva && isBetAvailable(bline.length, bet)
         setBtnIsAvailable(isAva)
         if (!isAva) {
             return
@@ -230,7 +166,7 @@ $(function () {
 
     }
 
-    function setOrderCount(count, index) {
+    function isBetAvailable(count, index) {
         var isAvailable = true
         switch (index) {
             case 1:
@@ -239,10 +175,14 @@ $(function () {
             case 2:
                 isAvailable = count > 1;
                 break;
-            case 3:
-            case 4:
-            case 8:
-                isAvailable = count > 0;
+            case 5:
+                isAvailable = count > 4;
+                break;
+            case 6:
+                isAvailable = count > 2;
+                break;
+            case 7:
+                isAvailable = count > 1;
                 break;
             default:
                 isAvailable = count > 0;
@@ -582,7 +522,7 @@ $(function () {
                     completeCodes.push({pos: pos[0], code: sCode[0]})
                     break
                 case 4:
-                    sCode = randomNumsStr(11, 1, true)
+                    sCode = randomNums(11, 1)
                     codes.push({pos: 0, code: sCode[0]})
                     completeCodes.push({pos: 0, code: sCode[0]})
                     break
@@ -698,12 +638,28 @@ $(function () {
 
     $(".confirm-pour").click(function () {
         if (!$(this).hasClass("on")) return;
+
+        let num=$("#orderPrice").val()
+        if(num.length<1 || parseInt(num)<minBet)
+        {
+            zy.tips('单注下注金额最少'+minBet+"元");
+            return;
+        }
+
         // $("#touzhu").addClass("on"), location.href = "#confirm"
         betNow()
     });
 
     $(".addOrder").click(function () {
         if (!$(this).hasClass("on")) return;
+
+        let num=$("#orderPrice").val()
+        if(num.length<1 || parseInt(num)<minBet)
+        {
+            zy.tips('单注下注金额最少'+minBet+"元");
+            return;
+        }
+
         // $("#touzhu").addClass("on"), location.href = "#confirm"
         addNewOrder(makeOrderData())
         clearSelectButtons()
@@ -815,14 +771,22 @@ $(function () {
 
         var codes = ""
         let list = orderData[0].completeCodes
-        let titleSuffix = ["万位", "千位", "百位", "十位", "个位"]
+        let lines=[1,1,5,1,5,3,2,5];
+        let titleSuffix = ["万位：", "千位：", "百位：", "十位：", "个位："]
         for (let i = 0; i < list.length; i++) {
-            if (list.length > 1) {
+            if (lines[bet-1] > 1) {
                 if (list[i].code.length > 0) {
                     codes = codes + titleSuffix[list[i].pos] + list[i].code + "|"
                 }
             } else {
-                codes = codes + list[i].code + "|"
+                if(orderData[0].gameName ==='dn')
+                {
+                    codes = codes + douNiuTitles[parseInt(list[i].code)] + "|"
+                }
+                else
+                {
+                    codes = codes + list[i].code + "|"
+                }
             }
 
         }
@@ -945,14 +909,21 @@ $(function () {
             zy.tips('请先下注')
             return
         }
-        $("#loadingDiv").show()
+
         let array = []
         var values = orderCacheArray.values()
         for (let i = 0; i < orderCacheArray.size; i++) {
-            var val = values.next().value
+            const val = values.next().value;
+            if(val.unitPrice.length<1 || parseInt(val.unitPrice)<minBet)
+            {
+                zy.tips('单注下注金额最少'+minBet+"元");
+                return;
+            }
             delete val.completeCodes
             array.push(val)
         }
+
+        $("#loadingDiv").show()
         var postData = {game: info.game, userId: info.userid, roomId: info.roomid, betArray: JSON.stringify(array)}
 
         $.ajax({
@@ -966,6 +937,7 @@ $(function () {
                     $("#delAllOrders").click()
                     clearSelectButtons();
                     show_bet()
+                    $("#syncAllBal").val("")
                     zy.tips('投注已发送!');
                     fetchCountDownAndMoney();
                 } else {

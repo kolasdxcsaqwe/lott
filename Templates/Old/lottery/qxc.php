@@ -522,7 +522,8 @@ function is_weixin()
 <!-- New Templates Update -->
 <script type="text/javascript" src="/Style/Old/js/NewTools.js?t=asd"></script>
 <script type="text/javascript" src="/Style/Old/js/NewChat.js?t=sda"></script>
-<script type="text/javascript" src="/Style/Old/js/qxc.js?t=2s3"></script>
+<script type="text/javascript" src="/Style/Old/js/qxc.js?t=2s333"></script>
+<script type="text/javascript" src="/Style/Old/js/LotteryTabs.js?t=d2s2s3f"></script>
 <!-- ./New Templates Update -->
 
 <iframe onload="iFrameHeight2();" src="/Templates/Old/shipin.php" name="ifarms" width="980" height="680"
@@ -557,7 +558,7 @@ function is_weixin()
         <div style="display: block;text-align:center;width:100%;height:7%;position:absolute; background-color: #f43530;
         border-top-left-radius: 10px;border-top-right-radius: 10px">
             <div style="text-align: center;position: relative">
-                <span style="color: white;font-size: 38px;display: block;transform: translate(-0%, 35%)">注单编辑</span>
+                <span id="orderDialogTitle" style="color: white;font-size: 38px;display: block;transform: translate(-0%, 35%)">注单编辑</span>
             </div>
         </div>
         <div class="closeDialog">
@@ -743,7 +744,7 @@ function is_weixin()
                 <li class="uname">昵称:<?php echo $_SESSION['username']; ?></li>
                 <!--li class="id">ID:<b class="id"><?php echo get_query_val('fn_user', 'id', array('userid' => $_SESSION['userid'], 'roomid' => $_SESSION['roomid'])); ?></b></li-->
                 <li class="money">余额: <b class="balance">0</b></li>
-                <li class="oline">在线: <b class="online">0</b>人</li>
+<!--                <li class="oline">在线: <b class="online">0</b>人</li>-->
             </ul>
         </div>
 

@@ -339,6 +339,8 @@ function is_weixin()
 <script type="text/javascript" src="/Style/Old/js/tools.js?t=47984jf"></script>
 <script type="text/javascript" src="/Style/Old/js/chat.js?t=kdf98"></script>
 <script type="text/javascript" src="/Style/Old/js/11x5.js?temp=122232323"></script>
+<script type="text/javascript" src="/Style/Old/js/LotteryTabs.js?t=d2s2s3f"></script>
+
 <!-- ./New Templates Update -->
 
 <iframe onload="iFrameHeight2();" src="/Templates/Old/shipin.php" name="ifarms" width="980" height="630"
@@ -905,7 +907,7 @@ function is_weixin()
   </div>
 </div-->
 <div id="ss_menu" style="">
-    <div class="ss_nav">
+    <div class="ss_nav tabs">
         <!--  <i class="iconfont close" data-id="#ss_menu"></i> -->
         <?php if ($sql['tubiao'] != 1) { ?>
             <ul class="lottery">

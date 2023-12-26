@@ -10,71 +10,11 @@ $(function () {
     var orderCacheArray=new Map()//注单列表数据
     var autoIncrease=0;//pos 计数
     var timeoutId=0
-    var tabsCode=["xy28","ny28","jnd28","qxc","pl5","lhc","twk3","jslhc","jsssc","pk10","fc3d"]
     var a, b, c, d, bet = 1, bet_n = 0, bline, bval;
     var secTitles = [[""], [""], ["千位", "百位", "十位", "个位"], ["千位", "百位", "十位", "个位"],
         ["千位", "百位", "十位"], ["千位", "百位"], ["千位", "百位", "十位", "个位"], ["千位", "x", "x", "个位"]];
     var gameCodes = ['ry3', 'ry2', 'dxds', 'd4', 'd3', 'd2', 'd1', 'tw']
     var gameTitles = ['任选3', '任选2', '大小单双', '前4定位', '前3定位', '前2定位', '定位胆', '头尾定位']
-
-    var logoPath={xy28:'/Style/Home/images/xy28-logo.png',
-        ny28:'/Style/Home/images/ny28-logo.png',
-        jnd28:'/Style/Home/images/jnd28-logo.png',
-        qxc:'/Style/Home/images/qxc-logo.png',
-        pl5:'/Style/Home/images/pl5-logo.png',
-        lhc:'/Style/Home/images/lhc-logo.png',
-        twk3:'/Style/Home/images/twk3-logo.png',
-        jslhc:'/Style/Home/images/jslhc-logo.png',
-        jsssc:'/Style/Home/images/jsssc-logo.png',
-        fc3d:'/Style/Home/images/fc3d-logo.png',
-        pk10:'/Style/Home/images/pk10-logo.png'
-    }
-
-
-    makeTabs();
-    function makeTabs()
-    {
-        $.ajax({
-            type: "POST",
-            dataType: "json",
-            url: baseUrl + "/getALlLotteryStatus",//url
-            data: {game:"xy28,ny28,jnd28,qxc,pl5,lhc,twk3,jslhc,jsssc,pk10,fc3d"},
-            crossDomain: true,
-            success: function (result) {
-                $(".zytips").css("display", "none")
-                if (result.code === 0) {
-                    for (let i = 0; i <tabsCode.length ; i++) {
-                        let obj=result.datas[tabsCode[i]]
-                        if(obj!==undefined && obj.status>0)
-                        {
-
-                            addTab(tabsCode[i],obj.title,logoPath[tabsCode[i]])
-                        }
-                    }
-
-                } else {
-                    zy.tips(result.msg);
-                }
-            },
-            error: function () {
-            },
-            complete: function (a, b) {
-                $("#loadingDiv").hide()
-            }
-        });
-    }
-
-    function addTab(gameName,title,logo)
-    {
-        var item="<li> <a href='/qr.php?room=%roomId&amp;g=%gameName'>" +
-            "<img src='%logo' title='%title'> " +
-            "<font>%title</font></a> </li>"
-        item=item.replace("%gameName",gameName)
-        item=item.replaceAll("%title",title)
-        item=item.replace("%logo",logo)
-        item=item.replace("%roomId",info.roomid)
-        $("#ss_menu ul").append(item)
-    }
 
     var dialogCountDown=function (){
         orderListDialogRemainTime--
@@ -100,6 +40,7 @@ $(function () {
     })
 
     $('#orderDialog').on("show.bs.modal", function () {
+        $("#orderDialogTitle").text("玩法 : "+gameTitles[bet-1])
         fetchCountDownAndMoney()
         $(".timeBalance .betLimit").unbind('click')
         $(".timeBalance .betLimit").click(function (e) {
@@ -194,7 +135,7 @@ $(function () {
                 break;
         }
 
-        isAva = isAva && setOrderCount(bline.length, bet)
+        isAva = isAva && isBetAvailable(bline.length, bet)
         setBtnIsAvailable(isAva)
         if (!isAva) {
             return
@@ -217,7 +158,7 @@ $(function () {
 
     }
 
-    function setOrderCount(count, index) {
+    function isBetAvailable(count, index) {
         var isAvailable = true
         switch (index) {
             case 1:
@@ -304,55 +245,30 @@ $(function () {
         return count
     }
 
-    //随机数组
-    function randomNums10(count) {
-        var nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-        var result = []
-        for (let i = 0; i < count; i++) {
-            let pos = Math.floor(Math.random() * nums.length)
-            result.push(nums[pos])
-            nums.splice(pos, 1)
+    function randomNumsStr(numAmount, count, notRepeat) {
+        var nums = [];
+        for (let i = 0; i < numAmount; i++) {
+            nums.push(i)
         }
-        return result
-    }
-
-    //随机数组 返回连接字符串
-    function randomNums10Str(count,notRepeat) {
-        var nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
         var result = ""
         for (let i = 0; i < count; i++) {
             let pos = Math.floor(Math.random() * nums.length)
-            result=result+nums[pos]+","
-            if(notRepeat)
-            {
+            result = result + nums[pos] + ","
+            if (notRepeat) {
                 nums.splice(pos, 1)
             }
 
         }
-        result=result.substring(0, result.length-1)
-        return result
-    }
-
-    //随机数组 返回连接字符串
-    function randomNums4Str(count,notRepeat) {
-        var nums = [0, 1, 2, 3]
-        var result = ""
-        for (let i = 0; i < count; i++) {
-            let pos = Math.floor(Math.random() * nums.length)
-            result=result+nums[pos]+","
-            if(notRepeat)
-            {
-                nums.splice(pos, 1)
-            }
-
-        }
-        result=result.substring(0, result.length-1)
+        result = result.substring(0, result.length - 1)
         return result
     }
 
     //随机数组
-    function randomNums4(count) {
-        var nums = [0, 1, 2, 3]
+    function randomNums(numAmount, count) {
+        var nums = [];
+        for (let i = 0; i < numAmount; i++) {
+            nums.push(i)
+        }
         var result = []
         for (let i = 0; i < count; i++) {
             let pos = Math.floor(Math.random() * nums.length)
@@ -516,43 +432,43 @@ $(function () {
             clearSelectButtons()
             switch (d.t) {
                 case 1:
-                    var nums = randomNums10(3)
+                    var nums = randomNums(10,3)
                     for (let i = 0; i < nums.length; i++) {
                         $('.game-type-' + d.t + " a.btn:eq(" + nums[i] + ")").click();
                     }
                     break
                 case 2:
-                    var nums = randomNums10(2)
+                    var nums = randomNums(10,2)
                     for (let i = 0; i < nums.length; i++) {
                         $('.game-type-' + d.t + " a.btn:eq(" + nums[i] + ")").click();
                     }
                     break
                 case 3:
-                    var v = randomNums4(1)
-                    var index = randomNums4(1)
+                    var v = randomNums(4,1)
+                    var index = randomNums(4,1)
                     $('.game-type-' + d.t + " .btn-box:eq(" + v[0] + ")").find(" a.btn:eq(" + index[0] + ")").click();
                     break
                 case 4:
                     for (let k = 0; k < 4; k++) {
-                        var nums = randomNums10(1)
+                        var nums = randomNums(10,1)
                         $('.game-type-' + d.t + " .btn-box:eq(" + k + ")").find(" a.btn:eq(" + nums[0] + ")").click();
                     }
                     break
                 case 5:
                     for (let k = 0; k < 3; k++) {
-                        var nums = randomNums10(1)
+                        var nums = randomNums(10,1)
                         $('.game-type-' + d.t + " .btn-box:eq(" + k + ")").find(" a.btn:eq(" + nums[0] + ")").click();
                     }
                     break
                 case 6:
                     for (let k = 0; k < 2; k++) {
-                        var nums = randomNums10(1)
+                        var nums = randomNums(10,1)
                         $('.game-type-' + d.t + " .btn-box:eq(" + k + ")").find(" a.btn:eq(" + nums[0] + ")").click();
                     }
                     break
                 case 7:
-                    var v = randomNums4(1)[0]
-                    var index = randomNums10(1)[0]
+                    var v = randomNums(4,1)[0]
+                    var index = randomNums(10,1)[0]
                     $('.game-type-' + d.t + " .btn-box:eq(" + v + ")").find(" a.btn:eq(" + index + ")").click();
                     break
                 case 8:
@@ -560,7 +476,7 @@ $(function () {
                         let title=secTitles[7][k]
                         if(title!=="x")
                         {
-                            var index = randomNums10(1)[0]
+                            var index = randomNums(10,1)[0]
                             $('.game-type-' + d.t + " .btn-box:eq(" + k + ")").find(" a.btn:eq(" + index + ")").click();
                         }
                     }
@@ -577,48 +493,63 @@ $(function () {
         for (let i = 0; i < amount; i++) {
             var codes=[]
             var completeCodes=[]
+            var sCode = ''
+            var pos = ''
+
             switch (bet) {
                 case 1:
-                    codes.push({pos:0,code:randomNums10Str(3,true)})
-                    completeCodes.push({pos:0,code:randomNums10Str(3,true)})
+                    sCode=randomNumsStr(10,3,true)
+                    codes.push({pos:0,code:sCode})
+                    completeCodes.push({pos:0,code:sCode})
                     break
                 case 2:
-                    codes.push({pos:0,code:randomNums10Str(2,true)})
-                    completeCodes.push({pos:0,code:randomNums10Str(2,true)})
+                    sCode=randomNumsStr(10,2,true)
+                    codes.push({pos:0,code:sCode})
+                    completeCodes.push({pos:0,code:sCode})
                     break
                 case 3:
-                    codes.push({pos:randomNums4Str(1,true),code:randomNums4Str(1,true)})
-                    completeCodes.push({pos:randomNums4Str(1,true),code:randomNums4Str(1,true)})
+                    pos=randomNumsStr(4,1,true)
+                    sCode=randomNumsStr(4,1,true)
+
+                    codes.push({pos:pos,code:sCode})
+                    completeCodes.push({pos:pos,code:sCode})
                     break
                 case 4:
                     for (let k = 0; k < 4; k++) {
-                        codes.push({pos:k,code:randomNums10Str(1)})
-                        completeCodes.push({pos:k,code:randomNums10Str(1)})
+                        sCode=randomNumsStr(10,1)
+                        codes.push({pos:k,code:sCode})
+                        completeCodes.push({pos:k,code:sCode})
                     }
                     break
                 case 5:
                     for (let k = 0; k < 3; k++) {
-                        codes.push({pos:k,code:randomNums10Str(1)})
-                        completeCodes.push({pos:k,code:randomNums10Str(1)})
+                        sCode=randomNumsStr(10,1)
+                        codes.push({pos:k,code:sCode})
+                        completeCodes.push({pos:k,code:sCode})
                     }
                     break
                 case 6:
                     for (let k = 0; k < 2; k++) {
-                        codes.push({pos:k,code:randomNums10Str(1)})
-                        completeCodes.push({pos:k,code:randomNums10Str(1)})
+                        sCode=randomNumsStr(10,1)
+                        codes.push({pos:k,code:sCode})
+                        completeCodes.push({pos:k,code:sCode})
                     }
                     break
                 case 7:
-                    codes.push({pos:randomNums4Str(1,true),code:randomNums10Str(1,true)})
-                    completeCodes.push({pos:randomNums4Str(1,true),code:randomNums10Str(1,true)})
+                    pos=randomNumsStr(4,1,true)
+                    sCode=randomNumsStr(10,1,true)
+
+                    codes.push({pos:pos,code:sCode})
+                    completeCodes.push({pos:pos,code:sCode})
                     break
                 case 8:
                     for (let k = 0; k < secTitles[7].length; k++) {
                         let title=secTitles[7][k]
                         if(title!=="x")
                         {
-                            codes.push({pos:k,code:randomNums10Str(1)})
-                            completeCodes.push({pos:k,code:randomNums10Str(1)})
+                            sCode=randomNumsStr(10,1)
+                            codes.push({pos:k,code:sCode})
+                            completeCodes.push({pos:k,code:sCode})
                         }
                     }
                     break
@@ -706,12 +637,27 @@ $(function () {
 
     $(".confirm-pour").click(function () {
         if (!$(this).hasClass("on")) return;
+
+        let num=$("#orderPrice").val()
+        if(num.length<1 || parseInt(num)<minBet)
+        {
+            zy.tips('单注下注金额最少'+minBet+"元");
+            return;
+        }
+
         // $("#touzhu").addClass("on"), location.href = "#confirm"
         betNow()
     });
 
     $(".addOrder").click(function () {
         if (!$(this).hasClass("on")) return;
+
+        let num=$("#orderPrice").val()
+        if(num.length<1 || parseInt(num)<minBet)
+        {
+            zy.tips('单注下注金额最少'+minBet+"元");
+            return;
+        }
         // $("#touzhu").addClass("on"), location.href = "#confirm"
         addNewOrder(makeOrderData())
         clearSelectButtons()
@@ -831,9 +777,10 @@ $(function () {
 
         var codes=""
         let list=orderData[0].completeCodes
+        let lines=[1,1,4,4,3,2,4,2];
         let titleSuffix=["千位：", "百位：", "十位：", "个位："]
         for (let i = 0; i < list.length; i++) {
-            if(list.length>1)
+            if(lines[bet-1]>1)
             {
                 if(list[i].code.length>0)
                 {
@@ -969,14 +916,21 @@ $(function () {
             zy.tips('请先下注')
             return
         }
-        $("#loadingDiv").show()
+
         let array=[]
         var values=orderCacheArray.values()
         for (let i = 0; i < orderCacheArray.size; i++) {
-            var val=values.next().value
+            const val = values.next().value;
+            if(val.unitPrice.length<1 || parseInt(val.unitPrice)<minBet)
+            {
+                zy.tips('单注下注金额最少'+minBet+"元");
+                return;
+            }
             delete val.completeCodes
             array.push(val)
         }
+
+        $("#loadingDiv").show()
         var postData = {game:info.game,userId: info.userid, roomId: info.roomid, betArray: JSON.stringify(array)}
 
         $.ajax({
@@ -990,6 +944,7 @@ $(function () {
                     $("#delAllOrders").click()
                     clearSelectButtons();
                     show_bet()
+                    $("#syncAllBal").val("")
                     zy.tips('投注已发送!');
                     fetchCountDownAndMoney();
                 } else {

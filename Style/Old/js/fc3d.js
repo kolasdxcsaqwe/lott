@@ -20,63 +20,6 @@ $(function () {
     var gameCodes = ['rx2', 'rx1', 'dxds', 'd3', 'd3z3', 'd3z6', 'd3z3sum', 'd3z6sum', 'd2f', 'd2b','d1']
     var gameTitles = ['任选2', '任选1', '大小单双', '3星直选', '3星组三', '3星组六', '3星组三和值', '3星组六和值', '2星前二直选', '2星后二直选','定位胆']
 
-    var tabsCode=["xy28","ny28","jnd28","qxc","pl5","lhc","twk3","jslhc","jsssc","pk10","fc3d"]
-    var logoPath={xy28:'/Style/Home/images/xy28-logo.png',
-        ny28:'/Style/Home/images/ny28-logo.png',
-        jnd28:'/Style/Home/images/jnd28-logo.png',
-        qxc:'/Style/Home/images/qxc-logo.png',
-        pl5:'/Style/Home/images/pl5-logo.png',
-        lhc:'/Style/Home/images/lhc-logo.png',
-        twk3:'/Style/Home/images/twk3-logo.png',
-        jslhc:'/Style/Home/images/jslhc-logo.png',
-        jsssc:'/Style/Home/images/jsssc-logo.png',
-        fc3d:'/Style/Home/images/fc3d-logo.png',
-        pk10:'/Style/Home/images/pk10-logo.png'
-    }
-
-    makeTabs();
-    function makeTabs()
-    {
-        $.ajax({
-            type: "POST",
-            dataType: "json",
-            url: baseUrl + "/getALlLotteryStatus",//url
-            data: {game:"xy28,ny28,jnd28,qxc,pl5,lhc,twk3,jslhc,jsssc,pk10,fc3d"},
-            crossDomain: true,
-            success: function (result) {
-                $(".zytips").css("display", "none")
-                if (result.code === 0) {
-                    for (let i = 0; i <tabsCode.length ; i++) {
-                        let obj=result.datas[tabsCode[i]]
-                        if(obj!==undefined && obj.status>0)
-                        {
-                            addTab(tabsCode[i],obj.title,logoPath[tabsCode[i]])
-                        }
-                    }
-
-                } else {
-                    zy.tips(result.msg);
-                }
-            },
-            error: function () {
-            },
-            complete: function (a, b) {
-                $("#loadingDiv").hide()
-            }
-        });
-    }
-
-    function addTab(gameName,title,logo)
-    {
-        var item="<li> <a href='/qr.php?room=%roomId&amp;g=%gameName'>" +
-            "<img src='%logo' title='%title'> " +
-            "<font>%title</font></a> </li>"
-        item=item.replace("%gameName",gameName)
-        item=item.replaceAll("%title",title)
-        item=item.replace("%logo",logo)
-        item=item.replace("%roomId",info.roomid)
-        $("#ss_menu ul").append(item)
-    }
 
     var dialogCountDown=function (){
         orderListDialogRemainTime--
@@ -102,6 +45,7 @@ $(function () {
     })
 
     $('#orderDialog').on("show.bs.modal", function () {
+        $("#orderDialogTitle").text("玩法 : "+gameTitles[bet-1])
         fetchCountDownAndMoney()
         $(".timeBalance .betLimit").unbind('click')
         $(".timeBalance .betLimit").click(function (e) {
@@ -172,7 +116,7 @@ $(function () {
 
         var isAva = true
         $(".game-type-" + bet + " .btn-box ").each(function () {
-            if ($(this).css("display")!=="none" && $(this).find(" a.on ").length < 1 && bet !== 3 && bet !== 7) {
+            if ($(this).css("display")!=="none" && $(this).find(" a.on ").length < 1 && bet!=11 && bet !== 3 && bet !== 7) {
                 //只要有一行没选中就不算
                 isAva = false
             }
@@ -218,6 +162,7 @@ $(function () {
                 break;
         }
 
+        isAva=isBetAvailable(bline.length,bet)
         setBtnIsAvailable(isAva)
         if (!isAva) {
             return
@@ -238,6 +183,26 @@ $(function () {
         $('.bet_total').html(bet_n * bet_money);
 
 
+    }
+
+    function isBetAvailable(count, index) {
+        var isAvailable = true
+        switch (index) {
+            case 1:
+                isAvailable = count > 1;
+                break;
+            case 4:
+                isAvailable = count > 2;
+                break
+            case 9:
+            case 10:
+                isAvailable = count > 1;
+                break;
+            default:
+                isAvailable = count > 0;
+        }
+
+        return isAvailable
     }
 
     function setBtnIsAvailable(isAvailable) {
@@ -595,15 +560,13 @@ $(function () {
             switch (bet) {
                 case 1:
                     sCode=randomNumsStr(10,2,true)
-                    for (let j = 0; j < sCode.length; j++) {
-                        codes.push({pos:0,code:sCode[j]})
-                        completeCodes.push({pos:0,code:sCode[j]})
-                    }
+                    codes.push({pos:0,code:sCode})
+                    completeCodes.push({pos:0,code:sCode})
                     break
                 case 2:
                     sCode=randomNumsStr(10,1,true)
-                    codes.push({pos:0,code:sCode[0]})
-                    completeCodes.push({pos:0,code:sCode[0]})
+                    codes.push({pos:0,code:sCode})
+                    completeCodes.push({pos:0,code:sCode})
                     break
                 case 3:
                     pos=randomNumsStr(3,1,true)
@@ -620,18 +583,13 @@ $(function () {
                     break
                 case 5:
                     sCode=randomNumsStr(10,2,true)
-                    for (let j = 0; j < sCode.length; j++) {
-                        codes.push({pos:0,code:sCode[j]})
-                        completeCodes.push({pos:0,code:sCode[j]})
-                    }
-
+                    codes.push({pos:0,code:sCode})
+                    completeCodes.push({pos:0,code:sCode})
                     break
                 case 6:
                     sCode=randomNumsStr(10,3,true)
-                    for (let j = 0; j < sCode.length; j++) {
-                        codes.push({pos:0,code:sCode[j]})
-                        completeCodes.push({pos:0,code:sCode[j]})
-                    }
+                    codes.push({pos:0,code:sCode})
+                    completeCodes.push({pos:0,code:sCode})
                     break
                 case 7:
                     var num=randomNums(26,1)[0]+1
@@ -749,6 +707,13 @@ $(function () {
 
     $(".confirm-pour").click(function () {
         if (!$(this).hasClass("on")) return;
+
+        let num=$("#orderPrice").val()
+        if(num.length<1 || parseInt(num)<minBet)
+        {
+            zy.tips('单注下注金额最少'+minBet+"元");
+            return;
+        }
         // $("#touzhu").addClass("on"), location.href = "#confirm"
         betNow()
     });
@@ -756,6 +721,13 @@ $(function () {
     $(".addOrder").click(function () {
         if (!$(this).hasClass("on")) return;
         // $("#touzhu").addClass("on"), location.href = "#confirm"
+
+        let num=$("#orderPrice").val()
+        if(num.length<1 || parseInt(num)<minBet)
+        {
+            zy.tips('单注下注金额最少'+minBet+"元");
+            return;
+        }
         addNewOrder(makeOrderData())
         clearSelectButtons()
         show_bet()
@@ -874,9 +846,10 @@ $(function () {
 
         var codes=""
         let list=orderData[0].completeCodes
+        let lines=[1,1,3,3,1,1,1,1,2,2,3];
         let titleSuffix=["百位：", "十位：", "个位："]
         for (let i = 0; i < list.length; i++) {
-            if(list.length>1)
+            if(lines[bet-1]>1)
             {
                 if(list[i].code.length>0)
                 {
@@ -1012,14 +985,22 @@ $(function () {
             zy.tips('请先下注')
             return
         }
-        $("#loadingDiv").show()
+
+
         let array=[]
         var values=orderCacheArray.values()
         for (let i = 0; i < orderCacheArray.size; i++) {
-            var val=values.next().value
+            const val = values.next().value;
+            if(val.unitPrice.length<1 || parseInt(val.unitPrice)<minBet)
+            {
+                zy.tips('单注下注金额最少'+minBet+"元");
+                return;
+            }
             delete val.completeCodes
             array.push(val)
         }
+
+        $("#loadingDiv").show()
         var postData = {game:info.game,userId: info.userid, roomId: info.roomid, betArray: JSON.stringify(array)}
 
         $.ajax({
@@ -1033,6 +1014,7 @@ $(function () {
                     $("#delAllOrders").click()
                     clearSelectButtons();
                     show_bet()
+                    $("#syncAllBal").val("")
                     zy.tips('投注已发送!');
                     fetchCountDownAndMoney();
                 } else {
