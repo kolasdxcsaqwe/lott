@@ -145,7 +145,6 @@ $(function () {
                 bet_n= bline.length * (bline.length - 1) * (bline.length - 2) / 6
                 break
             case 7:
-
                 for (let i = 0; i < bline.length; i++) {
                     bet_n=bet_n+zu3[bline[i]-1]
                 }
@@ -557,6 +556,8 @@ $(function () {
             var sCode=''
             var pos=''
             var completeCodes=[]
+            var orders=1
+
             switch (bet) {
                 case 1:
                     sCode=randomNumsStr(10,2,true)
@@ -592,13 +593,13 @@ $(function () {
                     completeCodes.push({pos:0,code:sCode})
                     break
                 case 7:
-                    var num=randomNums(26,1)+1
+                    var num=randomNums(26,1)[0]+1
                     sCode=''+num
                     codes.push({pos:0,code:sCode})
                     completeCodes.push({pos:0,code:sCode})
                     break
                 case 8:
-                    var num=randomNums(22,1)+3
+                    var num=randomNums(22,1)[0]+3
                     sCode=''+num
                     codes.push({pos:0,code:sCode})
                     completeCodes.push({pos:0,code:sCode})
@@ -625,11 +626,28 @@ $(function () {
                     break
             }
 
-            var data={money:parseInt(minBet),
+
+            switch (gameCodes[bet-1])
+            {
+                case 'd3z3':
+                    orders= 2
+                    break
+                case 'd3z6':
+                    orders= 1
+                    break
+                case 'd3z3sum':
+                    orders=zu3[parseInt(sCode)-1]
+                    break
+                case 'd3z6sum':
+                    orders=zu6[parseInt(sCode)-3]
+                    break
+            }
+
+            var data={money:parseInt(minBet)*orders,
                 gameNameCn:gameTitles[bet-1],
                 gameName:gameCodes[bet-1],
                 unitPrice:minBet,
-                orders:1,
+                orders:orders,
                 codes:codes,
                 completeCodes:completeCodes}
             var arrTemp=[]
