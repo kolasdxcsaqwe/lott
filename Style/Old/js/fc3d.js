@@ -571,14 +571,14 @@ $(function () {
                 case 3:
                     pos=randomNumsStr(3,1,true)
                     sCode=randomNumsStr(4,1,true)
-                    codes.push({pos:pos[0],code:sCode[0]})
-                    completeCodes.push({pos:pos[0],code:sCode[0]})
+                    codes.push({pos:pos,code:sCode})
+                    completeCodes.push({pos:pos,code:sCode})
                     break
                 case 4:
                     for (let k = 0; k < 3; k++) {
                         var temp=randomNumsStr(10,1,true)
-                        codes.push({pos:k,code:temp[0]})
-                        completeCodes.push({pos:k,code:temp[0]})
+                        codes.push({pos:k,code:temp})
+                        completeCodes.push({pos:k,code:temp})
                     }
                     break
                 case 5:
@@ -592,13 +592,13 @@ $(function () {
                     completeCodes.push({pos:0,code:sCode})
                     break
                 case 7:
-                    var num=randomNums(26,1)[0]+1
+                    var num=randomNums(26,1)+1
                     sCode=''+num
                     codes.push({pos:0,code:sCode})
                     completeCodes.push({pos:0,code:sCode})
                     break
                 case 8:
-                    var num=randomNums(22,1)[0]+3
+                    var num=randomNums(22,1)+3
                     sCode=''+num
                     codes.push({pos:0,code:sCode})
                     completeCodes.push({pos:0,code:sCode})
@@ -606,22 +606,22 @@ $(function () {
                 case 9:
                     for (let k = 0; k < 2; k++) {
                         var temp=randomNumsStr(10,1,true)
-                        codes.push({pos:k,code:temp[0]})
-                        completeCodes.push({pos:k,code:temp[0]})
+                        codes.push({pos:k,code:temp})
+                        completeCodes.push({pos:k,code:temp})
                     }
                     break
                 case 10:
                     for (let k = 1; k < 3; k++) {
                         var temp=randomNumsStr(10,1,true)
-                        codes.push({pos:k,code:temp[0]})
-                        completeCodes.push({pos:k,code:temp[0]})
+                        codes.push({pos:k,code:temp})
+                        completeCodes.push({pos:k,code:temp})
                     }
                     break
                 case 11:
                     pos=randomNumsStr(3,1,true)
                     sCode=randomNumsStr(10,1,true)
-                    codes.push({pos:pos[0],code:sCode[0]})
-                    completeCodes.push({pos:pos[0],code:sCode[0]})
+                    codes.push({pos:pos,code:sCode})
+                    completeCodes.push({pos:pos,code:sCode})
                     break
             }
 

@@ -2,6 +2,9 @@
 include_once(dirname(dirname(dirname(preg_replace('@\(.*\(.*$@', '', __FILE__)))) . "/Public/config.php");
 $game = $_COOKIE['game'];
 
+$dxdsTitles = array('大', '小', '单', '双');
+$douNiuTitles = array("无牛", "牛一", "牛二", "牛三", "牛四", "牛五", "牛六", "牛七", "牛八", "牛九", "牛牛");
+
 
 function getGameNameCN($str)
 {
@@ -17,16 +20,32 @@ function formatTime($str)
     return $front . "<br>" . $end;
 }
 
-function formatJsonContent($str)
+function formatJsonContent($str,$game)
 {
+    global $dxdsTitles,$douNiuTitles;
     $json = json_decode($str);
-    $titles = array('万位', '千位', '十位', '个位');
-    $dxdsTitles = array('大', '小', '单', '双');
+
+    $titles=null;
+    switch ($game)
+    {
+        case 'pl5':
+            $titles = array('万位','千位', '百位', '十位', '个位');
+            break;
+        case 'qxc':
+            $titles = array('千位', '百位', '十位', '个位');
+            break;
+        case 'fc3d':
+            $titles = array( '百位', '十位', '个位');
+            break;
+    }
+    if($titles==null)
+    {
+        return $str;
+    }
+
     $result = "";
     $arrayCodes = $json->codes;
-    if (sizeof($arrayCodes) == 1) {
-        return $arrayCodes[0]->code;
-    }
+    $lines=$json->lines;
 
     $gameName = $json->gameName;
 
@@ -34,19 +53,26 @@ function formatJsonContent($str)
         $code = $arrayCodes[$i]->code;
         $title = $titles[$arrayCodes[$i]->pos];
         if ($code != null && strlen($code) > 0) {
-            $result = $result . $title . ":";
+            if($lines!=null && $lines>1)
+            {
+                $result = $result . $title . ":";
+            }
             $codeArray = explode(',', $code);
 
             for ($j = 0; $j < count($codeArray); $j++) {
-                if ($gameName != null && $gameName == 'dxds') {
+                if ( $gameName == 'dxds') {
                     $result = $result . $dxdsTitles[$codeArray[$j]];
-                } else {
-                    $result = $result . $codeArray[$j] . "<br>";
                 }
-                $result = $result . "<br>";
+                elseif($gameName=='dn' && $game=='pl5')
+                {
+                    $result = $result . $douNiuTitles[$codeArray[$j]]." ";
+                }
+                else {
+                    $result = $result . $codeArray[$j];
+                }
             }
+            $result = $result . "<br>";
         }
-
 
     }
     return $result;
@@ -72,8 +98,37 @@ function formatJsonContent($str)
         font-weight: bold;
     }
 </style>
+<style>
+    .win {
+        color: green;
+        width: 10%;
+    }
+
+    .lose {
+        color: red;
+        width: 10%;
+    }
+
+    .che {
+        color: #428BCA;
+        font-weight: bold;
+        width: 10%;
+    }
+    .td20p{
+        width: 20%;
+        text-align: center;
+        vertical-align: middle;
+        padding: 10% 0;
+    }
+    .td10p{
+        width: 10%;
+        text-align: center;
+        padding: 10% 0;
+    }
+</style>
+
 <body>
-<div class="container" align="center">
+<div  align="center">
     <div class="panel panel-info">
         <div class="panel-heading">
             未结算投注
@@ -86,12 +141,12 @@ function formatJsonContent($str)
                     ?>
                     <thead>
                     <tr>
-                        <th>期号</th>
-                        <th>内容</th>
-                        <th>金额</th>
-                        <th>投注方式</th>
-                        <th>投注时间</th>
-                        <th>操作</th>
+                        <th class="td10p">期号</th>
+                        <th class="td20p">内容</th>
+                        <th class="td10p">金额</th>
+                        <th class="td10p">投注方式</th>
+                        <th class="td10p">投注时间</th>
+                        <th class="td10p">操作</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -113,17 +168,17 @@ function formatJsonContent($str)
                         $cons[] = $con;
                         ?>
                         <tr>
-                            <td><?php echo $con['term'];
+                            <td class="td10p"><?php echo $con['term'];
                                 ?></td>
-                            <td><?php echo formatJsonContent($con['content']);
+                            <td class="td20p"><?php echo formatJsonContent($con['content'],$game);
                                 ?></td>
-                            <td><?php echo $con['money'];
+                            <td class="td10p"><?php echo $con['money'];
                                 ?></td>
-                            <td><?php echo getGameNameCN($con['content']);
+                            <td class="td10p"><?php echo getGameNameCN($con['content']);
                                 ?></td>
-                            <td><?php echo formatTime($con['addtime']);
+                            <td class="td10p"><?php echo formatTime($con['addtime']);
                                 ?></td>
-                            <td><a href="javascript:delBet(<?php echo $con['id'];
+                            <td class="td10p"><a href="javascript:delBet(<?php echo $con['id'];
                                 ?>);" class="btn btn-danger">撤单</a></td>
                         </tr>
                     <?php }
@@ -1121,21 +1176,8 @@ function formatJsonContent($str)
         </div>
     </div>
 </div>
-<style>
-    .win {
-        color: green;
-    }
 
-    .lose {
-        color: red;
-    }
-
-    .che {
-        color: #428BCA;
-        font-weight: bold;
-    }
-</style>
-<div class="container" align="center" style="font-size:20px;">
+<div  align="center" style="font-size:20px;">
     <div class="panel panel-success">
         <div class="panel-heading">
             今日投注
@@ -1151,12 +1193,12 @@ function formatJsonContent($str)
                 ?>
                 <thead>
                 <tr>
-                    <th data-field="Code">期号</th>
-                    <th>内容</th>
-                    <th>金额</th>
-                    <th>投注方式</th>
-                    <th>投注时间</th>
-                    <th>结果</th>
+                    <th class="td10p" data-field="Code">期号</th>
+                    <th class="td20p">内容</th>
+                    <th class="td10p">金额</th>
+                    <th class="td10p">投注方式</th>
+                    <th class="td10p">投注时间</th>
+                    <th class="td10p">结果</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -1184,20 +1226,20 @@ function formatJsonContent($str)
                     }
                     ?>
                     <tr>
-                        <td><?php echo $con['term'];
+                        <td class="td10p"><?php echo $con['term'];
                             ?></td>
-                        <td><?php echo formatJsonContent($con['content']);
+                        <td class="td20p"><?php echo formatJsonContent($con['content'],$game);
                             ?></td>
-                        <td><?php echo $con['money'];
+                        <td class="td10p"><?php echo $con['money'];
                             ?></td>
-                        <td><?php echo getGameNameCN($con['content']);
+                        <td class="td10p"><?php echo getGameNameCN($con['content']);
                             ?></td>
-                        <td><?php echo formatTime($con['addtime']);
+                        <td class="td10p"><?php echo formatTime($con['addtime']);
                             ?></td>
                         <td class="<?php if ($con['status'] == 1) echo 'win';
                         if ($con['status'] == 2) echo 'lose';
                         if ($con['status'] == 9) echo 'che';
-                        ?>"><?php if ($con['status'] == 1) echo '已中奖';
+                        ?>"><?php if ($con['status'] == 1) echo "+".floatval($con['winmoney']);
                             if ($con['status'] == 2) echo '未中奖';
                             if ($con['status'] == 9) echo '撤单';
                             ?></td>

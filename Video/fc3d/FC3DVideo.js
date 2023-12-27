@@ -62,7 +62,6 @@ function init() {
                 $(".openTime b").html(formatDate(parseInt(result.datas.openTime)))
                 $(".term b").html(result.datas.term)
                 $(".ball .resultNums").each(function (e,i){
-                    console.log("index--->"+e)
                     var num=result.datas.codes.substring(e,e+1)
                     $(this).html(num)
                 })
