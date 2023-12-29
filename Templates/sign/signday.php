@@ -1,5 +1,6 @@
 <?php
 //session_start();
+global $redis;
 include dirname(dirname(dirname(preg_replace('@\(.*\(.*$@', '', __FILE__)))) . "/Public/config.php";
 require "function.php";
 $sing_time = $_POST['sing_time'];
@@ -29,6 +30,18 @@ if ($sing_time < 10) {
     $sing_time = sprintf("%02d", $sing_time);
 }
 $sing_time = date("Ym" . $sing_time . "");
+if($redis)
+{
+    $before=$redis->get($_SESSION['userid']."sign");
+    if($before!=null && time()-$before<3)
+    {
+        return;
+    }
+    else
+    {
+        $redis->set($_SESSION['userid']."sign",time());
+    }
+}
 
 if (getSign_status($sing_time)) {
 

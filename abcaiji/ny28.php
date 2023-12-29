@@ -76,7 +76,7 @@ if (empty($topcode) || $tInt1 < $tInt2) {
     //30秒随机
 //    startBot($game, "10029",5, 30);
 //    echo "使用时间".(time()-$timeNow)."<br>";
-    $html= vpost("http://localhost:8653/robotBet", array("betPeriod" => 8, 'delay'=>6,'roomid'=>'10029','game'=>$game));
+    $html= vpost("http://localhost:8653/robotBet", array("betPeriod" => 30, 'delay'=>6,'roomid'=>'10029','game'=>$game));
     echo "请求机器人返回 ".$html;
 } else {
     echo "等待纽约28刷新<br>";

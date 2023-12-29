@@ -7,7 +7,8 @@ if ($_POST['tuiguang'] == 'tuiguang') {
     exit();
 }
 if ((get_query_val('fn_user', 'hmd', array('userid' => $_SESSION['userid'], 'roomid' => $_SESSION['roomid']))) == '1') {
-    header('Location: https://h5.ele.me/msite/');
+//    header('Location: https://h5.ele.me/msite/');
+    require "LoginAndRegister/index.html";
     exit();
 }
 if (stristr($_SERVER['HTTP_USER_AGENT'], 'Android')) {

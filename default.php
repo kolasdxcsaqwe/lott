@@ -59,7 +59,7 @@ if ($_SESSION['userid'] != null) {
                         src="<?php echo $_SESSION['headimg']; ?>"></span><span><?php echo $_SESSION['username']; ?></span>
         </div>
         <div id="balance" class="infobox">游戏点数：</div>
-        <div id="online" class="infobox">在线人数：</div>
+        <div id="online" class="infobox"></div>
 
         <div class="banner">
             <!--<img src="/default/images/banner2.jpg"></div>   -->
@@ -245,7 +245,7 @@ if ($_SESSION['userid'] != null) {
     <div class="mod-orient-layer__content">
         <i class="icon mod-orient-layer__icon-orient"></i>
 
-        <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览</div>
+        <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览,如未显示出页面，请刷新浏览器</div>
     </div>
 </div>
 <script type="text/javascript">
@@ -260,7 +260,7 @@ if ($_SESSION['userid'] != null) {
             success: function (data) {
                 if (data.success) {
                     $('#balance').html("游戏点数：" + data.price);
-                    $('#online').html("在线人数：" + data.online);
+                    // $('#online').html("在线人数：" + data.online);
                 } else {
                     alert('登录过期,请重新登录！');
                     //window.location.href="http://" + location.host + "/?room=" + info['roomid'];
@@ -316,7 +316,7 @@ if ($_SESSION['userid'] != null) {
     function init() {
         orientNotice();
         window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function () {
-            setTimeout(orientNotice, 200);
+            setTimeout(orientNotice, 700);
         })
     }
 

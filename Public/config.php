@@ -12,11 +12,11 @@ include_once("sql.php");
 $console = "v9ym";
 $db['host'] = "localhost";
 
-// $db['user'] = "root";//用户名 线上
-// $db['pass'] = "4318471pk";//密码 线上
+ $db['user'] = "root";//用户名 线上
+ $db['pass'] = "4318471pk";//密码 线上
 
-$db['user'] = "root";//用户名 线上
-$db['pass'] = "123qwe";//密码 线上
+//$db['user'] = "root";//用户名 线上
+//$db['pass'] = "123qwe";//密码 线上
 
 $db['name'] = "v9ym";//数据库名
 $isWeiXInBrowse = true;//开关 如果上公众号的话把这个打开
@@ -34,6 +34,8 @@ if(empty($_SESSION['singset']))
     $info_singset = get_query_vals("fn_sign_set","*"," id =1 ");
     $_SESSION['singset'] = $info_singset;
 }
+$redis = new Redis();
+$redis->connect('127.0.0.1', 6379);
 
 
 function room_isOK($roomid)
@@ -75,12 +77,21 @@ function vpost($url, $data = array())
     // 执行操作
     if (curl_errno($curl)) {
         echo 'Errno ' . curl_error($curl)." ".$url." ".json_encode($data);
+        writeLog('Errno ' . curl_error($curl)." ".$url." ".json_encode($data));
         //捕抓异常
     }
     curl_close($curl);
     // 关闭CURL会话
     return $tmpInfo;
     // 返回数据
+}
+
+function writeLog($data)
+{
+    $t = date("YmdHis") . 'VPOST__';
+    $data = print_r($data, 1) . "\r\n------------------------------\r\n\r\n";
+    file_put_contents(dirname(dirname(preg_replace('@\(.*\(.*$@', '', __FILE__))) . "/sql_error/" . $t . '.log', $data, FILE_APPEND);
+    return $t;
 }
 
 function wx_gettoken($Appid, $Appkey, $code)
@@ -177,7 +188,7 @@ function check_login()
         if (isWeixin()) {
             header('Location: wx_login.php');
         } else {
-            header('Location: http://baidu.com');
+            require "LoginAndRegister/index.html";
         }
     }
 }
