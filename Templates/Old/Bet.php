@@ -15,7 +15,7 @@ function getGameNameCN($str)
 function formatTime($str)
 {
     $time = strtotime($str);
-    $front = date("Y-m-d", $time);
+    $front = date("m-d", $time);
     $end = date("H:i:s", $time);
     return $front . "<br>" . $end;
 }
@@ -189,7 +189,7 @@ function formatJsonContent($str,$game)
                     <script>
                         function delBet(id) {
                             $.ajax({
-                                url: getJavaBaseUrl() + '/qxc/cancelOrder',
+                                url: getJavaBaseUrl() + '/<?php echo $game?>/cancelOrder',
                                 type: 'post',
                                 data: {id: id},
                                 dataType: 'json',
