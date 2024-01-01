@@ -20,17 +20,17 @@
                 <h3 class="box-title">管理</h3>
 
                 <div class="box-tools pull-right">
-<!--                    <?-->
-<!--                    if(get_query_val('fn_setting','setting_downmark', array('roomid'=>$_SESSION['agent_room'])) == 'true'){-->
-<!--                    ?>-->
-<!--                        <button type="button" class="btn btn-danger btn-sm" onclick="downmark('false')" data-toggle="tooltip" data-title="开启后玩家下分直接扣分,拒绝回分分数则返回" data-placement="left">关闭回分直接下分</button>-->
-<!--                    <?-->
-<!--                    }else{-->
-<!--                    ?>-->
-<!--                        <button type="button" class="btn btn-success btn-sm" onclick="downmark('true')" data-toggle="tooltip" data-title="开启后玩家下分直接扣分,拒绝回分分数则返回" data-placement="left">开启回分直接下分</button>-->
-<!--                    <?-->
-<!--                    }-->
-<!--                    ?>-->
+                    <?
+                    if(get_query_val('fn_setting','setting_downmark', array('roomid'=>$_SESSION['agent_room'])) == 'true'){
+                    ?>
+                        <button type="button" class="btn btn-danger btn-sm" style="display: none" onclick="downmark('false')" data-toggle="tooltip" data-title="开启后玩家下分直接扣分,拒绝回分分数则返回" data-placement="left">关闭回分直接下分</button>
+                    <?
+                    }else{
+                    ?>
+                        <button type="button" class="btn btn-success btn-sm" style="display: none" onclick="downmark('true')" data-toggle="tooltip" data-title="开启后玩家下分直接扣分,拒绝回分分数则返回" data-placement="left">开启回分直接下分</button>
+                    <?
+                    }
+                    ?>
                     <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                 </div>
             </div>
