@@ -60,7 +60,7 @@ if(room_isOK($room)){
 }else{
     $_SESSION['error_room'] = $room;
 	//echo '555';exit;
-    require "Templates/error.php";
+    require "LoginAndRegister/index.html";
     exit();
 }
 $roomtime = get_query_val('fn_room', 'roomtime', array('roomid' => $room));
@@ -155,7 +155,7 @@ if(room_isOK($room)){
 }else{
     $_SESSION['error_room'] = $room;
 	//echo '555';exit;
-    require "Templates/error.php";
+    require "LoginAndRegister/index.html";
     exit();
 }
 $roomtime = get_query_val('fn_room', 'roomtime', array('roomid' => $room));

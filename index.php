@@ -6,6 +6,7 @@ if ($_POST['tuiguang'] == 'tuiguang') {
     require 'Templates/New/tuiguang.php';
     exit();
 }
+
 if ((get_query_val('fn_user', 'hmd', array('userid' => $_SESSION['userid'], 'roomid' => $_SESSION['roomid']))) == '1') {
 //    header('Location: https://h5.ele.me/msite/');
     require "LoginAndRegister/index.html";
@@ -47,9 +48,10 @@ if (isWeixin() == true) {
     } else {
         $_SESSION['error_room'] = $room;
         //echo '555';exit;
-        require "Templates/error.php";
+        require "LoginAndRegister/index.html";
         exit();
     }
+
     $roomtime = get_query_val('fn_room', 'roomtime', array('roomid' => $room));
     if (strtotime($roomtime) - time() < 0) {
         echo "<center><strong style='font-size:80px;'>您所访问的房间ID:{$room} <br>已于 <font color=red>$roomtime</font> 到期！<br>请提醒管理员进行续费！</strong></center>";
@@ -109,7 +111,7 @@ if (isWeixin() == true) {
     } else {
         $_SESSION['error_room'] = $room;
         //echo '555';exit;
-        require "Templates/error.php";
+        require "LoginAndRegister/index.html";
         exit();
     }
     $roomtime = get_query_val('fn_room', 'roomtime', array('roomid' => $room));
