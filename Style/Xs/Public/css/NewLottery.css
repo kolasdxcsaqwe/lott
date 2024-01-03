@@ -1153,6 +1153,7 @@ a {
 .betDialogContent .menu ul li .sub-menu a {
     height: 90px;
     line-height: 90px;
+    min-width: 150px;
     border-bottom: 1px solid #aaafb0;
 }
 

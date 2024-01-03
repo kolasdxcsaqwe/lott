@@ -427,6 +427,7 @@ function is_weixin()
 
 <script type="text/javascript">
     var info = {
+        'gameIndex':20,
         'nickname': "<?php echo $_SESSION['username'] ?>",
         'headimg': "<?php echo $_SESSION['headimg'] ?>",
         'userid': "<?php echo $_SESSION['userid'] ?>",
@@ -523,7 +524,7 @@ function is_weixin()
 <script type="text/javascript" src="/Style/Old/js/NewTools.js?t=asd"></script>
 <script type="text/javascript" src="/Style/Old/js/NewChat.js?t=sda"></script>
 <script type="text/javascript" src="/Style/Old/js/qxc.js?t=2s333"></script>
-<script type="text/javascript" src="/Style/Old/js/LotteryTabs.js?t=d2s2s3f"></script>
+<script type="text/javascript" src="/Style/Old/js/LotteryTabs.js?t=d22"></script>
 <!-- ./New Templates Update -->
 
 <iframe onload="iFrameHeight2();" src="/Templates/Old/shipin.php" name="ifarms" width="980" height="680"

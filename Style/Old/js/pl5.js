@@ -1,4 +1,9 @@
-$(function () {
+function initBetPanel()
+{
+    initPanel()
+}
+
+var initPanel=function () {
     let maxBet = info.maxbet;
     let minBet = info.minbet;
     var userInputMoney = minBet
@@ -13,10 +18,46 @@ $(function () {
     var a, b, c, d, bet = 1, bet_n = 0, bline, bval;
     var douNiuTitles = ["无牛", "牛一", "牛二", "牛三", "牛四", "牛五", "牛六", "牛七", "牛八", "牛九", "牛牛"]
 
-    var secTitles = [[""], [""], ["万位", "千位", "百位", "十位", "个位"], ["niu"],
-        ["万位", "千位", "千位", "百位", "十位"], ["千位", "百位", "十位"], ["万位", "千位",], ["万位", "千位", "百位", "十位", "个位"]];
-    var gameCodes = ['ry3', 'ry2', 'dxds', 'dn', 'd5', 'd3', 'd2', 'd1']
-    var gameTitles = ['任选3', '任选2', '大小单双', '斗牛', '前5定位', '前3定位', '前2定位', '定位胆']
+    var tempTitles=["万位", "千位", "百位", "十位", "个位"]
+    var secTitles = [];
+    var gameCodes = []
+    var gameTitles = []
+
+    for (let i = 0; i < info.titleDetail.length; i++) {
+        gameTitles.push(info.titleDetail[i].game)
+        gameCodes.push(info.titleDetail[i].code)
+
+        for (let j = tempTitles.length-info.titleDetail[i].line; j < info.titleDetail[i].line; j++) {
+            let array=[]
+            if(info.titleDetail[i].line===1)
+            {
+                array.push("")
+            }
+            else
+            {
+                array.push(tempTitles[j])
+            }
+            secTitles.push(array)
+        }
+
+        if(i<3)
+        {
+            $(".menu ul").append("<li class='gameli'><a  data-t='"+(i+1)+"'>"+info.titleDetail[i].explain+"</a></li>")
+        }
+        else
+        {
+            if($(".menu ul li").length<4)
+            {
+                $(".menu ul").append("<li class='more-game'><a href='javascript:;' class='triangle'><img src='/Style/images/game-arrow.png'>" +
+                    "</a><div class='sub-menu' style='display: none;'></div></li>")
+            }
+
+            $(".menu ul .more-game .sub-menu").append("<li><a data-t='"+(i+1)+"'>"+info.titleDetail[i].explain+"</a></li>")
+        }
+
+        $(".game-bd .six").append(" <div class='gamenum game-type-'"+(i+1)+"></div>")
+
+    }
 
     var dialogCountDown = function () {
         orderListDialogRemainTime--
@@ -960,4 +1001,4 @@ $(function () {
         });
     }
 
-})
+}

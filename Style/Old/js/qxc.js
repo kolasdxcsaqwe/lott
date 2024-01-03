@@ -1,4 +1,9 @@
-$(function () {
+function initBetPanel()
+{
+    initPanel()
+}
+
+var initPanel=function () {
     let maxBet = info.maxbet;
     let minBet = info.minbet;
     var userInputMoney = minBet
@@ -960,4 +965,4 @@ $(function () {
         });
     }
 
-})
+}

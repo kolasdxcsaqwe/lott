@@ -19,22 +19,30 @@ $(function(){
 
     function makeTabs()
     {
+        var datas={game:"xy28,ny28,jnd28,qxc,pl5,lhc,twk3,jslhc,jsssc,pk10,fc3d"}
+        if(info.gameIndex!==null && info.gameIndex!==undefined)
+        {
+            datas.gameType=info.gameIndex
+        }
+
         $.ajax({
             type: "POST",
             dataType: "json",
             url: baseUrl + "/getALlLotteryStatus",//url
-            data: {game:"xy28,ny28,jnd28,qxc,pl5,lhc,twk3,jslhc,jsssc,pk10,fc3d"},
+            data: datas,
             crossDomain: true,
             success: function (result) {
                 $(".zytips").css("display", "none")
                 if (result.code === 0) {
                     for (let i = 0; i <tabsCode.length ; i++) {
-                        let obj=result.datas[tabsCode[i]]
+                        let obj=result.datas.statusList[tabsCode[i]]
                         if(obj!==undefined && obj.status>0)
                         {
                             addTab(tabsCode[i],obj.title,logoPath[tabsCode[i]])
                         }
                     }
+                    info.titleDetail=result.datas.detail
+                    initBetPanel();
 
                 } else {
                     zy.tips(result.msg);
