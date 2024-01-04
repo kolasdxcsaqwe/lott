@@ -627,20 +627,9 @@ function is_weixin()
     <div class="betDialogContent">
         <div class="menu">
             <ul>
-                <li class="gameli"><a href="javascript:;" data-t="1" class="on">任选二</a></li>
-                <li class="gameli"><a href="javascript:;" class="" data-t="2">任选一</a></li>
-                <li class="gameli"><a href="javascript:;" data-t="3" class="">大小单双</a></li>
                 <li class="more-game">
                     <a href="javascript:;" class="triangle"><img src="/Style/images/game-arrow.png"></a>
                     <div class="sub-menu" style="display: none;">
-                        <a href="javascript:;" data-t="4">3星直选</a>
-                        <a href="javascript:;" data-t="5">3星组三</a>
-                        <a href="javascript:;" data-t="6">3星组六</a>
-                        <a href="javascript:;" data-t="7">3星组三和值</a>
-                        <a href="javascript:;" data-t="8">3星组六和值</a>
-                        <a href="javascript:;" data-t="9">2星前二直选</a>
-                        <a href="javascript:;" data-t="10">2星后二直选</a>
-                        <a href="javascript:;" data-t="11">定位胆</a>
                     </div>
                 </li>
             </ul>
@@ -650,35 +639,6 @@ function is_weixin()
             <div class="gamenum" style="">
                 <div class='rank-tit'><span class='lotteryType'></span></div>
             </div>
-
-            <!--任选3 START-->
-            <div class="gamenum game-type-1" style=""></div>
-
-            <!--任选2 START-->
-            <div class="gamenum game-type-2" style=""></div>
-
-            <!--大小单双 START-->
-            <div class="gamenum game-type-3" style=""></div>
-
-            <!--前4定位 START-->
-            <div class="gamenum game-type-4" style=""></div>
-
-            <!--前3定位 START-->
-            <div class="gamenum game-type-5" style=""></div>
-
-            <!--前2定位 START-->
-            <div class="gamenum game-type-6" style=""></div>
-
-            <!--定位胆 START-->
-            <div class="gamenum game-type-7" style=""></div>
-
-            <div class="gamenum game-type-8" style=""></div>
-
-            <div class="gamenum game-type-9" style=""></div>
-
-            <div class="gamenum game-type-10" style=""></div>
-
-            <div class="gamenum game-type-11" style=""></div>
 
         </div>
     </div>

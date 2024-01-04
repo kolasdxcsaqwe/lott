@@ -523,7 +523,7 @@ function is_weixin()
 <!-- New Templates Update -->
 <script type="text/javascript" src="/Style/Old/js/NewTools.js?t=asd"></script>
 <script type="text/javascript" src="/Style/Old/js/NewChat.js?t=sda"></script>
-<script type="text/javascript" src="/Style/Old/js/qxc.js?t=2s333"></script>
+<script type="text/javascript" src="/Style/Old/js/qxc.js?t=2233"></script>
 <script type="text/javascript" src="/Style/Old/js/LotteryTabs.js?t=d22"></script>
 <!-- ./New Templates Update -->
 
@@ -624,17 +624,9 @@ function is_weixin()
     <div class="betDialogContent">
         <div class="menu">
             <ul>
-                <li class="gameli"><a href="javascript:;" data-t="1" class="on">任选3</a></li>
-                <li class="gameli"><a href="javascript:;" class="" data-t="2">任选2</a></li>
-                <li class="gameli"><a href="javascript:;" data-t="3" class="">大小单双</a></li>
                 <li class="more-game">
                     <a href="javascript:;" class="triangle"><img src="/Style/images/game-arrow.png"></a>
                     <div class="sub-menu" style="display: none;">
-                        <a href="javascript:;" data-t="4">前4定位</a>
-                        <a href="javascript:;" data-t="5">前3定位</a>
-                        <a href="javascript:;" data-t="6">前2定位</a>
-                        <a href="javascript:;" data-t="7">定位胆</a>
-                        <a href="javascript:;" data-t="8">头尾定位</a>
                     </div>
                 </li>
             </ul>
@@ -644,30 +636,6 @@ function is_weixin()
             <div class="gamenum" style="">
                 <div class='rank-tit'><span class='lotteryType'></span></div>
             </div>
-
-            <!--任选3 START-->
-            <div class="gamenum game-type-1" style=""></div>
-
-            <!--任选2 START-->
-            <div class="gamenum game-type-2" style=""></div>
-
-            <!--大小单双 START-->
-            <div class="gamenum game-type-3" style=""></div>
-
-            <!--前4定位 START-->
-            <div class="gamenum game-type-4" style=""></div>
-
-            <!--前3定位 START-->
-            <div class="gamenum game-type-5" style=""></div>
-
-            <!--前2定位 START-->
-            <div class="gamenum game-type-6" style=""></div>
-
-            <!--定位胆 START-->
-            <div class="gamenum game-type-7" style=""></div>
-
-            <!--头尾 START-->
-            <div class="gamenum game-type-8" style=""></div>
 
         </div>
     </div>

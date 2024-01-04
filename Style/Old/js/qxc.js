@@ -16,10 +16,62 @@ var initPanel=function () {
     var autoIncrease=0;//pos 计数
     var timeoutId=0
     var a, b, c, d, bet = 1, bet_n = 0, bline, bval;
-    var secTitles = [[""], [""], ["千位", "百位", "十位", "个位"], ["千位", "百位", "十位", "个位"],
-        ["千位", "百位", "十位"], ["千位", "百位"], ["千位", "百位", "十位", "个位"], ["千位", "x", "x", "个位"]];
-    var gameCodes = ['ry3', 'ry2', 'dxds', 'd4', 'd3', 'd2', 'd1', 'tw']
-    var gameTitles = ['任选3', '任选2', '大小单双', '前4定位', '前3定位', '前2定位', '定位胆', '头尾定位']
+    var tempTitles=[ "千位", "百位", "十位", "个位"]
+    var secTitles = []
+    var gameCodes = []
+    var gameTitles = []
+
+
+    for (let i = 0; i < info.titleDetail.length; i++) {
+        gameTitles.push(info.titleDetail[i].explain)
+        gameCodes.push(info.titleDetail[i].game)
+
+        let array=[]
+        if(info.titleDetail[i].game==='tw')
+        {
+
+            array.push(tempTitles[0])
+            array.push('x')
+            array.push('x')
+            array.push(tempTitles[3])
+        }
+        else
+        {
+            for (let j = 0; j < info.titleDetail[i].line; j++) {
+
+                if(info.titleDetail[i].line===1)
+                {
+                    array.push("")
+                }
+                else
+                {
+                    array.push(tempTitles[j])
+                }
+            }
+        }
+
+        secTitles.push(array)
+
+        if(i<3)
+        {
+            $(".menu ul").append("<li class='gameli'><a  data-t='"+(i+1)+"'>"+info.titleDetail[i].explain+"</a></li>")
+        }
+        else
+        {
+            if($(".menu ul li").length<4)
+            {
+                $(".menu ul").append("<li class='more-game'><a href='javascript:;' class='triangle'><img src='/Style/images/game-arrow.png'>" +
+                    "</a><div class='sub-menu' style='display: none;'></div></li>")
+            }
+
+            $(".menu ul .more-game .sub-menu").append("<li><a data-t='"+(i+1)+"'>"+info.titleDetail[i].explain+"</a></li>")
+        }
+
+        $(".game-bd").append(" <div class='gamenum game-type-"+(i+1)+"'></div>")
+
+    }
+
+    $(".menu ul li:eq(0)").find("a").addClass("on")
 
     var dialogCountDown=function (){
         orderListDialogRemainTime--
@@ -80,22 +132,22 @@ var initPanel=function () {
     }
 
     function getRare() {
-        switch (bet) {
-            case 1:
+        switch (gameCodes[bet-1]) {
+            case 'ry3':
                 return parseFloat(info.anythree);
-            case 2:
+            case 'ry2':
                 return parseFloat(info.anytwo);
-            case 3:
+            case 'dxds':
                 return parseFloat(info.dxds);
-            case 4:
+            case 'd4':
                 return parseFloat(info.fourfix);
-            case 5:
+            case 'd3':
                 return parseFloat(info.threefix);
-            case 6:
+            case 'd2':
                 return parseFloat(info.twofix);
-            case 7:
+            case 'd1':
                 return parseFloat(info.onefix);
-            case 8:
+            case 'tw':
                 return parseFloat(info.touweifix);
         }
         return parseFloat("0");
@@ -109,33 +161,35 @@ var initPanel=function () {
         });
 
         var isAva = true
-        $(".game-type-" + bet + " .btn-box ").each(function () {
-            if ($(this).css("display")!=="none" && $(this).find(" a.on ").length < 1 && bet !== 3 && bet !== 7) {
-                //只要有一行没选中就不算
-                isAva = false
-            }
-            // console.log("line--->"+$(this).data('line')+" : "+$(this).find(" a.on ").length)
-        })
-
+        if(gameCodes[bet-1]!=='d1' && gameCodes[bet-1]!=='dxds')
+        {
+            $(".game-type-" + bet + " .btn-box ").each(function () {
+                if ($(this).css("display")!=="none" && $(this).find(" a.on ").length < 1) {
+                    //只要有一行没选中就不算
+                    isAva = false
+                }
+                // console.log("line--->"+$(this).data('line')+" : "+$(this).find(" a.on ").length)
+            })
+        }
 
         bet_n = 0;
 
         //计算注数 bet_n注数
-        switch (bet) {
-            case 1:
+        switch (gameCodes[bet-1]) {
+            case 'ry3':
                 bet_n = countOrder1(bline.length, 3)
                 break;
-            case 2:
+            case 'ry2':
                 bet_n = countOrder1(bline.length, 2)
                 break;
-            case 3:
-            case 7:
+            case 'dxds':
+            case 'd1':
                 bet_n = countOrder3()
                 break
-            case 4:
-            case 5:
-            case 6:
-            case 8:
+            case 'd4':
+            case 'd3':
+            case 'd2':
+            case 'tw':
                 bet_n = countOrder2()
                 break;
         }
@@ -165,16 +219,12 @@ var initPanel=function () {
 
     function isBetAvailable(count, index) {
         var isAvailable = true
-        switch (index) {
-            case 1:
+        switch (gameCodes[index-1]) {
+            case 'ry3':
                 isAvailable = count > 2;
                 break;
-            case 2:
+            case 'ry2':
                 isAvailable = count > 1;
-                break;
-            case 3:
-            case 7:
-                isAvailable = count > 0;
                 break;
             default:
                 isAvailable = count > 0;
@@ -339,11 +389,11 @@ var initPanel=function () {
             string = string + title + itemDiv
             string = string.replace("%line", j);
 
-            var itemAmount = bet === 3 ? 4 : 10;
+            var itemAmount = gameCodes[bet-1]==='dxds'? 4 : 10;
             var items7 = ['大', '小', '单', '双']
             for (let k = 0; k < itemAmount; k++) {
                 var item = "<a href='javascript:;' class='btn mini-btn' data-pos='%pos'><div class='h5'>%num</div></a>"
-                if (bet === 3) {
+                if (gameCodes[bet-1]==='dxds') {
                     //大小单双
                     item = item.replace("%num", items7[k]);
                 } else {
@@ -435,48 +485,48 @@ var initPanel=function () {
 
         $(".rank-tit .choose").click(function () {
             clearSelectButtons()
-            switch (d.t) {
-                case 1:
+            switch (gameCodes[bet-1]) {
+                case 'ry3':
                     var nums = randomNums(10,3)
                     for (let i = 0; i < nums.length; i++) {
                         $('.game-type-' + d.t + " a.btn:eq(" + nums[i] + ")").click();
                     }
                     break
-                case 2:
+                case 'ry2':
                     var nums = randomNums(10,2)
                     for (let i = 0; i < nums.length; i++) {
                         $('.game-type-' + d.t + " a.btn:eq(" + nums[i] + ")").click();
                     }
                     break
-                case 3:
+                case 'dxds':
                     var v = randomNums(4,1)
                     var index = randomNums(4,1)
                     $('.game-type-' + d.t + " .btn-box:eq(" + v[0] + ")").find(" a.btn:eq(" + index[0] + ")").click();
                     break
-                case 4:
+                case 'd4':
                     for (let k = 0; k < 4; k++) {
                         var nums = randomNums(10,1)
                         $('.game-type-' + d.t + " .btn-box:eq(" + k + ")").find(" a.btn:eq(" + nums[0] + ")").click();
                     }
                     break
-                case 5:
+                case 'd3':
                     for (let k = 0; k < 3; k++) {
                         var nums = randomNums(10,1)
                         $('.game-type-' + d.t + " .btn-box:eq(" + k + ")").find(" a.btn:eq(" + nums[0] + ")").click();
                     }
                     break
-                case 6:
+                case 'd2':
                     for (let k = 0; k < 2; k++) {
                         var nums = randomNums(10,1)
                         $('.game-type-' + d.t + " .btn-box:eq(" + k + ")").find(" a.btn:eq(" + nums[0] + ")").click();
                     }
                     break
-                case 7:
+                case 'd1':
                     var v = randomNums(4,1)[0]
                     var index = randomNums(10,1)[0]
                     $('.game-type-' + d.t + " .btn-box:eq(" + v + ")").find(" a.btn:eq(" + index + ")").click();
                     break
-                case 8:
+                case 'tw':
                     for (let k = 0; k < secTitles[7].length; k++) {
                         let title=secTitles[7][k]
                         if(title!=="x")
@@ -501,53 +551,53 @@ var initPanel=function () {
             var sCode = ''
             var pos = ''
 
-            switch (bet) {
-                case 1:
+            switch (gameCodes[bet-1]) {
+                case 'ry3':
                     sCode=randomNumsStr(10,3,true)
                     codes.push({pos:0,code:sCode})
                     completeCodes.push({pos:0,code:sCode})
                     break
-                case 2:
+                case 'ry2':
                     sCode=randomNumsStr(10,2,true)
                     codes.push({pos:0,code:sCode})
                     completeCodes.push({pos:0,code:sCode})
                     break
-                case 3:
+                case 'dxds':
                     pos=randomNumsStr(4,1,true)
                     sCode=randomNumsStr(4,1,true)
 
                     codes.push({pos:pos,code:sCode})
                     completeCodes.push({pos:pos,code:sCode})
                     break
-                case 4:
+                case 'd4':
                     for (let k = 0; k < 4; k++) {
                         sCode=randomNumsStr(10,1)
                         codes.push({pos:k,code:sCode})
                         completeCodes.push({pos:k,code:sCode})
                     }
                     break
-                case 5:
+                case 'd3':
                     for (let k = 0; k < 3; k++) {
                         sCode=randomNumsStr(10,1)
                         codes.push({pos:k,code:sCode})
                         completeCodes.push({pos:k,code:sCode})
                     }
                     break
-                case 6:
+                case 'd2':
                     for (let k = 0; k < 2; k++) {
                         sCode=randomNumsStr(10,1)
                         codes.push({pos:k,code:sCode})
                         completeCodes.push({pos:k,code:sCode})
                     }
                     break
-                case 7:
+                case 'd1':
                     pos=randomNumsStr(4,1,true)
                     sCode=randomNumsStr(10,1,true)
 
                     codes.push({pos:pos,code:sCode})
                     completeCodes.push({pos:pos,code:sCode})
                     break
-                case 8:
+                case 'tw':
                     for (let k = 0; k < secTitles[7].length; k++) {
                         let title=secTitles[7][k]
                         if(title!=="x")
@@ -782,10 +832,9 @@ var initPanel=function () {
 
         var codes=""
         let list=orderData[0].completeCodes
-        let lines=[1,1,4,4,3,2,4,2];
         let titleSuffix=["千位：", "百位：", "十位：", "个位："]
         for (let i = 0; i < list.length; i++) {
-            if(lines[bet-1]>1)
+            if(info.titleDetail[bet-1].line>1)
             {
                 if(list[i].code.length>0)
                 {

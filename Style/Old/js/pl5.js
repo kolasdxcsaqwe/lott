@@ -39,7 +39,6 @@ var initPanel=function () {
                 array.push(tempTitles[j])
             }
         }
-        console.log(i+"  "+array)
         secTitles.push(array)
 
         if(i<3)
@@ -383,7 +382,7 @@ var initPanel=function () {
 
 
             var title = "<span class='secTitle' >%title</span>"
-            if (secTitles[d.t - 1][j] === "niu") {
+            if (gameCodes[bet-1]==='dn') {
                 title = "<span class='secTitle' style='display: none'>%title</span>"
             }
             title = title.replace("%title", secTitles[d.t - 1][j])
@@ -841,7 +840,7 @@ var initPanel=function () {
         let list = orderData[0].completeCodes
         let titleSuffix = ["万位：", "千位：", "百位：", "十位：", "个位："]
         for (let i = 0; i < list.length; i++) {
-            if (info.titleDetail[bet-1] > 1) {
+            if (info.titleDetail[bet-1].line > 1) {
                 if (list[i].code.length > 0) {
                     codes = codes + titleSuffix[list[i].pos] + list[i].code + "|"
                 }
