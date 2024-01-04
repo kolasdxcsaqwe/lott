@@ -30,7 +30,7 @@ function is_weixin()
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/weui.min.css"/>
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/style.css?t=sajiwq9iu3"/>
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/bootstrap.new.css"/>
-    <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/NewLottery.css?t=2s223"/>
+    <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/NewLottery.css?t=2s23"/>
     <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/layout.css?t=3423"/>
     <link rel="Stylesheet" type="text/css" href="Style/Xs/static/css/iconfont.css"/>
     <script src="Style/Old/js/jquery.min.js"></script>
@@ -443,6 +443,8 @@ function is_weixin()
         'wuniu': "<?php echo $info['wuniu'] ?>",
         'youniu': "<?php echo $info['youniu'] ?>",
         'dxds': "<?php echo $info['dxds'] ?>",
+        'combinethree': "<?php echo $info['combinethree'] ?>",
+        'combinesix': "<?php echo $info['combinesix'] ?>",
         'game': "<?php echo $_COOKIE['game']
             ?>",
         'titleDetail':null
@@ -525,7 +527,7 @@ function is_weixin()
 <!-- New Templates Update -->
 <script type="text/javascript" src="/Style/Old/js/NewTools.js?t=1s2dd"></script>
 <script type="text/javascript" src="/Style/Old/js/NewChat.js?t=xdsfc"></script>
-<script type="text/javascript" src="/Style/Old/js/pl5.js?t=232"></script>
+<script type="text/javascript" src="/Style/Old/js/pl5.js?t=212"></script>
 <script type="text/javascript" src="/Style/Old/js/LotteryTabs.js?t=d22"></script>
 
 <!-- ./New Templates Update -->

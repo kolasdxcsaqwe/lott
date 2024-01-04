@@ -74,6 +74,18 @@
                             <br/>
 
                             <div class="input-group">
+                                <span class="input-group-addon">3星组六</span>
+                                <input name="combinesix" type="number" class="form-control" step="0.001" placeholder="输入赔率..." value="">
+                            </div>
+                            <br/>
+
+                            <div class="input-group">
+                                <span class="input-group-addon">3星组三</span>
+                                <input name="combinethree" type="number" class="form-control" step="0.001" placeholder="输入赔率..." value="">
+                            </div>
+                            <br/>
+
+                            <div class="input-group">
                                 <span class="input-group-addon">前2定位</span>
                                 <input name="twofix" type="number" class="form-control" step="0.001" placeholder="输入赔率..." value="">
                             </div>
@@ -221,6 +233,8 @@ echo '<p>演示盘，无权限</p>';
                 $("input[name='maxbet']").val(result.datas.maxbet)
                 $("input[name='youniu']").val(result.datas.youniu)
                 $("input[name='wuniu']").val(result.datas.wuniu)
+                $("input[name='combinesix']").val(result.datas.combinesix)
+                $("input[name='combinethree']").val(result.datas.combinethree)
 
                 $("input[name='fengtime']").val(result.datas.fengtime)
                 $("textarea[name='rules']").val(result.datas.rules)

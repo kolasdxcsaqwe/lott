@@ -24,11 +24,12 @@ var initPanel=function () {
     var gameTitles = []
 
     for (let i = 0; i < info.titleDetail.length; i++) {
-        gameTitles.push(info.titleDetail[i].game)
-        gameCodes.push(info.titleDetail[i].code)
+        gameTitles.push(info.titleDetail[i].explain)
+        gameCodes.push(info.titleDetail[i].game)
 
-        for (let j = tempTitles.length-info.titleDetail[i].line; j < info.titleDetail[i].line; j++) {
-            let array=[]
+        let array=[]
+        for (let j = 0; j < info.titleDetail[i].line; j++) {
+
             if(info.titleDetail[i].line===1)
             {
                 array.push("")
@@ -37,8 +38,9 @@ var initPanel=function () {
             {
                 array.push(tempTitles[j])
             }
-            secTitles.push(array)
         }
+        console.log(i+"  "+array)
+        secTitles.push(array)
 
         if(i<3)
         {
@@ -55,9 +57,11 @@ var initPanel=function () {
             $(".menu ul .more-game .sub-menu").append("<li><a data-t='"+(i+1)+"'>"+info.titleDetail[i].explain+"</a></li>")
         }
 
-        $(".game-bd .six").append(" <div class='gamenum game-type-'"+(i+1)+"></div>")
+        $(".game-bd").append(" <div class='gamenum game-type-"+(i+1)+"'></div>")
 
     }
+
+    $(".menu ul li:eq(0)").find("a").addClass("on")
 
     var dialogCountDown = function () {
         orderListDialogRemainTime--
@@ -117,14 +121,14 @@ var initPanel=function () {
     }
 
     function getRare() {
-        switch (bet) {
-            case 1:
+        switch (gameCodes[bet-1]) {
+            case 'ry3':
                 return parseFloat(info.anythree);
-            case 2:
+            case 'ry2':
                 return parseFloat(info.anytwo);
-            case 3:
+            case 'dxds':
                 return parseFloat(info.dxds);
-            case 4:
+            case 'dn':
                 var rate = 0.0
                 var t = $(".game-type-" + bet);
                 t.find('a.on[data-pos]').each(function (i, o) {
@@ -132,14 +136,18 @@ var initPanel=function () {
                     rate = pos > 0 ? info.youniu : info.wuniu
                 });
                 return rate;
-            case 5:
+            case 'd5':
                 return parseFloat(info.fivefix);
-            case 6:
+            case 'd3':
                 return parseFloat(info.threefix);
-            case 7:
+            case 'd2':
                 return parseFloat(info.twofix);
-            case 8:
+            case 'd1':
                 return parseFloat(info.onefix);
+            case 'sxzs':
+                return parseFloat(info.combinethree);
+            case 'sxzl':
+                return parseFloat(info.combinesix);
         }
         return parseFloat("0");
     }
@@ -152,36 +160,44 @@ var initPanel=function () {
         });
 
         var isAva = true
-        $(".game-type-" + bet + " .btn-box ").each(function () {
-            if ($(this).css("display") !== "none" && $(this).find(" a.on ").length < 1
-                && bet !== 3 && bet !== 4 && bet !== 8) {
-                //只要有一行没选中就不算
-                isAva = false
-            }
-            // console.log("line--->"+$(this).data('line')+" : "+$(this).find(" a.on ").length)
-        })
-
+        let gCode=gameCodes[bet-1]
+        if(gCode!=='dxds' && gCode!=='d1')
+        {
+            $(".game-type-" + bet + " .btn-box ").each(function () {
+                if ($(this).css("display") !== "none" && $(this).find(" a.on ").length < 1) {
+                    //只要有一行没选中就不算
+                    isAva = false
+                }
+                // console.log("line--->"+$(this).data('line')+" : "+$(this).find(" a.on ").length)
+            })
+        }
 
         bet_n = 0;
 
         //计算注数 bet_n注数
-        switch (bet) {
-            case 1:
+        switch (gameCodes[bet-1]) {
+            case 'ry3':
                 bet_n = countOrder1(bline.length, 3)
                 break;
-            case 2:
+            case 'ry2':
                 bet_n = countOrder1(bline.length, 2)
                 break;
-            case 3:
-            case 8:
-            case 4:
+            case 'd1':
+            case 'dxds':
+            case 'dn':
                 bet_n = countOrder3()
                 break
-            case 5:
-            case 6:
-            case 7:
+            case 'd5':
+            case 'd3':
+            case 'd2':
                 bet_n = countOrder2()
                 break;
+            case 'sxzs':
+                bet_n= bline.length * (bline.length - 1)
+                break
+            case 'sxzl':
+                bet_n= bline.length * (bline.length - 1) * (bline.length - 2) / 6
+                break
         }
 
         isAva = isAva && isBetAvailable(bline.length, bet)
@@ -209,20 +225,20 @@ var initPanel=function () {
 
     function isBetAvailable(count, index) {
         var isAvailable = true
-        switch (index) {
-            case 1:
+        switch (gameCodes[index-1]) {
+            case 'ry3':
                 isAvailable = count > 2;
                 break;
-            case 2:
+            case 'ry2':
                 isAvailable = count > 1;
                 break;
-            case 5:
+            case 'd5':
                 isAvailable = count > 4;
                 break;
-            case 6:
+            case 'd3':
                 isAvailable = count > 2;
                 break;
-            case 7:
+            case 'd2':
                 isAvailable = count > 1;
                 break;
             default:
@@ -378,12 +394,12 @@ var initPanel=function () {
             string = string.replace("%line", j);
 
             var itemAmount = 10;
-            switch (bet) {
-                case 3:
+            switch (gameCodes[bet-1]) {
+                case 'dxds':
                     //大小单双
                     itemAmount = 4;
                     break
-                case 4:
+                case 'dn':
                     //斗牛
                     itemAmount = 11;
                     break
@@ -391,10 +407,10 @@ var initPanel=function () {
             var items7 = ['大', '小', '单', '双']
             for (let k = 0; k < itemAmount; k++) {
                 var item = "<a href='javascript:;' class='btn mini-btn' data-pos='%pos'><div class='h5'>%num</div></a>"
-                if (bet === 3) {
+                if (gameCodes[bet-1] === 'dxds') {
                     //大小单双
                     item = item.replace("%num", items7[k]);
-                } else if (bet === 4) {
+                } else if (gameCodes[bet-1] === 'dn') {
                     item = item.replace("%num", douNiuTitles[k]);
                 } else {
                     item = item.replace("%num", k);
@@ -483,47 +499,49 @@ var initPanel=function () {
 
         $(".rank-tit .choose").click(function () {
             clearSelectButtons()
-            switch (d.t) {
-                case 1:
+            switch (gameCodes[bet-1]) {
+                case 'ry3':
+                case 'sxzl':
                     var nums = randomNums(10, 3)
                     for (let i = 0; i < nums.length; i++) {
                         $('.game-type-' + d.t + " a.btn:eq(" + nums[i] + ")").click();
                     }
                     break
-                case 2:
+                case 'ry2':
+                case 'sxzs':
                     var nums = randomNums(10, 2)
                     for (let i = 0; i < nums.length; i++) {
                         $('.game-type-' + d.t + " a.btn:eq(" + nums[i] + ")").click();
                     }
                     break
-                case 3:
+                case 'dxds':
                     var v = randomNums(5, 1)
                     var index = randomNums(4, 1)
                     $('.game-type-' + d.t + " .btn-box:eq(" + v[0] + ")").find(" a.btn:eq(" + index[0] + ")").click();
                     break
-                case 4:
+                case 'dn':
                     var nums = randomNums(11, 1)
                     $('.game-type-' + d.t + " .btn-box:eq(" + 0 + ")").find(" a.btn:eq(" + nums[0] + ")").click();
                     break
-                case 5:
+                case 'd5':
                     for (let k = 0; k < 5; k++) {
                         var nums = randomNums(10, 1)
                         $('.game-type-' + d.t + " .btn-box:eq(" + k + ")").find(" a.btn:eq(" + nums[0] + ")").click();
                     }
                     break
-                case 6:
+                case 'd3':
                     for (let k = 0; k < 3; k++) {
                         var nums = randomNums(10, 1)
                         $('.game-type-' + d.t + " .btn-box:eq(" + k + ")").find(" a.btn:eq(" + nums[0] + ")").click();
                     }
                     break
-                case 7:
+                case 'd2':
                     for (let k = 0; k < 2; k++) {
                         var nums = randomNums(10, 1)
                         $('.game-type-' + d.t + " .btn-box:eq(" + k + ")").find(" a.btn:eq(" + nums[0] + ")").click();
                     }
                     break
-                case 8:
+                case 'd1':
                     var pos = randomNums(5, 1)
                     var num = randomNums(10, 1)
                     $('.game-type-' + d.t + " .btn-box:eq(" + pos + ")").find(" a.btn:eq(" + num + ")").click();
@@ -541,50 +559,52 @@ var initPanel=function () {
             var sCode = ''
             var pos = ''
             var completeCodes = []
-            switch (bet) {
-                case 1:
+            switch (gameCodes[bet-1]) {
+                case 'ry3':
+                case 'sxzl':
                     sCode = randomNumsStr(10, 3, true)
                     codes.push({pos:0,code:sCode})
                     completeCodes.push({pos:0,code:sCode})
                     break
-                case 2:
+                case 'ry2':
+                case 'sxzs':
                     sCode = randomNumsStr(10, 2, true)
                     codes.push({pos:0,code:sCode})
                     completeCodes.push({pos:0,code:sCode})
                     break
-                case 3:
+                case 'dxds':
                     pos = randomNumsStr(5, 1, true)
                     sCode = randomNumsStr(4, 1, true)
                     codes.push({pos: pos, code: sCode})
                     completeCodes.push({pos: pos, code: sCode})
                     break
-                case 4:
+                case 'dn':
                     sCode = randomNumsStr(11, 1)
                     codes.push({pos: 0, code: sCode})
                     completeCodes.push({pos: 0, code: sCode})
                     break
-                case 5:
+                case 'd5':
                     for (let k = 0; k < 5; k++) {
                         var temp = randomNumsStr(10, 1)
                         codes.push({pos: k, code: temp})
                         completeCodes.push({pos: k, code: temp})
                     }
                     break
-                case 6:
+                case 'd3':
                     for (let k = 0; k < 3; k++) {
                         var temp = randomNumsStr(10, 1)
                         codes.push({pos: k, code: temp})
                         completeCodes.push({pos: k, code: temp})
                     }
                     break
-                case 7:
+                case 'd2':
                     for (let k = 0; k < 2; k++) {
                         var temp = randomNumsStr(10, 1)
                         codes.push({pos: k, code: temp})
                         completeCodes.push({pos: k, code: temp})
                     }
                     break
-                case 8:
+                case 'd1':
                     pos = randomNumsStr(5, 1, true)
                     sCode = randomNumsStr(10, 1, true)
                     codes.push({pos: pos, code: sCode})
@@ -819,10 +839,9 @@ var initPanel=function () {
 
         var codes = ""
         let list = orderData[0].completeCodes
-        let lines=[1,1,5,1,5,3,2,5];
         let titleSuffix = ["万位：", "千位：", "百位：", "十位：", "个位："]
         for (let i = 0; i < list.length; i++) {
-            if (lines[bet-1] > 1) {
+            if (info.titleDetail[bet-1] > 1) {
                 if (list[i].code.length > 0) {
                     codes = codes + titleSuffix[list[i].pos] + list[i].code + "|"
                 }
