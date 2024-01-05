@@ -154,10 +154,11 @@ echo '<p>演示盘，无权限</p>';
                     </div>
                     <div class="box-body">
                         <form method="post" id="form3">
-                            <input name="roomid" hidden="hidden" value="<? echo $_SESSION['agent_room']; ?>">
+                            <input name="roomid" hidden="hidden" value="<? echo $_SESSION['agent_room']; ?>"/>
+                            <input name="gameopen" hidden="hidden"/>
                             <div class="form-group">
                                 <label>
-                                    <input name="gameopen" type="checkbox"  >
+                                    <input id="gameopen" type="checkbox"  onchange="onCheck(this)"/>
                                     开启游戏
                                 </label>
                             </div>
@@ -206,8 +207,21 @@ echo '<p>演示盘，无权限</p>';
     $('input[type="checkbox"].flat-red').iCheck({
         checkboxClass: 'icheckbox_flat-green',
         radioClass: 'iradio_flat-green'
+
     });
 
+    function onCheck(e)
+    {
+        console.log(e.checked)
+        if(e.checked)
+        {
+            $("input[name='gameopen']").val("on")
+        }
+        else
+        {
+            $("input[name='gameopen']").val("off")
+        }
+    }
 
     var hrefData=parseURL(window.location.href)
     var host=hrefData.protocol+"://"+hrefData.host+":8653";
@@ -238,7 +252,17 @@ echo '<p>演示盘，无权限</p>';
 
                 $("input[name='fengtime']").val(result.datas.fengtime)
                 $("textarea[name='rules']").val(result.datas.rules)
-                $("input[type='checkbox'][name='gameopen']").prop({checked:result.datas.gameopen});
+                $("#gameopen").prop({checked:result.datas.gameopen});
+                if(result.datas.gameopen)
+                {
+                    $("input[name='gameopen']").val("on")
+                }
+                else
+                {
+                    $("input[name='gameopen']").val("off")
+                }
+
+
             }
         },
         error : function() {

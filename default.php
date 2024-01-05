@@ -20,8 +20,8 @@ if ($_SESSION['userid'] != null) {
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <title><?php echo $sitename ?></title>
-    <link rel="stylesheet" type="text/css" href="/default/css/sytle.css?v=a2ssdd"/>
-    <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/layout.css?t=3"/>
+    <link rel="stylesheet" type="text/css" href="/default/css/sytle.css?v=a2s23sdd"/>
+    <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/layout.css?t=23"/>
     <script type="text/javascript" src="/default/js/jquery-1.8.2.min.js"></script>
     <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script type="text/javascript">
@@ -46,6 +46,9 @@ if ($_SESSION['userid'] != null) {
 
 <!--div data-v-7f2b6a5e="" class="legacy" style="position: absolute; top: 10.5em;right: 0;z-index: 101;width: 6em;height: 2em;padding-left: .3em;line-height: 2em;background: red;"><a style="color:#ffffff;" data-v-7f2b6a5e="" href="/Templates/sign/index.php">签到<i data-v-7f2b6a5e="" class="iconfont icon-double-arrow1"></i></a></div-->
 
+<div class="zytips">
+    <div>asdasdsad</div>
+</div>
 
 <div class="lou">
     <div class="cover"></div>
@@ -82,99 +85,74 @@ if ($_SESSION['userid'] != null) {
             <div class="ss_nav">
                 <div id="ss_menu" style="display: block;position:inherit;" class="in" aria-hidden="false">
                     <div class=""></div>
-                    <div class="ss_nav new_ss_nav"
-                         style="margin-top: 0px;border:none;margin-left: 0px;overflow:hidden;width:auto;height: auto;">
+                    <div class="ss_nav"
+                         style="overflow:hidden;width:100%;height: 100%;">
                         <!--	<i class="iconfont close" data-id="#ss_menu"></i> -->
-                        <ul class="lottery" style="padding-right: 25px;padding-left: 25px;width: 100%;">
+                        <ul class="lottery" style="padding-right: 2%;padding-left: 2%;width: 100%;">
 
 
-                            <li style=" width: 50%; ">
-                                <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=xy28">
-                                    <img src="/Style/Home/images/xjp28_23.jpg" title="新加坡28"
-                                         style=" width: 95%; " alt="">
-                                    <!--		<font>加拿大28</font>-->
-                                </a>
+                            <li style=" width: 50%; " id="xy28">
+                                <img src="/Style/Home/images/xjp28_23.jpg" title="新加坡28"
+                                     style=" width: 95%; " alt="">
+                                <!--		<font>加拿大28</font>-->
                             </li>
 
-                            <li style=" width: 50%; ">
-                                <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=ny28">
-                                    <img src="/Style/Home/images/ny28-11.jpg" title="纽约28"
-                                         style=" width: 95%; " alt="">
-                                    <!--		<font>加拿大28</font>-->
-                                </a>
+                            <li style=" width: 50%; " id="ny28">
+                                <img src="/Style/Home/images/ny28-11.jpg" title="纽约28"
+                                     style=" width: 95%; " alt="">
+                                <!--		<font>加拿大28</font>-->
                             </li>
 
-                            <li style=" width: 50%; ">
-                                <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=qxc">
-                                    <img src="/Style/Home/images/qxc-2023-12.jpg" title="七星彩"
-                                         style=" width: 95%; " alt="">
-                                </a>
+                            <li style=" width: 50%; " id="qxc">
+                                <img src="/Style/Home/images/qxc-2023-12.jpg" title="七星彩"
+                                     style=" width: 95%; " alt="">
                             </li>
 
-                            <li style=" width: 50%; ">
-                                <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=pl5">
-                                    <img src="/Style/Home/images/pl5-2023-12-18.jpg" title="排列5"
-                                         style=" width: 95%; " alt="">
-                                </a>
+                            <li style=" width: 50%; " id="pl5">
+                                <img src="/Style/Home/images/pl5-2023-12-18.jpg" title="排列5"
+                                     style=" width: 95%; " alt="">
                             </li>
 
-                            <li style=" width: 50%; ">
-                                <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=fc3d">
-                                    <img src="/Style/Home/images/fc3d_23_12_20.jpg" title="福彩3D"
-                                         style=" width: 95%; " alt="">
-                                </a>
+                            <li style=" width: 50%; " id="fc3d">
+                                <img src="/Style/Home/images/fc3d_23_12_20.jpg" title="福彩3D"
+                                     style=" width: 95%; " alt="">
                             </li>
 
-                            <li style=" width: 50%; ">
-                                <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=jsssc">
-                                    <img src="/Style/Home/images/jsssc-logo-new.jpg" title="极速时时彩"
-                                         style=" width: 95%; " alt=""/>
+                            <li style=" width: 50%; " id="jsssc">
+                                <img src="/Style/Home/images/jsssc-logo-new.jpg" title="极速时时彩"
+                                     style=" width: 95%; " alt=""/>
 
-                                </a>
                             </li>
 
-                            <li style=" width: 50%; ">
-                                <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=pk10">
-                                    <img src="/Style/Home/images/pk10-logo-new.jpg" title="北京赛车"
-                                         style=" width: 95%; " alt="">
-                                    <!--<font>北京赛车</font>-->
-                                </a>
+                            <li style=" width: 50%; " id="pk10">
+                                <img src="/Style/Home/images/pk10-logo-new.jpg" title="北京赛车"
+                                     style=" width: 95%; " alt="">
+                                <!--<font>北京赛车</font>-->
                             </li>
 
-                            <li style=" width: 50%; ">
-                                <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=jnd28">
-                                    <img src="/Style/Home/images/jnd28.jpg" title="加拿大28" style=" width: 95%; " alt=""/>
-
-                                </a>
+                            <li style=" width: 50%; " id="jnd28">
+                                <img src="/Style/Home/images/jnd28.jpg" title="加拿大28" style=" width: 95%; " alt=""/>
                             </li>
 
-                            <li style=" width: 50%; ">
-                                <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=twk3">
-                                    <img src="/Style/Home/images/twk3.jpg" title="台湾快三" style=" width: 95%; " alt="">
-
-                                </a>
+                            <li style=" width: 50%; " id="twk3">
+                                <img src="/Style/Home/images/twk3.jpg" title="台湾快三" style=" width: 95%; " alt="">
                             </li>
 
-                            <li style=" width: 50%; ">
-                                <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=jslhc">
-                                    <img src="/Style/Home/images/jslhc-logo_new.jpg" title="极速六合彩"
-                                         style=" width: 95%; " alt=""/>
-                                </a>
+                            <li style=" width: 50%; " id="jslhc">
+                                <img src="/Style/Home/images/jslhc-logo_new.jpg" title="极速六合彩"
+                                     style=" width: 95%; " alt=""/>
                             </li>
 
-                            <li style=" width: 50%; ">
-                                <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=lhc">
-                                    <img src="/Style/Home/images/lhc-logo-new.jpg" title="六合彩" style=" width: 95%; " alt=""/>
-                                </a>
+                            <li style=" width: 50%;" id="lhc">
+                                <img src="/Style/Home/images/lhc-logo-new.jpg" title="六合彩" style=" width: 95%; "
+                                     alt=""/>
                             </li>
-
-
 
 
                             <!--<li style=" width: 50%; ">
 					 <a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=jssm">
 						 <img src="/Style/Home/images/jssm.png" title="极速赛马" style=" width: 95%; ">
-			
+
 					 </a>
 			</li>
 			<li style=" width: 50%; ">
@@ -186,7 +164,7 @@ if ($_SESSION['userid'] != null) {
 			<li style=" width: 50%; ">
 					<a href="/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=pk10">
 						<img src="/Style/Home/images/pk10-logo-new.png" title="北京赛车" style=" width: 95%; ">
-					
+
 					 <!--</a>
 			</li>
 			<!--<li style=" width: 50%; ">-->
@@ -271,6 +249,98 @@ if ($_SESSION['userid'] != null) {
 </div>
 <script type="text/javascript">
 
+    var statusList
+    var hrefData = parseURL(window.location.href)
+    var baseUrl = hrefData.protocol + "://" + hrefData.host + ":8653";
+    makeTabs()
+
+
+    var zy = zy || {};
+    zy.tips = function (msg, time) {
+        var zytips = $(".zytips");
+        zytips.css("display", "block")
+        if (zytips.length == 0) {
+            zytips = $('<div class="zytips"></div>').appendTo("body");
+        }
+        zytips.html("<div>" + msg + "</div>");
+        $(".zytips").fadeOut('fast');
+        zytips.fadeIn();
+        time = time || 2;
+        var tt = window.setTimeout(function () {
+            $(".zytips").fadeOut('fast');
+        }, time * 1000);
+    }
+
+    function parseURL(url) {
+        var a = document.createElement('a');
+        a.href = url;
+        return {
+            source: url,
+            protocol: a.protocol.replace(':', ''),
+            host: a.hostname,
+            port: a.port,
+            query: a.search,
+            params: (function () {
+                var ret = {},
+                    seg = a.search.replace(/^\?/, '').split('&'),
+                    len = seg.length, i = 0, s;
+                for (; i < len; i++) {
+                    if (!seg[i]) {
+                        continue;
+                    }
+                    s = seg[i].split('=');
+                    ret[s[0]] = s[1];
+                }
+                return ret;
+            })(),
+            file: (a.pathname.match(/\/([^\/?#]+)$/i) || [, ''])[1],
+            hash: a.hash.replace('#', ''),
+            path: a.pathname.replace(/^([^\/])/, '/$1'),
+            relative: (a.href.match(/tps?:\/\/[^\/]+(.+)/) || [, ''])[1],
+            segments: a.pathname.replace(/^\//, '').split('/')
+        };
+    }
+
+    function makeTabs() {
+        var datas = {game: "xy28,ny28,jnd28,qxc,pl5,lhc,twk3,jslhc,jsssc,pk10,fc3d"}
+
+        $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: baseUrl + "/getALlLotteryStatus",//url
+            data: datas,
+            crossDomain: true,
+            success: function (result) {
+                $(".zytips").css("display", "none")
+                if (result.code === 0) {
+                    statusList = result.datas.statusList
+                    $(".lottery li").each(function (i, e) {
+                        let obj = result.datas.statusList[e.id]
+                        if (obj.status <= 0) {
+
+                        }
+                    })
+
+                    $(".lottery li").click(function (e) {
+                        let obj = statusList[$(this).attr("id")]
+                        if (obj.status <= 0) {
+                            zy.tips("该彩种维护中");
+                        } else {
+                            window.location.href = "/qr.php?room=<?php echo $_SESSION['roomid'] ?>&g=" + $(this).attr("id")
+                        }
+                    })
+
+                } else {
+                    zy.tips(result.msg);
+                }
+            },
+            error: function () {
+            },
+            complete: function (a, b) {
+                $("#loadingDiv").hide()
+            }
+        });
+    }
 
     function getUserInfo() {
         $.ajax({
