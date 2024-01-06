@@ -22,13 +22,14 @@ if (stristr($_SERVER['HTTP_USER_AGENT'], 'Android')) {
         exit;
     }
 } else {
-    if ($_POST['verify'] != "n2oqcvVPpk1M") {
+    if (empty($_POST['room']) && empty($_SESSION['roomid'])) {
         //if( $_POST['verify']!="n2oqcvVPpk1M" && empty($_POST['room']) ){
         //require "Templates/error.php";
         require "LoginAndRegister/index.html";
         exit();
     }
 }
+
 if (isWeixin() == true) {
 //$room = $_GET['room'];
     $room = $_POST['room'];
