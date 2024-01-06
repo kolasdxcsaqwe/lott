@@ -526,7 +526,7 @@ function is_weixin()
 <!-- New Templates Update -->
 <script type="text/javascript" src="/Style/Old/js/NewTools.js?t=dsfd"></script>
 <script type="text/javascript" src="/Style/Old/js/NewChat.js?t=dsf"></script>
-<script type="text/javascript" src="/Style/Old/js/fc3d.js?t=d2s23f"></script>
+<script type="text/javascript" src="/Style/Old/js/fc3d.js?t=d2s223f"></script>
 <script type="text/javascript" src="/Style/Old/js/LotteryTabs.js?t=d22"></script>
 <!-- ./New Templates Update -->
 
@@ -627,11 +627,6 @@ function is_weixin()
     <div class="betDialogContent">
         <div class="menu">
             <ul>
-                <li class="more-game">
-                    <a href="javascript:;" class="triangle"><img src="/Style/images/game-arrow.png"></a>
-                    <div class="sub-menu" style="display: none;">
-                    </div>
-                </li>
             </ul>
         </div>
 

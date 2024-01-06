@@ -558,6 +558,8 @@ var initPanel=function () {
             var sCode = ''
             var pos = ''
             var completeCodes = []
+            var orders=1
+
             switch (gameCodes[bet-1]) {
                 case 'ry3':
                 case 'sxzl':
@@ -611,12 +613,19 @@ var initPanel=function () {
                     break
             }
 
+            switch (gameCodes[bet-1])
+            {
+                case 'sxzs':
+                    orders= 2
+                    break
+            }
+
             var data = {
-                money: parseInt(minBet),
+                money: parseInt(minBet)*orders,
                 gameNameCn: gameTitles[bet - 1],
                 gameName: gameCodes[bet - 1],
                 unitPrice: minBet,
-                orders: 1,
+                orders: orders,
                 codes: codes,
                 completeCodes: completeCodes
             }
@@ -926,6 +935,7 @@ var initPanel=function () {
                 if (result.code === 0) {
                     clearSelectButtons();
                     show_bet()
+                    fetchCountDownAndMoney();
                     zy.tips('投注已发送!');
                 } else {
                     zy.tips(result.msg, 4);
@@ -953,6 +963,7 @@ var initPanel=function () {
                 if (result.code === 0) {
                     orderListDialogRemainTime = result.datas.remainTime
                     nowTerm = result.datas.term
+                    $(".balance").text(result.datas.money)
                     $(".timeBalance .betLimit b").html(formatCountDown(orderListDialogRemainTime))
                     $(".timeBalance .betLimit b").data()
                     $(".timeBalance .bal b").html(result.datas.money)

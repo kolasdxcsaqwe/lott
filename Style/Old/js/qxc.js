@@ -920,6 +920,7 @@ var initPanel=function () {
                 if (result.code === 0) {
                     clearSelectButtons();
                     show_bet()
+                    fetchCountDownAndMoney()
                     zy.tips('投注已发送!');
                 } else {
                     zy.tips(result.msg,4);
@@ -947,6 +948,7 @@ var initPanel=function () {
                 if (result.code === 0) {
                     orderListDialogRemainTime=result.datas.remainTime
                     nowTerm=result.datas.term
+                    $(".balance").text(result.datas.money)
                     $(".timeBalance .betLimit b").html(formatCountDown(orderListDialogRemainTime))
                     $(".timeBalance .betLimit b").data()
                     $(".timeBalance .bal b").html(result.datas.money)
