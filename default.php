@@ -47,7 +47,7 @@ if ($_SESSION['userid'] != null) {
 <!--div data-v-7f2b6a5e="" class="legacy" style="position: absolute; top: 10.5em;right: 0;z-index: 101;width: 6em;height: 2em;padding-left: .3em;line-height: 2em;background: red;"><a style="color:#ffffff;" data-v-7f2b6a5e="" href="/Templates/sign/index.php">签到<i data-v-7f2b6a5e="" class="iconfont icon-double-arrow1"></i></a></div-->
 
 <div class="zytips">
-    <div>asdasdsad</div>
+    <div></div>
 </div>
 
 <div class="lou">
@@ -257,6 +257,10 @@ if ($_SESSION['userid'] != null) {
 
     var zy = zy || {};
     zy.tips = function (msg, time) {
+        if(msg.length===0)
+        {
+            return
+        }
         var zytips = $(".zytips");
         zytips.css("display", "block")
         if (zytips.length == 0) {

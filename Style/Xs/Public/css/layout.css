@@ -269,7 +269,7 @@ outline:none;
 	 right: -40px; bottom: -47px; display: block; background:#F0C040; width: 70px; height: 70px; cursor: pointer;}
  #ss_menu .ss_nav h3.tit{font-size: 28px; color: #fff;padding: 20px; overflow: hidden;}
  #ss_menu .ss_nav ul{ padding: 20px; color: #fff;}
- #ss_menu .ss_nav ul li{width: 25%; float: right; color: #fff; text-align: center; margin-bottom: 10px; list-style: none;}
+ #ss_menu .ss_nav ul li{width: 25%; float: left; color: #fff; text-align: center; margin-bottom: 10px; list-style: none;}
  #ss_menu .ss_nav ul li img{ display: block; clear: both; width: 80%; margin: 0 auto;}
  #ss_menu .ss_nav ul li a.disabled img{
  	-webkit-filter: grayscale(100%);
