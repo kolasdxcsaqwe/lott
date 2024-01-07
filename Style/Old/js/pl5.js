@@ -15,7 +15,7 @@ var initPanel=function () {
     var orderCacheArray = new Map()//注单列表数据
     var autoIncrease = 0;//pos 计数
     var timeoutId = 0
-    var a, b, c, d, bet = 1, bet_n = 0, bline, bval;
+    var a, b, c, d, tabIndex = 1, bet_n = 0, bline, bval;
     var douNiuTitles = ["无牛", "牛一", "牛二", "牛三", "牛四", "牛五", "牛六", "牛七", "牛八", "牛九", "牛牛"]
 
     var tempTitles=["万位", "千位", "百位", "十位", "个位"]
@@ -85,7 +85,7 @@ var initPanel=function () {
     })
 
     $('#orderDialog').on("show.bs.modal", function () {
-        $("#orderDialogTitle").text("玩法 : "+gameTitles[bet-1])
+        $("#orderDialogTitle").text("玩法 : "+gameTitles[tabIndex-1])
         fetchCountDownAndMoney()
         $(".timeBalance .betLimit").unbind('click')
         $(".timeBalance .betLimit").click(function (e) {
@@ -120,7 +120,7 @@ var initPanel=function () {
     }
 
     function getRare() {
-        switch (gameCodes[bet-1]) {
+        switch (gameCodes[tabIndex-1]) {
             case 'ry3':
                 return parseFloat(info.anythree);
             case 'ry2':
@@ -129,7 +129,7 @@ var initPanel=function () {
                 return parseFloat(info.dxds);
             case 'dn':
                 var rate = 0.0
-                var t = $(".game-type-" + bet);
+                var t = $(".game-type-" + tabIndex);
                 t.find('a.on[data-pos]').each(function (i, o) {
                     var pos = $(this).data('pos')
                     rate = pos > 0 ? info.youniu : info.wuniu
@@ -151,18 +151,70 @@ var initPanel=function () {
         return parseFloat("0");
     }
 
+    function calHandWrite(numAmount)
+    {
+        var count=0
+
+        let text=$(".handWritePanel textarea").val()
+        if(text.length>0)
+        {
+            let array=text.split(",")
+            for (let i = 0; i < array.length; i++) {
+                if(array[i].length===numAmount && Number(array[i])>-1)
+                {
+                    count++
+                }
+            }
+        }
+        return count
+    }
+
     var show_bet = function () {
-        var t = $(".game-type-" + bet);
+
+        var pVal = $("#orderPrice").val();
+        if (pVal.length < 1) {
+            pVal = $("#orderPrice").attr("placeholder");
+        }
+
+        switch (gameCodes[tabIndex-1])
+        {
+            case "d5":
+            case "d3":
+            case "d2":
+                let switchData=$(".game-type-" + tabIndex+ " .titleBtnsLeft .handWrite").data("switch")
+                if(switchData!=null && switchData==="1")
+                {
+                    var numAmount=0
+                    switch (gameCodes[tabIndex-1]) {
+                        case "d5":
+                            numAmount=5
+                            break
+                        case "d3":
+                            numAmount=3
+                            break
+                        case "d2":
+                            numAmount=2
+                            break
+                    }
+                    let count=calHandWrite(numAmount)
+                    $("#bet_num").html("共<b>" + count + "</b>注" + "&nbsp;<b>" + (parseInt(pVal) * count) + "</b>元");
+                    return;
+                }
+                break
+
+        }
+
+        var t = $(".game-type-" + tabIndex);
         bline = []
         t.find('a.on[data-pos]').each(function (i, o) {
             bline.push($(this).data('pos'));
         });
 
         var isAva = true
-        let gCode=gameCodes[bet-1]
+        let gCode=gameCodes[tabIndex-1]
         if(gCode!=='dxds' && gCode!=='d1')
         {
-            $(".game-type-" + bet + " .btn-box ").each(function () {
+            $(".game-type-" + tabIndex + " .btn-box ").each(function () {
                 if ($(this).css("display") !== "none" && $(this).find(" a.on ").length < 1) {
                     //只要有一行没选中就不算
                     isAva = false
@@ -174,7 +226,7 @@ var initPanel=function () {
         bet_n = 0;
 
         //计算注数 bet_n注数
-        switch (gameCodes[bet-1]) {
+        switch (gameCodes[tabIndex-1]) {
             case 'ry3':
                 bet_n = countOrder1(bline.length, 3)
                 break;
@@ -199,17 +251,15 @@ var initPanel=function () {
                 break
         }
 
-        isAva = isAva && isBetAvailable(bline.length, bet)
+        isAva = isAva && isBetAvailable(bline.length, tabIndex)
         setBtnIsAvailable(isAva)
         if (!isAva) {
+            $("#bet_num").html("共<b>" + 0 + "</b>注" + "&nbsp;<b>" + 0 + "</b>元");
             return
         }
 
         console.log("选中:" + bline.length + " 注单：" + bet_n)
-        var pVal = $("#orderPrice").val();
-        if (pVal.length < 1) {
-            pVal = $("#orderPrice").attr("placeholder");
-        }
+
 
         var winAmount = getRare() * 1000 * parseInt(pVal) / 1000;
         $("#availableWin b").html(winAmount + "")
@@ -286,7 +336,7 @@ var initPanel=function () {
     function countOrder2() {
         var count = 1;
         var isAva = true;
-        $(".game-type-" + bet + " .btn-box ").each(function () {
+        $(".game-type-" + tabIndex + " .btn-box ").each(function () {
             if ($(this).css("display") !== "none") {
                 count = count * $(this).find(" a.on ").length
             }
@@ -298,7 +348,7 @@ var initPanel=function () {
     function countOrder3() {
         var count = 0;
         var isAva = true;
-        $(".game-type-" + bet + " .btn-box ").each(function () {
+        $(".game-type-" + tabIndex + " .btn-box ").each(function () {
             count = count + $(this).find(" a.on ").length
             // console.log("line--->"+$(this).data('line')+" : "+$(this).find(" a.on ").length)
         })
@@ -359,7 +409,7 @@ var initPanel=function () {
         setBtnIsAvailable(false)
         var a = $(this), d = a.data();
         if (!d.t) return;
-        bet = d.t;
+        tabIndex = d.t;
 
         $("#orderPrice").val(userInputMoney)
         $("#availableWin b").html(getRare() * 1000 * userInputMoney / 1000)
@@ -373,65 +423,53 @@ var initPanel=function () {
         $('.gamenum .rank-tit .lotteryType').html(a.text())
         $('.game-type-' + d.t).html("")
 
-        $('.game-type-' + d.t).append("<div class='rank-tit'><span class='change'>" + a.text() +
-            "</span><div><span class='orderEdit'>注单编辑 (" + orderCacheArray.size + ")</span><span class='choose'>机选</span></div></div>")
+
+
+        $(".betDialogContent .change").text(a.html())
+        $('.game-type-' + d.t).append("<div class='rank-tit'>" +
+            "<div class='titleBtnsLeft'><span class='handWrite'>切换单式投注</span></div>" +
+            "<div class='titleBtnsRight'><span class='orderEdit'>注单编辑 (" + orderCacheArray.size + ")</span><span class='choose'>机选</span></div>" +
+            "</div>")
         // $('.game-type-' + d.t).append("<div class='randomChoose'><span class='order'>注单编辑</span> <span class='choose'>机选</span></div>")
 
-        var string = "<div class='gameScroll'>"
-        for (let j = 0; j < secTitles[d.t - 1].length; j++) {
-
-
-            var title = "<span class='secTitle' >%title</span>"
-            if (gameCodes[bet-1]==='dn') {
-                title = "<span class='secTitle' style='display: none'>%title</span>"
-            }
-            title = title.replace("%title", secTitles[d.t - 1][j])
-
-            var itemDiv = "<div class='btn-box btn-grounp' data-line='%line'>"
-
-            string = string + title + itemDiv
-            string = string.replace("%line", j);
-
-            var itemAmount = 10;
-            switch (gameCodes[bet-1]) {
-                case 'dxds':
-                    //大小单双
-                    itemAmount = 4;
-                    break
-                case 'dn':
-                    //斗牛
-                    itemAmount = 11;
-                    break
-            }
-            var items7 = ['大', '小', '单', '双']
-            for (let k = 0; k < itemAmount; k++) {
-                var item = "<a href='javascript:;' class='btn mini-btn' data-pos='%pos'><div class='h5'>%num</div></a>"
-                if (gameCodes[bet-1] === 'dxds') {
-                    //大小单双
-                    item = item.replace("%num", items7[k]);
-                } else if (gameCodes[bet-1] === 'dn') {
-                    item = item.replace("%num", douNiuTitles[k]);
-                } else {
-                    item = item.replace("%num", k);
-                }
-
-                item = item.replace("%pos", k);
-                string = string + item
-            }
-            string = string + "</div>"
+        switch (gameCodes[tabIndex-1])
+        {
+            case 'd5':
+            case 'd3':
+            case 'd2':
+                $(".rank-tit .titleBtnsLeft").css("display","inline-block")
+                break
+            default:
+                $(".rank-tit .titleBtnsLeft").css("display","none")
+                break
         }
-        string = string + "</div>"
-        $('.game-type-' + d.t).append(string)
-        $('.game-type-' + d.t).show()
+
+
+
+        //点击切换单式 复试
+        $(".rank-tit .titleBtnsLeft .handWrite").click(function (){
+
+            let switchData=$(this).data("switch")
+            if(switchData===null || switchData===undefined || switchData==="2")
+            {
+                $(this).text("切换复式投注")
+                $(this).data("switch","1")
+                $(".choose").css("display","none")
+                makeSingleBetPanel()
+            }
+            else
+            {
+                $(this).text("切换单式投注")
+                $(this).data("switch","2")
+                $(".choose").css("display","inline")
+                makeMulBetPanel();
+            }
+
+        })
+
+        makeMulBetPanel();
 
         // window.scrollTo(0, document.body.scrollHeight);
-        //下注选择
-        $(".game-bd a.btn").click(function () {
-            $(this).toggleClass('on');
-            show_bet();
-        });
-        $(".gameScroll").css("maxHeight", document.documentElement.clientHeight * 0.53)
-
         function onCLickEditOrder() {
 
             $('#orderDialog').modal('show');
@@ -496,60 +534,137 @@ var initPanel=function () {
             onCLickEditOrder()
         })
 
+    });
+
+
+    function makeMulBetPanel()
+    {
+        $('.game-type-' + tabIndex+" .handWritePanel").remove()
+        var string = "<div class='gameScroll'>"
+        for (let j = 0; j < secTitles[tabIndex - 1].length; j++) {
+
+
+            var title = "<span class='secTitle' >%title</span>"
+            if (gameCodes[tabIndex-1]==='dn') {
+                title = "<span class='secTitle' style='display: none'>%title</span>"
+            }
+            title = title.replace("%title", secTitles[tabIndex - 1][j])
+
+            var itemDiv = "<div class='btn-box btn-grounp' data-line='%line'>"
+
+            string = string + title + itemDiv
+            string = string.replace("%line", j);
+
+            var itemAmount = 10;
+            switch (gameCodes[tabIndex-1]) {
+                case 'dxds':
+                    //大小单双
+                    itemAmount = 4;
+                    break
+                case 'dn':
+                    //斗牛
+                    itemAmount = 11;
+                    break
+            }
+            var items7 = ['大', '小', '单', '双']
+            for (let k = 0; k < itemAmount; k++) {
+                var item = "<a href='javascript:;' class='btn mini-btn' data-pos='%pos'><div class='h5'>%num</div></a>"
+                if (gameCodes[tabIndex-1] === 'dxds') {
+                    //大小单双
+                    item = item.replace("%num", items7[k]);
+                } else if (gameCodes[tabIndex-1] === 'dn') {
+                    item = item.replace("%num", douNiuTitles[k]);
+                } else {
+                    item = item.replace("%num", k);
+                }
+
+                item = item.replace("%pos", k);
+                string = string + item
+            }
+            string = string + "</div>"
+        }
+        string = string + "</div>"
+        $('.game-type-' + tabIndex).append(string)
+        $('.game-type-' + tabIndex).show()
+
+        $(".gameScroll").css("maxHeight", document.documentElement.clientHeight * 0.53)
+
+        //下注选择
+        $(".game-bd a.btn").click(function () {
+            $(this).toggleClass('on');
+            show_bet();
+        });
+
         $(".rank-tit .choose").click(function () {
             clearSelectButtons()
-            switch (gameCodes[bet-1]) {
+            switch (gameCodes[tabIndex-1]) {
                 case 'ry3':
                 case 'sxzl':
                     var nums = randomNums(10, 3)
                     for (let i = 0; i < nums.length; i++) {
-                        $('.game-type-' + d.t + " a.btn:eq(" + nums[i] + ")").click();
+                        $('.game-type-' + tabIndex + " a.btn:eq(" + nums[i] + ")").click();
                     }
                     break
                 case 'ry2':
                 case 'sxzs':
                     var nums = randomNums(10, 2)
                     for (let i = 0; i < nums.length; i++) {
-                        $('.game-type-' + d.t + " a.btn:eq(" + nums[i] + ")").click();
+                        $('.game-type-' + tabIndex + " a.btn:eq(" + nums[i] + ")").click();
                     }
                     break
                 case 'dxds':
                     var v = randomNums(5, 1)
                     var index = randomNums(4, 1)
-                    $('.game-type-' + d.t + " .btn-box:eq(" + v[0] + ")").find(" a.btn:eq(" + index[0] + ")").click();
+                    $('.game-type-' + tabIndex + " .btn-box:eq(" + v[0] + ")").find(" a.btn:eq(" + index[0] + ")").click();
                     break
                 case 'dn':
                     var nums = randomNums(11, 1)
-                    $('.game-type-' + d.t + " .btn-box:eq(" + 0 + ")").find(" a.btn:eq(" + nums[0] + ")").click();
+                    $('.game-type-' + tabIndex + " .btn-box:eq(" + 0 + ")").find(" a.btn:eq(" + nums[0] + ")").click();
                     break
                 case 'd5':
                     for (let k = 0; k < 5; k++) {
                         var nums = randomNums(10, 1)
-                        $('.game-type-' + d.t + " .btn-box:eq(" + k + ")").find(" a.btn:eq(" + nums[0] + ")").click();
+                        $('.game-type-' + tabIndex + " .btn-box:eq(" + k + ")").find(" a.btn:eq(" + nums[0] + ")").click();
                     }
                     break
                 case 'd3':
                     for (let k = 0; k < 3; k++) {
                         var nums = randomNums(10, 1)
-                        $('.game-type-' + d.t + " .btn-box:eq(" + k + ")").find(" a.btn:eq(" + nums[0] + ")").click();
+                        $('.game-type-' + tabIndex + " .btn-box:eq(" + k + ")").find(" a.btn:eq(" + nums[0] + ")").click();
                     }
                     break
                 case 'd2':
                     for (let k = 0; k < 2; k++) {
                         var nums = randomNums(10, 1)
-                        $('.game-type-' + d.t + " .btn-box:eq(" + k + ")").find(" a.btn:eq(" + nums[0] + ")").click();
+                        $('.game-type-' + tabIndex + " .btn-box:eq(" + k + ")").find(" a.btn:eq(" + nums[0] + ")").click();
                     }
                     break
                 case 'd1':
                     var pos = randomNums(5, 1)
                     var num = randomNums(10, 1)
-                    $('.game-type-' + d.t + " .btn-box:eq(" + pos + ")").find(" a.btn:eq(" + num + ")").click();
+                    $('.game-type-' + tabIndex + " .btn-box:eq(" + pos + ")").find(" a.btn:eq(" + num + ")").click();
                     break
             }
         })
+    }
 
-    });
+    function makeSingleBetPanel()
+    {
+        $('.game-type-' + tabIndex+" .gameScroll").remove()
+        let code="<div class='handWritePanel'><textarea placeholder='请填写号码....'></textarea></div>"
+        $('.game-type-' + tabIndex).append(code)
+        $(".handWritePanel textarea").click(function (){
+            clearSelectButtons()
+            show_bet()
+            setBtnIsAvailable(true)
+        })
+        $(".handWritePanel textarea").on("input",function (){
+            setBtnIsAvailable(true)
+            show_bet()
+        })
 
+        show_bet()
+    }
 
     function makeRandomOrder(amount) {
         //[{"money":3,"orders":1,"gameName":"ry3","unitPrice":"3","codes":[{"pos":0,"code":"579"}]}]
@@ -560,7 +675,7 @@ var initPanel=function () {
             var completeCodes = []
             var orders=1
 
-            switch (gameCodes[bet-1]) {
+            switch (gameCodes[tabIndex-1]) {
                 case 'ry3':
                 case 'sxzl':
                     sCode = randomNumsStr(10, 3, true)
@@ -613,7 +728,7 @@ var initPanel=function () {
                     break
             }
 
-            switch (gameCodes[bet-1])
+            switch (gameCodes[tabIndex-1])
             {
                 case 'sxzs':
                     orders= 2
@@ -622,8 +737,8 @@ var initPanel=function () {
 
             var data = {
                 money: parseInt(minBet)*orders,
-                gameNameCn: gameTitles[bet - 1],
-                gameName: gameCodes[bet - 1],
+                gameNameCn: gameTitles[tabIndex - 1],
+                gameName: gameCodes[tabIndex - 1],
                 unitPrice: minBet,
                 orders: orders,
                 codes: codes,
@@ -642,6 +757,7 @@ var initPanel=function () {
     //清空
     $(".clearnum").click(function () {
         $(".game-bd a.btn").removeClass("on");
+        $(".handWritePanel textarea").val("")
         show_bet();
     });
     $(".money_clear").click(function () {
@@ -726,7 +842,18 @@ var initPanel=function () {
         }
 
         // $("#touzhu").addClass("on"), location.href = "#confirm"
-        addNewOrder(makeOrderData())
+        let switchData=$(".game-type-" + tabIndex+ " .titleBtnsLeft .handWrite").data("switch")
+        if(switchData!=null && switchData==="1")
+        {
+
+            makeHandWriteCodes()
+            $(".handWritePanel textarea").val("")
+        }
+        else
+        {
+            addNewOrder(makeOrderData())
+        }
+
         clearSelectButtons()
         show_bet()
     });
@@ -777,7 +904,7 @@ var initPanel=function () {
     function makeOrderData() {
         var betCodes = []
         var completeCodes = []
-        $(".game-type-" + bet + " .btn-box ").each(function () {
+        $(".game-type-" + tabIndex + " .btn-box ").each(function () {
             var code = ""
             $(this).find("a.on[data-pos]").each(function (index, val) {
                 code = code + $(this).data('pos') + ","
@@ -802,10 +929,12 @@ var initPanel=function () {
         arr.push({
             money: money,
             orders: bet_n,
-            gameNameCn: gameTitles[bet - 1],
-            gameName: gameCodes[bet - 1],
+            gameNameCn: gameTitles[tabIndex - 1],
+            gameName: gameCodes[tabIndex - 1],
             unitPrice: $("#orderPrice").val(),
             codes: betCodes,
+            combineChatContent:false,
+            isMultiBet:true,
             completeCodes: completeCodes
         });
 
@@ -849,7 +978,7 @@ var initPanel=function () {
         let list = orderData[0].completeCodes
         let titleSuffix = ["万位：", "千位：", "百位：", "十位：", "个位："]
         for (let i = 0; i < list.length; i++) {
-            if (info.titleDetail[bet-1].line > 1) {
+            if (info.titleDetail[tabIndex-1].line > 1) {
                 if (list[i].code.length > 0) {
                     codes = codes + titleSuffix[list[i].pos] + list[i].code + "|"
                 }
@@ -914,9 +1043,140 @@ var initPanel=function () {
         $(".botOrderEdit").text("注单编辑 (" + orderCacheArray.size + ")")
     }
 
+    function makeHandWriteCodes()
+    {
+        var len=0
+        switch (gameCodes[tabIndex-1]) {
+            case "d5":
+                len=5
+                break
+            case "d3":
+                len=3
+                break
+            case "d2":
+                len=2
+                break
+        }
+
+        var betCount=0
+
+        let betArray
+        let text=$(".handWritePanel textarea").val()
+        if(text.length>0)
+        {
+            betArray=text.split(",")
+            for (let i = 0; i < betArray.length; i++) {
+                if(betArray[i].length===len && Number(betArray[i])>-1)
+                {
+                    betCount++
+                    let codes=[],completeCodes=[]
+                    for (let j = 0; j < betArray[i].length; j++) {
+                        var obj={}
+                        obj.pos=j;
+                        obj.code=betArray[i].substring(j,j+1)
+                        codes.push(obj)
+                        completeCodes.push(obj)
+                    }
+
+                    var arrTemp = []
+                    if(betArray.length>0 )
+                    {
+                        var data = {
+                            money: parseInt(minBet)*betCount,
+                            gameNameCn: gameTitles[tabIndex - 1],
+                            gameName: gameCodes[tabIndex - 1],
+                            unitPrice: minBet,
+                            orders: betCount,
+                            codes: codes,
+                            completeCodes: completeCodes
+                        }
+
+                        arrTemp.push(data)
+                    }
+
+                    addNewOrder(arrTemp)
+                }
+            }
+        }
+
+
+    }
+    function makeHandWriteOrder(isCombineChatContent,isMultiBet)
+    {
+        var len=0
+        switch (gameCodes[tabIndex-1]) {
+            case "d5":
+                len=5
+                break
+            case "d3":
+                len=3
+                break
+            case "d2":
+                len=2
+                break
+        }
+
+        var betCount=0
+        let betArray
+        let text=$(".handWritePanel textarea").val()
+        if(text.length>0)
+        {
+            betArray=text.split(",")
+            for (let i = 0; i < betArray.length; i++) {
+                if(betArray[i].length===len && Number(betArray[i])>-1)
+                {
+                    betCount++
+                }
+            }
+        }
+
+        var arr = []
+        if(betCount===0)
+        {
+            return arr
+        }
+
+        var pVal = $("#orderPrice").val();
+        if (pVal.length < 1) {
+            pVal = $("#orderPrice").attr("placeholder");
+        }
+        var money = parseInt(pVal) * betCount
+
+
+        arr.push({
+            money: money,
+            orders: betCount,
+            gameNameCn: gameTitles[tabIndex - 1],
+            gameName: gameCodes[tabIndex - 1],
+            unitPrice: $("#orderPrice").val(),
+            codes: betArray,
+            combineChatContent:isCombineChatContent,
+            isMultiBet:isMultiBet
+        });
+        return arr;
+    }
+
     function betNow() {
 
-        var array = makeOrderData()
+        var array
+        let switchData=$(".game-type-" + tabIndex+ " .titleBtnsLeft .handWrite").data("switch")
+        if(switchData!=null && switchData==="1")
+        {
+
+            //单式投注
+            array=makeHandWriteOrder(true,false)
+            if(array.length<1)
+            {
+                zy.tips('下注注单为0，请填写号码');
+                return;
+            }
+        }
+        else
+        {
+            //复试投注
+            array = makeOrderData()
+        }
+
         if (array.length < 1) {
             zy.tips('下注格式错误,请重新选择号码');
             return
@@ -936,6 +1196,10 @@ var initPanel=function () {
                     clearSelectButtons();
                     show_bet()
                     fetchCountDownAndMoney();
+                    if(switchData!=null && switchData==="1")
+                    {
+                        $(".handWritePanel textarea").val("")
+                    }
                     zy.tips('投注已发送!');
                 } else {
                     zy.tips(result.msg, 4);

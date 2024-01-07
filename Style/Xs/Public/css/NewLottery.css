@@ -1273,6 +1273,25 @@ h4#game-gtype {
     overflow: auto;
 }
 
+.handWritePanel
+{
+    background-color: #efefef;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+.handWritePanel textarea
+{
+    background-color: white;
+    padding: 15px;
+    width: 100%;
+    height: 50rem;
+    text-align: left;
+    font-size: 5rem;
+}
+
 .orderContent {
     background-color: #efefef;
     display: block;
@@ -1493,17 +1512,17 @@ h4#game-gtype {
 .rank-tit span {
 }
 
-.rank-tit span.change {
+.change {
     float: none;
-    padding: 15px 0px;
+    padding: 5px 5px;
     text-align: center;
-    display: inline-block;
-    font-size: 44px;
+    font-size: 5rem;
     color: #ea283d;
     font-weight: bold;
     background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#141313), to(#ea283d));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    display: block;
 }
 
 .secTitle {
@@ -1569,9 +1588,13 @@ h4#game-gtype {
     text-align: right;
 }
 
-.rank-tit div {
+.rank-tit .titleBtnsRight {
     display: inline-block;
-    float: right;
+    margin-top: 20px;
+}
+
+.rank-tit .titleBtnsLeft {
+    display: none;
     margin-top: 20px;
 }
 
@@ -1579,6 +1602,15 @@ h4#game-gtype {
     background: #f75164;
     border-radius: 10px;
     color: white;
+    font-size: 30px;
+    padding: 15px 35px;
+    margin-right: 20px;
+}
+
+.handWrite {
+    background: #ec9b07;
+    border-radius: 10px;
+    color: #000000;
     font-size: 30px;
     padding: 15px 35px;
     margin-right: 20px;

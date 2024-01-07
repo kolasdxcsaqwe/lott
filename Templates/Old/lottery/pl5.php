@@ -30,7 +30,7 @@ function is_weixin()
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/weui.min.css"/>
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/style.css?t=sajiwq9iu3"/>
     <link rel="Stylesheet" type="text/css" href="Style/Old/css/bootstrap.new.css"/>
-    <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/NewLottery.css?t=2s23"/>
+    <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/NewLottery.css?t=34"/>
     <link rel="Stylesheet" type="text/css" href="Style/Xs/Public/css/layout.css?t=3423"/>
     <link rel="Stylesheet" type="text/css" href="Style/Xs/static/css/iconfont.css"/>
     <script src="Style/Old/js/jquery.min.js"></script>
@@ -527,7 +527,7 @@ function is_weixin()
 <!-- New Templates Update -->
 <script type="text/javascript" src="/Style/Old/js/NewTools.js?t=1s2dd"></script>
 <script type="text/javascript" src="/Style/Old/js/NewChat.js?t=xdsfc"></script>
-<script type="text/javascript" src="/Style/Old/js/pl5.js?t=2d"></script>
+<script type="text/javascript" src="/Style/Old/js/pl5.js?t=12d3"></script>
 <script type="text/javascript" src="/Style/Old/js/LotteryTabs.js?t=d22"></script>
 
 <!-- ./New Templates Update -->
@@ -627,6 +627,9 @@ function is_weixin()
 <div class="modal" id="betDialog"  role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
 >
     <div class="betDialogContent">
+        <div style="width: 100%;">
+            <span class='change'></span>
+        </div>
         <div class="menu">
             <ul>
 
@@ -635,7 +638,10 @@ function is_weixin()
 
         <div class="game-bd six">
             <div class="gamenum" style="">
-                <div class='rank-tit'><span class='lotteryType'></span></div>
+                <div class='rank-tit'>
+                    <span class='lotteryType' style="display: inline"></span>
+
+                </div>
             </div>
 
         </div>
@@ -749,7 +755,7 @@ function is_weixin()
             </div>
 
             <em id="bet_num">共<b>0</b>注</em>
-            <a href="javascript:;" class="clearnum">清空所选</a>
+            <a href="javascript:;" class="clearnum">清空 所选/输入</a>
             <div class="right">
                 <a href="javascript:;" class="addOrder">加入注单</a>
                 <a href="javascript:;" class="confirm-pour">立即下注</a>
