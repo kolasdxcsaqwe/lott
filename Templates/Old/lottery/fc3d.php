@@ -56,7 +56,7 @@ function is_weixin()
             bottom: 0;
             z-index: 995;
             text-align: right;
-            border: 1px solid #9d9d9d;
+            border: 1px solid #e9eaea;
             padding: 10px 10px;
             -webkit-border-radius: 3px;
             -moz-border-radius: 3px;
@@ -64,7 +64,7 @@ function is_weixin()
             -webkit-box-shadow: #666 0px 0px 10px;
             -moz-box-shadow: #666 0px 0px 10px;
             box-shadow: #666 0px 0px 2px;
-            background: #f4f4f4;
+            background: #f1f1f1;
         }
         .pk_0,
         .pk_1,
@@ -722,7 +722,7 @@ function is_weixin()
             <div class="user_messages">
                 <div class="top">
                     <input placeholder="" type="text" id="Message"
-                           style="color:red;font-weight:bold;width:48%;">
+                           style="color:red;font-weight:bold;width:48%; visibility: hidden">
                     <div style="text-align: right;height: 100%;display: inline-block;width: 50%">
                         <span class="txtbet">快捷下注</span>
                         <span class="botOrderEdit">注单编辑 (0)</span>
