@@ -743,7 +743,7 @@ function is_weixin()
                 </div>
 
                 <em id="bet_num">共<b>0</b>注</em>
-                <a href="javascript:;" class="clearnum">清空所选</a>
+                <a href="javascript:;" class="clearnum">清空 所选/输入</a>
                 <div class="right">
                     <a href="javascript:;" class="addOrder">加入注单</a>
                     <a href="javascript:;" class="confirm-pour">立即下注</a>
