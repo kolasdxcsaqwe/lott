@@ -191,10 +191,10 @@ function formatJsonContent($str,$game)
                             $.ajax({
                                 url: getJavaBaseUrl() + '/<?php echo $game?>/cancelOrder',
                                 type: 'post',
-                                data: {id: id},
+                                data: {id: id,userId:'<?php echo $_SESSION['userid'] ?>'},
                                 dataType: 'json',
                                 success: function (data) {
-                                    if (data.success) {
+                                    if (data.code===0) {
                                         alert('撤单成功！');
                                         window.location.reload();
                                     } else {
