@@ -523,7 +523,7 @@ function is_weixin()
 <!-- New Templates Update -->
 <script type="text/javascript" src="/Style/Old/js/NewTools.js?t=asd"></script>
 <script type="text/javascript" src="/Style/Old/js/NewChat.js?t=sda"></script>
-<script type="text/javascript" src="/Style/Old/js/qxc.js?t=22233"></script>
+<script type="text/javascript" src="/Style/Old/js/qxc.js?t=233"></script>
 <script type="text/javascript" src="/Style/Old/js/LotteryTabs.js?t=d22"></script>
 <!-- ./New Templates Update -->
 
@@ -622,6 +622,9 @@ function is_weixin()
 <div class="modal" id="betDialog"  role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
 >
     <div class="betDialogContent">
+        <div style="width: 100%;">
+            <span class='change'></span>
+        </div>
         <div class="menu">
             <ul>
             </ul>

@@ -155,7 +155,7 @@ var initPanel=function () {
     {
         var count=0
 
-        let text=$(".handWritePanel textarea").val()
+        let text=$('.game-type-' + tabIndex+" .handWritePanel textarea").val()
         if(text.length>0)
         {
             let array=text.split(",")
@@ -653,12 +653,12 @@ var initPanel=function () {
         $('.game-type-' + tabIndex+" .gameScroll").remove()
         let code="<div class='handWritePanel'><textarea placeholder='请填写号码....'></textarea></div>"
         $('.game-type-' + tabIndex).append(code)
-        $(".handWritePanel textarea").click(function (){
+        $('.game-type-' + tabIndex+" .handWritePanel textarea").click(function (){
             clearSelectButtons()
             show_bet()
             setBtnIsAvailable(true)
         })
-        $(".handWritePanel textarea").on("input",function (){
+        $('.game-type-' + tabIndex+" .handWritePanel textarea").on("input",function (){
             setBtnIsAvailable(true)
             show_bet()
         })
@@ -757,7 +757,7 @@ var initPanel=function () {
     //清空
     $(".clearnum").click(function () {
         $(".game-bd a.btn").removeClass("on");
-        $(".handWritePanel textarea").val("")
+        $('.game-type-' + tabIndex+" .handWritePanel textarea").val("")
         show_bet();
     });
     $(".money_clear").click(function () {
@@ -845,9 +845,15 @@ var initPanel=function () {
         let switchData=$(".game-type-" + tabIndex+ " .titleBtnsLeft .handWrite").data("switch")
         if(switchData!=null && switchData==="1")
         {
-
-            makeHandWriteCodes()
-            $(".handWritePanel textarea").val("")
+            let count=makeHandWriteCodes()
+            if(count<1)
+            {
+                zy.tips('下注注单为0，请正确填写号码');
+            }
+            else
+            {
+                $('.game-type-' + tabIndex+" .handWritePanel textarea").val("")
+            }
         }
         else
         {
@@ -931,7 +937,7 @@ var initPanel=function () {
             orders: bet_n,
             gameNameCn: gameTitles[tabIndex - 1],
             gameName: gameCodes[tabIndex - 1],
-            unitPrice: $("#orderPrice").val(),
+            unitPrice: parseInt(pVal),
             codes: betCodes,
             combineChatContent:false,
             isMultiBet:true,
@@ -1045,6 +1051,11 @@ var initPanel=function () {
 
     function makeHandWriteCodes()
     {
+        var pVal = $("#orderPrice").val();
+        if (pVal.length < 1) {
+            pVal = $("#orderPrice").attr("placeholder");
+        }
+
         var len=0
         switch (gameCodes[tabIndex-1]) {
             case "d5":
@@ -1061,7 +1072,7 @@ var initPanel=function () {
         var betCount=0
 
         let betArray
-        let text=$(".handWritePanel textarea").val()
+        let text=$('.game-type-' + tabIndex+" .handWritePanel textarea").val()
         if(text.length>0)
         {
             betArray=text.split(",")
@@ -1082,11 +1093,11 @@ var initPanel=function () {
                     if(betArray.length>0 )
                     {
                         var data = {
-                            money: parseInt(minBet)*betCount,
+                            money: parseInt(pVal),
                             gameNameCn: gameTitles[tabIndex - 1],
                             gameName: gameCodes[tabIndex - 1],
-                            unitPrice: minBet,
-                            orders: betCount,
+                            unitPrice: parseInt(pVal),
+                            orders: 1,
                             codes: codes,
                             completeCodes: completeCodes
                         }
@@ -1099,8 +1110,10 @@ var initPanel=function () {
             }
         }
 
-
+        return betCount
     }
+
+
     function makeHandWriteOrder(isCombineChatContent,isMultiBet)
     {
         var len=0
@@ -1117,14 +1130,15 @@ var initPanel=function () {
         }
 
         var betCount=0
-        let betArray
-        let text=$(".handWritePanel textarea").val()
+        let betArray,calArray=[]
+        let text=$('.game-type-' + tabIndex+" .handWritePanel textarea").val()
         if(text.length>0)
         {
             betArray=text.split(",")
             for (let i = 0; i < betArray.length; i++) {
                 if(betArray[i].length===len && Number(betArray[i])>-1)
                 {
+                    calArray.push(betArray[i])
                     betCount++
                 }
             }
@@ -1148,8 +1162,8 @@ var initPanel=function () {
             orders: betCount,
             gameNameCn: gameTitles[tabIndex - 1],
             gameName: gameCodes[tabIndex - 1],
-            unitPrice: $("#orderPrice").val(),
-            codes: betArray,
+            unitPrice: parseInt(pVal),
+            codes: calArray,
             combineChatContent:isCombineChatContent,
             isMultiBet:isMultiBet
         });
@@ -1198,7 +1212,7 @@ var initPanel=function () {
                     fetchCountDownAndMoney();
                     if(switchData!=null && switchData==="1")
                     {
-                        $(".handWritePanel textarea").val("")
+                        $('.game-type-' + tabIndex+" .handWritePanel textarea").val("")
                     }
                     zy.tips('投注已发送!');
                 } else {

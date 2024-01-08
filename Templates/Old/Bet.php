@@ -163,7 +163,7 @@ function formatJsonContent($str,$game)
                             $table = 'fn_fc3dorder';
                             break;
                     }
-                    select_query($table, '*', "`userid` = '{$_SESSION['userid']}' and status = 0 and roomid = '{$_SESSION['roomid']}' and `gamename` = '{$game}'");
+                    select_query($table, '*', "`userid` = '{$_SESSION['userid']}' and status = 0 and roomid = '{$_SESSION['roomid']}' and `gamename` = '{$game}' order by addtime desc");
                     while ($con = db_fetch_array()) {
                         $cons[] = $con;
                         ?>
